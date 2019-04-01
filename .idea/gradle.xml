@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT" />
+        </compositeConfiguration>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AnnotationL" />
+            <option value="$PROJECT_DIR$/BootStrapWebAppDemo" />
+            <option value="$PROJECT_DIR$/animator" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/butterknitedemo" />
+            <option value="$PROJECT_DIR$/componentasystemtest" />
+            <option value="$PROJECT_DIR$/consumeview" />
+            <option value="$PROJECT_DIR$/filterrice" />
+            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/materialdesigndemo" />
+            <option value="$PROJECT_DIR$/mylibrary" />
+            <option value="$PROJECT_DIR$/ndk_demo" />
+            <option value="$PROJECT_DIR$/ndkdemo" />
+            <option value="$PROJECT_DIR$/opensourceframeworkdemo" />
+            <option value="$PROJECT_DIR$/rice" />
+            <option value="$PROJECT_DIR$/rice2_verssion" />
+            <option value="$PROJECT_DIR$/smallplugindemo" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

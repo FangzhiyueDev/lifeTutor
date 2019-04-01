@@ -3,6 +3,22 @@
 #include"com_example_ndk_ArraySum.h"
 
 #include<stdio.h>
+#include<android/log.h>
+
+
+
+
+#define LOG "test"
+
+
+extern int __android_log_print(int prio, const char* tag, const char* fmt, ...);
+
+/**
+    这个被宏定义是被andrid/log.h里面的一个函数 其中使用了可变参数，可变参数使用的是argc...
+    请注意这个和定义函数里面使用的可变参数有一些不一样，毕竟普通的函数对于可变参数使用...
+
+*/
+#define LOGI(fmt,argc...) (__android_log_print(ANDROID_LOG_INFO,LOG,fmt,argc))
 
 
 
@@ -23,6 +39,9 @@ JNIEXPORT jint JNICALL Java_com_example_ndk_ArraySum_getSum
     }
     return result;
   }
+
+
+
 
 
 
@@ -81,6 +100,78 @@ JNIEXPORT jobjectArray JNICALL Java_com_example_ndk_ArraySum_get2DArraySum
 
   }
 
+
+JNIEXPORT jobjectArray JNICALL Java_com_example_ndk_ArraySum_get2DArraySum2
+  (JNIEnv * env, jclass jcc , jint size){
+
+    jobjectArray result;
+    jclass jintClass=(*env)->FindClass(env,"I");
+    result=(*env)->NewObjectArray(env,size,jintClass,NULL);
+
+    int i=0;
+    for(;i<size;i++){
+
+        int temp[256];
+        jintArray jArr=(*env)->NewIntArray(env,size);
+        int j=0;
+        for(;j<size;j++){
+            temp[j]=20+j;
+        }
+
+        (*env)->SetIntArrayRegion(env,jArr,0,size,temp);
+
+        jint * intj=(*env)->GetIntArrayElements(env,jArr,NULL);
+       int z=0;
+       for(;z<size;z++){
+            printf("%d",*(intj+i));
+       }
+       (*env)->SetObjectArrayElement(env,result,i,jArr);
+    }
+       return result;
+  }
+
+
+
+JNIEXPORT jobjectArray JNICALL Java_com_example_ndk_ArraySum_demo3(JNIEnv *env,jobject obj){
+
+//        jmethodID mid=(*env)->FromReflectedMethod(env,jobject);
+//
+//        jobject jobj=(*env)->CallObjectMethod(env,jobject,mid);
+
+
+
+
+        jclass str=(*env)->FindClass(env,"Ljava/lang/String");
+
+
+
+
+        jsize size=10;
+
+       jintArray jintArr=(*env)->NewIntArray(env,20);
+
+       int temp[20];
+
+       int i=0;
+
+       for(;i<20;i++){
+
+            temp[i]=i+1;
+       }
+
+       jsize length=(*env)->GetArrayLength(env,temp);
+
+
+
+       LOGI("当前的jsize的长度是%d",length);
+
+       (*env)->SetIntArrayRegion(env,jintArr,0,20,temp);
+
+        jobjectArray jArr=(*env)->NewObjectArray(env,0,length,jintArr);
+
+    return NULL;
+
+}
 
 
 

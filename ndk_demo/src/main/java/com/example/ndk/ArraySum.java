@@ -11,5 +11,11 @@ public class ArraySum {
 
     public native String[] getValue();
 
+    public native static  int[][] get2DArraySum(int size);
+
+    public native static int[][] get2DArraySum2(int size);
+
+    public native static int[][] demo3(int size);
+
     
 }

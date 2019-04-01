@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
 
 
+    public native void getView(int layout);
+
+
     static {
         System.loadLibrary("ArraySum");
     }
@@ -58,8 +61,21 @@ public class MainActivity extends AppCompatActivity {
 //        textView.setText("计算的结果是=" + result);
 
 
+//        int[][] arraySum = ArraySum.get2DArraySum2(3);
+//
+//        for (int i = 0; i < arraySum.length; i++) {
+//
+//            for (int j = 0; j < arraySum[i].length; j++) {
+//
+//                Log.d("test","获得数据=" + arraySum[i][j]);
+//
+//            }
+//
+//        }
 
 
+
+        ArraySum.demo3(23);
 
 
     }
