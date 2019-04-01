@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ComponentASystemTest</string>
+
+
+
+    <string name="setting">设置</string>
+    <string name="send">发送</string>
+
+
+</resources>

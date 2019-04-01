@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.componentasystemtest">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".surface.Demo3Activity"></activity>
+        <activity android:name=".viewDragHelper.MyActivity"></activity>
+        <activity android:name=".xml.MainActivity"></activity>
+        <activity android:name=".Annomation.MyActivityDemo7"></activity>
+        <activity android:name=".scrollview.viewGroup.MyActivity"></activity>
+
+        <activity android:name=".ColorMetrix.MyActivity"></activity>
+        <activity android:name=".scrollview.Activity.ScrollViewDemo1"></activity>
+        <activity android:name=".scrollview.Activity.HerizontalScrollViewGroup"></activity>
+        <activity android:name=".palette.MyPalette"></activity>
+
+        <activity android:name=".notification.MyNotification"></activity>
+
+
+        <activity android:name=".moveLinearViewDisplay.LinearActivity"></activity>
+
+
+        <activity android:name=".downloadService.activity.EnvirnmentFilePathTest"></activity>
+
+        <activity android:name=".downloadService.activity.DownloadFileTest"></activity>
+
+
+        <activity android:name=".density.Density"></activity>
+
+        <activity android:name=".DecorView.DectorActivity"></activity>
+
+        <activity android:name=".consumeViewAttribute.AttrActivity"></activity>
+
+
+        <activity android:name=".circular.MyCircularReveal"></activity>
+
+
+        <activity android:name=".canvas.MainActivity.MyViewGroupTestActivity"></activity>
+
+
+        <activity android:name=".canvas.MainActivity.Activity"></activity>
+
+
+        <service android:name=".downloadService.service.DownloadService"></service>
+
+        <receiver android:name=".broadcastTest.ActivityTest">
+            <intent-filter>
+                <action android:name="com.example.componentasystemtest.broadcastTest"></action>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".broadcastTest.MainActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"></action>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+        </activity>
+
+
+        <activity android:name=".view.ViewBgActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- exported  这个地方必须是True，否则外界的应用无法启动该JobService-->
+        <!--permission   必须定义这个权限，你懂得-->
+        <service
+            android:name=".JobScheduler.DownloadJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+
+
+
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"></uses-permission>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+
+</manifest>

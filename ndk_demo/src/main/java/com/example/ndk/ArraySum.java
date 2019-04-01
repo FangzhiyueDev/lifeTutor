@@ -1,0 +1,15 @@
+package com.example.ndk;
+
+public class ArraySum {
+
+
+    public native static int getSum(int[] sum);
+
+    public native static int getSum2(int[] sum);
+
+//    public native static int[][] get2DArraySum(int size);
+
+    public native String[] getValue();
+
+    
+}

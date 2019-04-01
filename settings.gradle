@@ -1,0 +1,1 @@
+include ':app', ':lib', ':mylibrary', ':filterrice', ':rice', ':BootStrapWebAppDemo', ':materialdesigndemo', ':opensourceframeworkdemo', ':smallplugindemo', ':butterknitedemo', ':AnnotationL', ':ndkdemo', ':consumeview', ':rice2_verssion', ':animator', ':componentasystemtest', ':ndk_demo'
