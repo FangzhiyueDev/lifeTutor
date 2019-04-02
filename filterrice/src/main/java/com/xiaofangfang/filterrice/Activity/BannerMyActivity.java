@@ -1,15 +1,13 @@
 package com.xiaofangfang.filterrice.Activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.xiaofangfang.filterrice.R;
-import com.xiaofangfang.filterrice.consumeView.BannerFlipContainer;
-import com.xiaofangfang.filterrice.consumeView.BannerImgViewContainer;
 
 import java.util.ArrayList;
 import java.util.List;

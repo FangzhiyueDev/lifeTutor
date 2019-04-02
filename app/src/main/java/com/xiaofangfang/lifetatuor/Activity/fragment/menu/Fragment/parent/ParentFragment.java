@@ -1,18 +1,14 @@
 package com.xiaofangfang.lifetatuor.Activity.fragment.menu.Fragment.parent;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.xiaofangfang.lifetatuor.dao.DbOpener;
 import com.xiaofangfang.lifetatuor.net.JockRequest;
-import com.xiaofangfang.lifetatuor.net.NewsRequest;
 import com.xiaofangfang.lifetatuor.net.requestModel.JockParamValue;
-import com.xiaofangfang.lifetatuor.set.SettingStandard;
 import com.xiaofangfang.lifetatuor.tools.Looger;
 import com.xiaofangfang.lifetatuor.tools.ThreadSingle;
-import com.xiaofangfang.lifetatuor.tools.UiThread;
 
 import java.io.IOException;
 

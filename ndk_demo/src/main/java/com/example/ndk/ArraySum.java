@@ -17,5 +17,6 @@ public class ArraySum {
 
     public native static int[][] demo3(int size);
 
+    public native static int[][] demo4(int size);
     
 }

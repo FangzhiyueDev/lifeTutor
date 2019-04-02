@@ -1,16 +1,13 @@
 package com.xiaofangfang.rice2_verssion.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.AttributeSet;
-import android.util.JsonToken;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,17 +26,14 @@ import com.xiaofangfang.rice2_verssion.model.Province;
 import com.xiaofangfang.rice2_verssion.network.NetRequest;
 import com.xiaofangfang.rice2_verssion.tool.Looger;
 import com.xiaofangfang.rice2_verssion.tool.SystemSet;
-import com.xiaofangfang.rice2_verssion.tool.Tools;
 import com.xiaofangfang.rice2_verssion.view.BannerFlip;
 import com.xiaofangfang.rice2_verssion.view.ConsumeToobar;
 import com.xiaofangfang.rice2_verssion.view.FullRoLLView;
 import com.xiaofangfang.rice2_verssion.view.OnItemClickListener;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
 import okhttp3.Response;
 

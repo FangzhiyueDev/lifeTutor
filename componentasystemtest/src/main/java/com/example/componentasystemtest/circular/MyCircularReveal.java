@@ -1,19 +1,12 @@
 package com.example.componentasystemtest.circular;
 
-import android.animation.Animator;
-import android.animation.StateListAnimator;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
-import com.example.componentasystemtest.R;
 
 
 /**

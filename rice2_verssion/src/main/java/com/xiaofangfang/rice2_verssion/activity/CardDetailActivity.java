@@ -1,11 +1,10 @@
 package com.xiaofangfang.rice2_verssion.activity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -29,14 +28,9 @@ import com.xiaofangfang.rice2_verssion.model.Card;
 import com.xiaofangfang.rice2_verssion.network.NetRequest;
 import com.xiaofangfang.rice2_verssion.tool.LoadProgress;
 import com.xiaofangfang.rice2_verssion.tool.Looger;
-import com.xiaofangfang.rice2_verssion.tool.SystemSet;
-import com.xiaofangfang.rice2_verssion.tool.Tools;
 import com.xiaofangfang.rice2_verssion.tool.UiThread;
 import com.xiaofangfang.rice2_verssion.view.CommandBar;
 import com.xiaofangfang.rice2_verssion.view.ProductDetailBanner;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;

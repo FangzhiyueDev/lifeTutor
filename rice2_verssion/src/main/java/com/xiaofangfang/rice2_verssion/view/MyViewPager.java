@@ -1,15 +1,13 @@
 package com.xiaofangfang.rice2_verssion.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import com.xiaofangfang.rice2_verssion.tool.Looger;
-
-import java.util.logging.Logger;
 
 public class MyViewPager extends ViewPager {
 

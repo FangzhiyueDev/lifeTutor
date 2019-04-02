@@ -2,8 +2,8 @@ package com.xiaofangfang.filterrice.consumeView;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -20,7 +20,6 @@ import com.bumptech.glide.Glide;
 import com.xiaofangfang.filterrice.R;
 import com.xiaofangfang.filterrice.ViewDataBean.BannerDataRespnse;
 import com.xiaofangfang.filterrice.ViewDataBean.DataResponse;
-import com.xiaofangfang.filterrice.tool.SystemSetting;
 import com.xiaofangfang.filterrice.tool.UiThread;
 import com.xiaofangfang.filterrice.UpdateResponse.UpdateLeavel;
 

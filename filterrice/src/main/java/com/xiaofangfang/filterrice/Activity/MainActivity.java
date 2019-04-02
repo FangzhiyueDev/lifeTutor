@@ -1,49 +1,24 @@
 package com.xiaofangfang.filterrice.Activity;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.graphics.PixelFormat;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.provider.Settings;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.animation.BounceInterpolator;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.xiaofangfang.filterrice.Fragment.BannerFragment;
 import com.xiaofangfang.filterrice.Fragment.FragmentPageFour;
 import com.xiaofangfang.filterrice.Fragment.FragmentPageOne;
 import com.xiaofangfang.filterrice.Fragment.FragmentPageThree;
 import com.xiaofangfang.filterrice.Fragment.FragmentPageTwo;
 import com.xiaofangfang.filterrice.R;
-import com.xiaofangfang.filterrice.consumeView.BannerImgViewContainer;
-import com.xiaofangfang.filterrice.model.ImageData;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import cn.smssdk.EventHandler;
-import cn.smssdk.SMSSDK;
 
 public class MainActivity extends AppCompatActivity {
     @Override

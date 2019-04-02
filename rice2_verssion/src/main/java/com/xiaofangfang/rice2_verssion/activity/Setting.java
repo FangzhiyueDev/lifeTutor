@@ -1,19 +1,16 @@
 package com.xiaofangfang.rice2_verssion.activity;
 
 import android.app.Dialog;
-import android.app.Notification;
 import android.content.Intent;
-import android.location.Address;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.widget.RemoteViews;
+import androidx.annotation.Nullable;
+
 import android.widget.Toast;
 
 import com.xiaofangfang.rice2_verssion.ParentActivity;
 import com.xiaofangfang.rice2_verssion.R;
 import com.xiaofangfang.rice2_verssion.tool.DataCleanManager;
 import com.xiaofangfang.rice2_verssion.tool.DialogTool;
-import com.xiaofangfang.rice2_verssion.tool.NotificationTool;
 import com.xiaofangfang.rice2_verssion.view.CommandBar;
 
 public class Setting extends ParentActivity {

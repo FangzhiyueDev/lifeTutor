@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"></com.xiaofangfang.rice2_verssion.view.CommandBar>
 
 
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
@@ -71,7 +71,7 @@
             android:textColor="@android:color/white" />
 
 
-    </android.support.percent.PercentRelativeLayout>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
 
 </com.xiaofangfang.rice2_verssion.view.PercentLinearLayout>

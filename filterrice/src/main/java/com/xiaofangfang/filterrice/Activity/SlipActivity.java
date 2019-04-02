@@ -2,10 +2,9 @@ package com.xiaofangfang.filterrice.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.widget.ArrayAdapter;
+import androidx.annotation.Nullable;
+
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.xiaofangfang.filterrice.R;
 

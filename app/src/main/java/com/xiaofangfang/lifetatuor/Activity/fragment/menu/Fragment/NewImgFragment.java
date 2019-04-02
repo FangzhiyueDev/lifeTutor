@@ -1,9 +1,9 @@
 package com.xiaofangfang.lifetatuor.Activity.fragment.menu.Fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +16,8 @@ import com.xiaofangfang.lifetatuor.Activity.fragment.menu.Fragment.parent.Parent
 import com.xiaofangfang.lifetatuor.R;
 import com.xiaofangfang.lifetatuor.dao.DbOpener;
 import com.xiaofangfang.lifetatuor.model.joke.ImgByTime;
-import com.xiaofangfang.lifetatuor.model.joke.JokeByTime;
 import com.xiaofangfang.lifetatuor.model.joke.NewstImg;
-import com.xiaofangfang.lifetatuor.model.joke.NewstJoke;
 import com.xiaofangfang.lifetatuor.model.joke.ResultImg;
-import com.xiaofangfang.lifetatuor.model.joke.parent.JokeAndImg;
-import com.xiaofangfang.lifetatuor.model.news.TopInfo;
 import com.xiaofangfang.lifetatuor.net.requestModel.JockParamValue;
 import com.xiaofangfang.lifetatuor.set.SettingStandard;
 import com.xiaofangfang.lifetatuor.tools.GsonParseData;
@@ -29,11 +25,7 @@ import com.xiaofangfang.lifetatuor.tools.Looger;
 import com.xiaofangfang.lifetatuor.tools.UiThread;
 import com.xiaofangfang.lifetatuor.view.adapter.ImgListViewAdapter;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * 最新的动态图的Fragment

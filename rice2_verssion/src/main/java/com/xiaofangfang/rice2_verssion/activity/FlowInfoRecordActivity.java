@@ -1,42 +1,24 @@
 package com.xiaofangfang.rice2_verssion.activity;
 
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.xiaofangfang.rice2_verssion.ParentActivity;
 import com.xiaofangfang.rice2_verssion.R;
-import com.xiaofangfang.rice2_verssion.network.NetRequest;
-import com.xiaofangfang.rice2_verssion.tool.LoadProgress;
-import com.xiaofangfang.rice2_verssion.tool.Looger;
 import com.xiaofangfang.rice2_verssion.tool.SystemSet;
-import com.xiaofangfang.rice2_verssion.tool.UiThread;
 
-import org.json.JSONException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /***
  * 流量过滤的类

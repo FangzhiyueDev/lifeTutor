@@ -1,7 +1,7 @@
 package com.xiaofangfang.rice2_verssion.view.adapter;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;

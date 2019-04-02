@@ -1,10 +1,9 @@
 package com.xiaofangfang.rice2_verssion.tool;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.PixelFormat;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.WindowManager;
 import android.view.animation.BounceInterpolator;

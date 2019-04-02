@@ -1,11 +1,10 @@
 package com.xiaofangfang.filterrice.consumeView;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 public class ScrollViewInner extends ScrollView {

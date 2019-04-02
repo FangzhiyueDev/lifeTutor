@@ -2,12 +2,11 @@ package com.xiaofangfang.rice2_verssion.Fragment.subFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -21,7 +20,6 @@ import com.xiaofangfang.rice2_verssion.Fragment.ParentFragment;
 import com.xiaofangfang.rice2_verssion.ParentActivity;
 import com.xiaofangfang.rice2_verssion.R;
 import com.xiaofangfang.rice2_verssion.activity.CardDetailActivity;
-import com.xiaofangfang.rice2_verssion.activity.FlowInfoRecordActivity;
 import com.xiaofangfang.rice2_verssion.activity.ProductSalePageActivity;
 import com.xiaofangfang.rice2_verssion.model.Card;
 import com.xiaofangfang.rice2_verssion.network.NetRequest;

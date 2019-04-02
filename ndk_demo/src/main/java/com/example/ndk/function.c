@@ -1,73 +1,47 @@
 
 
+ndk开发的经验
 
-//笔记
+1.我们看下jni里面对象的最初类型
 
-1.日志的输出
-
-  #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
-
-//下面是实现的代码
-
-
-#include<android/log.h>
-
-#define TAG="ndknativelog"
-
-
-/**
- *@param ANDROID_LOG_INFO android的在日志级别
- *@param TAG 我们定义的tag，用于过滤信息
- *
-*/
-#define  LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__);
-
-JNIEXPORT void JNICALL Java_com_example_ndk_NativeLogUtil_log
-  (JNIEnv * env, jclass obj){
-
-        LOGI("I LOVE THIS WORLD");
-  }
+typedef void*           jobject;
+typedef jobject         jclass;
+typedef jobject         jstring;
+typedef jobject         jarray;
+typedef jarray          jobjectArray;
+typedef jarray          jbooleanArray;
+typedef jarray          jbyteArray;
+typedef jarray          jcharArray;
+typedef jarray          jshortArray;
+typedef jarray          jintArray;
+typedef jarray          jlongArray;
+typedef jarray          jfloatArray;
+typedef jarray          jdoubleArray;
+typedef jobject         jthrowable;
+typedef jobject         jweak;
 
 
-下面是添加到build.gradle的代码
-添加到 android节点下面:
-
-sourceSets.main{
-    jniLibs.srcDir="src/main/libs"
-    jni.srcDirs=[]
-}
-
-task ndkBuild(type: Exec){
-    //ndk的目录
-    commandLine "/home/fang/Android/Sdk/ndk-bundle",'-C',file('src')
-}
-
-task.withType(JavaCompile){
-    compileTask -> compileTask.dependsOn ndkBuild
-}
+上面的代码可以看到我们定义的所有类型其实都是void*,也就是万能指针，对于这个void*
+请不要对其设置基本类型，会出错，尽管是可以这样进行赋值的，但是可能与函数的内部实现有关，程序会crach掉
 
 
+下面是一个封装了函数的宏定义
+里面封装的函数是android/jni.h里面的函数.下面我们看看函数的原型
+
+int __android_log_print(int prio, const char* tag, const char* fmt, ...)
 
 
-2.直接编写native文件
-
-    一般格式
+#define LOGI(fmt,argc...) (__android_log_print(ANDROID_LOG_INFO,LOG,fmt,argc))
 
 
+这里还有需要注意的地方，宏定义的可变参数的变量需要指定，不能直接使用...会报错的
 
 
-
-
-
-3.jni的api
-
-jstring NewStringUTF(JNIEnv *env,const char *bytes);
-//利用UTF-8字符数组构造新的java.lang.String的对象
+下面是一些api
 
 
 
 4.数组访问
-
 void (* GetIntArrayRegion)(JNIEnv *,jintArray,jsize a,jsize b,jint *buf);
 //将jintArray数组中从a～b中的数据复制到buf中
 
@@ -87,40 +61,11 @@ jclass (*FindClass)(JNIEnv *,const char *);
 jobjectArray (*NewObjectArray)(JNIEnv *,jsize,jclass,jobject);
 //创建一个对象数组
 
-
-下面编写一些代码
-
-jsize size=10;
-
-jobjectArray result;
-jclass jintClass=(*env)->FindClass(env,"LI");
-result=(*env)->NewObjectArray(env,jsize,jintClass,NULL);
-
-int i=0;
-for(i=0i<size;i++){
-    int temp[256];
-
-    jintArray jArr=(* env)->NewIntArray(env,size);
-
-   int j;
-   for(j=0;j<size;j++){
-
-        temp[j]=20+j;
-
-   }
-
-   (* env)->SetIntArrayRegion(env,jArr,0,size,temp);
-
-   (*env)->SetObjectArrayElement(env,result,i,jArr);
-
-}
-//垃圾回收
 (*env).DeleteLocalRef(env,jArr);
-return result;
+//垃圾回收
 
 
-
-//对象字段的操作
+5.对象字段的操作
 jclass GetObjectClass(JNIEnv * env,jobject obj);
 //通过对象获取这个类，该函数比较简单，唯一注意的地方是对象不能为NULL，否则获取的class肯定返回也为Null
 
@@ -130,22 +75,47 @@ jfieldID GetFieldID(JNIEnv *env,jclass clazz,const char *name,const char *sig);
 jobject GetObjectField(jobject obj,jfieldID fieldID);
 //根据field获取相应的field
 
+jclass (*GetObjectClass)(JNIENV *,jobject);
+//找到对象实例所对应的class对象
+
+void SetObjectField(jobject obj,jfieldID fieldID,jobject value);
+//设置成员变量的值
 
 
+6.操作静态字段
+jfieldID GetStaticFieldID(JNIEnv *env ,jclass clazz,const char *name,const char *sig);
+//获得类的静态域ID方法
+
+void SetStaticIntField(jclass clazz,jfieldID fieldID,jint value);
+//设置static field的值
 
 
+7.对象方法的调用
+
+jmethordID GetMethordID(JNIEnv *env,jclass clazz,const char *name,const char *sig);
+//返回类或者接口实例(非静态)方法的方法的ID
+
+void CallVoidMethod(jobject obj,jmethordID methordID,...);
+//用于从本地方法调用java实例方法
 
 
+8.静态方法的调用
+void (*CallStaticVoidMethod)(JNIEnv *,jclass,jmethodID,...);
 
 
+9.构造函数的调用
+void GetCharArrayRegion(JNIEnv *env,ArrayType array,jsize start,jsize len,NativeType *buf);
+//将基本类型数组某一区域复制到缓冲区中的一组函数
 
+void SetCharArrayRegion(JNIEnv *env,ArrayType array,jsize start,jsize len,NativeType *buf);
+//将基本类型数组的某一个区域从缓冲区中复制回来一组函数
 
+jobject NewObject(JNIEnv *env,jclass clazz,jmethodID methodID,...);
+//构造新java对象
 
-
-
-
-
-
+8.获得对象的类
+jclass      (*FindClass)(JNIEnv*, const char*);
+//根据一个对象的标识符，生成与之对应的类
 
 
 

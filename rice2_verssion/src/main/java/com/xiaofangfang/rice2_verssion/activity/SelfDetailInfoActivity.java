@@ -3,7 +3,7 @@ package com.xiaofangfang.rice2_verssion.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,8 +11,6 @@ import android.widget.Toast;
 import com.xiaofangfang.rice2_verssion.ParentActivity;
 import com.xiaofangfang.rice2_verssion.R;
 import com.xiaofangfang.rice2_verssion.view.CommandBar;
-
-import org.w3c.dom.Text;
 
 /**
  * 自己的详情信息的界面，提供了对自己头像的修改

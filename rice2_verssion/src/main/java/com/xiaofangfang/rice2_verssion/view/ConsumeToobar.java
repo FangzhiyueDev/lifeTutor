@@ -2,49 +2,22 @@ package com.xiaofangfang.rice2_verssion.view;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.xiaofangfang.rice2_verssion.ParentActivity;
 import com.xiaofangfang.rice2_verssion.R;
 import com.xiaofangfang.rice2_verssion.model.City;
 import com.xiaofangfang.rice2_verssion.model.Province;
-import com.xiaofangfang.rice2_verssion.network.NetRequest;
 import com.xiaofangfang.rice2_verssion.tool.DialogTool;
-import com.xiaofangfang.rice2_verssion.tool.Looger;
-import com.xiaofangfang.rice2_verssion.tool.UiThread;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.litepal.crud.DataSupport;
-
-import java.io.IOException;
-import java.text.CharacterIterator;
-import java.util.ArrayList;
-import java.util.List;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
-
-import static com.xiaofangfang.rice2_verssion.ParentActivity.city;
 
 
 /**

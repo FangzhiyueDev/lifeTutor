@@ -1,15 +1,9 @@
 package com.xiaofangfang.rice2_verssion.activity;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.xiaofangfang.rice2_verssion.Fragment.MainFragment;
@@ -23,11 +17,8 @@ import com.xiaofangfang.rice2_verssion.tool.SystemSet;
 import com.xiaofangfang.rice2_verssion.tool.Tools;
 import com.xiaofangfang.rice2_verssion.view.adapter.MyFragmentPageAdapter;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.Response;
 
 public class IndexActivity extends ParentActivity {
 

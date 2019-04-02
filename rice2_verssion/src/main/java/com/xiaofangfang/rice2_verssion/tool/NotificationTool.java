@@ -3,11 +3,10 @@ package com.xiaofangfang.rice2_verssion.tool;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.RequiresApi;
 import android.widget.RemoteViews;
 
 import com.xiaofangfang.rice2_verssion.R;

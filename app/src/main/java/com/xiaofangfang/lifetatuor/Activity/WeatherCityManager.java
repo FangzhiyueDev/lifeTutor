@@ -1,24 +1,18 @@
 package com.xiaofangfang.lifetatuor.Activity;
 
-import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
+import androidx.annotation.Nullable;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.xiaofangfang.lifetatuor.R;
 import com.xiaofangfang.lifetatuor.controller.WeatherHandler;
-import com.xiaofangfang.lifetatuor.set.SettingStandard;
 
 import java.util.ArrayList;
 import java.util.Set;

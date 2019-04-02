@@ -1,21 +1,12 @@
 package com.xiaofangfang.butterknitedemo.mvp.simple2.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.xiaofangfang.butterknitedemo.R;
-import com.xiaofangfang.butterknitedemo.mvp.network.NetRequest;
-import com.xiaofangfang.butterknitedemo.mvp.simple1.presenter.LoginPresenter;
-import com.xiaofangfang.butterknitedemo.mvp.simple1.ui.LoginView;
 import com.xiaofangfang.butterknitedemo.mvp.simple2.presenter.LoginPresenter_2;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 public class Simple2 extends AppCompatActivity implements LoginView_2 {
 

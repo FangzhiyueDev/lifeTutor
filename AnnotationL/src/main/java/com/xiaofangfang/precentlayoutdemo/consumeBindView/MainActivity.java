@@ -1,11 +1,12 @@
-package com.xiaofangfang.precentlayoutdemo;
+package com.xiaofangfang.precentlayoutdemo.consumeBindView;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
+import com.xiaofangfang.precentlayoutdemo.R;
 
 
 @Bind(bindContent = R.layout.activity_main)
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     })
     public void onClick(View view) {
 
-//        Log.d("test", "onClick:==== 发生点击");
+        Log.d("test", "onClick:==== 发生点击");
 
     }
 

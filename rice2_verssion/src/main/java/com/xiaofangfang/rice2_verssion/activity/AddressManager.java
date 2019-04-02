@@ -3,7 +3,7 @@ package com.xiaofangfang.rice2_verssion.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -18,12 +18,8 @@ import com.xiaofangfang.rice2_verssion.tool.Looger;
 import com.xiaofangfang.rice2_verssion.view.CommandBar;
 import com.xiaofangfang.rice2_verssion.view.adapter.MyAdapter;
 
-import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.Response;
 
 public class AddressManager extends ParentActivity {
 

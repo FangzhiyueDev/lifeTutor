@@ -1,8 +1,8 @@
 package com.xiaofangfang.rice2_verssion.view;
 
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.DrawableRes;
+
+import androidx.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;

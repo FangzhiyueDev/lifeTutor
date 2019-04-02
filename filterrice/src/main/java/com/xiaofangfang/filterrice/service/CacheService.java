@@ -1,19 +1,15 @@
 package com.xiaofangfang.filterrice.service;
 
 import android.app.IntentService;
-import android.app.Service;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Environment;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import com.xiaofangfang.filterrice.model.MyResponseData;
 import com.xiaofangfang.filterrice.tool.NetRequest;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;

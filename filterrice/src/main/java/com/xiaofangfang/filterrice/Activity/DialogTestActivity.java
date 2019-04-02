@@ -1,10 +1,9 @@
 package com.xiaofangfang.filterrice.Activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.xiaofangfang.filterrice.R;
 

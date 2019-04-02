@@ -1,16 +1,12 @@
 package com.xiaofangfang.butterknitedemo.mvp.Simple4.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.xiaofangfang.butterknitedemo.R;
-import com.xiaofangfang.butterknitedemo.mvp.Simple4.base.BasePresenter_4;
 import com.xiaofangfang.butterknitedemo.mvp.Simple4.presenter.LoginPresenter_4;
-import com.xiaofangfang.butterknitedemo.mvp.simple1.presenter.LoginPresenter;
-import com.xiaofangfang.butterknitedemo.mvp.simple3.presenter.LoginPresenter_3;
-import com.xiaofangfang.butterknitedemo.mvp.simple3.ui.LoginView_3;
 
 public class Simple4 extends AppCompatActivity implements LoginView_4 {
 

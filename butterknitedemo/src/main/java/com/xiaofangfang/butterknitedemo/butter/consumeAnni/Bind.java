@@ -1,15 +1,11 @@
-package com.xiaofangfang.precentlayoutdemo;
+package com.xiaofangfang.butterknitedemo.butter.consumeAnni;
 
 
-import android.support.annotation.IdRes;
-import android.support.annotation.IntDef;
-import android.support.annotation.LayoutRes;
-import android.view.View;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
 
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
 @Retention(value = RetentionPolicy.RUNTIME)
 public @interface Bind {

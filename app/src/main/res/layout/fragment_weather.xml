@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/weather_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,13 +16,13 @@
         app:tabIndicatorColor="@color/menu_tab_indicator_color"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/menu_tab_indicator_color"
-        app:tabTextColor="@android:color/black"></android.support.design.widget.TabLayout>
+        app:tabTextColor="@android:color/black"></com.google.android.material.tabs.TabLayout>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/weather_viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></android.support.v4.view.ViewPager>
+        android:layout_weight="1"></androidx.viewpager.widget.ViewPager>
 
     <TextView
         android:background="@color/diver"

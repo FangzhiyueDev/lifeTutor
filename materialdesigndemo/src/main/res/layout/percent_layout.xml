@@ -16,7 +16,7 @@
         app:layout_widthPercent="30%" />
 
 
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -36,7 +36,7 @@
             app:layout_marginRightPercent="5%" />
 
 
-        <android.support.percent.PercentFrameLayout
+        <androidx.percentlayout.widget.PercentFrameLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/colorAccent"
@@ -44,10 +44,10 @@
             app:layout_widthPercent="50%">
 
 
-        </android.support.percent.PercentFrameLayout>
+        </androidx.percentlayout.widget.PercentFrameLayout>
 
 
-    </android.support.percent.PercentRelativeLayout>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
 
 </com.xiaofangfang.materialdesigndemo.PercentLinearLayout>

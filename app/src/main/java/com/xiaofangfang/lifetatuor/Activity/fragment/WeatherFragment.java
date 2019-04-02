@@ -2,18 +2,17 @@ package com.xiaofangfang.lifetatuor.Activity.fragment;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.TabLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.tabs.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
+
+import androidx.appcompat.app.AlertDialog;
+
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,8 +20,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TableLayout;
 
 import com.xiaofangfang.lifetatuor.Activity.MainActivity;
 
@@ -31,23 +28,14 @@ import com.xiaofangfang.lifetatuor.Activity.fragment.weather.Fragment.WeatherInf
 import com.xiaofangfang.lifetatuor.R;
 import com.xiaofangfang.lifetatuor.controller.WeatherHandler;
 import com.xiaofangfang.lifetatuor.model.LocationInfo;
-import com.xiaofangfang.lifetatuor.server.LocationServer;
 import com.xiaofangfang.lifetatuor.server.interfaces.LocationCallback;
 import com.xiaofangfang.lifetatuor.tools.Looger;
-import com.xiaofangfang.lifetatuor.tools.UiThread;
-import com.xiaofangfang.lifetatuor.view.adapter.MenuViewPagerAdapter;
 import com.xiaofangfang.lifetatuor.view.adapter.WeatherViewPagerAdapter;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 
 /**

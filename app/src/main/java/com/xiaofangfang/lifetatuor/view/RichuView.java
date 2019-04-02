@@ -7,13 +7,11 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 
 import com.xiaofangfang.lifetatuor.Activity.fragment.weather.Fragment.weatherInfoRichuViewPagerFragment.RichuPagerFragment;
-import com.xiaofangfang.lifetatuor.R;
 
 import java.util.ArrayList;
 import java.util.List;

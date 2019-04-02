@@ -2,7 +2,7 @@ package com.xiaofangfang.rice2_verssion.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,32 +11,23 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.xiaofangfang.rice2_verssion.Fragment.ParentFragment;
 import com.xiaofangfang.rice2_verssion.Fragment.subFragment.HandSaleMainFragment;
 import com.xiaofangfang.rice2_verssion.Fragment.subFragment.ProductSaleFilterFragment;
 import com.xiaofangfang.rice2_verssion.Fragment.subFragment.SaleOpration;
 import com.xiaofangfang.rice2_verssion.ParentActivity;
 import com.xiaofangfang.rice2_verssion.R;
 import com.xiaofangfang.rice2_verssion.network.NetRequest;
-import com.xiaofangfang.rice2_verssion.tool.LoadProgress;
 import com.xiaofangfang.rice2_verssion.tool.Looger;
-import com.xiaofangfang.rice2_verssion.tool.UiThread;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.Response;
 
 /**

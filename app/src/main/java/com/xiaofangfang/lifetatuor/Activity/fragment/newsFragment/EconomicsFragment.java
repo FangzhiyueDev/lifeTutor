@@ -1,31 +1,22 @@
 package com.xiaofangfang.lifetatuor.Activity.fragment.newsFragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.xiaofangfang.lifetatuor.Activity.fragment.newsFragment.parent.ParentFragment;
 import com.xiaofangfang.lifetatuor.R;
 import com.xiaofangfang.lifetatuor.dao.DbOpener;
-import com.xiaofangfang.lifetatuor.model.news.Domestic;
 import com.xiaofangfang.lifetatuor.model.news.Economics;
 import com.xiaofangfang.lifetatuor.model.news.parent.CommonNews;
-import com.xiaofangfang.lifetatuor.net.NewsRequest;
 import com.xiaofangfang.lifetatuor.set.SettingStandard;
 import com.xiaofangfang.lifetatuor.tools.GsonParseData;
 import com.xiaofangfang.lifetatuor.tools.Looger;
 import com.xiaofangfang.lifetatuor.tools.UiThread;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 /**
  * 经济相关的新闻

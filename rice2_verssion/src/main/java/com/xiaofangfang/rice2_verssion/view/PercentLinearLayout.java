@@ -2,7 +2,7 @@ package com.xiaofangfang.rice2_verssion.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.percent.PercentLayoutHelper;
+import androidx.percentlayout.widget.PercentLayoutHelper;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;

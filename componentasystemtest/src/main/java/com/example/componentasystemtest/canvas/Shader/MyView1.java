@@ -3,7 +3,7 @@ package com.example.componentasystemtest.canvas.Shader;
 import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.PorterDuffXfermode;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 

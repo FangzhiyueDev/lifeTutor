@@ -1,11 +1,10 @@
-package com.xiaofangfang.precentlayoutdemo;
+package com.xiaofangfang.precentlayoutdemo.consumeBindView;
 
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**

@@ -1,8 +1,7 @@
 package com.example.ndk;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ArraySum.demo3(23);
 
 
     }

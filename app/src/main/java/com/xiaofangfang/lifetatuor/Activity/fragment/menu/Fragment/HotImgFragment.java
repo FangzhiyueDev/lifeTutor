@@ -1,10 +1,9 @@
 package com.xiaofangfang.lifetatuor.Activity.fragment.menu.Fragment;
 
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +17,6 @@ import com.xiaofangfang.lifetatuor.R;
 import com.xiaofangfang.lifetatuor.dao.DbOpener;
 import com.xiaofangfang.lifetatuor.model.joke.ImgByTime;
 import com.xiaofangfang.lifetatuor.model.joke.ResultImg;
-import com.xiaofangfang.lifetatuor.model.news.Economics;
-import com.xiaofangfang.lifetatuor.model.news.TopInfo;
-import com.xiaofangfang.lifetatuor.model.news.parent.CommonNews;
 import com.xiaofangfang.lifetatuor.net.requestModel.JockParamValue;
 import com.xiaofangfang.lifetatuor.set.SettingStandard;
 import com.xiaofangfang.lifetatuor.tools.GsonParseData;
@@ -28,11 +24,7 @@ import com.xiaofangfang.lifetatuor.tools.Looger;
 import com.xiaofangfang.lifetatuor.tools.UiThread;
 import com.xiaofangfang.lifetatuor.view.adapter.ImgListViewAdapter;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * 热门趣图的碎片显示

@@ -175,7 +175,7 @@
                     android:visibility="invisible" />
             </LinearLayout>
 
-            <android.support.percent.PercentRelativeLayout
+            <androidx.percentlayout.widget.PercentRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:layout_marginLeft="5dp"
@@ -225,7 +225,7 @@
                     app:layout_marginRightPercent="5%" />
 
 
-            </android.support.percent.PercentRelativeLayout>
+            </androidx.percentlayout.widget.PercentRelativeLayout>
 
 
             <com.xiaofangfang.rice2_verssion.view.PercentLinearLayout
