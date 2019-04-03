@@ -3,21 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".asyncTask.AsyncActivity">
+    android:orientation="vertical"
+    tools:context=".eventBus.EventBusActivity">
 
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
-    <VideoView
-        android:id="@+id/video"
+        android:id="@+id/sendOne"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:text="启动" />
+
+    <Button
+        android:id="@+id/sendTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送粘结事件" />
 
 
 </LinearLayout>

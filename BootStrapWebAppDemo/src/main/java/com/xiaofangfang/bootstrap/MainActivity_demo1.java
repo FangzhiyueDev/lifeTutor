@@ -8,7 +8,7 @@ import android.webkit.WebViewClient;
 
 import com.xiaofangfang.juerymobiledemo.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity_demo1 extends AppCompatActivity {
 
 
     WebView webView;

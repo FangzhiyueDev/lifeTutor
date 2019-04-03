@@ -17,8 +17,9 @@ public class AsyncActivity extends AppCompatActivity {
         AsyncTask.handlerThread1Process(this);
 
         findViewById(R.id.button).setOnClickListener((v) -> {
-            AsyncTask.handler.sendEmptyMessage(20);
+//            AsyncTask.handler.sendEmptyMessage(20);
 
+            AsyncTask.asyncQueryHandlerProcess(this);
         });
 
 
