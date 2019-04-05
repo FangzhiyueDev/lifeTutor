@@ -12,7 +12,7 @@
         android:id="@+id/sendOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="启动" />
+        android:text="发送事件" />
 
     <Button
         android:id="@+id/sendTwo"

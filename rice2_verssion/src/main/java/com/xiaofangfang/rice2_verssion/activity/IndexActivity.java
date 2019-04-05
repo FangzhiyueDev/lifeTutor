@@ -1,7 +1,6 @@
 package com.xiaofangfang.rice2_verssion.activity;
 
 import android.graphics.Color;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,6 +18,8 @@ import com.xiaofangfang.rice2_verssion.view.adapter.MyFragmentPageAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.viewpager.widget.ViewPager;
 
 public class IndexActivity extends ParentActivity {
 

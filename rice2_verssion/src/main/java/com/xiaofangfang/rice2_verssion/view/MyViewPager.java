@@ -1,9 +1,11 @@
 package com.xiaofangfang.rice2_verssion.view;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
+
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
@@ -37,7 +39,6 @@ public class MyViewPager extends ViewPager {
         Looger.D("事件传递到了这里");
         return isSlide;
     }
-
 
 
 }

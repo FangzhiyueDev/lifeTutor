@@ -37,7 +37,7 @@ public class NetRequest {
      */
 
 
-    static String ipAddress = "192.168.42.27";
+    static String ipAddress = "129.204.82.25";
 
 
     String ipAddress2 = "10.100.19.220";

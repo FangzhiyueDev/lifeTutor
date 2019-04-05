@@ -49,15 +49,34 @@ public class EventBusActivity extends AppCompatActivity {
     })
     public void onClick(View view) {
         if (view == start) {
+
+
             Intent intent = new Intent(this, EventBusTwoActivity.class);
             startActivity(intent);
         }
         if (view == receive) {
+
+            /**
+             * 事件不能重复的注册,所以需要判断后执行相应的代码逻辑
+             */
             if (EventBus.getDefault().isRegistered(this)) {
                 return;
             }
             EventBus.getDefault().register(this);
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        /**
+         * 这里的代码实现的功能是恢复现场
+         */
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+
     }
 
 

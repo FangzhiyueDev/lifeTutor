@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Looper;
 import android.os.Message;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
+
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;

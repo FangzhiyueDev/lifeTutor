@@ -2,6 +2,7 @@ package com.xiaofangfang.rice2_verssion.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -63,9 +64,7 @@ public class TutorFragment extends ParentFragment {
         CommandBar com = view.findViewById(R.id.commandBar);
         com.setTitle("通讯指导");
         com.hiddenBack();
-
     }
-
 
     @Override
     public void onError(IOException e, String what) {
