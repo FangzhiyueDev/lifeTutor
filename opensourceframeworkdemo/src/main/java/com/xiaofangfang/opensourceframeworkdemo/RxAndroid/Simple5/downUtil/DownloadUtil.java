@@ -16,6 +16,7 @@ public class DownloadUtil {
     public static byte[] downloadImage(String path) {
 
         //异步任务在这里编写,本身是一个内部类,有继承关系,所有返回结果很难
+        return null;
     }
 
     interface Callback {
