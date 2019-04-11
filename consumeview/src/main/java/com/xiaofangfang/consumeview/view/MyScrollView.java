@@ -103,8 +103,6 @@ public class MyScrollView extends ScrollView {
                 va.setInterpolator(new AccelerateDecelerateInterpolator());
                 va.start();
                 break;
-
-
         }
 
 

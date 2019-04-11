@@ -1,17 +1,17 @@
-package com.xiaofangfang.consumeview;
+package com.xiaofangfang.consumeview.view;
 
 import android.os.Bundle;
+
+import com.xiaofangfang.consumeview.R;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ErrorActivity extends AppCompatActivity {
-
+public class AudioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.error_activity);
-
-
+        setContentView(R.layout.activity_audio);
     }
 }

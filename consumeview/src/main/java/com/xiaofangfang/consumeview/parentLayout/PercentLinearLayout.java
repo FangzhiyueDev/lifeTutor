@@ -1,4 +1,4 @@
-package com.xiaofangfang.consumeview;
+package com.xiaofangfang.consumeview.parentLayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;

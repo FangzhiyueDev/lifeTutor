@@ -2,6 +2,7 @@ package com.xiaofangfang.precentlayoutdemo.consumeBindView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 
 import java.lang.reflect.Field;

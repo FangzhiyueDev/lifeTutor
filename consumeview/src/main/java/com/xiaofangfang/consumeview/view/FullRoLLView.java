@@ -3,6 +3,7 @@ package com.xiaofangfang.consumeview.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -55,16 +56,56 @@ public class FullRoLLView extends ViewGroup {
     int totalHeight;
     int value;
 
+
+    int minWidth = 400;
+    int minHeight = 100;
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
         for (int i = 0; i < getChildCount(); i++) {
             measureChild(getChildAt(i), widthMeasureSpec, heightMeasureSpec);
         }
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        //在这里进行测量，使之能够实现对屏幕适配
+
+        int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
+        int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
+
+        int modeHeight = MeasureSpec.getMode(heightMeasureSpec);
+        int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
+
+        int width = 0;
+        int height = 0;
+        switch (modeWidth) {
+            case MeasureSpec.AT_MOST:
+            case MeasureSpec.UNSPECIFIED:
+
+                width = Math.min(minWidth, sizeWidth);
+                break;
+            case MeasureSpec.EXACTLY:
+                width = sizeWidth;
+                break;
+        }
+
+        switch (modeHeight) {
+            case MeasureSpec.AT_MOST:
+            case MeasureSpec.UNSPECIFIED:
+
+                height = Math.min(minHeight, sizeHeight);
+                break;
+            case MeasureSpec.EXACTLY:
+                height = sizeHeight;
+                break;
+        }
+        setMeasuredDimension(width, height);
+
+
         LinearLayout ly = (LinearLayout) getChildAt(0);
         value = ly.getChildCount();
-        ly.setLayoutParams(new LayoutParams(-1, totalHeight = value * getMeasuredHeight()));
+        ly.setLayoutParams(new LayoutParams(width, totalHeight = value * getMeasuredHeight()));
+
+
     }
 
 
@@ -88,18 +129,37 @@ public class FullRoLLView extends ViewGroup {
                 FullRoLLView.this.post(new Runnable() {
                     @Override
                     public void run() {
-                        ObjectAnimator oa = ObjectAnimator.ofFloat(getChildAt(0),
-                                "translationY",
-                                -index * FullRoLLView.this.getMeasuredHeight()
-                        );
-                        oa.setInterpolator(new LinearInterpolator());
+
+                        ObjectAnimator oa = null;
+
+                        if (index == -1) {
+
+                            oa = ObjectAnimator.ofFloat(getChildAt(0),
+                                    "translationY", -index * FullRoLLView.this.getMeasuredHeight(), 0
+                            );
+
+                        } else {
+                            oa = ObjectAnimator.ofFloat(getChildAt(0),
+                                    "translationY",
+                                    -index * FullRoLLView.this.getMeasuredHeight()
+                            );
+                        }
                         oa.setDuration(1000);
+                        oa.setInterpolator(new LinearInterpolator());
+                        oa.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                            @Override
+                            public void onAnimationUpdate(ValueAnimator animation) {
+                                //在index >= value的时候
+                            }
+                        });
                         oa.addListener(new AnimatorListenerAdapter() {
                             @Override
                             public void onAnimationEnd(Animator animation) {
                                 if (index >= value) {
-                                    index = 0;
-                                    getChildAt(0).setTranslationY(0);
+
+                                    index = -1;
+                                    getChildAt(0).setTranslationY(-index * FullRoLLView.this.getMeasuredHeight());
+                                    //下面是一个更好的实现方案
                                 }
                             }
                         });

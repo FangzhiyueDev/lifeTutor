@@ -14,10 +14,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.util.LruCache;
 
 import com.xiaofangfang.lifetatuor.tools.Looger;
 
+import androidx.collection.LruCache;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

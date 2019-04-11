@@ -1,7 +1,6 @@
 package com.xiaofangfang.lifetatuor.Activity.fragment.menu.Fragment.parent;
 
 import androidx.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.xiaofangfang.lifetatuor.dao.DbOpener;
@@ -12,6 +11,7 @@ import com.xiaofangfang.lifetatuor.tools.ThreadSingle;
 
 import java.io.IOException;
 
+import androidx.fragment.app.Fragment;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;

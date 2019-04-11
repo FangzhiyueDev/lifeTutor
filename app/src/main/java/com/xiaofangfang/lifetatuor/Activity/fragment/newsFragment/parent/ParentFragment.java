@@ -1,6 +1,4 @@
 package com.xiaofangfang.lifetatuor.Activity.fragment.newsFragment.parent;
-
-import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.xiaofangfang.lifetatuor.dao.DbOpener;
@@ -11,6 +9,7 @@ import com.xiaofangfang.lifetatuor.tools.UiThread;
 
 import java.io.IOException;
 
+import androidx.fragment.app.Fragment;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;

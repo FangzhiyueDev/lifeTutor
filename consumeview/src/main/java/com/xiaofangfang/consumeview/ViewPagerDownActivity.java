@@ -16,10 +16,6 @@ public class ViewPagerDownActivity extends AppCompatActivity {
             "爱上风格为规范围观啊飒飒发夫妻为请问而过",
             "s问过他问问啊",
             "asfaag是高温高",
-            "sgwerehwerrherh",
-            "爱上风格为规范围观",
-            "s问过他问问啊",
-            "asfaag是高温高"
     };
 
     @Override
