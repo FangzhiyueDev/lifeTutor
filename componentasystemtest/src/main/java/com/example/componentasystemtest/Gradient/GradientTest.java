@@ -44,7 +44,7 @@ public class GradientTest extends View {
          */
         canvas.drawBitmap(bitmap, 0, 0, null);
 
-        LinearGradient linearGradient = new LinearGradient();
+//        LinearGradient linearGradient = new LinearGradient();
 //        linearGradient.getLocalMatrix()
 
 

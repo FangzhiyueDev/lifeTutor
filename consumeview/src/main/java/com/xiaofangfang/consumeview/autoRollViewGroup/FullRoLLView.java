@@ -1,4 +1,4 @@
-package com.xiaofangfang.consumeview.view;
+package com.xiaofangfang.consumeview.autoRollViewGroup;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -6,16 +6,9 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Scroller;
 import android.widget.TextView;
 
 import java.util.List;

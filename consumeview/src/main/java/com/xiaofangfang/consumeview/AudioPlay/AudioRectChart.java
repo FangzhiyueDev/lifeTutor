@@ -1,4 +1,4 @@
-package com.xiaofangfang.consumeview.view;
+package com.xiaofangfang.consumeview.AudioPlay;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,10 +1,11 @@
-package com.xiaofangfang.consumeview;
+package com.xiaofangfang.consumeview.autoRollViewGroup;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.xiaofangfang.consumeview.view.FullRoLLView;
+import com.xiaofangfang.consumeview.R;
+import com.xiaofangfang.consumeview.autoRollViewGroup.FullRoLLView;
 
 import java.util.Arrays;
 

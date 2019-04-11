@@ -1,9 +1,7 @@
-package com.xiaofangfang.consumeview.view;
+package com.xiaofangfang.consumeview.autoRollViewGroup;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.os.SystemClock;
-import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Scroller;
-import android.widget.TextView;
-
-import com.xiaofangfang.consumeview.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

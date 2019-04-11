@@ -1,4 +1,4 @@
-package com.xiaofangfang.consumeview.view;
+package com.xiaofangfang.consumeview.PageScrollView;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;

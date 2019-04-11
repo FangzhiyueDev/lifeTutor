@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
 
-    <com.xiaofangfang.consumeview.view.MyView
+    <com.xiaofangfang.consumeview.autoRollViewGroup.MyView
         android:layout_width="match_parent"
         android:id="@+id/myview"
         android:layout_height="match_parent">
@@ -54,6 +54,6 @@
             android:background="@color/colorAccent" />
 
 
-    </com.xiaofangfang.consumeview.view.MyView>
+    </com.xiaofangfang.consumeview.autoRollViewGroup.MyView>
 
 </LinearLayout>

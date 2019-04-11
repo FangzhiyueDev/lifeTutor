@@ -1,4 +1,4 @@
-package com.xiaofangfang.consumeview.view;
+package com.xiaofangfang.consumeview.PageScrollView;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -6,7 +6,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.widget.Scroller;
+
+
+/**
+ * 这个view实现的是带有拉伸效果的viewGroup
+ */
+
 
 public class PageScrollView extends ViewGroup {
     private static final String TAG = "test";
@@ -92,7 +97,6 @@ public class PageScrollView extends ViewGroup {
         switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                totalOffset = 0;
                 startY = (int) event.getY();
                 break;
 
@@ -100,18 +104,17 @@ public class PageScrollView extends ViewGroup {
 
                 moveY = (int) event.getY();
                 dy = startY - moveY;
-                totalOffset += dy;
 
                 if (getScrollY() < 0 && dy < 0) {
                     isUpd = true;
-                    if (Math.abs(getScrollY()) > maxOffset) {
+                    if (Math.abs(getScrollY()) >= maxOffset) {
                         executeAnim(true);
                         return true;
                     }
                 }
                 if (getScrollY() > getHeight() - primaryHeight && dy > 0) {
                     isUpd = true;
-                    if (Math.abs(getScaleY() - (getHeight() + primaryHeight)) > maxOffset) {
+                    if (Math.abs(getScrollY() - (getHeight() + primaryHeight)) > maxOffset) {
                         executeAnim(false);//执行修复动画
                         return true;
                     }
@@ -132,6 +135,7 @@ public class PageScrollView extends ViewGroup {
                     }
                     isUpd = false;
                 }
+
                 break;
 
         }
@@ -141,12 +145,16 @@ public class PageScrollView extends ViewGroup {
 
     public void executeAnim(boolean top) {
         if (top) {
-            ObjectAnimator obj = ObjectAnimator.ofInt(PageScrollView.this, "scrollY", getScrollY(), -getScrollY());
+            ObjectAnimator obj = ObjectAnimator.ofInt(PageScrollView.this, "scrollY", getScrollY(), 0);
             obj.setDuration(300);
             obj.start();
         } else {
             currentScroll = getScrollY();
-            ObjectAnimator obj = ObjectAnimator.ofInt(PageScrollView.this, "scrollY", currentScroll, currentScroll - totalOffset);
+            ObjectAnimator obj = ObjectAnimator.ofInt(
+                    PageScrollView.this,
+                    "scrollY",
+                    currentScroll,
+                    currentScroll - (primaryHeight - (getHeight() - getScrollY())));//记住，这里是绝对坐标值
             obj.setDuration(300);
             obj.start();
         }

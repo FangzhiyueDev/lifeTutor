@@ -8,7 +8,7 @@
     android:orientation="horizontal"
     android:padding="5dp">
 
-    <com.xiaofangfang.consumeview.view.FullRoLLView
+    <com.xiaofangfang.consumeview.autoRollViewGroup.FullRoLLView
         android:id="@+id/fullRoll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -53,7 +53,7 @@
         </LinearLayout>
 
 
-    </com.xiaofangfang.consumeview.view.FullRoLLView>
+    </com.xiaofangfang.consumeview.autoRollViewGroup.FullRoLLView>
 
     <View
         android:layout_width="1px"
