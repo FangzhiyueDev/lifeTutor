@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.tabs.TabLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SubActivity extends AppCompatActivity {
+public class TabLayoutActivity extends AppCompatActivity {
 
 
     TabLayout tablayout;
