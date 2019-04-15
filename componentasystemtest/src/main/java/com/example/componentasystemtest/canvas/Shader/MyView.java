@@ -50,7 +50,7 @@ public class MyView extends View {
         super.onDraw(canvas);
 
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
         BitmapShader bitmapShader=new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
 
         LinearGradient linearGradient = new LinearGradient(0, 0, 200, 200, Color.RED, Color.BLUE, Shader.TileMode.MIRROR);

@@ -7,8 +7,11 @@ import com.xiaofangfang.consumeview.R;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PageScrollViewActivity extends AppCompatActivity {
 
+/**
+ * 实现的是弹性的scrollview
+ */
+public class PageScrollViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

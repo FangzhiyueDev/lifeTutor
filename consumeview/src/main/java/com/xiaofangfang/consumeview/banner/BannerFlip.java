@@ -1,12 +1,8 @@
-package com.xiaofangfang.rice2_verssion.view;
+package com.xiaofangfang.consumeview.banner;
 
 import android.content.Context;
 import android.os.Looper;
 import android.os.Message;
-
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.ViewPager;
-
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -16,13 +12,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
-import com.xiaofangfang.rice2_verssion.R;
-import com.xiaofangfang.rice2_verssion.view.adapter.MyViewPagerAdapter;
+import com.xiaofangfang.consumeview.R;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
 
 public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeListener {
 
@@ -90,6 +88,8 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
 
             linearLayout.addView(view);
         }
+        linearLayout.getChildAt(index).setBackgroundResource(R.drawable.circle_select);
+        oldIndex = index;
     }
 
     MyViewPagerAdapter mvpa;
@@ -105,17 +105,18 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
 
         linearLayout = new LinearLayout(getContext());
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        FrameLayout.LayoutParams ly = new FrameLayout.LayoutParams(-1, 100);
+        LayoutParams ly = new LayoutParams(-1, 100);
         ly.gravity = Gravity.BOTTOM | Gravity.CENTER_VERTICAL;
         linearLayout.setLayoutParams(ly);
         this.addView(viewPager);
         this.addView(linearLayout);
+
     }
 
 
     private Timer timer;
     int index;
-    int oldIndex;
+    int oldIndex = -1;
 
     public void startAutoRoll(long delay) {
 
@@ -125,9 +126,7 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
                 if (msg.what == 0) {
-                    linearLayout.getChildAt(oldIndex).setBackgroundResource(R.drawable.circle);
                     viewPager.setCurrentItem(index);
-                    linearLayout.getChildAt(index).setBackgroundResource(R.drawable.circle_select);
                     oldIndex = index;
                 }
             }
@@ -138,14 +137,12 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
             public void run() {
                 index++;
                 index = index % imageViews.size();
-
                 handler.sendEmptyMessage(0);
 
             }
         }, delay, delay);
 
     }
-
 
 
     @Override
@@ -155,7 +152,15 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
 
     @Override
     public void onPageSelected(int position) {
+
+        if (oldIndex >= 0) {
+            linearLayout.getChildAt(oldIndex).setBackgroundResource(R.drawable.circle);
+        }
+        index = position;
+
+        linearLayout.getChildAt(position).setBackgroundResource(R.drawable.circle_select);
         Log.d(TAG, "onPageSelected: " + position);
+        oldIndex = position;
     }
 
     @Override

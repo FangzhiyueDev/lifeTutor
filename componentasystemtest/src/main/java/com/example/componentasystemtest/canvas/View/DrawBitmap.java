@@ -77,7 +77,7 @@ public class DrawBitmap extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
         bitmap1 = Bitmap.createScaledBitmap(bitmap1, getMeasuredWidth(), getMeasuredHeight(), false);
         canvas.drawBitmap(bitmap1, 0, 0, null);
         canvas.drawBitmap(bitmap, 0, 0, null);

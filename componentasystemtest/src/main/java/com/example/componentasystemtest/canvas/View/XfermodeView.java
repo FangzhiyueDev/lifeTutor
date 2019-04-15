@@ -52,7 +52,7 @@ public class XfermodeView extends View {
         mPaint.setStrokeCap(Paint.Cap.ROUND);
 
         mPath = new Path();
-        mBgBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+        mBgBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
         mFgBitmap = Bitmap.createBitmap(mBgBitmap.getWidth(), mBgBitmap.getHeight(), Bitmap.Config.ARGB_8888);
 
         mCanvas = new Canvas(mFgBitmap);

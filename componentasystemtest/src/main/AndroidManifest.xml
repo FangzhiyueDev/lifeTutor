@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.componentasystemtest">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -13,23 +13,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MediaPlayer.MediaPlayerActivity">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".ScreenTest.ScreenTestActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
+        <activity android:name=".photoZip.PhotoZipActivity">
 
-        <activity android:name=".asyncTask.LoaderActivity"></activity>
-        <activity android:name=".asyncTask.AsyncActivity">
+
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
+
+
+        </activity>
+        <activity android:name=".ScreenTest.ScreenTestActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".asyncTask.LoaderActivity" />
+        <activity android:name=".asyncTask.AsyncActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".surface.Demo3Activity" />
         <activity android:name=".viewDragHelper.MyActivity" />
@@ -68,22 +89,22 @@
 
         </activity>
         <activity android:name=".view.ViewBgActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".JobScheduler.simple2.JobSchedulerActivity" />
+        <activity android:name=".dialog.DialogActivity">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".JobScheduler.simple2.JobSchedulerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-        <!-- exported  这个地方必须是True，否则外界的应用无法启动该JobService -->
+        </activity> <!-- exported  这个地方必须是True，否则外界的应用无法启动该JobService -->
         <!-- permission   必须定义这个权限，你懂得 -->
         <service
             android:name=".JobScheduler.simple1.DownloadJobService"
@@ -92,7 +113,9 @@
         <service
             android:name=".JobScheduler.simple2.MyJobService"
             android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE"></service>
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
 </manifest>

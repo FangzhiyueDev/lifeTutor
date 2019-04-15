@@ -38,7 +38,7 @@ public class MyActivity extends AppCompatActivity implements SeekBar.OnSeekBarCh
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         Log.d("test", "当前的进度为" + progress);
         progressTest();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
 
 
     }

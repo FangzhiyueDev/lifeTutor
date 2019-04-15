@@ -17,7 +17,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.os.SystemClock;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
+
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -146,7 +146,7 @@ public class MyConsumeView extends View {
     //学习图层的叠加模式
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void canvasModel(Canvas canvas) {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
         bitmap = Bitmap.createScaledBitmap(bitmap, 200, 300, false);
         //  canvas.setBitmap(bitmap1);
 

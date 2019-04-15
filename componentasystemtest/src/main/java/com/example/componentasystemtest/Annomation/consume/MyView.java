@@ -50,7 +50,7 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         paint.setTextSize(50);
-       bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+       bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
          bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
         canvas.drawBitmap(bitmap,20,30,paint);
        Camera camera = new Camera();

@@ -93,7 +93,7 @@ public class MyPalette extends AppCompatActivity implements View.OnClickListener
     }
 
     private void demo1() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
         //创建Palttte对象
         Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)

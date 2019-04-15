@@ -48,7 +48,7 @@ public class MyViewDemo1 extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.meizi);
         bitmap = Bitmap.createScaledBitmap(bitmap, getWidth(), getHeight(), false);
         canvas.drawBitmap(bitmap, 0, 0, paint);
         if (path != null) {
