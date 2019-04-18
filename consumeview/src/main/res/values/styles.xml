@@ -16,6 +16,8 @@
     </style>
 
 
+
+
     <style name="AppTheme2" parent="Theme.AppCompat.DayNight">
         <!-- 状态栏颜色，会被statusBarColor效果覆盖-->
         <item name="android:colorPrimaryDark">@color/status_red</item>

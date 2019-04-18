@@ -4,6 +4,7 @@ package com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple3;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple2.DaggerMainActivityComponent;
 import com.xiaofangfang.opensourceframeworkdemo.R;
 
 import javax.inject.Inject;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
          * 生成 类的名字只Component的名字前面加上Dagger
          */
         DaggerActivityComponent.create().inject(this);
+
 
 
         user.setName("sdbgdsdgws");

@@ -15,9 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".eventBus.EventBusTwoActivity"></activity>
-        <activity android:name=".eventBus.EventBusActivity">
-
+        <activity android:name=".NetworkEncope.LoginActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,12 +24,31 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".dataBinding.view.DataBindingActivity_demo1">
+        <activity android:name=".NetworkequestEncapsulation.NetworkEncope">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".eventBus.EventBusTwoActivity" />
+        <activity android:name=".eventBus.EventBusActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".dataBinding.view.DataBindingActivity_demo1">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".butter.ButterKniferActivity">
 
