@@ -1,5 +1,6 @@
 package com.example.momomusic.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView {
+
 
     @Inject
     MainPresenter mainPresenter;
@@ -94,7 +96,6 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
                     oldIndex = finalI;
                 }
             });
-
         }
 
 
@@ -125,10 +126,17 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
 
     @OnClick(
+            value = {R.id.bofang,}
     )
     public void menuClick(View view) {
+        switch (view.getId()) {
 
-
+            case R.id.bofang:
+                Intent intent = new Intent(this, PrimaryActivity.class);
+                intent.putExtra(PrimaryActivity.INTENT_KEY, "com.example.momomusic.fragment.MusicPlayFragment");
+                startActivity(intent);
+                break;
+        }
     }
 
 

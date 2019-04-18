@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!--实现的是相片以及以上部分-->
+    <com.example.momomusic.view.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize">
+
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_arrow_down" />
+
+            <TextView
+                android:id="@+id/musicName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@id/share"
+                android:layout_toRightOf="@id/back"
+                android:gravity="center"
+                android:text="有何不可" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/musicName"
+                android:layout_centerInParent="true"
+                android:drawableRight="@drawable/ic_downstep"
+                android:text="许嵩" />
+
+
+            <ImageButton
+                android:id="@+id/share"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_fenxiang" />
+        </RelativeLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="70%">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:src="@drawable/gedan6" />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!--播放列表的菜单显示-->
+
+        <com.example.momomusic.view.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            app:layout_widthPercent="70%">
+
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_aixin" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_xiazai" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_pinglun" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_yuandiancaidan" />
+
+
+        </com.example.momomusic.view.PercentLinearLayout>
+
+
+        <!--播放进度显示-->
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="5dp">
+
+            <TextView
+                android:id="@+id/lingling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lingling" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/end_minute"
+                android:layout_toRightOf="@id/lingling" />
+
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/end_minute"
+                android:layout_toRightOf="@id/lingling"
+                android:paddingStart="6dp"
+                android:paddingLeft="6dp"
+                android:paddingEnd="6dp"
+                android:paddingRight="0dp"
+                android:progressBackgroundTint="@android:color/black"
+                android:thumbTint="@android:color/black" />
+
+
+            <TextView
+                android:id="@+id/end_minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/end_minute" />
+
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+        <!--播放显示按钮-->
+        <com.example.momomusic.view.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            app:layout_widthPercent="85%">
+
+
+            <ImageButton
+                android:src="@drawable/"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground" />
+
+
+        </com.example.momomusic.view.PercentLinearLayout>
+
+
+    </com.example.momomusic.view.PercentLinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

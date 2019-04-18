@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<fragments>
+    <fragment>com.example.momomusic.fragment.MusicPlayFragment</fragment>
+</fragments>
+

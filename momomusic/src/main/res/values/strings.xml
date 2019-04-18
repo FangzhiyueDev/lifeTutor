@@ -71,4 +71,6 @@
     <string name="is_xiaoshuo">小说</string>
     <string name="is_ertong">儿童</string>
     <string name="jingpintuijian">精品推荐</string>
+    <string name="lingling">00:00</string>
+    <string name="end_minute">03:56</string>
 </resources>
