@@ -9,12 +9,18 @@ import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.JingXuanDianTaiView;
 import com.example.momomusic.activity.ui.JingXuanView;
 import com.example.momomusic.precenter.JingXuanDianTaiPresenter;
+import com.example.momomusic.view.BannerFlip;
+import com.example.momomusic.view.HorizonalScrollMusicView;
 import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
 
@@ -34,10 +40,32 @@ public class JingXuanDianTaiFragment extends BaseFragment<JingXuanDianTaiView, J
     }
 
 
+    @BindView(R.id.banner)
+    BannerFlip bannerFlip;
+
+    @BindView(R.id.musicList)
+    HorizonalScrollMusicView hsmv;
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Integer[] value = {
+                R.drawable.music_banner,
+                R.drawable.music_banner1,
+                R.drawable.music_banner2,
+                R.drawable.music_banner3,
+                R.drawable.music_banner4,
+                R.drawable.music_banner5
+        };
+        bannerFlip.setImageUrl(Arrays.asList(value));
+        bannerFlip.setBannerHeight(600);
+        bannerFlip.startAutoRoll(2000);
 
+
+        List<HorizonalScrollMusicView.Album> albumList = new ArrayList<>();
+//        albumList.add(new HorizonalScrollMusicView.Album())
+        hsmv.setDataSource(null);
 
     }
 

@@ -1,14 +1,13 @@
 package com.example.momomusic.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.JingXuanTuiJianView;
-import com.example.momomusic.precenter.JingXuanPresenter;
+import com.example.momomusic.precenter.JingXuanTuiJianPresenter;
 import com.example.momomusic.view.BannerFlip;
 import com.example.momomusic.view.HorizonalScrollMusicView;
 import com.orhanobut.logger.Logger;
@@ -17,8 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

@@ -1,6 +1,12 @@
 package com.example.momomusic.view;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -39,8 +45,8 @@ public class HorizonalScrollMusicView extends HorizontalScrollView {
 
 
     private LinearLayout linearLayout;
-    private int albumHeight = 260;
-    private int margin = 20;
+    private int albumHeight = 900;
+    private int margin = 40;
 
     private int row = 2;
 
@@ -88,26 +94,41 @@ public class HorizonalScrollMusicView extends HorizontalScrollView {
                 row = 1;
             }
             for (int j = 0; j < row; j++) {
+
+                //实现圆角的cardView
                 CardView cardView = new CardView(getContext());
                 cardView.setRadius(albumHeight / 2);
                 cardView.setLayoutParams(new FrameLayout.LayoutParams(albumHeight, albumHeight));
                 cardView.setCardElevation(0f);
 
+                //用于阴影的button
                 Button button = new Button(getContext());
                 button.setAlpha(0.1f);
                 button.setBackgroundResource(R.drawable.button_ripple_1);
                 cardView.addView(button, -1, -1);
 
+                //album的背景
                 ImageView img = new ImageView(getContext());
                 img.setImageResource(R.drawable.gedan4);
                 cardView.addView(img, -1, -1);
 
+                //动态的添加一个ImageView  也就是播放的显示
+                ImageView play = new ImageView(getContext());
+                Drawable drawable = getResources().getDrawable(R.drawable.ic_bofang3);
+                drawable = Tools.tintDrawable(drawable, ColorStateList.valueOf(Color.WHITE));
+                play.setImageDrawable(drawable);
+                FrameLayout.LayoutParams playParams = new LayoutParams(-2, -2);
+                playParams.gravity = Gravity.CENTER;
+                cardView.addView(play, playParams);
+
+                //标题
                 TextView title = new TextView(getContext());
                 title.setGravity(Gravity.CENTER_HORIZONTAL);
                 title.setText("儿童");
                 title.setEllipsize(TextUtils.TruncateAt.END);
                 title.setPadding(0, padding, 0, padding);
 
+                //描述
                 TextView des = new TextView(getContext());
                 des.setGravity(Gravity.CENTER_HORIZONTAL);
                 des.setText("精彩彩说");

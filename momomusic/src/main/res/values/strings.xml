@@ -65,4 +65,10 @@
     <string name="zhangxin">掌心</string>
     <string name="wuyinliangpin">无印良品</string>
     <string name="pinglunshuliang">1234</string>
+    <string name="is_bofanglishi">播放历史</string>
+    <string name="is_quanbofenlei">全部分类</string>
+    <string name="is_guangbo">广播</string>
+    <string name="is_xiaoshuo">小说</string>
+    <string name="is_ertong">儿童</string>
+    <string name="jingpintuijian">精品推荐</string>
 </resources>
