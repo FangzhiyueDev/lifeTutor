@@ -1,4 +1,4 @@
-package com.xiaofangfang.butterknitedemo.NetworkEncope;
+package com.xiaofangfang.butterknitedemo.NetworkEncopeDemo;
 
 import android.os.Handler;
 
@@ -9,23 +9,21 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {  //loginFragment   musicFragment
 
 
-    Handler handler = new Handler();
+    private Handler handler = new Handler();
 
 
-    public void openNetwork(String url) {
+    public void sendRequest(String url) {
 
-        NetRequestUrl.requestUrl(url, new Callback() {
+        NetRequestUtil.sendRequest(url, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                //执行在子线程中
 
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        //我们通过这个handler.的post将请求转发给主线程
                         failth(e);
                     }
                 });
@@ -46,8 +44,10 @@ public abstract class BaseFragment extends Fragment {
         });
     }
 
+
     public abstract void failth(Exception e);
 
     public abstract void success(String response);
+
 
 }

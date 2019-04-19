@@ -174,10 +174,55 @@ public class Tools {
     }
 
 
-    public static void drawableChange(@DrawableRes int imgRes, Context context, TextView textView) {
+    /**
+     * 设置drawableLeft
+     *
+     * @param imgRes
+     * @param context
+     * @param textView
+     */
+    public static void drawableChangeLeft(@DrawableRes int imgRes, Context context, TextView textView) {
         Drawable drawable = context.getResources().getDrawable(imgRes);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         textView.setCompoundDrawables(drawable, null, null, null);
+    }
+
+    /**
+     * 设置drawableRight
+     *
+     * @param imgRes
+     * @param context
+     * @param textView
+     */
+    public static void drawableChangeRight(@DrawableRes int imgRes, Context context, TextView textView) {
+        Drawable drawable = context.getResources().getDrawable(imgRes);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, drawable, null);
+    }
+
+    /**
+     * 设置drawableRight
+     *
+     * @param context
+     * @param textView
+     */
+    public static void drawableChangeRight(Drawable drawable, Context context, TextView textView) {
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, drawable, null);
+    }
+
+
+    /**
+     * 设置drawableTop
+     *
+     * @param imgRes
+     * @param context
+     * @param textView
+     */
+    public static void drawableChangeTop(@DrawableRes int imgRes, Context context, TextView textView) {
+        Drawable drawable = context.getResources().getDrawable(imgRes);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(null, drawable, null, null);
     }
 
 

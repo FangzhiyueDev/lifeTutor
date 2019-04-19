@@ -36,6 +36,8 @@ public abstract class DialogTool<T> implements DialogSet {
                 .setView(view)
                 .setCancelable(true)
                 .create();
+
+
         bindView(this, dialog, t);
         return dialog;
     }
