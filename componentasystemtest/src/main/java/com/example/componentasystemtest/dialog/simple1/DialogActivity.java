@@ -1,4 +1,4 @@
-package com.example.componentasystemtest.dialog;
+package com.example.componentasystemtest.dialog.simple1;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -14,6 +14,7 @@ import androidx.fragment.app.DialogFragment;
 
 /**
  * 使用DialogFragment来创建一个dialog
+ * 其中MyDialogFragment就是继承了DialogFragment的案例，具有了创建dialig的能力
  */
 public class DialogActivity extends AppCompatActivity {
 

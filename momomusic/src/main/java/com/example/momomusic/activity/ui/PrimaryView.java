@@ -1,5 +1,7 @@
 package com.example.momomusic.activity.ui;
 
+import com.example.momomusic.fragment.ParentFragment;
+
 import androidx.fragment.app.Fragment;
 
 public interface PrimaryView extends BaseView {
@@ -9,7 +11,7 @@ public interface PrimaryView extends BaseView {
      *
      * @param fragment
      */
-    public void replaceFragment(Fragment fragment);
+    public void replaceFragment(ParentFragment fragment);
 
 
 }

@@ -23,12 +23,13 @@
     <color name="gray">#ECECEC</color>
     <color name="gray_dark">#555555</color>
 
+    <!--一些边框的颜色-->
+
+    <color name="border">#AFAFAF</color>
+    <color name="splitLine_little">#f9f9f9</color>
 
 
     <!--<color name="gray_dark">#555555</color>-->
-
-
-
 
 
 </resources>

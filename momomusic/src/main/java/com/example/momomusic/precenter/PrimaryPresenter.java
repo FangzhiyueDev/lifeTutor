@@ -8,6 +8,7 @@ import com.example.momomusic.R;
 import com.example.momomusic.activity.ParentActivity;
 import com.example.momomusic.activity.PrimaryActivity;
 import com.example.momomusic.activity.ui.PrimaryView;
+import com.example.momomusic.fragment.ParentFragment;
 import com.example.momomusic.tool.XmlParseUtil;
 
 import javax.inject.Inject;
@@ -53,7 +54,7 @@ public class PrimaryPresenter extends BasePresenter<PrimaryView> implements XmlP
             try {
                 Class fragmentClass = Class.forName(value);
                 Fragment fragment = (Fragment) fragmentClass.newInstance();
-                getView().replaceFragment(fragment);
+                getView().replaceFragment((ParentFragment) fragment);
                 has = true;
             } catch (Exception e) {
                 e.printStackTrace();

@@ -2,20 +2,24 @@ package com.example.momomusic.view;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -24,8 +28,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.momomusic.R;
+import com.example.momomusic.activity.MainActivity;
+import com.example.momomusic.activity.PrimaryActivity;
 import com.example.momomusic.dialog.DialogSet;
 import com.example.momomusic.dialog.DialogTool;
+import com.example.momomusic.exception.ViewNotMatchException;
+import com.example.momomusic.fragment.CommentListFragment;
+import com.example.momomusic.model.Comment;
 import com.example.momomusic.tool.ResourceUtil;
 import com.example.momomusic.tool.Tools;
 import com.orhanobut.logger.Logger;
@@ -42,6 +51,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * 用户评论列表
  */
 public class HotCommentList extends LinearLayout implements View.OnClickListener, View.OnTouchListener {
+
+
+    private PrimaryActivity context;//由于我们所有的视图都是通过fragment装载的，fragment都是通过primary装载的
+
+
     public HotCommentList(Context context) {
         this(context, null);
     }
@@ -53,12 +67,22 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
     public HotCommentList(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.setOrientation(LinearLayout.VERTICAL);
-        initView();
 
+        if (!(context instanceof PrimaryActivity)) {
+
+            try {
+                throw new ViewNotMatchException("当前的view没有被正确被装载到primaryActivity，请确定当前的activity是primaryActivity或者子类");
+            } catch (ViewNotMatchException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        this.context = (PrimaryActivity) context;
     }
 
 
-    private int imageHeight = 350;
+    private int imageHeight = 260;
 
     private int padding = 20;
 
@@ -68,7 +92,7 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
     /**
      * TextView是支持\n换行的
      */
-    private void initView(List<Comment> comments) {
+    public void initView(List<Comment> comments) {
 
         imageHeight = Tools.px2dp(imageHeight, getContext());
 
@@ -129,7 +153,7 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
             View shuLine = new View(getContext());
             shuLine.setBackgroundResource(R.color.splitLine);
             shuLine.setId(shuLineId);
-            lp = new RelativeLayout.LayoutParams(1, 60);
+            lp = new RelativeLayout.LayoutParams(2, 60);
             lp.setMargins(30, 0, 30, 0);
             lp.addRule(RelativeLayout.CENTER_VERTICAL);
             lp.addRule(RelativeLayout.LEFT_OF, huifuId);
@@ -161,17 +185,18 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
             content.setText(R.string.comment);
             lp = new RelativeLayout.LayoutParams(-1, -2);
             lp.addRule(RelativeLayout.ALIGN_LEFT, dateId);
-            lp.addRule(RelativeLayout.BELOW, txId);
+            lp.addRule(RelativeLayout.BELOW, dateId);
             lp.setMargins(0, 20, 10, 10);
             content.setLayoutParams(lp);
             rlC.addView(content);
 
             View line = new View(getContext());
             lp = new RelativeLayout.LayoutParams(-1, 1);
-            lp.setMargins(10, 0, 10, 20);
+            lp.setMargins(10, 0, 10, 0);
             line.setBackgroundResource(R.color.splitLine);
             line.setLayoutParams(lp);
-            lp.addRule(RelativeLayout.ABOVE, contentId);
+            lp.addRule(RelativeLayout.BELOW, contentId);
+            rlC.addView(line);
 
             this.addView(rlC, -1, -2);
 
@@ -189,29 +214,13 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
 
         Logger.d("当前的view" + v.getClass().getSimpleName() + "\t" + v.getId());
 
-
-        Rect rect = new Rect();
-
-        v.getGlobalVisibleRect(rect);
-
-        Logger.d("bottom=" + rect.bottom + "\t" + rect.left + "\t" + rect.bottom + "\t" + rect.top);
-
-
-        if (v instanceof Button && v.getId() == btnId) {//代表的的是每一项的点击事件的处理
-
-
-//            return;
-        }
-
         if (v instanceof TextView && v.getId() == huifuId) {//回复的处理
-
-
-//            return;
+            huifuProgress();
+            return;
         }
         if (v instanceof TextView && v.getId() == zanId) {//赞的处理
 
-
-//            return;
+            return;
         }
     }
 
@@ -246,6 +255,7 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
         return;
     }
 
+    private boolean isMove = false;
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -253,38 +263,81 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
         int x = (int) event.getRawX();
         int y = (int) event.getRawY();
 
-        for (Rect rect : data) {
-            if (rect.contains(x, y)) {
-                return true;
-            }
-        }
 
+        switch (event.getAction()) {
 
-        //在这里我们需要 做的是 获得当前的用户的name
+            case MotionEvent.ACTION_DOWN:
 
-        DialogTool<String> dialogTool = new DialogTool<String>() {
-            @Override
-            public void bindView(DialogTool<String> d, Dialog dialog, String... t) {
-
-            }
-        };
-
-        String name = null;
-        for (int i = 0; i < ((ViewGroup) v).getChildCount(); i++) {
-
-            View view = ((ViewGroup) v).getChildAt(i);
-
-            if (view.getId() == nameId && view instanceof TextView) {
-                name = (String) ((TextView) view).getText();
                 break;
-            }
+            case MotionEvent.ACTION_MOVE:
+                isMove = true;
+                break;
+            case MotionEvent.ACTION_UP:
+                if (!isMove) {
+
+                    for (Rect rect : data) {
+                        if (rect.contains(x, y)) {
+                            return true;
+                        }
+                    }
+                    //在这里我们需要 做的是 获得当前的用户的name
+
+                    DialogTool<String> dialogTool = new DialogTool<String>() {
+                        @Override
+                        public void bindView(DialogTool<String> d, Dialog dialog, String... t) {
+
+                            d.setText(R.id.name, t[0]);
+                            d.setClickListener(R.id.huifu, (v) -> {
+                                //回复
+                                huifuProgress();
+                                dialog.cancel();
+                            });
+                            d.setClickListener(R.id.fuzhi, (v) -> {
+                                //复制
+                                //剪贴板
+                                Toast.makeText(getContext(), R.string.fuzhidaojinaqieban, Toast.LENGTH_SHORT).show();
+                                dialog.cancel();
+                            });
+
+                            d.setClickListener(R.id.jubao, (v) -> {
+                                //举报
+                                Toast.makeText(getContext(), R.string.jubaopinglun, Toast.LENGTH_SHORT).show();
+                                dialog.cancel();
+                            });
+                        }
+                    };
+
+                    String name = null;
+                    for (int i = 0; i < ((ViewGroup) v).getChildCount(); i++) {
+
+                        View view = ((ViewGroup) v).getChildAt(i);
+
+                        if (view.getId() == nameId && view instanceof TextView) {
+                            name = (String) ((TextView) view).getText();
+                            break;
+                        }
+                    }
+                    Dialog dialog = dialogTool.getDialog(getContext(), R.layout.dialog_comment_huifu_menu, name + "的评论");
+                    WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+                    lp.windowAnimations = R.style.window_anim;
+                    lp.gravity = Gravity.BOTTOM;
+                    dialog.getWindow().setAttributes(lp);
+                    dialog.show();
+                }
+                isMove = false;
+                break;
         }
-
-
-        dialogTool.getDialog(getContext(), R.layout.dialog_comment, name);
-
-
         return false;
+    }
+
+    private void huifuProgress() {
+
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(CommentListFragment.IS_HUIFU, true);
+        bundle.putSerializable(CommentListFragment.COMMENT, new Comment());
+        context.setBundle(bundle);
+        Tools.startActivity(getContext(), "com.example.momomusic.fragment.CommentListFragment");
+
     }
 
 

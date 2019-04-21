@@ -1,4 +1,4 @@
-package com.example.componentasystemtest.dialog;
+package com.example.componentasystemtest.dialog.simple1;
 
 import android.app.Dialog;
 import android.content.DialogInterface;

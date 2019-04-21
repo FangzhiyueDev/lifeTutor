@@ -127,7 +127,6 @@ public class CardDetailActivity extends ParentActivity {
     private void loadPop() {
 
         windowManager = getWindowManager();
-
         //设置弹出的窗口的高度的值为屏幕大小的3/4
         float height = getResources().getDisplayMetrics().heightPixels * 3 / 4;
 
@@ -141,9 +140,7 @@ public class CardDetailActivity extends ParentActivity {
         eventProgress(view);
         windowManager.addView(view, layoutParams);
 
-
         //设置背景变暗
-
         resetProductParam(view);
     }
 

@@ -3,6 +3,7 @@ package com.example.momomusic.tool;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -20,13 +21,18 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.momomusic.R;
+import com.example.momomusic.activity.MainActivity;
 import com.example.momomusic.activity.ParentActivity;
+import com.example.momomusic.activity.PrimaryActivity;
+import com.example.momomusic.fragment.CommentListFragment;
+import com.example.momomusic.view.HotCommentList;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
+import androidx.annotation.StyleRes;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 public class Tools {
@@ -98,17 +104,14 @@ public class Tools {
     }
 
 
-    public static void loadPop(Context context, EventProgress eventProgress, @LayoutRes int res) {
+    public static void loadPop(Context context, EventProgress eventProgress, int height, @LayoutRes int res, @StyleRes int anim) {
 
         WindowManager windowManager = ((ParentActivity) context).getWindowManager();
-
-        //设置弹出的窗口的高度的值为屏幕大小的3/4
-        float height = context.getResources().getDisplayMetrics().heightPixels / 2;
 
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) height, WindowManager.LayoutParams.TYPE_APPLICATION,
                 WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.TRANSPARENT
         );
-        layoutParams.windowAnimations = R.style.windowanim;
+        layoutParams.windowAnimations = anim;
         layoutParams.gravity = Gravity.BOTTOM;
         View view = LayoutInflater.from(context).inflate(res, null, false);
         eventProgress.eventProgress(view);
@@ -223,6 +226,19 @@ public class Tools {
         Drawable drawable = context.getResources().getDrawable(imgRes);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         textView.setCompoundDrawables(null, drawable, null, null);
+    }
+
+
+    /**
+     * 启动一个path
+     *
+     * @param context
+     * @param path
+     */
+    public static void startActivity(Context context, String path) {
+        Intent intent = new Intent(context, PrimaryActivity.class);
+        intent.putExtra(PrimaryActivity.INTENT_KEY, path);
+        context.startActivity(intent);
     }
 
 

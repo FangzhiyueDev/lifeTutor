@@ -8,6 +8,7 @@ import com.example.momomusic.activity.ui.MusicPlayView;
 import com.example.momomusic.activity.ui.PrimaryView;
 import com.example.momomusic.component.DaggerMainActivityComponent;
 import com.example.momomusic.component.DaggerPrimaryActivityComponent;
+import com.example.momomusic.fragment.ParentFragment;
 import com.example.momomusic.precenter.MusicPlayPresenter;
 import com.example.momomusic.precenter.PrimaryPresenter;
 
@@ -62,11 +63,25 @@ public class PrimaryActivity extends BaseActivity<PrimaryView, PrimaryPresenter>
 
 
     @Override
-    public void replaceFragment(Fragment fragment) {
+    public void replaceFragment(ParentFragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        fragment.setBundle(bundle);
         ft.replace(R.id.replaceArea, fragment);
         ft.commit();
+    }
+
+    /**
+     * 这个bundle的作用是用来实现
+     */
+    private Bundle bundle;
+
+    public void setBundle(Bundle bundle) {
+
+        this.bundle = bundle;
     }
 
 

@@ -10,13 +10,19 @@
     </style>
 
 
-
-
     <style name="windowanim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
         <item name="android:windowExitAnimation">@anim/dialog_exit</item>
     </style>
 
+
+
+
+
+    <style name="window_anim" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/window_enter</item>
+        <item name="android:windowExitAnimation">@anim/window_exit</item>
+    </style>
 
 
     <style name="line" parent="Base.TextAppearance.AppCompat">

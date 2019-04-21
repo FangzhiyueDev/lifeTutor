@@ -9,6 +9,10 @@
     </style>
 
 
+    <style name="window_anim" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/window_enter</item>
+        <item name="android:windowExitAnimation">@anim/window_exit</item>
+    </style>
 
 
     <!--<style name="myMaterial" parent="android:Theme.Material">-->
@@ -26,6 +30,13 @@
     </declare-styleable>
 
 
+    <style name="MyAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:padding">-10dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
 
 
 </resources>

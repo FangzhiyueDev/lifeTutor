@@ -5,9 +5,13 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <com.example.momomusic.view.HotCommentList
+    <!--<com.example.momomusic.view.HotCommentList-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"></com.example.momomusic.view.HotCommentList>-->
+
+    <com.example.momomusic.view.HorizonalScrollMenu
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.example.momomusic.view.HotCommentList>
+        android:layout_height="wrap_content"></com.example.momomusic.view.HorizonalScrollMenu>
 
 
 </LinearLayout>

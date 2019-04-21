@@ -134,9 +134,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         switch (view.getId()) {
 
             case R.id.bofang:
-                Intent intent = new Intent(this, PrimaryActivity.class);
-                intent.putExtra(PrimaryActivity.INTENT_KEY, "com.example.momomusic.fragment.MusicPlayFragment");
-                startActivity(intent);
+                Tools.startActivity(this, "com.example.momomusic.fragment.MusicPlayFragment");
                 break;
         }
     }

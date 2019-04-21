@@ -1,6 +1,8 @@
 package com.example.momomusic.model;
 
-public class Comment extends User {
+import java.io.Serializable;
+
+public class Comment extends User implements Serializable {
 
 
     private String commentContent;
@@ -25,6 +27,8 @@ public class Comment extends User {
         this.date = date;
     }
 
+    public Comment() {
+    }
 
     public String getCommentContent() {
         return commentContent;
@@ -41,4 +45,6 @@ public class Comment extends User {
     public void setDate(String date) {
         this.date = date;
     }
+
+
 }

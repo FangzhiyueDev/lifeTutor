@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.componentasystemtest.dialog.MyDialogFragment"
+        android:name="com.example.componentasystemtest.dialog.simple1.MyDialogFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>
 

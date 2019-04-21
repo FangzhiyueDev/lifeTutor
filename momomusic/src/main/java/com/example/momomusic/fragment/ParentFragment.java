@@ -124,5 +124,13 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
 
     public abstract void onSucess(Response response, String what, String... backData) throws IOException;
 
+    private Bundle bundle;
 
+    public void setBundle(Bundle bundle) {
+        this.bundle = bundle;
+    }
+
+    public Bundle getBundle() {
+        return bundle;
+    }
 }

@@ -1,14 +1,13 @@
 package com.example.momomusic.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.momomusic.R;
-import com.example.momomusic.activity.ui.ZhiBoView;
-import com.example.momomusic.precenter.ZhiBoPresenter;
+import com.example.momomusic.activity.ui.CommentListView;
+import com.example.momomusic.precenter.CommentListPresenter;
 
 import java.io.IOException;
 
@@ -16,14 +15,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import okhttp3.Response;
 
-public class ZhiBoFragment extends BaseFragment<ZhiBoView, ZhiBoPresenter> {
-    private static final String TAG = "test";
+public class CommentListFragment extends BaseFragment<CommentListView, CommentListPresenter> {
+
+    /**
+     * 是不是回复别人
+     */
+    public static final String IS_HUIFU = "huifu";
+    /**
+     * 被评论用户的key 值是一个#{{@link com.example.momomusic.model.Comment}}
+     */
+    public static final String COMMENT = "comment";
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_zhibo,null);
+        return inflater.inflate(R.layout.fragment_comment_list, null);
     }
 
 
@@ -32,20 +39,19 @@ public class ZhiBoFragment extends BaseFragment<ZhiBoView, ZhiBoPresenter> {
         super.onViewCreated(view, savedInstanceState);
     }
 
-
     @Override
-    public ZhiBoPresenter createPresenter() {
+    public CommentListPresenter createPresenter() {
         return null;
     }
 
     @Override
-    public ZhiBoView createView() {
+    public CommentListView createView() {
         return null;
     }
 
     @Override
     protected void loadData() {
-        Log.d(TAG, "loadData: ZhiBoFragment");
+
     }
 
     @Override

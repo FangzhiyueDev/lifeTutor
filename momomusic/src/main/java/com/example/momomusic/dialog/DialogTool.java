@@ -4,12 +4,17 @@ package com.example.momomusic.dialog;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;;
 import android.widget.TextView;
+
+import com.example.momomusic.R;
 
 import androidx.annotation.LayoutRes;
 
@@ -39,6 +44,29 @@ public abstract class DialogTool<T> implements DialogSet {
 
 
         bindView(this, dialog, t);
+        return dialog;
+    }
+
+    /**
+     * @param context   上下文
+     * @param height    当前dialog 的高度
+     * @param viewResId 布局的id
+     * @param t         参数
+     * @return dialog
+     */
+    public Dialog getDialogWithWidthScreen(Context context, int height, @LayoutRes int viewResId, T... t) {
+
+        this.context = context;
+        Dialog dialog = new Dialog(context);
+        dialog.setCancelable(true);
+        dialog.setContentView(viewResId);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(context.getResources().getDisplayMetrics().widthPixels, (int) height, WindowManager.LayoutParams.TYPE_APPLICATION,
+                WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
+        );
+        layoutParams.gravity = Gravity.BOTTOM;
+        layoutParams.windowAnimations = R.style.window_anim;//小心使用的style错误
+
+        dialog.getWindow().setAttributes(layoutParams);
         return dialog;
     }
 
