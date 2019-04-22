@@ -37,10 +37,10 @@
     </RelativeLayout>
 
 
-    <com.example.momomusic.view.Adapter.MyViewPager
+    <com.example.momomusic.view.MyViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.example.momomusic.view.Adapter.MyViewPager>
+        android:layout_height="match_parent"></com.example.momomusic.view.MyViewPager>
 
 
 </LinearLayout>

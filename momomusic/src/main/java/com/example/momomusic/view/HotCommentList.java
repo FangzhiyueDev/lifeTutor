@@ -267,7 +267,7 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
         switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-
+                isMove = false;//避免ACTION_UP没有触发导致的点击没有反应的bug
                 break;
             case MotionEvent.ACTION_MOVE:
                 isMove = true;

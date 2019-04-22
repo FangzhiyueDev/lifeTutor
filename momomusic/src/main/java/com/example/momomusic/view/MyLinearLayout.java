@@ -72,7 +72,7 @@ public class MyLinearLayout extends LinearLayout {
     /**
      * view的解析的过程的回调接口
      */
-    interface ViewInflater {
+    public interface ViewInflater {
         void viewInflating(View view);
 
         void viewInflaterComplete();

@@ -103,4 +103,15 @@
     <string name="hq">HQ</string>
     <string name="beatrich">Beatrich | Supperstar</string>
     <string name="tuijiangedanliebiao">推荐歌单</string>
+    <string name="howlong">How Long</string>
+    <string name="charlie">Charlie Puth</string>
+    <string name="xiaofangfangbuhuang">小芳芳不慌</string>
+    <string name="duoshaoren">1234人观看</string>
+    <string name="zhangyunhan">张韵涵的这首《阿叼》,唱出了别样的深情，百听不厌</string>
+    <string name="shijian">01:04</string>
+    <string name="yanggezuocai">杨哥做菜</string>
+    <string name="rensuo">0</string>
+    <string name="qishiqi">77</string>
+
+
 </resources>

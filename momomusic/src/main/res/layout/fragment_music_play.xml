@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
 
         <!--实现的是相片以及以上部分-->
         <com.example.momomusic.view.PercentLinearLayout
@@ -333,7 +331,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@android:color/white">
 
                 <Button
                     android:layout_width="match_parent"
@@ -349,9 +348,10 @@
             <androidx.percentlayout.widget.PercentRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?android:attr/selectableItemBackground"
+                android:background="@drawable/button_ripple_no_corner"
                 android:clickable="true"
-                android:paddingLeft="10dp">
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp">
 
 
                 <androidx.cardview.widget.CardView
@@ -401,7 +401,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp">
+                android:layout_height="35dp"
+                android:background="@android:color/white">
 
                 <Button
                     android:layout_width="match_parent"
@@ -429,7 +430,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?android:attr/selectableItemBackground"
+                android:background="@drawable/button_ripple_no_corner"
                 android:clickable="true">
 
                 <ImageView
@@ -486,7 +487,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?android:attr/selectableItemBackground"
+                android:background="@drawable/button_ripple_no_corner"
                 android:clickable="true">
 
                 <ImageView
@@ -543,7 +544,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?android:attr/selectableItemBackground"
+                android:background="@drawable/button_ripple_no_corner"
                 android:clickable="true">
 
                 <ImageView
@@ -997,17 +998,14 @@
 
         </com.example.momomusic.view.PercentLinearLayout>
 
-
     </androidx.core.widget.NestedScrollView>
 
-    <RelativeLayout
+    <com.example.momomusic.view.MeasureProgressReleativeLayout
+        android:id="@+id/bofangmenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@android:color/white"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="20dp"
         android:paddingBottom="10dp">
 
         <View
@@ -1015,12 +1013,53 @@
             android:layout_width="match_parent"></View>
 
         <ImageView
+            android:id="@+id/album10"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/gedan2" />
 
+        <TextView
+            android:id="@+id/album10tit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/album10"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/album10"
+            android:text="@string/howlong" />
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/album10tit"
+            android:layout_alignBottom="@id/album10"
+            android:layout_marginBottom="2dp"
+            android:text="@string/charlie" />
+
+        <ImageButton
+            android:id="@+id/xiayiqu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_xiayiqu101" />
+
+        <ImageButton
+            android:id="@+id/bofang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/xiayiqu"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_bofang" />
+
+
+    </com.example.momomusic.view.MeasureProgressReleativeLayout>
 
 
 </FrameLayout>

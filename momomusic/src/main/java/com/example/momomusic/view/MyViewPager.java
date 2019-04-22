@@ -1,4 +1,4 @@
-package com.example.momomusic.view.Adapter;
+package com.example.momomusic.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

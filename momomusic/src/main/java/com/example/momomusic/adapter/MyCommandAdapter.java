@@ -11,6 +11,12 @@ import java.util.ArrayList;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+
+/**
+ * 这是一个通用的RecyclerView的adapter
+ *
+ * @param <T>
+ */
 public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommandAdapter.MyViewHolder> {
 
     private ArrayList<T> data;
@@ -24,7 +30,7 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
         this.data = data;
     }
 
-    public abstract <T> void bind(MyViewHolder holder, T t);
+    public abstract void bind(MyViewHolder holder, T t);
 
 
     @Override
@@ -32,10 +38,10 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
 
         View view = LayoutInflater.from(context).inflate(resLayout, parent, false);
 
-        myViewHolder = new MyViewHolder(view) {
+        myViewHolder = new MyViewHolder<T>(view) {
 
             @Override
-            public <T> void bind(MyViewHolder holder, T t) {
+            public void bind(MyViewHolder holder, T t) {
                 MyCommandAdapter.this.bind(holder, t);
             }
         };
@@ -56,7 +62,7 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
         return data.size();
     }
 
-    public static abstract class MyViewHolder extends RecyclerView.ViewHolder {
+    public static abstract class MyViewHolder<T> extends RecyclerView.ViewHolder {
 
         View view = null;
 
@@ -64,7 +70,7 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
             super(itemView);
         }
 
-        public abstract <T> void bind(MyViewHolder holder, T t);
+        public abstract void bind(MyViewHolder holder, T t);
 
 
         public void setText(int viewId, String text) {

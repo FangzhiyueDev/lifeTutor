@@ -8,8 +8,6 @@
     加p,代表的是父布局的位置  因为这个是dialog，所以父布局就是屏幕的大小
     -->
 
-    <translate
-        android:fromYDelta="100%p"
-        android:toYDelta="0"></translate>
+    <translate android:fromYDelta="100%p"></translate>
 
 </set>

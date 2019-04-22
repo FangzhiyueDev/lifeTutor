@@ -2,6 +2,7 @@ package com.example.momomusic.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +10,19 @@ import android.view.ViewGroup;
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.ZhiBoView;
 import com.example.momomusic.precenter.ZhiBoPresenter;
+import com.example.momomusic.view.Adapter.MyFragmentPageAdapter;
+import com.google.android.material.tabs.TabLayout;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.Response;
 
 public class ZhiBoFragment extends BaseFragment<ZhiBoView, ZhiBoPresenter> {
@@ -23,13 +32,60 @@ public class ZhiBoFragment extends BaseFragment<ZhiBoView, ZhiBoPresenter> {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_zhibo,null);
+
+        View view = inflater.inflate(R.layout.fragment_zhibo, null);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
 
+    private String[] tabTitle;
+
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
+
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
+
+    private List<Fragment> fragments;
+
+    private MyFragmentPageAdapter myPageAdapter;
+
+    private int defaultSelectIndex = 0;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        fragments = new ArrayList<>();
+        fragments.add(new ZhiBoTuiJianFragment());
+        fragments.add(new ZhiBoNvShenFragment());//精选
+        fragments.add(new ZhiBoNanShenFragment());
+        fragments.add(new ZhiBoXinXiuFragment());
+        fragments.add(new ZhiBoShenyinKongFragment());
+        fragments.add(new ZhiBoJingWuMenFragment());
+        fragments.add(new ZhiBoDuJiaFragment());
+        fragments.add(new ZhiBoBeiJingFragment());
+        fragments.add(new ZhiBoPKFragment());
+
+
+        tabTitle = getResources().getStringArray(R.array.zhibobiaoti);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        /**
+         * 记住，这里只能使用getChildFragmentManager()
+         */
+        myPageAdapter = new MyFragmentPageAdapter(getChildFragmentManager(), fragments);
+        viewPager.setAdapter(myPageAdapter);
+        viewPager.setCurrentItem(defaultSelectIndex);
+        for (int i = 0; i < tabTitle.length; i++) {
+            tabLayout.addTab(tabLayout.newTab());
+        }
+
+
+        tabLayout.setupWithViewPager(viewPager);
+        for (int i = 0; i < tabTitle.length; i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setText(tabTitle[i]);
+        }
     }
 
 

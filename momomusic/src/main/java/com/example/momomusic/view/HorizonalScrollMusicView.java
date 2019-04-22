@@ -45,7 +45,7 @@ public class HorizonalScrollMusicView extends HorizontalScrollView {
 
 
     private LinearLayout linearLayout;
-    private int albumHeight = 900;
+    private int albumHeight = 400;
     private int margin = 40;
 
     private int row = 2;
