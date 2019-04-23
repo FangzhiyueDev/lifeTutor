@@ -6,10 +6,12 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.ZhiBoView;
 import com.example.momomusic.precenter.ZhiBoPresenter;
+import com.example.momomusic.tool.Tools;
 import com.example.momomusic.view.Adapter.MyFragmentPageAdapter;
 import com.google.android.material.tabs.TabLayout;
 
@@ -23,6 +25,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Response;
 
 public class ZhiBoFragment extends BaseFragment<ZhiBoView, ZhiBoPresenter> {
@@ -52,6 +55,9 @@ public class ZhiBoFragment extends BaseFragment<ZhiBoView, ZhiBoPresenter> {
     private MyFragmentPageAdapter myPageAdapter;
 
     private int defaultSelectIndex = 0;
+
+    @BindView(R.id.personal)
+    ImageButton personal;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -86,6 +92,11 @@ public class ZhiBoFragment extends BaseFragment<ZhiBoView, ZhiBoPresenter> {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setText(tabTitle[i]);
         }
+    }
+
+    @OnClick(R.id.personal)
+    public void onClick(View view) {
+        Tools.startActivity(getActivity(), "com.example.momomusic.fragment.PersonalCenterFragment");
     }
 
 

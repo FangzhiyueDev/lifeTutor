@@ -29,7 +29,7 @@ public class CommandBar extends PercentLinearLayout {
     private View view;
     private ImageButton ibtn;
     private TextView barTitle;
-    public Button backupPage;
+    public ImageButton backupPage;
 
     private void init() {
 

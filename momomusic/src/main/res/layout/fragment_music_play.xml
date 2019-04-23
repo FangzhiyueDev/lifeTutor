@@ -983,18 +983,18 @@
                             android:text="@string/buguanduoshao"
                             android:textColor="@android:color/black" />
 
-
                     </RelativeLayout>
                 </LinearLayout>
-
-
             </com.example.momomusic.view.MyLinearLayout>
-
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"
+                android:layout_height="?android:attr/actionBarSize"
                 android:background="@color/splitLine_little"></View>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"></View>
 
         </com.example.momomusic.view.PercentLinearLayout>
 

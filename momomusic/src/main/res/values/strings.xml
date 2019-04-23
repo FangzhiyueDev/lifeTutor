@@ -112,6 +112,27 @@
     <string name="yanggezuocai">杨哥做菜</string>
     <string name="rensuo">0</string>
     <string name="qishiqi">77</string>
+    <string name="kaitonghuiyuan">开通会员</string>
+    <string name="id42322">ID:473719676</string>
+    <string name="xinren">新人</string>
+    <string name="gerenzhuye">个人主页</string>
+    <string name="lin">0</string>
+    <string name="guanzhu">关注</string>
+    <string name="fenshi">粉丝</string>
+    <string name="wodeguanli">我的管理</string>
+    <string name="xingbi">星币:0</string>
+    <string name="chongzhi">充值</string>
+    <string name="xingzhuan">星钻:0</string>
+    <string name="duihuan">兑换</string>
+    <string name="wodezuojia">我的座驾</string>
+    <string name="wuzuojia">无座驾</string>
+    <string name="wodexinxi">我的信息</string>
+    <string name="sangcheng">商城</string>
+    <string name="jiazhangkongzhi">家长控制模式</string>
+    <string name="yiguanbi">已关闭</string>
+    <string name="gerenzhongxin">个人中心</string>
+    <string name="fenshisuo">粉丝数:0</string>
+    <string name="bianji">编辑</string>
 
 
 </resources>

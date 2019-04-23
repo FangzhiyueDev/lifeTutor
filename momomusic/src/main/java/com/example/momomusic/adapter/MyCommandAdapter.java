@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,6 +66,7 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
     public static abstract class MyViewHolder<T> extends RecyclerView.ViewHolder {
 
         View view = null;
+        List<View> views = new ArrayList<>();
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -74,13 +76,40 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
 
 
         public void setText(int viewId, String text) {
-
             View viewText = this.view.findViewById(viewId);
+            views.add(viewText);
             if (viewText instanceof TextView) {
                 ((TextView) viewText).setText(text);
             }
         }
 
+
+        /**
+         * 获得缓存的view
+         *
+         * @param id
+         * @return
+         */
+        private View getCahceView(int id) {
+            View view = null;
+            for (int i = 0; i < views.size(); i++) {
+                if (views.get(i).getId() == id) {
+                    view = views.get(i);
+                }
+            }
+            return view;
+        }
+
+
+        public void setClickListener(int textId, View.OnClickListener clickListener) {
+            View view;
+            view = getCahceView(textId);
+            if (view == null) {
+                view = this.view.findViewById(textId);
+                view.setOnClickListener(clickListener);
+            }
+
+        }
     }
 
 

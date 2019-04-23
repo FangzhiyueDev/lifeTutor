@@ -2,6 +2,7 @@ package com.xiaofangfang.rice2_verssion.Fragment.subFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -99,6 +100,11 @@ public class HandSaleMainFragment extends ParentFragment implements SaleOpration
      */
     private boolean isFlush = true;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Nullable
     @Override

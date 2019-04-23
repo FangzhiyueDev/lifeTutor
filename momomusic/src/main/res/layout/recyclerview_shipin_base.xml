@@ -2,8 +2,9 @@
 <androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
 
     <FrameLayout
         android:id="@+id/playContainer"
@@ -12,10 +13,18 @@
         app:layout_aspectRatio="170%"
         app:layout_widthPercent="100%">
 
-        <VideoView
-            android:id="@+id/video"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <!--
+        会照成界面的卡顿
+        下面我们提出新的实现方案
+
+         如果用户点击了里面的项，就动态的替换里面的video，并播放，因为在播放的情况下，用户一般不会滑动，当然也是存在滑动的
+         当在播放的情况下，如果产生了滑动，同时当前播放的界面的视频不可见的情况下，就去释放掉内存
+        -->
+
+        <!--<VideoView-->
+        <!--android:id="@+id/video"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
         <ImageView
             android:layout_width="match_parent"
@@ -87,6 +96,7 @@
         android:src="@drawable/ic_yuandiancaidan" />
 
     <TextView
+        android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/menu"
@@ -98,10 +108,14 @@
         android:text="@string/rensuo" />
 
     <TextView
-        android:text="@string/qishiqi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/menu"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/info"
+        android:drawableLeft="@drawable/ic_icon_good_24"
+        android:gravity="center"
+        android:text="@string/qishiqi" />
 
 
 </androidx.percentlayout.widget.PercentRelativeLayout>

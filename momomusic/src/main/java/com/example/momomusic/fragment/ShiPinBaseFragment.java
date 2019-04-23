@@ -53,10 +53,33 @@ public class ShiPinBaseFragment extends ParentFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        myCommandAdapter = new MyCommandAdapter<Video>(getContext(), R.layout.recyclerview_shipin_base, videos) {
+        videos.add(new Video());
+        videos.add(new Video());
+        videos.add(new Video());
+        videos.add(new Video());
+        videos.add(new Video());
+        videos.add(new Video());
+        videos.add(new Video());
 
+        /**
+         会照成界面的卡顿
+         下面我们提出新的实现方案
+
+         如果用户点击了里面的项，就动态的替换里面的video，并播放，因为在播放的情况下，用户一般不会滑动，当然也是存在滑动的
+         当在播放的情况下，如果产生了滑动，同时当前播放的界面的视频不可见的情况下，就去释放掉内存
+
+         <!--<VideoView-->
+         <!--android:id="@+id/video"-->
+         <!--android:layout_width="match_parent"-->
+         <!--android:layout_height="match_parent" />-->
+         **/
+
+
+        myCommandAdapter = new MyCommandAdapter<Video>(getContext(), R.layout.recyclerview_shipin_base, videos) {
             @Override
             public void bind(MyViewHolder holder, Video video) {
+
+//                holder.setClickListener(R.id.);
 
             }
         };

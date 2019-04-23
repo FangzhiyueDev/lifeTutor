@@ -4,5 +4,7 @@
 <fragments>
     <fragment>com.example.momomusic.fragment.MusicPlayFragment</fragment>
     <fragment>com.example.momomusic.fragment.CommentListFragment</fragment>
+    <fragment>com.example.momomusic.fragment.PersonalCenterFragment</fragment>
+    <fragment>com.example.momomusic.fragment.PersonalIndexPageFragment</fragment>
 </fragments>
 
