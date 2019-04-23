@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,29 +48,6 @@ public abstract class DialogTool<T> implements DialogSet {
         return dialog;
     }
 
-    /**
-     * @param context   上下文
-     * @param height    当前dialog 的高度
-     * @param viewResId 布局的id
-     * @param t         参数
-     * @return dialog
-     */
-    public Dialog getDialogWithWidthScreen(Context context, int height, @LayoutRes int viewResId, T... t) {
-
-        this.context = context;
-        Dialog dialog = new Dialog(context);
-        dialog.setCancelable(true);
-        dialog.setContentView(viewResId);
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(context.getResources().getDisplayMetrics().widthPixels, (int) height, WindowManager.LayoutParams.TYPE_APPLICATION,
-                WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
-        );
-        layoutParams.gravity = Gravity.BOTTOM;
-        layoutParams.windowAnimations = R.style.window_anim;//小心使用的style错误
-
-        dialog.getWindow().setAttributes(layoutParams);
-        return dialog;
-    }
-
 
     public abstract void bindView(DialogTool<T> d, Dialog dialog, T... t);
 
@@ -108,6 +86,24 @@ public abstract class DialogTool<T> implements DialogSet {
     public void setVisibility(int id, int visiable) {
         View view1 = view.findViewById(id);
         view1.setVisibility(visiable);
+    }
+
+    /**
+     * 使用这个方法的同时,传入的dialog必须设置Theme.Dialog的主题
+     *
+     * <style name="DialogTheme" parent="@android:style/Theme.Dialog">
+     * <item name="android:background">@android:color/transparent</item>
+     * <item name="android:windowBackground">@android:color/transparent</item>
+     *
+     * </style>
+     *
+     * @param dialog
+     */
+    public void setWidthWithScreen(Dialog dialog) {
+        WindowManager windowManager = dialog.getWindow().getWindowManager();
+        Display display = windowManager.getDefaultDisplay();
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = (int) (display.getWidth());//设置宽度dialog.getWindow().setAttributes(lp);
     }
 
 

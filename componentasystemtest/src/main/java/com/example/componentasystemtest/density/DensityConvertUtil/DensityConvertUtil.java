@@ -14,7 +14,7 @@ public class DensityConvertUtil {
     public static int px2dpi(Context context, int pxValue) {
 
         int density = (int) context.getResources().getDisplayMetrics().density;
-        return pxValue / density;
+        return (int) (pxValue / density + 0.5f);
     }
 
     /**
@@ -26,7 +26,7 @@ public class DensityConvertUtil {
      */
     public static int dpi2px(Context context, int dpiValue) {
         int density = (int) context.getResources().getDisplayMetrics().density;
-        return dpiValue * density;
+        return (int) (dpiValue * density + 0.5f);
     }
 
 
@@ -38,7 +38,7 @@ public class DensityConvertUtil {
      */
     public static int sp2px(Context context, int spValue) {
         int spDensity = (int) context.getResources().getDisplayMetrics().scaledDensity;
-        return spValue * spDensity;
+        return (int) (spValue * spDensity + 0.5f);
     }
 
 

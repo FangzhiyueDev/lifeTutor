@@ -64,6 +64,7 @@ public class AsyncTask {
                 }
             }
         };
+
         handler.sendEmptyMessage(20);
 
     }
@@ -98,11 +99,9 @@ public class AsyncTask {
                 };
                 handler.sendEmptyMessage(20);
                 //如果采用传统的方法 ，那么我们需要自己在handler创建的之前调用 Looper.prepare();
-                //在创建之后
+                //在创建之后Loop.loop(),使用HandlerThread包装了handler和Thread,所以不需要我们再创建
             }
         }).start();
-
-
     }
 
 
@@ -117,40 +116,37 @@ public class AsyncTask {
             protected void onQueryComplete(int token, Object cookie, Cursor cursor) {
                 super.onQueryComplete(token, cookie, cursor);
 
-                if (cursor == null) {
+                if (cursor == null || cursor.getCount() == 0) {
                     Toast.makeText(context, "没有找到数据", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-//                while (cursor.moveToNext()) {
-//
-//                    String url = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-//                    String name = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DESCRIPTION));
-//
-//                    Log.d("test", "onQueryComplete:===== " + url + " ---->" + name);
-//                }
-
-
-                VideoView videoView = context.findViewById(R.id.video);
-
-
                 while (cursor.moveToNext()) {
-                    String title = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.TITLE));
-                    int size = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.SIZE));
-                    int duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
-                    String path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
-                    Log.d("test", "onQueryComplete: " + title + " " + size + " " + duration + " " + path);
 
-
-                    //代码做演示，比较垃圾
-                    MediaController mediaController = new MediaController(context);
-                    mediaController.setAnchorView(videoView);
-                    mediaController.show();
-
-
-                    videoView.setVideoPath(path);
-
+                    String url = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                    String name = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DESCRIPTION));
+                    Log.d("test", "onQueryComplete:===== " + url + " ---->" + name);
                 }
+
+
+//                VideoView videoView = context.findViewById(R.id.video);
+//
+//
+//                while (cursor.moveToNext()) {
+//                    String title = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.TITLE));
+//                    int size = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.SIZE));
+//                    int duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
+//                    String path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
+//                    Log.d("test", "onQueryComplete: " + title + " " + size + " " + duration + " " + path);
+//
+//                    //代码做演示，比较垃圾
+//                    MediaController mediaController = new MediaController(context);
+//                    mediaController.setAnchorView(videoView);
+//                    mediaController.show();
+//
+//                    videoView.setVideoPath(path);
+//
+//                }
 
                 cursor.close();
             }
@@ -182,14 +178,8 @@ public class AsyncTask {
                 new String[]{MediaStore.Video.Media.TITLE,//视频名称
                         MediaStore.Video.Media.SIZE, MediaStore.Video.Media.DURATION, MediaStore.Video.Media.DATA},//大小、时长、视频路径
                 null, null, null);
-        
+
     }
-
-
-
-
-
-
 
 
 }

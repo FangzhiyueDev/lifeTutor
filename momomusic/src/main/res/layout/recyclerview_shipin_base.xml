@@ -93,7 +93,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:background="?android:attr/selectableItemBackground"
-        android:src="@drawable/ic_yuandiancaidan" />
+        android:src="@drawable/ic_yuandiancaidan"
+        android:tint="@color/gray_dark" />
 
     <TextView
         android:id="@+id/info"
@@ -104,7 +105,7 @@
         android:layout_toLeftOf="@id/menu"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
-        android:drawableLeft="@drawable/ic_pinglun"
+        android:drawableLeft="@drawable/ic_pinglun_20"
         android:text="@string/rensuo" />
 
     <TextView
@@ -113,7 +114,7 @@
         android:layout_alignTop="@id/menu"
         android:layout_marginRight="10dp"
         android:layout_toLeftOf="@+id/info"
-        android:drawableLeft="@drawable/ic_icon_good_24"
+        android:drawableLeft="@drawable/ic_icon_good_20"
         android:gravity="center"
         android:text="@string/qishiqi" />
 

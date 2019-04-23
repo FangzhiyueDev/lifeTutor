@@ -7,29 +7,7 @@
     android:orientation="vertical">
 
 
-    <com.example.momomusic.view.MeasureProgressReleativeLayout
-        android:layout_width="match_parent"
-        android:id="@+id/head"
-        android:layout_height="?android:attr/actionBarSize">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/ic_upstep" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/heibaixiangpian"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
-    </com.example.momomusic.view.MeasureProgressReleativeLayout>
-
-    <androidx.core.widget.NestedScrollView
+    <com.example.momomusic.view.InterceptScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -40,6 +18,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/cardHead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/gray_dark">
@@ -104,6 +83,15 @@
                     android:layout_marginBottom="15dp"
                     android:text="@string/bianji"
                     android:textSize="18sp" />
+
+
+                <View
+                    android:id="@+id/mengban"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:alpha="0"
+                    android:background="@color/gray"></View>
+
             </RelativeLayout>
 
 
@@ -111,20 +99,53 @@
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:tabBackground="@android:color/white"
                 app:tabIndicatorColor="@android:color/holo_red_dark"
                 app:tabIndicatorHeight="2dp"
                 app:tabMode="fixed"
                 app:tabSelectedTextColor="@android:color/black"
                 app:tabTextColor="@color/gray_dark"></com.google.android.material.tabs.TabLayout>
 
-            <androidx.viewpager.widget.ViewPager
+            <com.example.momomusic.view.InterceptViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
+                android:layout_height="wrap_content"></com.example.momomusic.view.InterceptViewPager>
 
         </com.example.momomusic.view.PercentLinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </com.example.momomusic.view.InterceptScrollView>
+
+
+    <com.example.momomusic.view.MeasureProgressReleativeLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@android:color/white"
+        android:visibility="invisible">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_upstep" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/heibaixiangpian"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dark"></View>
+
+    </com.example.momomusic.view.MeasureProgressReleativeLayout>
 
 
 </FrameLayout>

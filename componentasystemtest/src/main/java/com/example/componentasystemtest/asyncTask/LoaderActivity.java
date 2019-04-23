@@ -31,7 +31,6 @@ public class LoaderActivity extends AppCompatActivity implements LoaderManager.L
                 //该方法运行在子线程中
                 SystemClock.sleep(5000);
                 return "返回了数据";
-
             }
 
 

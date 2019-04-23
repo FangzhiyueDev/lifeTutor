@@ -45,12 +45,12 @@
         <activity android:name=".asyncTask.LoaderActivity" />
         <activity android:name=".asyncTask.AsyncActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".surface.Demo3Activity" />
         <activity android:name=".viewDragHelper.MyActivity" />
@@ -106,11 +106,11 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".dialog.Simple2.DialogWidthTest">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".serializable.fragmentSerializableTest.FragmentSerizlizableActivity" />
 
@@ -128,5 +128,6 @@
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
 
 </manifest>
