@@ -32,7 +32,7 @@ public class CompressUtil {
      * @param reqHeight
      * @return
      */
-    public static int calculateInSampleSize(
+    private static int calculateInSampleSize(
             BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
         final int height = options.outHeight;
@@ -94,7 +94,13 @@ public class CompressUtil {
 
         public BitmapWorkerTask(ImageView imageView, Resources resources, LruCache<String, Bitmap> lruCache) {
             // Use a WeakReference to ensure the ImageView can be garbage collected
-            imageViewReference = new WeakReference(imageView);
+            imageViewReference = new WeakReference(imageView);//使用一个弱引用,来确保imageView能够正常的被垃圾回收器回收
+
+            /**
+             * 我们下面做出这样的猜测,因为我们的imageView受到activity的生命周期的影响,很可能会被回收,但是如果在这个函数中使用强引用,那么这个imageview因为强引用导致一种情况
+             * 当我们的activity被销毁的时候,imageview因为这个函数的强引用,导致不能正常被回收  ,使用弱引用使得不在影响imageview的生命周期
+             */
+
             requestWidth = imageView.getWidth();
             requestHeight = imageView.getHeight();
             this.resources = resources;

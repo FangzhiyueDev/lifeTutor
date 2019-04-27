@@ -108,6 +108,9 @@ public class MySurface extends SurfaceView implements SurfaceHolder.Callback, Ru
             double value = Math.sin(i * Math.PI / 180) * 100;
             canvas.drawCircle(startX + i, (float) (startY + value), 10f, paint);
         }
+
+
+
     }
 
 

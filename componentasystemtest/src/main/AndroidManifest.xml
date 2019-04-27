@@ -3,34 +3,41 @@
     package="com.example.componentasystemtest">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".TabedActivity.TabedActivity"
+            android:label="@string/title_activity_tabed"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MediaPlayer.MediaPlayerActivity">
 
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
         </activity>
         <activity android:name=".photoZip.PhotoZipActivity">
 
-
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
+
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
-
 
         </activity>
         <activity android:name=".ScreenTest.ScreenTestActivity">
@@ -42,15 +49,20 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".asyncTask.LoaderActivity" />
+        <activity android:name=".asyncTask.LoaderActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+        </activity>
         <activity android:name=".asyncTask.AsyncActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".surface.Demo3Activity" />
         <activity android:name=".viewDragHelper.MyActivity" />
@@ -99,20 +111,67 @@
         </activity>
         <activity android:name=".JobScheduler.simple2.JobSchedulerActivity" />
         <activity android:name=".dialog.simple1.DialogActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".dialog.Simple2.DialogWidthTest">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".serializable.fragmentSerializableTest.FragmentSerizlizableActivity" />
+        <activity android:name=".musicPlay.simple2.MusicListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".musicPlay.simple3.MediaPlayerActivity">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".serializable.fragmentSerializableTest.FragmentSerizlizableActivity" />
+        <activity android:name=".appProtectedAlive.doubleProcessProtected.AppProtectedActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".appProtectedAlive.onePixelActivity.SinglePixelActivity" />
+        <activity android:name=".appProtectedAlive.onePixelActivity.OnePixelActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".appProtectedAlive.nullNotification.NullNotificationActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".appProtectedAlive.jobScheduler.JobActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
 
 
         <!-- exported  这个地方必须是True，否则外界的应用无法启动该JobService -->
@@ -125,9 +184,30 @@
             android:name=".JobScheduler.simple2.MyJobService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-    </application>
+        <service android:name=".musicPlay.simple2.PlayService" />
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+
+        <!--
+        本地系统服务
+        -->
+        <service android:name=".appProtectedAlive.doubleProcessProtected.LocalService" />
+
+        <!--
+        远程service
+        -->
+        <service
+            android:name=".appProtectedAlive.doubleProcessProtected.RemoteService"
+            android:process=":remote" />
+        <service android:name=".appProtectedAlive.nullNotification.KeepLiveService$InnerService" />
+        <service android:name=".appProtectedAlive.nullNotification.KeepLiveService" />
+
+
+        <service
+            android:name=".appProtectedAlive.jobScheduler.JobActivity$MyJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"></service>
+
+
+    </application>
 
 </manifest>

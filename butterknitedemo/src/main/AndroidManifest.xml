@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
 
-
     <application
         android:allowBackup="true"
         android:appComponentFactory="fangzhiyue"
@@ -68,11 +67,19 @@
         <activity android:name=".mvp.simple6.Simple6" />
         <activity android:name=".mvp.simple3.ui.Simple3" />
         <activity android:name=".NetworkEncopeDemo.LoginActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".NetworkEncopeSuper.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

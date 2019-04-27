@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.os.Message;
 
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -101,7 +103,7 @@ public class NativeImageLoader {
                 @Override
                 public void run() {
                     //先获取图片的缩略图
-                    Bitmap mBitmap = decodeThumbBitmapForNet2(path,
+                    Bitmap mBitmap = decodeThumbBitmapForNet(path,
                             mPoint == null ? 0 : mPoint.x, mPoint == null ? 0 : mPoint.y);
                     Message msg = mHander.obtainMessage();
                     msg.obj = mBitmap;
@@ -116,6 +118,14 @@ public class NativeImageLoader {
 
     }
 
+    /**
+     * 同样用来对文件进行压缩的实现,但是只能压缩图片占用的磁盘大小,不能改变占用的内存大小
+     *
+     * @param path
+     * @param width
+     * @param height
+     * @return
+     */
     public Bitmap decodeThumbBitmapForNet2(String path,
                                            int width, int height) {
 
@@ -145,14 +155,14 @@ public class NativeImageLoader {
 
         float curentRate = 0f;
 
-        if (bitHeight > height) {//图片较大
+        if (bitHeight > height) {//图片较大 我们取较大的比例
             float rate = bitHeight / height;
             float rate1 = bitWidth / width;
             curentRate = Math.max(rate, rate1);
             bitHeight /= curentRate;
             bitWidth /= curentRate;
 
-        } else if (bitHeight < height) {
+        } else if (bitHeight < height) { //图片较小,我们取较小的比例
 
             float rate = height / bitHeight;
             float rate1 = width / bitWidth;
@@ -160,7 +170,7 @@ public class NativeImageLoader {
             bitHeight *= curentRate;
             bitWidth *= curentRate;
         }
-
+        //下面的缩放算法只能实现磁盘占用的减小,但是不能是实现内存占用的减小
         return Bitmap.createScaledBitmap(bitmap,
                 (int) bitWidth, (int) bitHeight, false);
     }
@@ -191,13 +201,14 @@ public class NativeImageLoader {
 
     /**
      * 根据View(主要是ImageView)的宽和高来获取图片的缩略图
+     * 这个从文件里面去解析
      *
      * @param path
      * @param viewWidth
      * @param viewHeight
      * @return
      */
-    private Bitmap decodeThumbBitmapForFile(String path, int viewWidth, int viewHeight) {
+    public Bitmap decodeThumbBitmapForFile(String path, int viewWidth, int viewHeight) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         //设置为true,表示解析Bitmap对象，该对象不占内存
         options.inJustDecodeBounds = true;
@@ -213,42 +224,51 @@ public class NativeImageLoader {
 
     /**
      * 解析精简的bitmap从网络中
+     * <p>
+     * 下面的代码是解析网络数据的代码,尝试过很多次,本来按照google的写法
+     * 使用BitmapFactory.decodeStream()但是一直null,无奈实现不了,最终按照下面的实现
      *
      * @param url
      * @param viewWidth
      * @param viewHeight
      * @return
      */
-    private Bitmap decodeThumbBitmapForNet(String url, int viewWidth, int viewHeight) {
+    public Bitmap decodeThumbBitmapForNet(String url, int viewWidth, int viewHeight) {
 
-        URL url1 = null;
+//        URL url1 = null;
         Bitmap bitmap = null;
-        FileOutputStream fos = null;
         InputStream in = null;
+        byte[] bytes;
         try {
-            url1 = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) url1.openConnection();
-            conn.setDoInput(true);
-            conn.setRequestMethod("GET");
-            conn.connect();
-            in = conn.getInputStream();
+//            url1 = new URL(url);
+//            HttpURLConnection conn = (HttpURLConnection) url1.openConnection();
+//            conn.setDoInput(true);
+//            conn.setRequestMethod("GET");
+//            conn.connect();
+
+            Request request = new Request.Builder().url(url).build();
+            OkHttpClient okHttpClient = new OkHttpClient();
+            Response response = okHttpClient.newCall(request).execute();
+            in = new ByteArrayInputStream(bytes = response.body().bytes());
 
             BitmapFactory.Options options = new BitmapFactory.Options();
             //设置为true,表示解析Bitmap对象，该对象不占内存
             options.inJustDecodeBounds = true;
-            bitmap = BitmapFactory.decodeStream(in,
+            BitmapFactory.decodeStream(in,
                     null, options);
             //设置缩放比例
             options.inSampleSize = computeScale(options, viewWidth, viewHeight);
             //设置为false,解析Bitmap对象加入到内存中
             options.inJustDecodeBounds = false;
-            in.reset();//重置数据
+//            bitmap = BitmapFactory.decodeStream(in,
+//                    null, options);
+
+            bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                fos.close();
                 in.close();
             } catch (IOException e) {
                 e.printStackTrace();

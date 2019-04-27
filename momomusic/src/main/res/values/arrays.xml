@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="localmusic">
+        <item>歌曲</item>
+        <item>歌手</item>
+        <item>专辑</item>
+        <item>文件</item>
+
+    </string-array>
+    <string-array name="singer_zhuanlan">
+        <item>歌曲</item>
+        <item>专辑</item>
+    </string-array>
+</resources>

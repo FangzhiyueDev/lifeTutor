@@ -7,6 +7,7 @@ import android.content.AsyncTaskLoader;
 import android.content.Loader;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.widget.Toast;
 
 import com.example.componentasystemtest.R;
 
@@ -32,16 +33,15 @@ public class LoaderActivity extends AppCompatActivity implements LoaderManager.L
                 SystemClock.sleep(5000);
                 return "返回了数据";
             }
-
-
         };
+
 
         return asyncTaskLoader;
     }
 
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
-
+        Toast.makeText(this, "加载数据完成" + data, Toast.LENGTH_SHORT).show();
     }
 
     @Override

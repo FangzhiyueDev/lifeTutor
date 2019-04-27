@@ -74,8 +74,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         DaggerMainActivityComponent.create().inject(this);
         ButterKnife.bind(this);
         initView();
-
-
+        requestPermission(permissionas, REQUEST_CODE_PERMISSION);
     }
 
     private void initView() {

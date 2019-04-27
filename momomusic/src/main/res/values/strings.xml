@@ -149,6 +149,9 @@
     <string name="sanwei">三围</string>
     <string name="caifudengji">财富等级</string>
     <string name="tadexaingce">TA的相册还没有照片哦~</string>
+    <string name="duoxuan">多选</string>
+    <string name="zuihouyici">最后一次</string>
+    <string name="sunbin">sunbin | 孙斌合集</string>
 
 
 </resources>

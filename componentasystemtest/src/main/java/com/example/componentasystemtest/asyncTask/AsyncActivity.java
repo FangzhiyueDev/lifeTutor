@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import com.example.componentasystemtest.R;
+import com.example.componentasystemtest.musicPlay.simple2.Music;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,30 +42,30 @@ public class AsyncActivity extends AppCompatActivity {
 
         findViewById(R.id.query).setOnClickListener((v) -> {
             Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, new String[]{
-                    MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.DATA
+                    MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.DISPLAY_NAME,
+                    MediaStore.Audio.Media.ARTIST, MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.ALBUM,
             }, null, null, null);
 
-            List<String> musics = new ArrayList<>();
+            List<Music> musics = new ArrayList<>();
             while (cursor.moveToNext()) {
-                String name = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
+                String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
                 String data = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
-
-                musics.add(data);
-                Log.d(TAG, "onCreate: 标题=\t" + name + "\turl=" + data);
+                String displayName = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));
+                String albumName = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
+                String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+                int size = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.SIZE)) / 1024;
+                Music music = new Music(title, data, displayName, albumName, artist, size);
+                musics.add(music);
+                Log.d(TAG, music.toString());
             }
-
-
-            File file = new File(musics.get(0));
 
             MediaPlayer mediaPlayer = new MediaPlayer();
 
             try {
                 mediaPlayer.reset();
-                mediaPlayer.setDataSource(musics.get(0));
+                mediaPlayer.setDataSource(musics.get(0).getDataUrl());
                 mediaPlayer.prepare();
                 mediaPlayer.start();
-
-
 
 
             } catch (Exception e) {

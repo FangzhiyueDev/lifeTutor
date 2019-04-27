@@ -9,6 +9,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
 import com.example.componentasystemtest.R;
@@ -23,9 +24,7 @@ public class PhotoZipActivity extends AppCompatActivity {
 
 
     private static final String TAG = "test";
-    private String url = "http://10.109.3.112:8080/GF/app.jpg";
-
-
+    private String url = "http://192.168.42.165:8080/GF/app.jpg";
     private ImageView imageView;
 
 
@@ -38,15 +37,76 @@ public class PhotoZipActivity extends AppCompatActivity {
     }
 
 
+    private int height;
+    private int width;
+    Bitmap bitmap;
+
     public void onClick(View view) {
-        Bitmap bitmap;
-        bitmap = NativeImageLoader.getInstance().loadNativeImage(url, new Point(imageView.getWidth(),imageView.getHeight()), new NativeImageLoader.NativeImageCallBack() {
-            @Override
-            public void onImageLoader(Bitmap bitmap, String path) {
-                Log.d(TAG, "onImageLoader: " + bitmap);
-                imageView.setImageBitmap(bitmap);
-            }
-        });
-        imageView.setImageBitmap(bitmap);
+        Log.d(TAG, "点击了");
+
+        if (view.getId() == R.id.loadImg) {
+
+            /**
+             * 居然不能用,比较郁闷
+             */
+            imageView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {//通过view节点树观察者,获得宽高,然后进行设置
+                if (height <= 0 || width <= 0) {
+                    height = imageView.getMeasuredHeight();
+                    width = imageView.getMeasuredWidth();
+                    Log.d(TAG, "onGlobalLayout: height=" + height + "\twidth=" + height);
+                    bitmap = NativeImageLoader.getInstance().loadNativeImage(url, new Point(width, width), new NativeImageLoader.NativeImageCallBack() {
+                        @Override
+                        public void onImageLoader(Bitmap bitmap, String path) {
+                            Log.d(TAG, "onImageLoader: " + bitmap);
+                            imageView.setImageBitmap(bitmap);
+                        }
+                    });
+                    imageView.setImageBitmap(bitmap);
+                }
+            });
+        }
+
+        if (view.getId() == R.id.loadImg1) {
+            imageView.post(new Runnable() {
+                @Override
+                public void run() {
+                    height = imageView.getMeasuredHeight();
+                    width = imageView.getMeasuredWidth();
+                    Log.d(TAG, "onGlobalLayout: height=" + height + "\twidth=" + height);
+                    bitmap = NativeImageLoader.getInstance().loadNativeImage(url, new Point(width, width), new NativeImageLoader.NativeImageCallBack() {
+                        @Override
+                        public void onImageLoader(Bitmap bitmap, String path) {
+                            Log.d(TAG, "onImageLoader: " + bitmap);
+                            imageView.setImageBitmap(bitmap);
+                        }
+                    });
+                    imageView.setImageBitmap(bitmap);
+                }
+            });
+        }
+
+        if (view.getId() == R.id.loadImg2) {
+
+            imageView.post(new Runnable() {//加载本地图片
+                @Override
+                public void run() {
+                    height = imageView.getMeasuredHeight();
+                    width = imageView.getMeasuredWidth();
+                    Bitmap bitmap = CompressUtil.decodeSampledBitmapFromResource(getResources(), R.drawable.meizi, width, height);
+                    imageView.setImageBitmap(bitmap);
+                }
+            });
+
+        }
+
     }
+
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+    }
+
+
 }

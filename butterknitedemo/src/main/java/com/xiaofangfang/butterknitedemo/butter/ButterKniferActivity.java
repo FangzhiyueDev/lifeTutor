@@ -1,6 +1,7 @@
 package com.xiaofangfang.butterknitedemo.butter;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -50,4 +51,8 @@ public class ButterKniferActivity extends AppCompatActivity {
 
         }
     }
+
+    protected void test() {
+    }
+
 }

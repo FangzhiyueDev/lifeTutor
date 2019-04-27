@@ -129,24 +129,24 @@ public class AsyncTask {
                 }
 
 
-//                VideoView videoView = context.findViewById(R.id.video);
-//
-//
-//                while (cursor.moveToNext()) {
-//                    String title = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.TITLE));
-//                    int size = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.SIZE));
-//                    int duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
-//                    String path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
-//                    Log.d("test", "onQueryComplete: " + title + " " + size + " " + duration + " " + path);
-//
-//                    //代码做演示，比较垃圾
-//                    MediaController mediaController = new MediaController(context);
-//                    mediaController.setAnchorView(videoView);
-//                    mediaController.show();
-//
-//                    videoView.setVideoPath(path);
-//
-//                }
+                VideoView videoView = context.findViewById(R.id.video);
+
+
+                while (cursor.moveToNext()) {
+                    String title = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.TITLE));
+                    int size = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.SIZE));
+                    int duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
+                    String path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
+                    Log.d("test", "onQueryComplete: " + title + " " + size + " " + duration + " " + path);
+
+                    //代码做演示，比较垃圾
+                    MediaController mediaController = new MediaController(context);
+                    mediaController.setAnchorView(videoView);
+                    mediaController.show();
+
+                    videoView.setVideoPath(path);
+
+                }
 
                 cursor.close();
             }

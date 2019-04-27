@@ -109,6 +109,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/localMusic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
@@ -122,6 +123,7 @@
                     android:textColor="@color/lightMainTextColor" />
 
                 <TextView
+                    android:id="@+id/suiJiBoFang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
@@ -147,6 +149,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/zuiJinBoFang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
