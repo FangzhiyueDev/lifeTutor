@@ -156,6 +156,20 @@
     <string name="woduoxihuanni">我多喜欢你</string>
     <string name="kaxiu">卡修Rui</string>
     <string name="yishouge">一首歌</string>
+    <string name="yinyue">音乐</string>
+    <string name="shishouge">10首歌曲</string>
+    <string name="strong">/strong/emulated/0</string>
+    <string name="quxiao">取消</string>
+    <string name="quanxuan">全选</string>
+    <string name="yixuanze">已选择0项</string>
+    <string name="addToGedan">添加到歌单</string>
+    <string name="shanchu">删除</string>
+    <string name="shoucang">收藏</string>
+    <string name="fenxiang">分享</string>
+    <string name="gedan">歌单</string>
+    <string name="yi">1</string>
+
+    <string name="true1">true</string>
 
 
 </resources>

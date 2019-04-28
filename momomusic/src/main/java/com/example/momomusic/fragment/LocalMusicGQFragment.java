@@ -9,12 +9,15 @@ import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SimpleCursorTreeAdapter;
 
 import com.example.momomusic.R;
 import com.example.momomusic.adapter.MyAdapter;
 import com.example.momomusic.model.Music;
+import com.example.momomusic.servie.AnimationControllService;
 import com.example.momomusic.servie.LocalMusicIndexUtil;
 import com.example.momomusic.servie.PlayService;
 import com.example.momomusic.servie.SystemSettingService;
@@ -40,6 +43,12 @@ import okhttp3.Response;
 public class LocalMusicGQFragment extends ParentFragment implements AdapterView.OnItemClickListener {
 
 
+    /**
+     * 当前的路径
+     */
+    public static final String FIEL_PATH = "file_path";
+
+
     @BindView(R.id.listView)
     ListView listView;
 
@@ -58,7 +67,19 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        musics = DataSupport.findAll(Music.class);
+        Bundle bundle = getMyActivity().getBundle();
+
+        if (bundle == null) {
+            //采用默认的加载机制
+            musics = DataSupport.findAll(Music.class);
+        } else if (bundle != null) {//如果bundle不为空.同时filepath不为空
+            String filePath = bundle.getString(FIEL_PATH);
+            if (filePath != null) {
+                //取出filepath.进行过滤
+                musics = DataSupport.where("dataUrl like ?", filePath + "%").find(Music.class);
+            }
+        }
+
         if (musics.size() == 0) {
             localMusicIndexUtil = LocalMusicIndexUtil.getInstance();
             localMusicIndexUtil.setMusicScaleListener(new LocalMusicIndexUtil.MusicScaleListener() {
@@ -67,7 +88,6 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
                     music.save();
                     musics.add(music);
                 }
-
                 @Override
                 public void scaleComplate() {
                     UiThread.getUiThread().post(new Runnable() {
@@ -88,7 +108,6 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
                 holder.setText(R.id.singerAndAlbumName, obj.getArtist() + " | " + obj.getAlbumName());
                 holder.setText(R.id.title, obj.getTitle());
                 holder.setOnClickListener(R.id.menu, (v) -> {
-
                 });
             }
 
@@ -99,7 +118,7 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
         };
 
         listView.setAdapter(musicMyAdapter);
-
+        listView.setLayoutAnimation(AnimationControllService.setLayoutAnim(R.anim.anim_item, 0.2f, LayoutAnimationController.ORDER_NORMAL, getContext()));
         listView.setOnItemClickListener(this);
 
     }
@@ -133,7 +152,6 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
     public Class getClassName() {
         return null;
     }
-
 
 
     @Override

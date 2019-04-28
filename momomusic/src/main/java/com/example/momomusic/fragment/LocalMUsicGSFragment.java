@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.example.momomusic.R;
 import com.example.momomusic.adapter.MyAdapter;
 import com.example.momomusic.model.Music;
+import com.example.momomusic.servie.AnimationControllService;
 import com.example.momomusic.servie.ChineseCharacterUtil;
 import com.example.momomusic.servie.LocalMusicIndexUtil;
 import com.example.momomusic.tool.Tools;
@@ -81,6 +83,7 @@ public class LocalMUsicGSFragment extends ParentFragment implements AdapterView.
 
         listAdapter = new ListAdapter();
         singerListView.setAdapter(listAdapter);
+        singerListView.setLayoutAnimation(AnimationControllService.setLayoutAnim(R.anim.anim_item, 0.2f, LayoutAnimationController.ORDER_NORMAL, getContext()));
         singerListView.setOnItemClickListener(this);
     }
 

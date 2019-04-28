@@ -7,8 +7,6 @@ import android.widget.FrameLayout;
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.MusicPlayView;
 import com.example.momomusic.activity.ui.PrimaryView;
-import com.example.momomusic.component.DaggerMainActivityComponent;
-import com.example.momomusic.component.DaggerPrimaryActivityComponent;
 import com.example.momomusic.fragment.ParentFragment;
 import com.example.momomusic.precenter.MusicPlayPresenter;
 import com.example.momomusic.precenter.PrimaryPresenter;

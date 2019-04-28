@@ -9,5 +9,7 @@
     <fragment>com.example.momomusic.fragment.LocalMusicListFragment</fragment>
     <fragment>com.example.momomusic.fragment.LocalMusicSingerFragment</fragment>
     <fragment>com.example.momomusic.fragment.LocalMusicSingerZJMusicFragment</fragment>
+    <fragment>com.example.momomusic.fragment.LocalMusicWJJMusicFragment</fragment>
+    <fragment>com.example.momomusic.fragment.MusicMultipleSelectFragment</fragment>
 </fragments>
 

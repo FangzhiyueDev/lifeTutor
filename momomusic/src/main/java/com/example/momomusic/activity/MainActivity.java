@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.MainView;
-import com.example.momomusic.component.DaggerMainActivityComponent;
 import com.example.momomusic.fragment.JingXuanFragment;
 import com.example.momomusic.fragment.MeFragment;
 import com.example.momomusic.fragment.ShiPinFragment;
@@ -71,7 +70,8 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DaggerMainActivityComponent.create().inject(this);
+        mainPresenter = new MainPresenter();
+//        DaggerMainActivityComponent.create().inject(this);
         ButterKnife.bind(this);
         initView();
         requestPermission(permissionas, REQUEST_CODE_PERMISSION);

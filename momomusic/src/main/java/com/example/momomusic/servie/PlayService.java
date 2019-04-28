@@ -86,22 +86,20 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
                 .build();
 
         Intent intent = new Intent(this, PlayService.class);
-        intent.putExtra("action", "up");
+        intent.putExtra(ACTION, UP);
         PendingIntent upPend = PendingIntent.getService(this, 0, intent, 0);
         remoteViews.setOnClickPendingIntent(R.id.up, upPend);
 
-        intent = new Intent(this, PlayService.class);
-        intent.putExtra("action", "down");
-        PendingIntent downPend = PendingIntent.getService(this, 0, intent, 0);
+        Intent intent1 = new Intent(this, PlayService.class);
+        intent.putExtra(ACTION, DOWN);
+        PendingIntent downPend = PendingIntent.getService(this, 0, intent1, 0);
         remoteViews.setOnClickPendingIntent(R.id.down, downPend);
 
 
-        intent = new Intent(this, PlayService.class);
-        intent.putExtra("action", "pauseOrPlay");
-        PendingIntent pauseOrPlayPend = PendingIntent.getService(this, 0, intent, 0);
+        Intent intent2 = new Intent(this, PlayService.class);
+        intent.putExtra(ACTION, PAUSE_OR_PLAY);
+        PendingIntent pauseOrPlayPend = PendingIntent.getService(this, 0, intent2, 0);
         remoteViews.setOnClickPendingIntent(R.id.pauseOrPlay, pauseOrPlayPend);
-
-
     }
 
 
@@ -128,9 +126,7 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
             case WITH_DATA_PLAY:
                 binder.playMusic(data);
                 break;
-
         }
-
         return super.onStartCommand(intent, flags, startId);
     }
 

@@ -56,6 +56,8 @@ public class Music extends DataSupport {
 
     private float size;
 
+    private boolean isCollect;
+
     /**
      * 这个域的作用是用来进行专辑对应的数量的
      */
@@ -164,6 +166,15 @@ public class Music extends DataSupport {
 
     public void setSize(float size) {
         this.size = size;
+    }
+
+
+    public boolean isCollect() {
+        return isCollect;
+    }
+
+    public void setCollect(boolean collect) {
+        isCollect = collect;
     }
 
     @Override

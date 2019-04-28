@@ -79,6 +79,7 @@ public class LocalMusicSingerFragment extends ParentFragment {
          */
         myPageAdapter = new MyFragmentPageAdapter(getChildFragmentManager(), fragments);
         viewPager.setAdapter(myPageAdapter);
+        viewPager.setOffscreenPageLimit(2);
         viewPager.setCurrentItem(defaultSelectIndex);
         for (int i = 0; i < tabTitle.length; i++) {
             tabLayout.addTab(tabLayout.newTab());

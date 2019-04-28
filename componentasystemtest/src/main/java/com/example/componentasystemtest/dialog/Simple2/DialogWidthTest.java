@@ -2,7 +2,9 @@ package com.example.componentasystemtest.dialog.Simple2;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -85,16 +87,12 @@ public class DialogWidthTest extends AppCompatActivity {
             dialog.getWindow().setAttributes(lp);
 
 
-//            int width = getResources().getDisplayMetrics().widthPixels;
-//            WindowManager.LayoutParams layoutParams = dialog.getWindow().getAttributes();
-//            layoutParams.width = width;
-//            layoutParams.height = 300;
-//            Window window = dialog.getWindow();
-//            window.setAttributes(layoutParams);
-////            window.setGravity(gravity);
         }
 
 
+        /**
+         * 这个可以实现,但是不是dialog的实现,况且实现的效果不行
+         */
         if (view.getId() == R.id.openDialog2) {
 
 
@@ -115,22 +113,48 @@ public class DialogWidthTest extends AppCompatActivity {
         }
 
 
+        /**
+         * 可以实现的效果
+         *
+         *
+         *
+         *具体的关于设置Dialog的样式,见R.style.CardDialogStyle
+         *
+         *
+         */
         if (view.getId() == R.id.openDialog4) {
-
 
             Dialog dialog = new Dialog(this);
             dialog.setCancelable(true);
             dialog.setContentView(R.layout.dialog_content);
+            /**
+             * dialog的顶层布局是FrameLayout,这个布局默认带有12dp的padding
+             * 你所看到的dialog默认是不能全屏显示的原因就在这里,因为背景原因
+             */
+            dialog.getWindow().getDecorView().setPadding(0, 0, 0, 0);
+
+            getWindow().setDimAmount(0.5f);//设置暗淡的量
+
+            /**
+             * 我们发现了,上面所说的是正确的,那么通过设置背景,就能将dectorView的确定大小确定下来
+             */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                dialog.getWindow().getDecorView().setBackground(getResources().getDrawable(R.drawable.corner_bg_white));
+            }
+
 
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) 300, WindowManager.LayoutParams.TYPE_APPLICATION,
                     WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
             );
+
 
             layoutParams.gravity = Gravity.BOTTOM;
             layoutParams.windowAnimations = R.style.window_anim;//小心使用的style错误
             dialog.getWindow().setAttributes(layoutParams);
             dialog.show();
         }
+
+
     }
 
     View view1;

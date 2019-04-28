@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.momomusic.R;
 import com.example.momomusic.adapter.MyAdapter;
 import com.example.momomusic.model.Music;
+import com.example.momomusic.servie.AnimationControllService;
+import com.example.momomusic.tool.Tools;
 
 import org.litepal.crud.DataSupport;
 
@@ -26,7 +30,7 @@ import okhttp3.Response;
 /**
  * 本地音乐的专辑列表
  */
-public class LocalMusicZJFragment extends ParentFragment {
+public class LocalMusicZJFragment extends ParentFragment implements AdapterView.OnItemClickListener {
 
 
     @Nullable
@@ -66,6 +70,8 @@ public class LocalMusicZJFragment extends ParentFragment {
         };
 
         listView.setAdapter(myAdapter);
+        listView.setLayoutAnimation(AnimationControllService.setLayoutAnim(R.anim.anim_item, 0.2f, LayoutAnimationController.ORDER_NORMAL, getContext()));
+        listView.setOnItemClickListener(this);
 
 
         super.onViewCreated(view, savedInstanceState);
@@ -86,7 +92,6 @@ public class LocalMusicZJFragment extends ParentFragment {
             int count = DataSupport.where("albumName=?", musics.get(i).getAlbumName()).count(Music.class);
             musics.get(i).setCount(count);
         }
-
         myAdapter.notifyDataSetChanged();
 
 
@@ -105,5 +110,16 @@ public class LocalMusicZJFragment extends ParentFragment {
     @Override
     public Class getClassName() {
         return null;
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Music music = musics.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putString(LocalMusicSingerZJMusicFragment.ALBUM, music.getAlbumName());
+        getMyActivity().setBundle(bundle);
+        Tools.startActivity(getActivity(), "com.example.momomusic.fragment.LocalMusicSingerZJMusicFragment", bundle);
     }
 }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,6 +59,9 @@ public abstract class MyAdapter<T> extends BaseAdapter {
         bindView(holder, getItem(position));
         return holder.getItemView();
     }
+
+
+
 
     public abstract void bindView(ViewHolder holder, T obj);
 
@@ -154,7 +159,8 @@ public abstract class MyAdapter<T> extends BaseAdapter {
             return this;
         }
 
-        public ViewHolder setImageResource(int id,@DrawableRes int drawableRes) {
+
+        public ViewHolder setImageResource(int id, @DrawableRes int drawableRes) {
             View view = getView(id);
             if (view instanceof ImageView) {
                 ((ImageView) view).setImageResource(drawableRes);
@@ -187,6 +193,14 @@ public abstract class MyAdapter<T> extends BaseAdapter {
         public ViewHolder setTag(int id, Object obj) {
             getView(id).setTag(obj);
             return this;
+        }
+
+        public void setOnCheckChangeListener(int id, CompoundButton.OnCheckedChangeListener changeListener) {
+            View view = getView(id);
+            if (view instanceof CheckBox) {
+                ((CheckBox) view).setOnCheckedChangeListener(changeListener);
+            }
+
         }
     }
 
