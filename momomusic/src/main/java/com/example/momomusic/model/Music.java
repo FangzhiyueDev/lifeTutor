@@ -56,6 +56,19 @@ public class Music extends DataSupport {
 
     private float size;
 
+    /**
+     * 这个域的作用是用来进行专辑对应的数量的
+     */
+    private int count;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
 
     public int getDuration() {
         return duration;
@@ -206,6 +219,20 @@ public class Music extends DataSupport {
         this.title = title;
         this.dataUrl = dataUrl;
     }
+
+
+    /**
+     * 参数3 是一个标志参数,没有 实际意义
+     *
+     * @param albumName
+     * @param artist
+     * @param a
+     */
+    public Music(String albumName, String artist, int a) {
+        this.albumName = albumName;
+        this.artist = artist;
+    }
+
 
     private String pinyin;
 

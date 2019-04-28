@@ -5,11 +5,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.IntDef;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -83,6 +88,33 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
             }
         }
 
+        /**
+         * 设置图片的地址 可以设置为 integer或者是 String类型
+         *
+         * @param viewId
+         * @param t
+         * @param <T>
+         */
+        public <T extends Serializable> void setImageUrl(int viewId, T t) {
+
+            View view1;
+
+            if ((view1 = getCahceView(viewId)) == null) {
+                view1 = view.findViewById(viewId);
+            }
+
+            if (view1 instanceof ImageView) {
+                if (t instanceof Integer) {
+                    int drawId = (Integer) t;
+                    Glide.with(view.getContext()).load(drawId).into((ImageView) view1);
+                } else if (t instanceof String) {
+                    String url = (String) t;
+                    Glide.with(view.getContext()).load(url).into((ImageView) view1);
+                }
+            }
+
+        }
+
 
         /**
          * 获得缓存的view
@@ -110,33 +142,14 @@ public abstract class MyCommandAdapter<T> extends RecyclerView.Adapter<MyCommand
             }
 
         }
-    }
 
+        public void setVisibility(int viewId, int visiable) {
+            View view1;
+            if ((view1 = getCahceView(viewId)) == null) {
+                view1 = view.findViewById(viewId);
+            }
+            view1.setVisibility(visiable);
 
-    public static class Person {
-
-        private String name;
-        private String address;
-
-        public Person(String name, String address) {
-            this.name = name;
-            this.address = address;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public void setAddress(String address) {
-            this.address = address;
         }
     }
 

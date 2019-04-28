@@ -16,6 +16,7 @@ import com.example.momomusic.adapter.MyAdapter;
 import com.example.momomusic.model.Music;
 import com.example.momomusic.servie.ChineseCharacterUtil;
 import com.example.momomusic.servie.LocalMusicIndexUtil;
+import com.example.momomusic.tool.Tools;
 import com.example.momomusic.tool.UiThread;
 
 import org.litepal.crud.DataSupport;
@@ -60,19 +61,24 @@ public class LocalMUsicGSFragment extends ParentFragment implements AdapterView.
     /**
      * 存放的是标题
      */
-    private List<String> titles = new ArrayList<>();
+    private List<String> titles;
 
     /**
      * 存放的是标题对应的music,当然里面保存了歌手的信息
      */
-    private HashMap<String, List<Music>> mapping = new HashMap<>();
+    private HashMap<String, List<Music>> mapping;
 
-    private List<Music> musicTitle = new ArrayList<>();
+    private List<Music> musicTitle;
 
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        titles = new ArrayList<>();
+        mapping = new HashMap<>();
+        musicTitle = new ArrayList<>();
+
         listAdapter = new ListAdapter();
         singerListView.setAdapter(listAdapter);
         singerListView.setOnItemClickListener(this);
@@ -124,7 +130,6 @@ public class LocalMUsicGSFragment extends ParentFragment implements AdapterView.
         }
 
 
-
         for (int i = 0; i < titles.size(); i++) {
             List<Music> music = mapping.get(titles.get(i));
             musicTitle.add(new Music(titles.get(i)));
@@ -160,6 +165,14 @@ public class LocalMUsicGSFragment extends ParentFragment implements AdapterView.
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        Music music = (Music) listAdapter.getItem(position);
+        if (music.getPinyin() == null) {//代表点击的是实际的歌曲  ---->跳转到LocalMusicSingerFragment   传递的歌手的歌手名称.我们通过这个进行数据库的检索
+            Bundle bundle = new Bundle();
+            bundle.putString(LocalMusicSingerFragment.ARTIST, music.getArtist());
+            Tools.startActivity(getActivity(), "com.example.momomusic.fragment.LocalMusicSingerFragment", bundle);
+            return;
+        }
+
     }
 
 
@@ -175,7 +188,7 @@ public class LocalMUsicGSFragment extends ParentFragment implements AdapterView.
 
         @Override
         public Object getItem(int position) {
-            return musics.get(position);
+            return musicTitle.get(position);
         }
 
         @Override

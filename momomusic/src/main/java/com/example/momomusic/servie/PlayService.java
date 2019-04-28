@@ -25,6 +25,23 @@ import androidx.annotation.RequiresApi;
 public class PlayService extends Service implements MediaPlayer.OnPreparedListener {
 
 
+    public static final String ACTION = "action";
+
+    public static final String DATA = "data";
+
+
+    /**
+     * 下面是几种播放状态
+     */
+    public static final String UP = "up";
+
+    public static final String DOWN = "down";
+
+    public static final String PAUSE_OR_PLAY = "pauseOrPlay";
+
+    public static final String WITH_DATA_PLAY = "withDataPlay";
+
+
     private MyBinder binder;
 
     @Nullable
@@ -92,24 +109,27 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
     public int onStartCommand(Intent intent, int flags, int startId) {
 
 
-        String action = intent.getStringExtra("action");
+        String action = intent.getStringExtra(ACTION);
+        String data = intent.getStringExtra(DATA);
 
         if (action == null) {
             return super.onStartCommand(intent, flags, startId);
         }
-
         switch (action) {
-            case "up":
+            case UP:
                 binder.upMusic();
                 break;
-            case "down":
+            case DOWN:
                 binder.downMusic();
                 break;
-            case "pauseOrPlay":
+            case PAUSE_OR_PLAY:
                 binder.pauseOrPlayMusic();
                 break;
-        }
+            case WITH_DATA_PLAY:
+                binder.playMusic(data);
+                break;
 
+        }
 
         return super.onStartCommand(intent, flags, startId);
     }

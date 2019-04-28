@@ -12,6 +12,7 @@ import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -250,6 +251,20 @@ public class Tools {
     public static void startActivity(Context context, String path) {
         Intent intent = new Intent(context, PrimaryActivity.class);
         intent.putExtra(PrimaryActivity.INTENT_KEY, path);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 这个方法可以向新启动的activity添加bundle数据
+     *
+     * @param context
+     * @param path
+     * @param bundle
+     */
+    public static void startActivity(Context context, String path, Bundle bundle) {
+        Intent intent = new Intent(context, PrimaryActivity.class);
+        intent.putExtra(PrimaryActivity.INTENT_KEY, path);
+        intent.putExtra(PrimaryActivity.BUNDLE, bundle);
         context.startActivity(intent);
     }
 

@@ -17,6 +17,7 @@ import com.example.momomusic.adapter.MyAdapter;
 import com.example.momomusic.model.Music;
 import com.example.momomusic.servie.LocalMusicIndexUtil;
 import com.example.momomusic.servie.PlayService;
+import com.example.momomusic.servie.SystemSettingService;
 import com.example.momomusic.tool.UiThread;
 
 import org.litepal.LitePal;
@@ -90,6 +91,7 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
 
                 });
             }
+
             @Override
             public int getCount() {
                 return musics.size();
@@ -132,9 +134,6 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
         return null;
     }
 
-    PlayService.MyBinder myBinder;
-
-    boolean isBind = false;
 
 
     @Override
@@ -142,29 +141,26 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
 
         Music music = musics.get(position);
 
-        if (!isBind) {
-            //绑定
-            Intent intent = new Intent(getActivity(), PlayService.class);
-            isBind = !isBind;
-            getActivity().bindService(intent, new ServiceConnection() {
-                @Override
-                public void onServiceConnected(ComponentName name, IBinder service) {
-                    myBinder = (PlayService.MyBinder) service;
-                    myBinder.setDataSources(musics);
-                    myBinder.playMusic(music.getDataUrl());
-                }
+        //绑定
+        Intent intent = new Intent(getActivity(), PlayService.class);
+        SystemSettingService.getInstall(getContext()).bindMusicPlayService(true);
+        getActivity().bindService(intent, getMyActivity().conn = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                myBinder = (PlayService.MyBinder) service;
+                myBinder.setDataSources(musics);
+            }
 
-                @Override
-                public void onServiceDisconnected(ComponentName name) {
-
-                }
-            }, Context.BIND_AUTO_CREATE);
-
-            getActivity().startService(intent);
-
-        } else {
-            myBinder.playMusic(music.getDataUrl());
-        }
-
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+            }
+        }, Context.BIND_AUTO_CREATE);
+        /**
+         * 这里我们看出,startService通过这个方式直接进行交互,
+         */
+        intent.putExtra(PlayService.DATA, music.getDataUrl());
+        intent.putExtra(PlayService.ACTION, PlayService.WITH_DATA_PLAY);
+        getActivity().startService(intent);
     }
 }
+

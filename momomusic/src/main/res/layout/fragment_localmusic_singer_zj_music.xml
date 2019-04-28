@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <com.example.momomusic.view.MeasureProgressReleativeLayout
@@ -27,6 +27,11 @@
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dark"></View>
 
     </com.example.momomusic.view.MeasureProgressReleativeLayout>
 
@@ -39,15 +44,10 @@
         app:tabBackground="@android:color/white"
         app:tabGravity="center"
         app:tabIndicatorColor="@android:color/holo_red_dark"
-        app:tabIndicatorHeight="0dp"
+        app:tabIndicatorHeight="2dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@android:color/black"
         app:tabTextColor="@color/gray_dark"></com.google.android.material.tabs.TabLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/gray_dark"></View>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -77,19 +77,10 @@
             android:text="@string/duoxuan" />
     </FrameLayout>
 
-    <View
+
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/gray_dark"></View>
-
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"></androidx.viewpager.widget.ViewPager>
-
+        android:layout_height="match_parent"></ListView>
 
 </LinearLayout>

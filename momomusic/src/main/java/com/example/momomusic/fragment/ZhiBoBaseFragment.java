@@ -63,6 +63,8 @@ public class ZhiBoBaseFragment extends ParentFragment {
             public void bind(MyViewHolder holder, ZhiBoHouse zhiBoHouse) {
 
 
+
+
             }
         };
         recyclerView.setAdapter(myCommandAdapter);

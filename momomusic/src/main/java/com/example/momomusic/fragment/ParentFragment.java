@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.momomusic.activity.ParentActivity;
 import com.example.momomusic.servie.NetRequest;
+import com.example.momomusic.servie.PlayService;
 import com.example.momomusic.tool.LoadProgress;
 import com.example.momomusic.tool.UiThread;
 
@@ -162,4 +163,8 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
     public Bundle getBundle() {
         return bundle;
     }
+
+
+    public PlayService.MyBinder myBinder;
+
 }

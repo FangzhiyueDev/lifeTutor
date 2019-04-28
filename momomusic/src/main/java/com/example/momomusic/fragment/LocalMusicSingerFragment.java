@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.momomusic.R;
+import com.example.momomusic.exception.ParamNotBindException;
 import com.example.momomusic.view.Adapter.MyFragmentPageAdapter;
 import com.google.android.material.tabs.TabLayout;
 
@@ -36,6 +37,8 @@ public class LocalMusicSingerFragment extends ParentFragment {
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
+    public static final String ARTIST = "artist";
+
     private List<Fragment> fragments;
 
     private String[] tabTitle;
@@ -49,13 +52,27 @@ public class LocalMusicSingerFragment extends ParentFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        String artist = getMyActivity().getBundle().getString(ARTIST);
+
+        if (artist == null) {
+            try {
+                throw new ParamNotBindException("跳转到" + this.getClass().getSimpleName() + "没有绑定参数异常");
+            } catch (ParamNotBindException e) {
+                e.printStackTrace();
+            }
+        }
+
+        LocalMusicSingerGQFragment lmsgqf = new LocalMusicSingerGQFragment();
+        LocalMusicSingerZJFragment lmszjf = new LocalMusicSingerZJFragment();
+
         fragments = new ArrayList<>();
-        fragments.add(new LocalMusicSingerGQFragment());
-        fragments.add(new LocalMusicSingerZJFragment());//精选
+        fragments.add(lmsgqf);
+        fragments.add(lmszjf);//精选
 
 
         tabTitle = getResources().getStringArray(R.array.singer_zhuanlan);
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
 
         /**
          * 记住，这里只能使用getChildFragmentManager()

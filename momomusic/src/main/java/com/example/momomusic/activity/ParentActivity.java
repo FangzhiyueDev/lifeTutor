@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.momomusic.application.MyApplication;
 import com.example.momomusic.servie.NetRequest;
+import com.example.momomusic.servie.PlayService;
 import com.example.momomusic.tool.LoadProgress;
 import com.example.momomusic.tool.UiThread;
 import com.orhanobut.logger.Logger;
@@ -314,4 +316,31 @@ public abstract class ParentActivity extends AppCompatActivity {
         super.onBackPressed();
         activities.remove(this);
     }
+
+    /**
+     * 这个bundle的作用是用来实现
+     */
+    private Bundle bundle;
+
+    public void setBundle(Bundle bundle) {
+
+        this.bundle = bundle;
+    }
+
+    public Bundle getBundle() {
+        return bundle;
+    }
+
+
+    public ServiceConnection conn;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (conn != null) {
+            unbindService(conn);//进行解绑 conn的具体实现是由子类实现的
+        }
+    }
+
+
 }

@@ -40,6 +40,7 @@ public class PrimaryPresenter extends BasePresenter<PrimaryView> implements XmlP
 
         className = intent.getStringExtra(PrimaryActivity.INTENT_KEY);
 
+
         if (TextUtils.isEmpty(className)) {
             throw new KeyNotValueException("PrimaryActivity启动的时候传递的Extra为空");
         }
