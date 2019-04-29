@@ -124,7 +124,7 @@ public class DialogWidthTest extends AppCompatActivity {
          */
         if (view.getId() == R.id.openDialog4) {
 
-            Dialog dialog = new Dialog(this);
+            Dialog dialog = new Dialog(this, R.style.CardDialogStyle);
             dialog.setCancelable(true);
             dialog.setContentView(R.layout.dialog_content);
             /**
@@ -133,7 +133,8 @@ public class DialogWidthTest extends AppCompatActivity {
              */
             dialog.getWindow().getDecorView().setPadding(0, 0, 0, 0);
 
-            getWindow().setDimAmount(0.5f);//设置暗淡的量
+//            getWindow().setDimAmount(0.5f);//设置暗淡的量
+
 
             /**
              * 我们发现了,上面所说的是正确的,那么通过设置背景,就能将dectorView的确定大小确定下来
@@ -146,6 +147,7 @@ public class DialogWidthTest extends AppCompatActivity {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) 300, WindowManager.LayoutParams.TYPE_APPLICATION,
                     WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
             );
+//            layoutParams.dimAmount=0.4f;//感觉没啥用啊
 
 
             layoutParams.gravity = Gravity.BOTTOM;
