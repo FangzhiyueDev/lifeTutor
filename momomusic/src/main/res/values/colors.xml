@@ -28,8 +28,7 @@
     <color name="border">#AFAFAF</color>
     <color name="splitLine_little">#f9f9f9</color>
 
-
-    <!--<color name="gray_dark">#555555</color>-->
+    <color name="gray_dark1">#2B2A2A</color>
 
 
 </resources>

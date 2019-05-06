@@ -88,6 +88,16 @@
 
 
         <!--信鸽推送服务的实现-->
+        <!--下面这两个是自己编写的测试的界面-->
+        <activity android:name=".pullServer.LoginActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".pullServer.MainActivity" />
+
+
         <!-- 【必须】 信鸽receiver广播接收 -->
         <receiver
             android:name="com.tencent.android.tpush.XGPushReceiver"
@@ -128,13 +138,6 @@
                 <action android:name="android.intent.action" />
             </intent-filter>
         </activity>
-        <activity android:name=".pullServer.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".pullServer.MainActivity" />
 
         <!-- 【必须】 信鸽service -->
         <service
@@ -183,6 +186,14 @@
             android:name="XG_V2_ACCESS_KEY"
             android:value="A1YSL852SE9A" />
 
+
+        <!--下面是对MPAndroidChart图表框架的实现-->
+        <activity android:name=".MPAndroidChart.MpChartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 

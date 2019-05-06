@@ -86,8 +86,12 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
                 @Override
                 public void scaling(Music music) {
                     music.save();
-                    musics.add(music);
+                    //这里需要注意的是不能添加相同的歌曲进去，会出现你问题
+                    if (!musics.contains(music)) {
+                        musics.add(music);
+                    }
                 }
+
                 @Override
                 public void scaleComplate() {
                     UiThread.getUiThread().post(new Runnable() {

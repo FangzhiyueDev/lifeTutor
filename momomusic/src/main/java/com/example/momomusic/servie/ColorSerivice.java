@@ -1,5 +1,7 @@
 package com.example.momomusic.servie;
 
+import android.graphics.Color;
+
 import androidx.annotation.ColorInt;
 
 
@@ -8,5 +10,6 @@ import androidx.annotation.ColorInt;
  */
 public class ColorSerivice {
     @ColorInt
-    public static final int DARK_GRAY = 0x555555;
+    public static final int DARK_GRAY = 0xFF555555;
+
 }

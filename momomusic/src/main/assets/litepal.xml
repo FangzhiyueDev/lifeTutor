@@ -6,6 +6,7 @@
 
     <list>
         <mapping class="com.example.momomusic.model.Music"></mapping>
+        <mapping class="com.example.momomusic.model.Collect"></mapping>
     </list>
 
 </litepal>

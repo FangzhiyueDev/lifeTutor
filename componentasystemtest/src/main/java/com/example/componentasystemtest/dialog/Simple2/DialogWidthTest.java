@@ -1,25 +1,32 @@
 package com.example.componentasystemtest.dialog.Simple2;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
+import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.componentasystemtest.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDialog;
 
 
 /**
@@ -123,7 +130,6 @@ public class DialogWidthTest extends AppCompatActivity {
          *
          */
         if (view.getId() == R.id.openDialog4) {
-
             Dialog dialog = new Dialog(this, R.style.CardDialogStyle);
             dialog.setCancelable(true);
             dialog.setContentView(R.layout.dialog_content);
@@ -132,24 +138,17 @@ public class DialogWidthTest extends AppCompatActivity {
              * 你所看到的dialog默认是不能全屏显示的原因就在这里,因为背景原因
              */
             dialog.getWindow().getDecorView().setPadding(0, 0, 0, 0);
-
 //            getWindow().setDimAmount(0.5f);//设置暗淡的量
-
-
             /**
              * 我们发现了,上面所说的是正确的,那么通过设置背景,就能将dectorView的确定大小确定下来
              */
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 dialog.getWindow().getDecorView().setBackground(getResources().getDrawable(R.drawable.corner_bg_white));
             }
-
-
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) 300, WindowManager.LayoutParams.TYPE_APPLICATION,
                     WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
             );
 //            layoutParams.dimAmount=0.4f;//感觉没啥用啊
-
-
             layoutParams.gravity = Gravity.BOTTOM;
             layoutParams.windowAnimations = R.style.window_anim;//小心使用的style错误
             dialog.getWindow().setAttributes(layoutParams);
@@ -157,7 +156,90 @@ public class DialogWidthTest extends AppCompatActivity {
         }
 
 
+        if (view.getId() == R.id.openDialog3) {
+            openDialog(this, R.layout.dialog_content, true, true, Gravity.BOTTOM, R.style.window_anim, R.drawable.corner_bg_white);
+        }
+
+
+        if (view.getId() == R.id.openDialog5) {//一个带有listview的dialog
+
+            List<String> menu = new ArrayList<>();
+            menu.add("最近的播放曲目");
+            menu.add("最近的播放曲目");
+            menu.add("最近的播放曲目");
+
+
+            View view2 = LayoutInflater.from(this).inflate(R.layout.dialog_listview, null);
+
+            /**
+             * 还必须使解析后view进行findView 不能使用dialog,同样会报空指针异常
+             */
+
+            //在这里进行动画的测量
+            view2.findViewById(R.id.container).addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    Toast.makeText(DialogWidthTest.this, "布局发生变换", Toast.LENGTH_SHORT).show();
+                    if (!isM) {
+                        bottom1 = bottom;
+                        isM = true;
+                    }
+                    Log.d("test", "onLayoutChange: " + bottom);
+
+                    if (Math.abs(bottom1 - bottom) > 100) {
+                        /**
+                         * 下面是第一种实现方式
+                         */
+                        ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                        lp.height = bottom1 + 100;
+                        v.setLayoutParams(lp);
+                    }
+                }
+            });
+
+            ArrayAdapter arrayAdapter;
+            ListView listView = view2.findViewById(R.id.listView);
+            listView.setAdapter(arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
+
+            view2.findViewById(R.id.add).setOnClickListener((v) -> {
+                menu.add("最近的播放曲目");
+                arrayAdapter.notifyDataSetChanged();
+            });
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setView(view2)
+                    .setCancelable(true);
+            AlertDialog dialog = builder.create();
+
+            dialog.getWindow().getDecorView().setPadding(0, 0, 0, 0);
+            /**
+             * 我们发现了,上面所说的是正确的,那么通过设置背景,就能将dectorView的确定大小确定下来
+             */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                dialog.getWindow().getDecorView().setBackground(getResources().getDrawable(R.drawable.corner_bg_white));
+            }
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) -2, WindowManager.LayoutParams.TYPE_APPLICATION,
+                    WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
+            );
+            layoutParams.gravity = Gravity.BOTTOM;
+            dialog.getWindow().setAttributes(layoutParams);
+            dialog.show();
+
+
+        }
+
+
     }
+
+    /**
+     * 是不是进行了第一次测量
+     */
+    boolean isM = false;
+    /**
+     * 当前dialog的bottom的初始值
+     */
+    int bottom1;
 
     View view1;
 
@@ -170,4 +252,41 @@ public class DialogWidthTest extends AppCompatActivity {
         });
 
     }
+
+
+    /**
+     * 打开一个dialog
+     *
+     * @param context
+     * @param viewid
+     * @param cancelable
+     * @param isWidthScreen
+     * @param position
+     * @param style
+     */
+    public void openDialog(Context context, @LayoutRes int viewid, boolean cancelable, boolean isWidthScreen, int position, @StyleRes int style, @DrawableRes int drawableBg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                .setView(viewid)
+                .setCancelable(cancelable);
+
+        AlertDialog dialog = builder.create();
+        if (isWidthScreen) {
+            dialog.getWindow().getDecorView().setPadding(0, 0, 0, 0);
+            /**
+             * 我们发现了,上面所说的是正确的,那么通过设置背景,就能将dectorView的确定大小确定下来
+             */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                dialog.getWindow().getDecorView().setBackground(getResources().getDrawable(drawableBg));
+            }
+        }
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) -2, WindowManager.LayoutParams.TYPE_APPLICATION,
+                WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
+        );
+        layoutParams.gravity = position;
+        layoutParams.windowAnimations = style;//小心使用的style错误
+        dialog.getWindow().setAttributes(layoutParams);
+        dialog.show();
+    }
+
+
 }

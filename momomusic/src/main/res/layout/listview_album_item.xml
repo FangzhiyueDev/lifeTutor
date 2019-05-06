@@ -73,11 +73,11 @@
 
     </RelativeLayout>
 
-    <view
+    <View
         style="@style/line"
         android:layout_width="match_parent"
         android:layout_below="@id/albumImg"
-        android:layout_marginTop="5dp"></view>
+        android:layout_marginTop="5dp"></View>
 
 
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -17,7 +18,9 @@ import android.widget.TextView;
 
 import com.example.momomusic.R;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
+import androidx.annotation.StyleRes;
 
 /**
  * 提供了一些定义好的dialog
@@ -29,6 +32,11 @@ public abstract class DialogTool<T> implements DialogSet {
     //1.操作成功
     //2,警告弹窗
     //3提示弹窗
+
+
+    public ViewGroup getView() {
+        return view;
+    }
 
     private Context context;
 
@@ -42,8 +50,6 @@ public abstract class DialogTool<T> implements DialogSet {
                 .setView(view)
                 .setCancelable(true)
                 .create();
-
-
         bindView(this, dialog, t);
         return dialog;
     }
@@ -59,6 +65,13 @@ public abstract class DialogTool<T> implements DialogSet {
         }
 
     }
+
+
+    public void addView(int id, View view) {
+
+
+    }
+
 
     @Override
     public void setClickListener(int id, View.OnClickListener click) {
@@ -88,22 +101,42 @@ public abstract class DialogTool<T> implements DialogSet {
         view1.setVisibility(visiable);
     }
 
+
     /**
-     * 使用这个方法的同时,传入的dialog必须设置Theme.Dialog的主题
+     * 打开一个dialog
      *
-     * <style name="DialogTheme" parent="@android:style/Theme.Dialog">
-     * <item name="android:background">@android:color/transparent</item>
-     * <item name="android:windowBackground">@android:color/transparent</item>
-     *
-     * </style>
-     *
-     * @param dialog
+     * @param context       上下文
+     * @param viewid        视图布局的id
+     * @param cancelable    是否可以取消
+     * @param isWidthScreen 是否是宽屏显示
+     * @param position      显示的位置
+     * @param style         动画的id
      */
-    public void setWidthWithScreen(Dialog dialog) {
-        WindowManager windowManager = dialog.getWindow().getWindowManager();
-        Display display = windowManager.getDefaultDisplay();
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = (int) (display.getWidth());//设置宽度dialog.getWindow().setAttributes(lp);
+    public Dialog openDialog(Context context, @LayoutRes int viewid, boolean cancelable, boolean isWidthScreen, int position, @StyleRes int style, @DrawableRes int drawableBg, T... t) {
+
+        view = (ViewGroup) LayoutInflater.from(context).inflate(viewid, null, false);
+
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(context)
+                .setView(view)
+                .setCancelable(cancelable);
+        androidx.appcompat.app.AlertDialog dialog = builder.create();
+        if (isWidthScreen) {
+            dialog.getWindow().getDecorView().setPadding(0, 0, 0, 0);
+            /**
+             * 我们发现了,上面所说的是正确的,那么通过设置背景,就能将dectorView的确定大小确定下来
+             */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                dialog.getWindow().getDecorView().setBackground(context.getResources().getDrawable(drawableBg));
+            }
+        }
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) -2, WindowManager.LayoutParams.TYPE_APPLICATION,
+                WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
+        );
+        layoutParams.gravity = position;
+        layoutParams.windowAnimations = style;//小心使用的style错误
+        dialog.getWindow().setAttributes(layoutParams);
+        bindView(this, dialog, t);
+        return dialog;
     }
 
 

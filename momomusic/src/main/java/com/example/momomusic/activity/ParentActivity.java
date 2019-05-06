@@ -49,7 +49,8 @@ public abstract class ParentActivity extends AppCompatActivity {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA,
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.SEND_SMS
+            Manifest.permission.SEND_SMS,
+            Manifest.permission.FOREGROUND_SERVICE
     };
 
     private final String TAG = "MPermissions";

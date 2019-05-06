@@ -8,10 +8,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -28,11 +30,15 @@ import com.example.momomusic.activity.PrimaryActivity;
 import com.example.momomusic.fragment.CommentListFragment;
 import com.example.momomusic.view.HotCommentList;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
 import androidx.annotation.LayoutRes;
+import androidx.annotation.StringDef;
 import androidx.annotation.StyleRes;
 import androidx.core.graphics.drawable.DrawableCompat;
 
@@ -62,6 +68,9 @@ public class Tools {
         for (Drawable dw : dws) {
             if (dw != null) {
                 dw.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    dw.setTint(color);
+                }
             }
         }
 
@@ -80,11 +89,69 @@ public class Tools {
 
 
     public static Drawable tintDrawable(Drawable drawable, ColorStateList colors) {
+        if (drawable == null) {
+            return null;
+        }
         final Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
         DrawableCompat.setTintList(wrappedDrawable, colors);
         return wrappedDrawable;
     }
 
+    /**
+     * 对textview的drawable进行渲染
+     *
+     * @param t
+     * @param colorStateList
+     * @param <T>
+     */
+    public static <T extends TextView> void tintDrawable(T t, ColorStateList colorStateList, @PosiMode String posi) {
+        Drawable[] dws = t.getCompoundDrawables();
+        Drawable drawable = null;
+        for (int i = 0; i < dws.length; i++) {
+            switch (posi) {
+                case POSI_LEFT:
+                    drawable = tintDrawable(dws[0], colorStateList);
+                    t.setCompoundDrawables(drawable, null, null, null);
+                    break;
+                case POSI_TOP:
+                    drawable = tintDrawable(dws[1], colorStateList);
+                    t.setCompoundDrawables(null, drawable, null, null);
+                    break;
+                case POSI_RIGHT:
+                    drawable = tintDrawable(dws[2], colorStateList);
+                    t.setCompoundDrawables(null, null, drawable, null);
+                    break;
+                case POSI_BOTTOM:
+                    drawable = tintDrawable(dws[3], colorStateList);
+                    t.setCompoundDrawables(null, null, null, drawable);
+                    break;
+            }
+        }
+    }
+
+
+    public static final String POSI_LEFT = "left";
+
+    public static final String POSI_TOP = "top";
+
+    public static final String POSI_RIGHT = "right";
+
+    public static final String POSI_BOTTOM = "bottom";
+
+
+    /**
+     * @hide
+     */
+    @StringDef(value = {
+            POSI_LEFT,
+            POSI_TOP,
+            POSI_RIGHT,
+            POSI_BOTTOM,
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface PosiMode {
+
+    }
 
     /**
      * 将px转为  dp
@@ -97,6 +164,8 @@ public class Tools {
 
         float scale = (int) context.getResources().getDisplayMetrics().density;
         return (int) (value / scale + 0.5f);
+
+
     }
 
 

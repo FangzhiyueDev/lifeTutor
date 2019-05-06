@@ -41,7 +41,4 @@ public class SqlHelp extends SQLiteOpenHelper {
     }
 
 
-
-
-
 }

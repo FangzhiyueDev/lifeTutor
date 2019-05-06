@@ -1,4 +1,4 @@
-package com.xiaofangfang.consumeview.ZimuListView;
+package com.xiaofangfang.consumeview.ListView.ZimuListView;
 
 import android.content.Context;
 import android.util.SparseArray;

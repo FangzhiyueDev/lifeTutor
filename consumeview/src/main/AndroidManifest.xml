@@ -12,12 +12,12 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".ZimuListView.ZimuListViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ListView.ZimuListView.ZimuListViewActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
 
 
@@ -171,6 +171,26 @@
         <activity
             android:name=".MagicViewPager.sample.CircleViewPagerActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+
+        <activity android:name=".RecyclerViewTest.RecyclerViewTestActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ListView.checkboxListView.CheckBoxListViewActivity">
+
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+
+        </activity>
 
     </application>
 

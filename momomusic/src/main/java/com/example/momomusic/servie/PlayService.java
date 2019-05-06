@@ -16,7 +16,11 @@ import android.widget.RemoteViews;
 
 import com.example.momomusic.R;
 import com.example.momomusic.model.Music;
+import com.example.momomusic.tool.Looger;
 
+import org.greenrobot.eventbus.Logger;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.Nullable;
@@ -27,7 +31,16 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
     public static final String ACTION = "action";
 
+    /**
+     * 这个data是用来直接设置播放源的  得到的是String
+     */
     public static final String DATA = "data";
+
+    /**
+     * 设置或附加加当前的数据源，得到 的是一个List<Music></>
+     */
+
+    public static final String SOURCE = "source";
 
 
     /**
@@ -41,12 +54,16 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
     public static final String WITH_DATA_PLAY = "withDataPlay";
 
+    public static final String ADDITIONAL_DATA = "add";
+
 
     private MyBinder binder;
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+
+        Looger.D("binder");
         return binder = new MyBinder();
     }
 
@@ -87,18 +104,18 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
         Intent intent = new Intent(this, PlayService.class);
         intent.putExtra(ACTION, UP);
-        PendingIntent upPend = PendingIntent.getService(this, 0, intent, 0);
+        PendingIntent upPend = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.up, upPend);
 
         Intent intent1 = new Intent(this, PlayService.class);
-        intent.putExtra(ACTION, DOWN);
-        PendingIntent downPend = PendingIntent.getService(this, 0, intent1, 0);
+        intent1.putExtra(ACTION, DOWN);
+        PendingIntent downPend = PendingIntent.getService(this, 1, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.down, downPend);
 
 
         Intent intent2 = new Intent(this, PlayService.class);
-        intent.putExtra(ACTION, PAUSE_OR_PLAY);
-        PendingIntent pauseOrPlayPend = PendingIntent.getService(this, 0, intent2, 0);
+        intent2.putExtra(ACTION, PAUSE_OR_PLAY);
+        PendingIntent pauseOrPlayPend = PendingIntent.getService(this, 2, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.pauseOrPlay, pauseOrPlayPend);
     }
 
@@ -106,9 +123,11 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        Looger.D("onStartCommand");
 
         String action = intent.getStringExtra(ACTION);
         String data = intent.getStringExtra(DATA);
+        ArrayList<Music> musics = intent.getParcelableArrayListExtra(SOURCE);
 
         if (action == null) {
             return super.onStartCommand(intent, flags, startId);
@@ -125,6 +144,9 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
                 break;
             case WITH_DATA_PLAY:
                 binder.playMusic(data);
+                break;
+            case ADDITIONAL_DATA:
+                binder.additionalData(musics);
                 break;
         }
         return super.onStartCommand(intent, flags, startId);
@@ -162,7 +184,6 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
                     downMusic();
                 }
             });
-
         }
 
 
@@ -181,9 +202,19 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
         @Override
         public void pauseOrPlayMusic() {
+            /**
+             * 如果当前music播放的歌曲为null，代表的是没有播放，也就是没有数据
+             * 对于这种情况，我们需要重新设置数据源
+             *
+             */
+            if (currentMusic == null) {
+                playMusic(musics.get(0).getDataUrl());
+                return;
+            }
+
             if (mediaPlayer.isPlaying()) {
                 mediaPlayer.pause();
-            } else {
+            } else {//在这里我们需要判断当前是否存在播放的数据，如果没有，我们需要从新设置
                 mediaPlayer.start();
             }
         }
@@ -239,9 +270,29 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
         private List<Music> musics;
 
+        /**
+         * 代表的是重新设置数据源
+         * 会清空之前的数据
+         *
+         * @param musics
+         */
         @Override
         public void setDataSources(List<Music> musics) {
             this.musics = musics;
+        }
+
+
+        /**
+         * 附加新的数据，对之前播放的数据进行保留
+         *
+         * @param data
+         */
+        public void additionalData(List<Music> data) {
+            if (this.musics == null) {//代表的是不在运行状态
+                this.musics = new ArrayList<>();
+            }
+
+            this.musics.addAll(data);
         }
     }
 

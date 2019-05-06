@@ -14,6 +14,27 @@ import java.util.List;
 
 public class LocalMusicIndexUtil {
 
+    /**
+     * MediaStore.Audio.Media.DATA,
+     * MediaStore.Audio.Media.ALBUM,
+     * MediaStore.Audio.Media.DISPLAY_NAME,
+     * MediaStore.Audio.Media.ARTIST,
+     * MediaStore.Audio.Media.SIZE,
+     * MediaStore.Audio.Media.DURATION,
+     * MediaStore.Audio.Media.TRACK,
+     * MediaStore.Audio.Media.ARTIST_ID,
+     * MediaStore.Audio.Media.ALBUM_ID,
+     * MediaStore.Audio.Media.ALBUM_KEY,
+     * MediaStore.Audio.Media.BOOKMARK,
+     * MediaStore.Audio.Media.DATE_ADDED,
+     * MediaStore.Audio.Media.COMPOSER,
+     * MediaStore.Audio.Media.TITLE,
+     * <p>
+     * 下面定义常量，用来指定当数据没有查到的缺省值
+     */
+
+    public static final String DEFAULT_VALUE = "未知";
+
 
     private static LocalMusicIndexUtil util = new LocalMusicIndexUtil();
 
@@ -72,6 +93,15 @@ public class LocalMusicIndexUtil {
                         int dateAdded = cursor.getInt(11);
                         String composer = cursor.getString(12);
                         String title = cursor.getString(13);
+
+                        data = data == null ? DEFAULT_VALUE : data;
+                        albumName = albumName == null ? DEFAULT_VALUE : albumName;
+                        displayName = displayName == null ? DEFAULT_VALUE : displayName;
+                        artist = artist == null ? DEFAULT_VALUE : artist;
+                        albumKey = albumKey == null ? DEFAULT_VALUE : albumKey;
+                        composer = composer == null ? DEFAULT_VALUE : composer;
+                        title = title == null ? DEFAULT_VALUE : title;
+
                         Music music = new Music(duration, track, artist_id, albumId, albumKey, bookMark, dateAdded, composer, title, data, displayName, albumName, artist, size);
 
                         if (musicScaleListener != null) {

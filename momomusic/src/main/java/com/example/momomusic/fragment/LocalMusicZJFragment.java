@@ -84,6 +84,7 @@ public class LocalMusicZJFragment extends ParentFragment implements AdapterView.
         while (cursor.moveToNext()) {
             String album = cursor.getString(0);
             String artist = cursor.getString(1);
+
             musics.add(new Music(album, artist, 00));
         }
 

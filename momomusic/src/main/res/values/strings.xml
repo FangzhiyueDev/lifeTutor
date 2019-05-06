@@ -170,6 +170,13 @@
     <string name="yi">1</string>
 
     <string name="true1">true</string>
+    <string name="tianjiadao">添加到歌单</string>
+    <string name="zhengzaibo">正在播放列表</string>
+    <string name="woshoucang">我收藏的单曲</string>
+    <string name="xinjiangedan">新建歌单</string>
+    <string name="xinjianngedan">新建歌单</string>
+    <string name="qingshuru">请输入 歌单名称</string>
+    <string name="queding">确定</string>
 
 
 </resources>

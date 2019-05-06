@@ -1,8 +1,14 @@
 package com.example.momomusic.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.litepal.crud.DataSupport;
 
-public class Music extends DataSupport {
+public class Music extends DataSupport implements Parcelable {
+
+
+
 
 
     /**
@@ -25,6 +31,7 @@ public class Music extends DataSupport {
      * String composer = cursor.getString(13);
      * String title = cursor.getString(14);
      */
+
 
 
     private int duration;
@@ -277,4 +284,62 @@ public class Music extends DataSupport {
     public void setDataUrl(String dataUrl) {
         this.dataUrl = dataUrl;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.duration);
+        dest.writeInt(this.track);
+        dest.writeInt(this.artist_id);
+        dest.writeInt(this.albumId);
+        dest.writeString(this.albumKey);
+        dest.writeInt(this.bookMark);
+        dest.writeInt(this.dateAdded);
+        dest.writeString(this.composer);
+        dest.writeString(this.title);
+        dest.writeString(this.dataUrl);
+        dest.writeString(this.displayName);
+        dest.writeString(this.albumName);
+        dest.writeString(this.artist);
+        dest.writeFloat(this.size);
+        dest.writeByte(this.isCollect ? (byte) 1 : (byte) 0);
+        dest.writeInt(this.count);
+        dest.writeString(this.pinyin);
+    }
+
+    protected Music(Parcel in) {
+        this.duration = in.readInt();
+        this.track = in.readInt();
+        this.artist_id = in.readInt();
+        this.albumId = in.readInt();
+        this.albumKey = in.readString();
+        this.bookMark = in.readInt();
+        this.dateAdded = in.readInt();
+        this.composer = in.readString();
+        this.title = in.readString();
+        this.dataUrl = in.readString();
+        this.displayName = in.readString();
+        this.albumName = in.readString();
+        this.artist = in.readString();
+        this.size = in.readFloat();
+        this.isCollect = in.readByte() != 0;
+        this.count = in.readInt();
+        this.pinyin = in.readString();
+    }
+
+    public static final Parcelable.Creator<Music> CREATOR = new Parcelable.Creator<Music>() {
+        @Override
+        public Music createFromParcel(Parcel source) {
+            return new Music(source);
+        }
+
+        @Override
+        public Music[] newArray(int size) {
+            return new Music[size];
+        }
+    };
 }

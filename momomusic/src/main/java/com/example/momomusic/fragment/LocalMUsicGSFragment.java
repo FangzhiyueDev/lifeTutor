@@ -1,6 +1,7 @@
 package com.example.momomusic.fragment;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -121,7 +122,9 @@ public class LocalMUsicGSFragment extends ParentFragment implements AdapterView.
         //添加字母匹配
         for (int i = 0; i < musics.size(); i++) {
 
-            String value = ChineseCharacterUtil.convertHanzi2Pinyin(musics.get(i).getArtist(), false).substring(0, 1);
+            String artist = musics.get(i).getArtist();
+
+            String value = ChineseCharacterUtil.convertHanzi2Pinyin(artist, false).substring(0, 1);
             if (!titles.contains(value)) {
                 titles.add(value);
                 List<Music> sortMusics = new ArrayList<>();
