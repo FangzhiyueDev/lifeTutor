@@ -17,6 +17,10 @@ import javax.inject.Inject;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+
+/**
+ * xml解析工具
+ */
 public class XmlParseUtil {
 
 

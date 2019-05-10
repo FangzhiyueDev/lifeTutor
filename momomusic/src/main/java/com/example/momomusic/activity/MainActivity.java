@@ -27,6 +27,7 @@ import javax.inject.Inject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
@@ -139,4 +140,27 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     }
 
 
+    /**
+     * 当请求权限成功的时候执行  ，当然在已经获得权限的情况下，依然执行这个函数，这个可以保证我们在获得权限成功的情况下做一些操作
+     * 保证软件的正常运行
+     *
+     * @param requestCode
+     */
+    @Override
+    public void permissionSuccess(int requestCode) {
+        super.permissionSuccess(requestCode);
+
+        /**
+         *  在这个函数的目的
+         *
+         *  1.判断是否开启了自动进入播放界面的开关
+         *  2.如果开启了----> 判断当前的歌曲是否在播放，通过启动service，通过ACTION==ISPLAY判断
+         *
+         */
+
+
+
+
+
+    }
 }

@@ -3,6 +3,9 @@ package com.example.momomusic.tool;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+/**
+ * 提供了对资源访问的便利
+ */
 public class ResourceUtil {
 
 

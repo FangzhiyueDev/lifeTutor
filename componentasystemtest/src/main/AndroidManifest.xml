@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.componentasystemtest">
 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+
+    <uses-permission
+        android:name="android.permission.MODIFY_PHONE_STATE"
+        tools:ignore="ProtectedPermissions"></uses-permission>
+
+
+    <!--<permission-->
+    <!--android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"-->
+    <!--android:protectionLevel="signatureOrSystem" />-->
+
 
     <application
         android:name=".application.MyApplication"
@@ -73,15 +89,11 @@
         <activity android:name=".scrollview.Activity.ScrollViewDemo1" />
         <activity android:name=".scrollview.Activity.HerizontalScrollViewGroup" />
         <activity android:name=".palette.MyPalette" />
-        <activity android:name=".notification.MyNotification" >
-
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
+        <activity android:name=".notification.MyNotification">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".moveLinearViewDisplay.LinearActivity" />
         <activity android:name=".downloadService.activity.EnvirnmentFilePathTest" />
@@ -95,13 +107,13 @@
 
         <service android:name=".downloadService.service.DownloadService" />
 
-        <receiver android:name=".broadcastTest.ActivityTest">
+        <receiver android:name=".broadcastTest.baseUse.MyBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.example.componentasystemtest.broadcastTest" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".broadcastTest.MainActivity">
+        <activity android:name=".broadcastTest.baseUse.MainActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN"></action> -->
@@ -131,10 +143,10 @@
         <activity android:name=".dialog.Simple2.DialogWidthTest">
 
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".serializable.fragmentSerializableTest.FragmentSerizlizableActivity" />
@@ -185,9 +197,33 @@
 
         <activity android:name=".sqlite.DaoOprateActivity">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".broadcastTest.netStatusChange.NetChangeActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".AppEnabled.AppEnableActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".AlarmManager.AlarmActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".JobScheduler.simple3.JobScheActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
@@ -224,7 +260,34 @@
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
 
 
+        <service
+            android:name=".broadcastTest.netStatusChange.MyJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service android:name=".AlarmManager.service.OneShotAlarm" />
+
+
+        <service
+            android:name=".JobScheduler.simple3.JobSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+
+        <receiver android:name=".broadcastTest.netStatusChange.NetChangeBroadcast">
+            <intent-filter>
+                <action android:name=" android.net.conn.CONNECTIVITY_CHANGE"></action>
+            </intent-filter>
+        </receiver>
+
+
+        <receiver android:name=".AlarmManager.broadcast.MyBroadcast">
+            <intent-filter>
+                <action android:name="MyBroadcast"></action>
+            </intent-filter>
+        </receiver>
+
 
     </application>
+
 
 </manifest>

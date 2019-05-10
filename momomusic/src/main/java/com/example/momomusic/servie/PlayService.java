@@ -15,10 +15,14 @@ import android.widget.RemoteViews;
 
 
 import com.example.momomusic.R;
+import com.example.momomusic.dao.MusicDataDb;
 import com.example.momomusic.model.Music;
+import com.example.momomusic.model.NearPlay;
 import com.example.momomusic.tool.Looger;
+import com.example.momomusic.tool.Tools;
 
 import org.greenrobot.eventbus.Logger;
+import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,13 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+
+/**
+ * 用于实现后台的播放的service
+ * 该程序唯一的一个前台服务，
+ * 用于实心歌曲播放，通过startCommand的ACTION来实现同activity的通信
+ * binder在这里作用被弱化，但是在最开始的使用过程中使用了binder，导致了startService之前都要bindService，来确保binder被正确创建
+ */
 public class PlayService extends Service implements MediaPlayer.OnPreparedListener {
 
 
@@ -44,6 +55,12 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
 
     /**
+     * 保存最近播放列表的最大数量
+     */
+    public static final int MAX_SAVE_NEAR = 100;
+
+
+    /**
      * 下面是几种播放状态
      */
     public static final String UP = "up";
@@ -55,6 +72,26 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
     public static final String WITH_DATA_PLAY = "withDataPlay";
 
     public static final String ADDITIONAL_DATA = "add";
+
+    /**
+     * 是否是随机播放 代表的值是一个<code>boolean</code>
+     */
+    public static final String RANDOM_PLAY = "randomPlay";
+
+    /**
+     * 是不是下一首播放
+     */
+    public static final String IS_DOWN_PLAY = "isDownPlay";
+
+    public static final String IS_PLAY = "isPlay";
+
+
+    /**
+     * 随机播放，默认是false
+     */
+    public boolean randomPlay = false;
+
+    public boolean isDownPlay = false;
 
 
     private MyBinder binder;
@@ -125,9 +162,22 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
         Looger.D("onStartCommand");
 
+        /**
+         * 执行的活动
+         */
         String action = intent.getStringExtra(ACTION);
+
+        /**
+         * 当前的播放数据
+         */
         String data = intent.getStringExtra(DATA);
+
+        /**
+         * 被附加的数据源
+         */
         ArrayList<Music> musics = intent.getParcelableArrayListExtra(SOURCE);
+        boolean isDonwPlay1 = intent.getBooleanExtra(IS_DOWN_PLAY, false);
+
 
         if (action == null) {
             return super.onStartCommand(intent, flags, startId);
@@ -146,8 +196,15 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
                 binder.playMusic(data);
                 break;
             case ADDITIONAL_DATA:
-                binder.additionalData(musics);
+                binder.additionalData(musics, isDonwPlay1);
                 break;
+
+            case RANDOM_PLAY:
+                binder.randomPlay(musics);
+                break;
+            case IS_PLAY:
+                binder.isPlay();
+
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -165,8 +222,22 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
     public void onPrepared(MediaPlayer mp) {
 
         if (mp.isPlaying()) {
+
         } else {
             mp.start();
+            /**
+             * 开始播放的时候就将数据保存进去
+             */
+            Music music = DataSupport.where("dataUrl=?", binder.currentMusic).find(Music.class).get(0);
+            NearPlay nearPlay = new NearPlay(music);
+            //在插入前判断数据库中的数据是否超过了100，如果超过了，就去删除
+            int count = MusicDataDb.getInstance(PlayService.this).queryTableRows(Music.class.getSimpleName());
+            if (count < MAX_SAVE_NEAR) {
+            } else {
+                List<Music> musics = DataSupport.findAll(Music.class);
+                musics.get(musics.size() - 1).delete();//删除最上边的数据
+            }
+            nearPlay.save();
         }
     }
 
@@ -175,13 +246,13 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
         private String currentMusic;
 
-
         public MyBinder() {
 
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     downMusic();
+                    //播放完成之后将播放的列表加入到最近播放列表中
                 }
             });
         }
@@ -208,7 +279,18 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
              *
              */
             if (currentMusic == null) {
-                playMusic(musics.get(0).getDataUrl());
+                /**
+                 * 是不是随机播放,
+                 * 如果是随机播放，就产生随机值
+                 *
+                 */
+                if (randomPlay) {
+                    int index = generRandom();
+                    playMusic(musics.get(index).getDataUrl());
+                } else {
+                    playMusic(musics.get(0).getDataUrl());
+                }
+
                 return;
             }
 
@@ -222,12 +304,24 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
 
         @Override
         public void upMusic() {
-            playMusic(getUpResource());
+
+            if (randomPlay) {  //如果岁随机播放
+                int index = generRandom();
+                playMusic(musics.get(index).getDataUrl());
+
+            } else {//反之采用上一首播放
+                playMusic(getUpResource());
+            }
         }
 
         @Override
         public void downMusic() {
-            playMusic(getNextResource());
+            if (randomPlay) {  //如果岁随机播放
+                int index = generRandom();
+                playMusic(musics.get(index).getDataUrl());
+            } else {
+                playMusic(getNextResource());
+            }
         }
 
         public String getUpResource() {
@@ -264,7 +358,6 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
                     }
                 }
             }
-
             return nextMusic.getDataUrl();
         }
 
@@ -286,13 +379,84 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
          * 附加新的数据，对之前播放的数据进行保留
          *
          * @param data
+         * @param isDonwPlay1
          */
-        public void additionalData(List<Music> data) {
+        public void additionalData(List<Music> data, boolean isDonwPlay1) {
             if (this.musics == null) {//代表的是不在运行状态
                 this.musics = new ArrayList<>();
             }
 
-            this.musics.addAll(data);
+            if (isDonwPlay1) {
+                if (this.musics.size() == 0) {
+                    this.musics.addAll(data);
+                } else {
+                    int index = getCurrentPlayMusicIndex();
+                    this.musics.addAll(index, data);
+                }
+            } else {
+                this.musics.addAll(data);
+            }
+        }
+
+
+        /**
+         * 获得当前播放数据源的位置
+         * 获得的位置需要加1，代表的是在后面
+         *
+         * @return
+         */
+        public int getCurrentPlayMusicIndex() {
+
+            int index = 0;
+            for (int i = 0; i < musics.size(); i++) {
+                if (currentMusic.equals(musics.get(i).getDataUrl())) {
+                    index = i;
+                }
+            }
+            return ++index;
+        }
+
+
+        /**
+         * 随机播放
+         * 产生随机值，然后进行播放
+         * 每一次返回一个index
+         *
+         * @param musics
+         */
+        public void randomPlay(ArrayList<Music> musics) {
+            //设置数据源
+            setDataSources(musics);
+            //设置标志位为随机播放
+            randomPlay = true;
+            int index = generRandom();
+            playMusic(musics.get(index).getDataUrl());
+        }
+
+
+        /**
+         * 产生随机播放的随机值
+         */
+        private int generRandom() {
+            int size = musics.size(); //1
+
+            int index = (int) Math.random() * size;
+
+            /**
+             * 当前的索引 1<=index<=size时 index--;
+             *           index<1 index;
+             */
+            index = index <= size ? index >= 1 ? index-- : index : index;
+
+            return index;
+        }
+
+
+        public void isPlay() {
+
+            if (mediaPlayer.isPlaying()) {//如果是播放状态，就去启动播放界面
+                Tools.startActivity(PlayService.this,"con.");
+            }
         }
     }
 

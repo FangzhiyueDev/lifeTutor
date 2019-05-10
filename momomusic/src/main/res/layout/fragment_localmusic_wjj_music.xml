@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/heibaixiangpian"
+            android:text="@string/yinyue"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
@@ -48,7 +48,7 @@
             android:drawableTint="@color/colorAccent"
             android:gravity="start|center_vertical"
             android:paddingLeft="20dp"
-            android:text="@string/suijibofang"
+            android:text="@string/bofangquanbu"
             android:textColor="@color/lightMainTextColor" />
     </FrameLayout>
 

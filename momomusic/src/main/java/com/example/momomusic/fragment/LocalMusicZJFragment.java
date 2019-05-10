@@ -19,6 +19,7 @@ import org.litepal.crud.DataSupport;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -119,7 +120,14 @@ public class LocalMusicZJFragment extends ParentFragment implements AdapterView.
 
         Music music = musics.get(position);
         Bundle bundle = new Bundle();
-        bundle.putString(LocalMusicSingerZJMusicFragment.ALBUM, music.getAlbumName());
+
+
+        HashMap<String, String[]> map = new HashMap<>();
+        map.put("albumName=?", new String[]{music.getAlbumName()});
+
+//        bundle.putString(LocalMusicSingerZJMusicFragment.ALBUM, music.getAlbumName());
+        bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, map);
+        bundle.putString(LocalMusicSingerZJMusicFragment.SOURCE, Music.class.getSimpleName());
         getMyActivity().setBundle(bundle);
         Tools.startActivity(getActivity(), "com.example.momomusic.fragment.LocalMusicSingerZJMusicFragment", bundle);
     }

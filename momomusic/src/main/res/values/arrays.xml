@@ -11,4 +11,11 @@
         <item>歌曲</item>
         <item>专辑</item>
     </string-array>
+    <string-array name="singer_zhuanlan_index">
+
+        <item>热门</item>
+        <item>专辑</item>
+        <item>视频</item>
+        <item>资讯</item>
+    </string-array>
 </resources>

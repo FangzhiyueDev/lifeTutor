@@ -1,15 +1,30 @@
 package com.example.momomusic.fragment;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 
 import com.example.momomusic.R;
+import com.example.momomusic.model.Music;
+import com.example.momomusic.servie.LocalMusicIndexUtil;
+import com.example.momomusic.servie.PlayService;
+import com.example.momomusic.servie.PlayServiceBindService;
 import com.example.momomusic.tool.Tools;
+import com.example.momomusic.tool.UiThread;
 import com.example.momomusic.view.Adapter.MyFragmentPageAdapter;
 import com.google.android.material.tabs.TabLayout;
+
+import org.litepal.crud.DataSupport;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +59,13 @@ public class LocalMusicListFragment extends ParentFragment {
 
     @BindView(R.id.randomPlay)
     Button randomPlay;
+
+    @BindView(R.id.randomBar)
+    FrameLayout randomBar;
+
+    @BindView(R.id.back)
+    ImageButton back;
+
 
     @BindView(R.id.multiSelect)
     Button multiSelect;//跳转进入新的Fragment中
@@ -81,10 +103,37 @@ public class LocalMusicListFragment extends ParentFragment {
         }
 
 
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        randomBar.setVisibility(View.VISIBLE);
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        randomBar.setVisibility(View.GONE);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
     }
 
 
-    @OnClick({R.id.multiSelect, R.id.randomPlay})
+    @OnClick({R.id.multiSelect, R.id.randomPlay, R.id.back})
     public void onClick(View view) {
 
         switch (view.getId()) {
@@ -93,6 +142,43 @@ public class LocalMusicListFragment extends ParentFragment {
                 Tools.startActivity(getContext(), "com.example.momomusic.fragment.MusicMultipleSelectFragment");
                 break;
             case R.id.randomPlay:
+                List<Music> selectedMusic = DataSupport.findAll(Music.class);
+
+                LocalMusicIndexUtil localMusicIndexUtil;
+
+                if (selectedMusic.size() == 0) {
+                    localMusicIndexUtil = LocalMusicIndexUtil.getInstance();
+                    localMusicIndexUtil.setMusicScaleListener(new LocalMusicIndexUtil.MusicScaleListener() {
+                        @Override
+                        public void scaling(Music music) {
+                            music.save();
+                            //这里需要注意的是不能添加相同的歌曲进去，会出现你问题
+                            if (!selectedMusic.contains(music)) {
+                                selectedMusic.add(music);
+                            }
+                        }
+
+                        @Override
+                        public void scaleComplate() {
+                            UiThread.getUiThread().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    //随机播放
+                                    PlayServiceBindService.randomPlayFun(selectedMusic, getContext());
+                                }
+                            });
+                        }
+                    });
+                    localMusicIndexUtil.indexLocalMusicI(getActivity());
+                } else {
+                    //随机播放
+                    PlayServiceBindService.randomPlayFun(selectedMusic, getContext());
+                }
+
+                break;
+
+            case R.id.back://返回
+                getMyActivity().finish();
                 break;
         }
 
@@ -102,7 +188,8 @@ public class LocalMusicListFragment extends ParentFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup
+            container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.local_musiclist, null);
         ButterKnife.bind(this, view);
         return view;
@@ -127,4 +214,6 @@ public class LocalMusicListFragment extends ParentFragment {
     public Class getClassName() {
         return null;
     }
+
+
 }

@@ -8,7 +8,12 @@ buildscript {
 
         maven {
             url "https://jitpack.io"
+
         }
+
+        //友盟的第三方集成
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+
     }
     dependencies {
         //gradle
@@ -37,11 +42,11 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
         maven {
-            maven { url "https://jitpack.io" }
             url 'https://maven.google.com/'
-            name 'Google'
-        }
+            name 'Google' }
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 }
 

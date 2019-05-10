@@ -30,6 +30,7 @@ import java.io.IOException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -37,6 +38,13 @@ import okhttp3.Response;
 
 public class MusicPlayFragment extends BaseFragment<MusicPlayView, MusicPlayPresenter> {
 
+
+    /**
+     * 进入这个界面必须设置的播放源
+     */
+    public static final String SOURCE = "source";
+
+    
 
     @Nullable
     @Override

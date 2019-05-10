@@ -1,9 +1,5 @@
 package com.example.momomusic.servie;
 
-//import net.sourceforge.pinyin4j.PinyinHelper;
-//import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-//import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
@@ -15,6 +11,7 @@ import java.util.regex.Pattern;
 
 /***
  * 汉字工具类
+ *  提供了汉字与字母之间的转换
  * @author csharper
  * @since 2014.12.26
  *

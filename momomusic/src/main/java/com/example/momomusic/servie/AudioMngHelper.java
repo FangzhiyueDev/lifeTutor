@@ -8,6 +8,9 @@ import java.lang.annotation.RetentionPolicy;
 
 import androidx.annotation.IntDef;
 
+/**
+ * 音频管理服务，后期需要公国该类实现对声音大小的控制
+ */
 public class AudioMngHelper {
 
 

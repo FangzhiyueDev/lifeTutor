@@ -24,6 +24,7 @@ import okhttp3.ResponseBody;
 
 /**
  * 发送网络请求的类
+ * 网络请求的封装实现
  */
 public class NetRequest {
 

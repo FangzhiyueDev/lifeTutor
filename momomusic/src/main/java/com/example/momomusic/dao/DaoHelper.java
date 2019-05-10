@@ -10,7 +10,7 @@ public class DaoHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "musicDb.db";
 
 
-    public static final int VERSION = 1;
+    public static final int VERSION = 3;
 
 
     public DaoHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

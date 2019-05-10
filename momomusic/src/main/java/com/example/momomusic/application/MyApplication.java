@@ -12,7 +12,6 @@ import org.litepal.LitePal;
 public class MyApplication extends Application {
 
 
-    public SharedPreferences setting;
 
     @Override
     public void onCreate() {

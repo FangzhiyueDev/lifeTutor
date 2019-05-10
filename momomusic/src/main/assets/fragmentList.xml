@@ -11,5 +11,6 @@
     <fragment>com.example.momomusic.fragment.LocalMusicSingerZJMusicFragment</fragment>
     <fragment>com.example.momomusic.fragment.LocalMusicWJJMusicFragment</fragment>
     <fragment>com.example.momomusic.fragment.MusicMultipleSelectFragment</fragment>
+    <fragment>com.example.momomusic.fragment.ModifyMusicInfoFragment</fragment>
 </fragments>
 

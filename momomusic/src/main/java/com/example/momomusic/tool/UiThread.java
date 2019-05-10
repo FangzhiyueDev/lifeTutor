@@ -3,6 +3,10 @@ package com.example.momomusic.tool;
 import android.os.Handler;
 import android.os.Looper;
 
+
+/**
+ * UI线程
+ */
 public class UiThread {
 
 

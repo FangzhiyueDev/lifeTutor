@@ -12,6 +12,10 @@ import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * 本地音乐检索工具
+ */
 public class LocalMusicIndexUtil {
 
     /**

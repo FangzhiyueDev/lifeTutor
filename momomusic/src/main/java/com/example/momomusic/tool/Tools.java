@@ -42,9 +42,22 @@ import androidx.annotation.StringDef;
 import androidx.annotation.StyleRes;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+
+/**
+ * 一般的工具类
+ * <p>
+ * 提供的功能有
+ * 1：
+ */
 public class Tools {
 
 
+    /**
+     * 获得屏幕的宽高
+     *
+     * @param context
+     * @return
+     */
     public static int[] getScreenDimension(Context context) {
 
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
@@ -78,6 +91,12 @@ public class Tools {
     }
 
 
+    /**
+     * 获得状态栏的高度
+     *
+     * @param context
+     * @return
+     */
     public static int getStatusBarHeight(Context context) {
         int result = 0;
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -88,6 +107,13 @@ public class Tools {
     }
 
 
+    /**
+     * 渲染Drawable
+     *
+     * @param drawable
+     * @param colors
+     * @return
+     */
     public static Drawable tintDrawable(Drawable drawable, ColorStateList colors) {
         if (drawable == null) {
             return null;
@@ -169,59 +195,6 @@ public class Tools {
     }
 
 
-    public static Dialog showWarnDialog(String title, String message, Context context) {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(title)
-                .setNegativeButton("确定", (dialog, which) -> {
-
-                    dialog.cancel();
-                })
-                .setNegativeButton("取消", (dialog, which) -> {
-                    dialog.cancel();
-                })
-                .setMessage(message);
-        return builder.create();
-
-    }
-
-
-    public static void loadPop(Context context, EventProgress eventProgress, int height, @LayoutRes int res, @StyleRes int anim) {
-
-        WindowManager windowManager = ((ParentActivity) context).getWindowManager();
-
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) height, WindowManager.LayoutParams.TYPE_APPLICATION,
-                WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.TRANSPARENT
-        );
-        layoutParams.windowAnimations = anim;
-        layoutParams.gravity = Gravity.BOTTOM;
-        View view = LayoutInflater.from(context).inflate(res, null, false);
-        eventProgress.eventProgress(view);
-        windowManager.addView(view, layoutParams);
-        //设置背景变暗
-    }
-
-
-    public interface EventProgress {
-
-        void eventProgress(View view);
-
-    }
-
-
-    public String getFilterCondition(String value) {
-
-        String[] v = value.split("&");
-        if (v.length == 1) {//代表的是当前过滤条件为单条
-
-
-        }
-
-
-        return value;
-    }
-
-
     /**
      * 获得软件的版本
      *
@@ -247,6 +220,7 @@ public class Tools {
 
     /**
      * "HH:mm
+     * 格式化时间
      *
      * @param param
      * @return
@@ -318,9 +292,7 @@ public class Tools {
      * @param path
      */
     public static void startActivity(Context context, String path) {
-        Intent intent = new Intent(context, PrimaryActivity.class);
-        intent.putExtra(PrimaryActivity.INTENT_KEY, path);
-        context.startActivity(intent);
+        startActivity(context, path, null, false);
     }
 
     /**
@@ -331,9 +303,26 @@ public class Tools {
      * @param bundle
      */
     public static void startActivity(Context context, String path, Bundle bundle) {
+        startActivity(context, path, bundle, false);
+    }
+
+    /**
+     * 是不是在新的栈中去创建
+     *
+     * @param context
+     * @param path
+     * @param bundle
+     * @param newTask
+     */
+    public static void startActivity(Context context, String path, Bundle bundle, boolean newTask) {
         Intent intent = new Intent(context, PrimaryActivity.class);
         intent.putExtra(PrimaryActivity.INTENT_KEY, path);
-        intent.putExtra(PrimaryActivity.BUNDLE, bundle);
+        if (bundle != null) {
+            intent.putExtra(PrimaryActivity.BUNDLE, bundle);
+        }
+        if (newTask) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
         context.startActivity(intent);
     }
 

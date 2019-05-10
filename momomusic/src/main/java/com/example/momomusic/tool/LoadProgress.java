@@ -9,6 +9,10 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+/**
+ * 加载的进度条  环形的，通过windowManager添加上去的
+ */
 public class LoadProgress {
 
 

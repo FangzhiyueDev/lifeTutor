@@ -104,7 +104,7 @@
                 style="@style/line"
                 android:layout_width="match_parent"></View>
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -112,6 +112,7 @@
                     android:id="@+id/localMusic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/suiJiBoFang"
                     android:background="?android:attr/selectableItemBackground"
                     android:drawableLeft="@drawable/ic_bendi"
                     android:drawablePadding="10dp"
@@ -126,7 +127,8 @@
                     android:id="@+id/suiJiBoFang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right|center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:drawableLeft="@drawable/ic_bofang1"
                     android:drawablePadding="15dp"
@@ -136,7 +138,7 @@
                     android:text="@string/suijibofang"
                     android:textColor="@android:color/holo_red_light" />
 
-            </FrameLayout>
+            </RelativeLayout>
 
             <View
                 style="@style/line"

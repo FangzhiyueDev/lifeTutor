@@ -16,6 +16,7 @@ import org.litepal.crud.DataSupport;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -68,7 +69,11 @@ public class LocalMusicSingerZJFragment extends ParentFragment {
                     holder.setVisibility(R.id.itemAlbum1, View.VISIBLE);
                     holder.setClickListener(R.id.itemAlbum1, (v) -> {
                         Bundle bundle = new Bundle();
-                        bundle.putString(LocalMusicSingerZJMusicFragment.ALBUM, s.albumName1);
+//                        bundle.putString(LocalMusicSingerZJMusicFragment.ALBUM, s.albumName1);
+
+                        HashMap<String, String[]> map = new HashMap<>();
+                        map.put("album=?", new String[]{s.albumName1});
+                        bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, map);
                         getMyActivity().setBundle(bundle);
                         Tools.startActivity(getActivity(), "com.example.momomusic.fragment.LocalMusicSingerZJMusicFragment", bundle);
                     });
@@ -79,7 +84,10 @@ public class LocalMusicSingerZJFragment extends ParentFragment {
                     holder.setVisibility(R.id.itemAlbum2, View.VISIBLE);
                     holder.setClickListener(R.id.itemAlbum2, (v) -> {
                         Bundle bundle = new Bundle();
-                        bundle.putString(LocalMusicSingerZJMusicFragment.ALBUM, s.albumName2);
+//                        bundle.putString(LocalMusicSingerZJMusicFragment.ALBUM, s.albumName2);
+                        HashMap<String, String[]> map = new HashMap<>();
+                        map.put("album=?", new String[]{s.albumName2});
+                        bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, map);
                         getMyActivity().setBundle(bundle);
                         Tools.startActivity(getActivity(), "com.example.momomusic.fragment.LocalMusicSingerZJMusicFragment", bundle);
                     });

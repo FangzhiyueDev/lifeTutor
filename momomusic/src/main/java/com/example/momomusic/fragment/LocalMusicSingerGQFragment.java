@@ -114,7 +114,7 @@ public class LocalMusicSingerGQFragment extends ParentFragment implements Adapte
         Music music = musics.get(position);
         //绑定
         Intent intent = new Intent(getActivity(), PlayService.class);
-        SystemSettingService.getInstall(getContext()).bindMusicPlayService(true);
+
         getActivity().bindService(intent, getMyActivity().conn = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
