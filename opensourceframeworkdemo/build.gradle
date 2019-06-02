@@ -24,6 +24,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+//        multiDexEnabled true
+
+
         /**
          * 解决rxjava报错问题
          */

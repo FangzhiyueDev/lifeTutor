@@ -3,6 +3,8 @@ package com.xiaofangfang.opensourceframeworkdemo.U_ment.U_shared;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.multidex.MultiDex;
+
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
@@ -15,6 +17,10 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+
+//        MultiDex.install(this);
+
         UMConfigure.setLogEnabled(true);
 
 

@@ -111,7 +111,7 @@ public class SystemSettingFragment extends ParentFragment {
 
     @OnClick({R.id.autoEntryPlayPage, R.id.desktopLyricSwitch,
             R.id.personalConteRecomSwit, R.id.intellRicPhoOptimiSwit,
-            R.id.notiSet, R.id.asLisAsDown, R.id.asLisAsDown,
+            R.id.notiSet, R.id.asLisAsDown,
             R.id.collectToDown, R.id.musicAutoClose, R.id.onlyWlanDown,
             R.id.bigOrSmallFilter, R.id.timeLengthFilter, R.id.folderFilter,
             R.id.policy

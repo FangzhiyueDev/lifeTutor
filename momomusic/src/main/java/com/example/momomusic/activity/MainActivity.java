@@ -1,20 +1,17 @@
 package com.example.momomusic.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.MainView;
-import com.example.momomusic.fragment.JingXuanFragment;
+import com.example.momomusic.fragment.jingxuan.JingXuanFragment;
 import com.example.momomusic.fragment.MeFragment;
-import com.example.momomusic.fragment.ShiPinFragment;
-import com.example.momomusic.fragment.ZhiBoFragment;
+import com.example.momomusic.fragment.shiping.ShiPinFragment;
+import com.example.momomusic.fragment.zhibo.ZhiBoFragment;
 import com.example.momomusic.precenter.MainPresenter;
 import com.example.momomusic.tool.Tools;
 import com.example.momomusic.view.Adapter.MyFragmentPageAdapter;
@@ -24,12 +21,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 

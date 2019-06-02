@@ -18,6 +18,27 @@ import com.xiaofangfang.butterknitedemo.mvp.simple5.ui.BaseView;
 public abstract class BasePresenter_5<T extends BaseView> {
 
 
+    /**
+     * <T extends User> setUser(T user);
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * throws
+     *
+     * <p>
+     * <p>
+     * <p>
+     * User
+     * <p>
+     * Person extends User
+     * <p>
+     * Man extendss User
+     * <p>
+     * setUser(man)
+     */
+
+
     private T view;
 
     public T getView() {

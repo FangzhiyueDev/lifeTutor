@@ -1,37 +1,26 @@
 package com.example.momomusic.fragment;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.momomusic.R;
-import com.example.momomusic.activity.BaseActivity;
 import com.example.momomusic.activity.ui.MeFragmentView;
+import com.example.momomusic.fragment.local.LocalMusicSingerZJMusicFragment;
 import com.example.momomusic.model.Music;
 import com.example.momomusic.model.NearPlay;
 import com.example.momomusic.precenter.MeFragmentPresenter;
 import com.example.momomusic.servie.LocalMusicIndexUtil;
-import com.example.momomusic.servie.PlayService;
 import com.example.momomusic.servie.PlayServiceBindService;
 import com.example.momomusic.tool.Tools;
 import com.example.momomusic.tool.UiThread;
 
-import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -77,7 +66,7 @@ public class MeFragment extends BaseFragment<MeFragmentView, MeFragmentPresenter
 
             case R.id.localMusic://本地音乐
                 Log.d(TAG, "onClick: ");
-                Tools.startActivity(getActivity(), "com.example.momomusic.fragment.LocalMusicListFragment");
+                Tools.startActivity(getActivity(), "com.example.momomusic.fragment.local.LocalMusicListFragment");
                 break;
             case R.id.suiJiBoFang://随机播放
 
@@ -118,7 +107,7 @@ public class MeFragment extends BaseFragment<MeFragmentView, MeFragmentPresenter
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(LocalMusicSingerZJMusicFragment.SOURCE, NearPlay.class.getSimpleName());
                 bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, null);
-                Tools.startActivity(getContext(), "com.example.momomusic.fragment.LocalMusicSingerZJMusicFragment", bundle);
+                Tools.startActivity(getContext(), "com.example.momomusic.fragment.local.LocalMusicSingerZJMusicFragment", bundle);
                 break;
         }
     }

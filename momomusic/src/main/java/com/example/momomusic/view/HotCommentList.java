@@ -2,48 +2,31 @@ package com.example.momomusic.view;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.momomusic.R;
-import com.example.momomusic.activity.MainActivity;
 import com.example.momomusic.activity.PrimaryActivity;
-import com.example.momomusic.dialog.DialogSet;
 import com.example.momomusic.dialog.DialogTool;
 import com.example.momomusic.exception.ViewNotMatchException;
-import com.example.momomusic.fragment.CommentListFragment;
+import com.example.momomusic.fragment.commons.CommentListFragment;
 import com.example.momomusic.model.Comment;
-import com.example.momomusic.tool.ResourceUtil;
 import com.example.momomusic.tool.Tools;
 import com.orhanobut.logger.Logger;
 
-import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.core.widget.TextViewCompat;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -336,7 +319,7 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
         bundle.putBoolean(CommentListFragment.IS_HUIFU, true);
         bundle.putSerializable(CommentListFragment.COMMENT, new Comment());
         context.setBundle(bundle);
-        Tools.startActivity(getContext(), "com.example.momomusic.fragment.CommentListFragment");
+        Tools.startActivity(getContext(), "com.example.momomusic.fragment.commons.CommentListFragment");
 
     }
 

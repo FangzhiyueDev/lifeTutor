@@ -11,6 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.momomusic.R;
+import com.example.momomusic.fragment.local.LocalMUsicGSFragment;
+import com.example.momomusic.fragment.local.LocalMusicGQFragment;
+import com.example.momomusic.fragment.local.LocalMusicWJJFragment;
+import com.example.momomusic.fragment.local.LocalMusicZJFragment;
 import com.example.momomusic.view.Adapter.MyFragmentPageAdapter;
 import com.google.android.material.tabs.TabLayout;
 

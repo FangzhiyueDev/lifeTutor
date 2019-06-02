@@ -1,34 +1,19 @@
 package com.example.momomusic.tool;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.example.momomusic.R;
-import com.example.momomusic.activity.MainActivity;
-import com.example.momomusic.activity.ParentActivity;
 import com.example.momomusic.activity.PrimaryActivity;
-import com.example.momomusic.fragment.CommentListFragment;
-import com.example.momomusic.view.HotCommentList;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -36,10 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import androidx.annotation.DrawableRes;
-import androidx.annotation.IntDef;
-import androidx.annotation.LayoutRes;
 import androidx.annotation.StringDef;
-import androidx.annotation.StyleRes;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 

@@ -2,8 +2,10 @@ package com.xiaofangfang.rice2_verssion.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -18,6 +20,7 @@ import com.xiaofangfang.rice2_verssion.tool.UiThread;
 import java.io.IOException;
 
 import androidx.fragment.app.Fragment;
+
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -131,7 +134,6 @@ public abstract class ParentFragment<T> extends Fragment implements FramgentOpra
     public abstract void onError(IOException e, String what);
 
     public abstract void onSucess(Response response, String what, String... backData) throws IOException;
-
 
 
 }
