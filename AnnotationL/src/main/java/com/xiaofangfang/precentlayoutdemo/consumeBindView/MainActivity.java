@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         BindProgress.bindView(this);
         BindProgress.bindClick(this);
 
+
         textView.setText("asasfasg");
     }
 

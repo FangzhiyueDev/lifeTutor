@@ -6,9 +6,13 @@ import android.util.Log;
 
 import com.orhanobut.logger.Logger;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -124,6 +128,10 @@ public class RxUtils {
                 Log.d(TAG, "call: ======" + o.toString());
             }
         });
+
+
+
+
 
 
     }

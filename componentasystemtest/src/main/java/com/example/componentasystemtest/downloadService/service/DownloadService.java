@@ -85,6 +85,11 @@ public class DownloadService extends Service {
 
     class MyAsyncTask extends AsyncTask<String, Integer, Void> {
 
+
+        /**
+         * 4 最后执行
+         * @param aVoid
+         */
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
@@ -92,6 +97,10 @@ public class DownloadService extends Service {
         }
 
 
+        /**
+         * 3 执行
+         * @param values
+         */
         @Override
         protected void onProgressUpdate(Integer... values) {
 
@@ -108,6 +117,10 @@ public class DownloadService extends Service {
             }
         }
 
+        /**
+         *
+         * 1 执行
+         */
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -118,6 +131,12 @@ public class DownloadService extends Service {
         int progress;
         private String name = "androidStudio.exe";
 
+        /**
+         *
+         * 2   执行
+         * @param strings
+         * @return
+         */
         @Override
         protected Void doInBackground(String... strings) {
 

@@ -15,6 +15,6 @@ public class SimpleObserver implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.print("data is changed" + ((SimpleObservable) arg).getData());
+        System.out.print("data is changed" + ((SimpleObservable) o).getData());
     }
 }

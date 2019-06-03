@@ -19,6 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/newCall"
+        android:text="最简化的asyncTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <VideoView
         android:id="@+id/video"
         android:layout_width="match_parent"

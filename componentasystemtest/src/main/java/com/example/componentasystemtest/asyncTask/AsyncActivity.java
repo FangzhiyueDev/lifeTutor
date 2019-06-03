@@ -1,23 +1,19 @@
 package com.example.componentasystemtest.asyncTask;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
-import android.app.Activity;
-import android.app.Application;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.example.componentasystemtest.R;
 import com.example.componentasystemtest.musicPlay.simple2.Music;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +29,46 @@ public class AsyncActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 10);
 
         AsyncTask.handlerThread1Process(this);
+
+
+        findViewById(R.id.newCall).setOnClickListener((v)->{
+
+
+            new android.os.AsyncTask<String,Integer,Character>(){
+
+                @Override
+                protected void onPostExecute(Character character) {
+                    super.onPostExecute(character);
+                }
+
+                @Override
+                protected void onProgressUpdate(Integer... values) {
+                    super.onProgressUpdate(values);
+                }
+
+                @Override
+                protected Character doInBackground(String... strings) {
+
+
+                    /**
+                     * 下面执行的语句，会自动调用onProgressUpdate
+                     */
+                    publishProgress(12);
+
+                    return null;
+                }
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                }
+            };
+
+        });
+
+
+
+
 
         findViewById(R.id.button).setOnClickListener((v) -> {
 //            AsyncTask.handler.sendEmptyMessage(20);
