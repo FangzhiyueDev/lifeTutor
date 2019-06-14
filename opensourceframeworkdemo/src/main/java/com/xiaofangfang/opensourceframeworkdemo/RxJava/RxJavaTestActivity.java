@@ -2,6 +2,7 @@ package com.xiaofangfang.opensourceframeworkdemo.RxJava;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -43,6 +44,9 @@ public class RxJavaTestActivity extends AppCompatActivity {
 
             RxUtil.demo2(this);
         });
+
+
+
 
 
 
@@ -143,12 +147,6 @@ public class RxJavaTestActivity extends AppCompatActivity {
 
 
         });
-
-
-
-
-
-
 
     }
 

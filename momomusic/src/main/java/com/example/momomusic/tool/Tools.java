@@ -172,8 +172,6 @@ public class Tools {
 
         float scale = (int) context.getResources().getDisplayMetrics().density;
         return (int) (value / scale + 0.5f);
-
-
     }
 
 
