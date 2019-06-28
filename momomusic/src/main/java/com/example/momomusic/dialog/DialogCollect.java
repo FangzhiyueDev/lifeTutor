@@ -174,7 +174,7 @@ public class DialogCollect {
             }
         };
 
-        Dialog dialog = dialogTool.getDialog(dialogParent.getContext(), R.layout.dialog_new_music_sheet, null);
+        Dialog dialog = dialogTool.getDialog(dialogParent.getContext(), R.layout.dialog_new_music_sheet, "");
         dialog.show();
     }
 

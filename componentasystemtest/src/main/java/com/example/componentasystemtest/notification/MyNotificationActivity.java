@@ -31,7 +31,7 @@ import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
  * Created by fang on 2018/6/10.
  */
 
-public class MyNotification extends AppCompatActivity implements View.OnClickListener {
+public class MyNotificationActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,7 +91,7 @@ public class MyNotification extends AppCompatActivity implements View.OnClickLis
     private void notification2() {
         Notification.Builder builder = new Notification.Builder(this);
         //实现悬挂式的效果
-        builder.setFullScreenIntent(PendingIntent.getActivity(this, 1, new Intent(this, MyNotification.class), FLAG_UPDATE_CURRENT), false);
+        builder.setFullScreenIntent(PendingIntent.getActivity(this, 1, new Intent(this, MyNotificationActivity.class), FLAG_UPDATE_CURRENT), false);
         builder.setContentText("你有一封邮件");
         builder.setSmallIcon(R.mipmap.ic_launcher);
         Notification notification = builder.build();
@@ -106,7 +106,7 @@ public class MyNotification extends AppCompatActivity implements View.OnClickLis
         builder.setSmallIcon(R.mipmap.ic_launcher);
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notification1);
         remoteViews.setTextViewText(R.id.removeViewButton, "点击");
-        remoteViews.setOnClickPendingIntent(R.id.removeViewButton, PendingIntent.getActivity(this, 1, new Intent(this, MyNotification.class), FLAG_UPDATE_CURRENT));
+        remoteViews.setOnClickPendingIntent(R.id.removeViewButton, PendingIntent.getActivity(this, 1, new Intent(this, MyNotificationActivity.class), FLAG_UPDATE_CURRENT));
         RemoteViews remoteViews1 = new RemoteViews(getPackageName(), R.layout.bignotification);
         builder.setCustomContentView(remoteViews);
         builder.setCustomBigContentView(remoteViews1);

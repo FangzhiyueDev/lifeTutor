@@ -17,13 +17,13 @@ public class JDKTest8 {
 
     static JDKTest8 jdkTest8 = new JDKTest8();
 
-    public static void main(String[] argc) throws IOException {
+//    public static void main(String[] argc) throws IOException {
 
 //        jdkTest8.test1();
 //        jdkTest8.test2();
-        jdkTest8.test3();
+//        jdkTest8.test3();
 
-    }
+//    }
 
     //1===================接口的默认方法
     interface Formula {

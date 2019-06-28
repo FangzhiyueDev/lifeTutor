@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,16 +22,14 @@
     -->
 
     <com.xiaofangfang.consumeview.Toolbar.Toolbar
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/actionBarSize"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:rightTextColor="#111"
-        app:titleTextColor="#111"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        tool:rightTextColor="#111"
+        tool:titleTextColor="#ccc"
         tool:leftTextColor="#111"
-        tools:leftText="返回"
-        tools:rightText="设置"
-        tools:title="首页"></com.xiaofangfang.consumeview.Toolbar.Toolbar>
+        tool:leftText="返回"
+        tool:rightText="设置"
+        tool:title="首页"></com.xiaofangfang.consumeview.Toolbar.Toolbar>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

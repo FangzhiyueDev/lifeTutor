@@ -27,8 +27,8 @@ public class PopupWindows extends PopupWindow {
         LinearLayout ll_popup = (LinearLayout) view.findViewById(R.id.ll_popup);
         ll_popup.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.push_bottom_in_2));
 
-        setWidth(ViewGroup.LayoutParams.FILL_PARENT);//设置宽
-        setHeight(ViewGroup.LayoutParams.FILL_PARENT);//设置高
+        setWidth(ViewGroup.LayoutParams.MATCH_PARENT);//设置宽
+        setHeight(ViewGroup.LayoutParams.MATCH_PARENT);//设置高
         setBackgroundDrawable(new BitmapDrawable());
         setFocusable(true);
         setOutsideTouchable(true);

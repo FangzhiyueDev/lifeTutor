@@ -172,7 +172,7 @@ public class LocalMUsicGSFragment extends ParentFragment implements AdapterView.
         if (music.getPinyin() == null) {//代表点击的是实际的歌曲  ---->跳转到LocalMusicSingerFragment   传递的歌手的歌手名称.我们通过这个进行数据库的检索
             Bundle bundle = new Bundle();
             bundle.putString(LocalMusicSingerFragment.ARTIST, music.getArtist());
-            Tools.startActivity(getActivity(), "com.example.momomusic.fragment.local.LocalMusicSingerFragment", bundle);
+            Tools.startActivity(getActivity(), LocalMusicSingerFragment.class, bundle);
             return;
         }
 

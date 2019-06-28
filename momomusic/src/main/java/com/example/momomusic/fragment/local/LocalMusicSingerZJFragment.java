@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
@@ -75,7 +76,7 @@ public class LocalMusicSingerZJFragment extends ParentFragment {
                         map.put("album=?", new String[]{s.albumName1});
                         bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, map);
                         getMyActivity().setBundle(bundle);
-                        Tools.startActivity(getActivity(), "com.example.momomusic.fragment.local.LocalMusicSingerZJMusicFragment", bundle);
+                        Tools.startActivity(getActivity(), LocalMusicSingerZJMusicFragment.class, bundle);
                     });
                 }
                 if (s.albumName2 != null) {
@@ -89,7 +90,7 @@ public class LocalMusicSingerZJFragment extends ParentFragment {
                         map.put("album=?", new String[]{s.albumName2});
                         bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, map);
                         getMyActivity().setBundle(bundle);
-                        Tools.startActivity(getActivity(), "com.example.momomusic.fragment.local.LocalMusicSingerZJMusicFragment", bundle);
+                        Tools.startActivity(getActivity(), LocalMusicSingerZJMusicFragment.class, bundle);
                     });
                 }
 

@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.MeFragmentView;
+import com.example.momomusic.fragment.local.LocalMusicListFragment;
 import com.example.momomusic.fragment.local.LocalMusicSingerZJMusicFragment;
 import com.example.momomusic.model.Music;
 import com.example.momomusic.model.NearPlay;
@@ -66,7 +67,7 @@ public class MeFragment extends BaseFragment<MeFragmentView, MeFragmentPresenter
 
             case R.id.localMusic://本地音乐
                 Log.d(TAG, "onClick: ");
-                Tools.startActivity(getActivity(), "com.example.momomusic.fragment.local.LocalMusicListFragment");
+                Tools.startActivity(getActivity(), LocalMusicListFragment.class);
                 break;
             case R.id.suiJiBoFang://随机播放
 
@@ -107,7 +108,7 @@ public class MeFragment extends BaseFragment<MeFragmentView, MeFragmentPresenter
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(LocalMusicSingerZJMusicFragment.SOURCE, NearPlay.class.getSimpleName());
                 bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, null);
-                Tools.startActivity(getContext(), "com.example.momomusic.fragment.local.LocalMusicSingerZJMusicFragment", bundle);
+                Tools.startActivity(getContext(), LocalMusicSingerZJMusicFragment.class, bundle);
                 break;
         }
     }

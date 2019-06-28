@@ -38,47 +38,22 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MediaPlayer.MediaPlayerActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
 
         </activity>
         <activity android:name=".photoZip.PhotoZipActivity">
 
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
 
         </activity>
         <activity android:name=".ScreenTest.ScreenTestActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".asyncTask.LoaderActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
 
         </activity>
         <activity android:name=".asyncTask.AsyncActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".surface.Demo3Activity" />
         <activity android:name=".viewDragHelper.MyActivity" />
@@ -86,18 +61,14 @@
         <activity android:name=".Annomation.MyActivityDemo7" />
         <activity android:name=".scrollview.viewGroup.MyActivity" />
         <activity android:name=".ColorMetrix.MyActivity" />
-        <activity android:name=".scrollview.Activity.ScrollViewDemo1" />
-        <activity android:name=".scrollview.Activity.HerizontalScrollViewGroup" />
-        <activity android:name=".palette.MyPalette" />
-        <activity android:name=".notification.MyNotification">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+        <activity android:name=".scrollview.Activity.ScrollViewDemo1Activity" />
+        <activity android:name=".scrollview.Activity.HerizontalScrollViewGroupActivity" />
+        <activity android:name=".palette.MyPaletteActivity" />
+        <activity android:name=".notification.MyNotificationActivity">
         </activity>
         <activity android:name=".moveLinearViewDisplay.LinearActivity" />
-        <activity android:name=".downloadService.activity.EnvirnmentFilePathTest" />
-        <activity android:name=".downloadService.activity.DownloadFileTest" />
+        <activity android:name=".downloadService.activity.EnvirnmentFilePathTestActivity" />
+        <activity android:name=".downloadService.activity.DownloadFileTestActivity" />
         <activity android:name=".density.Density" />
         <activity android:name=".DecorView.DectorActivity" />
         <activity android:name=".consumeViewAttribute.AttrActivity" />
@@ -115,124 +86,74 @@
 
         <activity android:name=".broadcastTest.baseUse.MainActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN"></action> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+
 
         </activity>
         <activity android:name=".view.ViewBgActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".JobScheduler.simple2.JobSchedulerActivity" />
         <activity android:name=".dialog.simple1.DialogActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".dialog.Simple2.DialogWidthTest">
-
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".dialog.Simple2.DialogWidthTestActivity">
 
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".serializable.fragmentSerializableTest.FragmentSerizlizableActivity" />
         <activity android:name=".musicPlay.simple2.MusicListActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".musicPlay.simple3.MediaPlayerActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".appProtectedAlive.doubleProcessProtected.AppProtectedActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".appProtectedAlive.onePixelActivity.SinglePixelActivity" />
         <activity android:name=".appProtectedAlive.onePixelActivity.OnePixelActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".appProtectedAlive.nullNotification.NullNotificationActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".appProtectedAlive.jobScheduler.JobActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
 
 
         <activity android:name=".sqlite.DaoOprateActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
         </activity>
         <activity android:name=".broadcastTest.netStatusChange.NetChangeActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
         </activity>
         <activity android:name=".AppEnabled.AppEnableActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
         </activity>
         <activity android:name=".AlarmManager.AlarmActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
         </activity>
         <activity android:name=".JobScheduler.simple3.JobScheActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
         </activity>
         <activity
             android:name=".windowManager.WindowManagerActivity"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".popupWindow.PopWindowActivity" ></activity>
+
+
+        <activity android:name=".ProjectListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".handler.HandlerPrincipleActivity" />
 
 
         <!-- exported  这个地方必须是True，否则外界的应用无法启动该JobService -->

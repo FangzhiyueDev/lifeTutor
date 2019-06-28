@@ -69,7 +69,6 @@ public class Tools {
             }
         }
 
-
     }
 
 
@@ -269,34 +268,34 @@ public class Tools {
      * 启动一个path
      *
      * @param context
-     * @param path
+     * @param classObj
      */
-    public static void startActivity(Context context, String path) {
-        startActivity(context, path, null, false);
+    public static void startActivity(Context context, Class<?> classObj) {
+        startActivity(context, classObj, null, false);
     }
 
     /**
      * 这个方法可以向新启动的activity添加bundle数据
      *
      * @param context
-     * @param path
+     * @param classObj
      * @param bundle
      */
-    public static void startActivity(Context context, String path, Bundle bundle) {
-        startActivity(context, path, bundle, false);
+    public static void startActivity(Context context, Class<?> classObj, Bundle bundle) {
+        startActivity(context, classObj, bundle, false);
     }
 
     /**
      * 是不是在新的栈中去创建
      *
      * @param context
-     * @param path
+     * @param classObj
      * @param bundle
      * @param newTask
      */
-    public static void startActivity(Context context, String path, Bundle bundle, boolean newTask) {
+    public static void startActivity(Context context, Class<?> classObj, Bundle bundle, boolean newTask) {
         Intent intent = new Intent(context, PrimaryActivity.class);
-        intent.putExtra(PrimaryActivity.INTENT_KEY, path);
+        intent.putExtra(PrimaryActivity.INTENT_KEY, classObj);
         if (bundle != null) {
             intent.putExtra(PrimaryActivity.BUNDLE, bundle);
         }
@@ -305,6 +304,19 @@ public class Tools {
         }
         context.startActivity(intent);
     }
+
+
+//    public static void startActivity(Context context, Class<?> classObj, Bundle bundle, boolean newTask) {
+//        Intent intent = new Intent(context, PrimaryActivity.class);
+//        intent.putExtra(PrimaryActivity.INTENT_KEY, classObj);
+//        if (bundle != null) {
+//            intent.putExtra(PrimaryActivity.BUNDLE, bundle);
+//        }
+//        if (newTask) {
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        }
+//        context.startActivity(intent);
+//    }
 
 
 }

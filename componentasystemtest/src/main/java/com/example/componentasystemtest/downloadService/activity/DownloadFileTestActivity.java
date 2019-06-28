@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.componentasystemtest.R;
 import com.example.componentasystemtest.downloadService.service.DownloadService;
 
-public class DownloadFileTest extends AppCompatActivity {
+public class DownloadFileTestActivity extends AppCompatActivity {
 
 
     @TargetApi(Build.VERSION_CODES.O)
@@ -24,7 +24,7 @@ public class DownloadFileTest extends AppCompatActivity {
 
         findViewById(R.id.down).setOnClickListener((v) -> {
 
-            Intent intent = new Intent(DownloadFileTest.this, DownloadService.class);
+            Intent intent = new Intent(DownloadFileTestActivity.this, DownloadService.class);
             startService(intent);
 
         });

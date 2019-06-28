@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -48,7 +49,7 @@ public class PrimaryActivity extends BaseActivity<PrimaryView, PrimaryPresenter>
         setBundle(getIntent().getBundleExtra(BUNDLE));//设置传递过来的bundle
         try {
             getPresenter().daymicFragment(this);
-        } catch (PrimaryPresenter.KeyNotValueException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

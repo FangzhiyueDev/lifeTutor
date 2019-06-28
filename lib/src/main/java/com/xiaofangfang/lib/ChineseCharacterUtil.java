@@ -67,9 +67,9 @@ public class ChineseCharacterUtil {
         return sb.toString();
     }
 
-    public static void main(String args[]) {
-        String value = convertHanzi2Pinyin("方志月", false);
-        System.out.print(value.toCharArray()[0]);
-    }
+//    public static void main(String args[]) {
+//        String value = convertHanzi2Pinyin("方志月", false);
+//        System.out.print(value.toCharArray()[0]);
+//    }
 
 }

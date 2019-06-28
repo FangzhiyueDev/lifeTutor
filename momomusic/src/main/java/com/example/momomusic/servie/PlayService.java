@@ -16,6 +16,7 @@ import android.widget.RemoteViews;
 
 import com.example.momomusic.R;
 import com.example.momomusic.dao.MusicDataDb;
+import com.example.momomusic.fragment.MusicPlayFragment;
 import com.example.momomusic.model.Music;
 import com.example.momomusic.model.NearPlay;
 import com.example.momomusic.tool.Looger;
@@ -455,7 +456,7 @@ public class PlayService extends Service implements MediaPlayer.OnPreparedListen
         public void isPlay() {
 
             if (mediaPlayer.isPlaying()) {//如果是播放状态，就去启动播放界面
-                Tools.startActivity(PlayService.this,"con.");
+                Tools.startActivity(PlayService.this, MusicPlayFragment.class,null,true);
             }
         }
     }

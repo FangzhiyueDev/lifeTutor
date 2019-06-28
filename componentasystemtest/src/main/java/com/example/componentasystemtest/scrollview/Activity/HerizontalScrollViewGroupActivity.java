@@ -11,11 +11,16 @@ import com.example.componentasystemtest.R;
  * Created by fang on 2018/6/7.
  */
 
-public class HerizontalScrollViewGroup extends AppCompatActivity {
+public class HerizontalScrollViewGroupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.one);
     }
+
+
+
+
+
 }

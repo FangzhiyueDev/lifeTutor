@@ -41,9 +41,6 @@ public class Toolbar extends RelativeLayout implements View.OnClickListener {
         <attr name="rightTextColor" format="color"></attr>               int值
         <attr name="rightBackground" format="reference|color"></attr>    drawable,原因是color也可以是drawable   colorDrawable
         <attr name="rightText" format="string"></attr>
-
-
-
      */
 
     private String title, leftText, rightText;
@@ -57,6 +54,9 @@ public class Toolbar extends RelativeLayout implements View.OnClickListener {
     private Button leftButton, rightButton;
 
     private TextView titleText;
+
+    private int defColor=Color.parseColor("#111111");
+
 
 
     public enum ButtonPosition {
@@ -75,11 +75,11 @@ public class Toolbar extends RelativeLayout implements View.OnClickListener {
 
         titleTextSize = ta.getDimension(R.styleable.TopBar_titleTextSize, 10);
 
-        titleTextColor = ta.getColor(R.styleable.TopBar_titleTextColor, 0);
+        titleTextColor = ta.getColor(R.styleable.TopBar_titleTextColor, defColor);
 
-        leftTextColor = ta.getColor(R.styleable.TopBar_leftTextColor, 0);
+        leftTextColor = ta.getColor(R.styleable.TopBar_leftTextColor,defColor );
 
-        rightTextColor = ta.getColor(R.styleable.TopBar_rightTextColor,0);
+        rightTextColor = ta.getColor(R.styleable.TopBar_rightTextColor,defColor);
 
         leftBackground = ta.getDrawable(R.styleable.TopBar_leftBackground);
 
@@ -94,11 +94,11 @@ public class Toolbar extends RelativeLayout implements View.OnClickListener {
 
         leftButton.setText(leftText);
         leftButton.setTextColor(leftTextColor);
-        leftButton.setBackgroundDrawable(leftBackground);
+        leftButton.setBackground(leftBackground);
 
         rightButton.setText(rightText);
         rightButton.setTextColor(rightTextColor);
-        rightButton.setBackgroundDrawable(rightBackground);
+        rightButton.setBackground(rightBackground);
 
 
         titleText.setText(title);

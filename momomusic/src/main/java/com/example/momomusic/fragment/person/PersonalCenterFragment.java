@@ -73,7 +73,7 @@ public class PersonalCenterFragment extends BaseFragment<PersonalCenterView, Per
 
     @OnClick({R.id.gerenzhuye})
     public void OnClick(View view) {
-        Tools.startActivity(getActivity(), "com.example.momomusic.fragment.person.PersonalIndexPageFragment");
+        Tools.startActivity(getActivity(), PersonalIndexPageFragment.class);
     }
 
 

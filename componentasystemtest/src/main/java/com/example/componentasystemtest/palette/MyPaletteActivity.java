@@ -25,7 +25,7 @@ import com.example.componentasystemtest.R;
  * Created by fang on 2018/6/10.
  */
 
-public class MyPalette extends AppCompatActivity implements View.OnClickListener {
+public class MyPaletteActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button change;
     private ImageView changeImg;

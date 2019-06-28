@@ -26,6 +26,7 @@ import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
@@ -117,7 +118,7 @@ public class LocalMusicWJJFragment extends ParentFragment implements AdapterView
         Bundle bundle = new Bundle();
         bundle.putString(LocalMusicWJJMusicFragment.PATH, "com.example.momomusic.fragment.local.LocalMusicGQFragment");
         bundle.putString(LocalMusicGQFragment.FIEL_PATH, path);
-        Tools.startActivity(getContext(), "com.example.momomusic.fragment.local.LocalMusicWJJMusicFragment", bundle);
+        Tools.startActivity(getContext(), LocalMusicWJJMusicFragment.class, bundle);
 
     }
 }

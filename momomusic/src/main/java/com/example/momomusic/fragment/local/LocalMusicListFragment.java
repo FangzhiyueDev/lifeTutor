@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import com.example.momomusic.R;
+import com.example.momomusic.fragment.MusicMultipleSelectFragment;
 import com.example.momomusic.fragment.ParentFragment;
 import com.example.momomusic.model.Music;
 import com.example.momomusic.servie.LocalMusicIndexUtil;
@@ -28,6 +29,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -133,7 +135,7 @@ public class LocalMusicListFragment extends ParentFragment {
         switch (view.getId()) {
 
             case R.id.multiSelect:
-                Tools.startActivity(getContext(), "com.example.momomusic.fragment.MusicMultipleSelectFragment");
+                Tools.startActivity(getContext(), MusicMultipleSelectFragment.class);
                 break;
             case R.id.randomPlay:
                 List<Music> selectedMusic = DataSupport.findAll(Music.class);
@@ -175,8 +177,6 @@ public class LocalMusicListFragment extends ParentFragment {
                 getMyActivity().finish();
                 break;
         }
-
-
     }
 
 

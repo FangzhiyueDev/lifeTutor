@@ -1,11 +1,15 @@
 package com.xiaofangfang.consumeview.ListView.ZimuListView;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,6 +47,10 @@ public class ZimuListViewActivity extends AppCompatActivity {
 
     private ListAdapter myAdapter;
 
+    private LinearLayout stickTop;
+
+    private TextView titleItem;
+
     private void maginData() {
 
         stringList = new ArrayList<>();
@@ -56,13 +64,43 @@ public class ZimuListViewActivity extends AppCompatActivity {
             }
         }
 
+
+        stickTop = findViewById(R.id.stickTop);
+
         listView = findViewById(R.id.listView);
+
+        titleItem = findViewById(R.id.title);
+
+        titleItem.setText(stringList.get(0));
 
         myAdapter = new ListAdapter();
 
         listView.setAdapter(myAdapter);
 
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                String obj = (String) myAdapter.getItem(firstVisibleItem);
+                if (obj.charAt(0) >= 'A' && obj.charAt(0) <= 'Z') {
+                    Log.d(TAG, "onScroll: " + obj);
+                    titleItem.setText(obj);
+                }
+            }
+        });
+
+
     }
+
+
+    /**
+     * 定义每一项的高度
+     */
+    int itemHeight;
 
 
     class ListAdapter extends BaseAdapter {
@@ -93,6 +131,20 @@ public class ZimuListViewActivity extends AppCompatActivity {
                 myViewHolder = (MyViewHolder) convertView.getTag();
             } else {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item, null);
+                if (itemHeight == 0) {
+                    View finalConvertView = convertView;
+                    convertView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+                        if (itemHeight == 0) {
+                            itemHeight = finalConvertView.getMeasuredHeight();
+                            Log.d(TAG, "getView: +viewitem当前的高度" + itemHeight);
+
+                            setStickTopHeight(itemHeight);
+
+                        }
+                    });
+                }
+
+
                 myViewHolder = new MyViewHolder();
                 myViewHolder.name = convertView.findViewById(R.id.name);
                 myViewHolder.title = convertView.findViewById(R.id.title);
@@ -103,6 +155,7 @@ public class ZimuListViewActivity extends AppCompatActivity {
 
 
             if (value.length() == 1) {//代表是字母标题
+                convertView.setBackgroundColor(Color.parseColor("#cccccc"));
                 myViewHolder.down.setVisibility(View.INVISIBLE);
                 myViewHolder.name.setVisibility(View.INVISIBLE);
                 myViewHolder.touxiang.setVisibility(View.INVISIBLE);
@@ -110,6 +163,7 @@ public class ZimuListViewActivity extends AppCompatActivity {
                 myViewHolder.title.setText(value);
 
             } else {//代表的是显示列表
+                convertView.setBackgroundColor(Color.parseColor("#ffffff"));
                 myViewHolder.down.setVisibility(View.VISIBLE);
                 myViewHolder.name.setVisibility(View.VISIBLE);
                 myViewHolder.touxiang.setVisibility(View.VISIBLE);
@@ -126,6 +180,20 @@ public class ZimuListViewActivity extends AppCompatActivity {
             TextView title;
             ImageView down;
         }
+    }
+
+
+    /**
+     * 设置黏贴到顶部的itemm的高度
+     *
+     * @param itemHeight
+     */
+    private void setStickTopHeight(int itemHeight) {
+
+        stickTop.getLayoutParams().height = itemHeight;
+
+        stickTop.requestLayout();
+
     }
 
 

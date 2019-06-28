@@ -14,6 +14,8 @@ import android.widget.ImageView;
 
 import com.example.componentasystemtest.R;
 
+import java.lang.ref.WeakReference;
+
 
 /**
  * 图片压缩的实现
@@ -33,6 +35,8 @@ public class PhotoZipActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_zip);
         imageView = findViewById(R.id.image);
+
+
 
     }
 
@@ -66,6 +70,16 @@ public class PhotoZipActivity extends AppCompatActivity {
             });
         }
 
+
+        /**
+         *
+         *
+         * 这个加载图片的代码存在一些问题
+         * 如果当前的应用退出，NativeImageLoader还在进行加载，导致imageView不能被回收，，这时候我们最好的方法是使用WeakReference
+         * 来取代在post方法里面对imageView的引用
+         *
+         *
+         */
         if (view.getId() == R.id.loadImg1) {
             imageView.post(new Runnable() {
                 @Override

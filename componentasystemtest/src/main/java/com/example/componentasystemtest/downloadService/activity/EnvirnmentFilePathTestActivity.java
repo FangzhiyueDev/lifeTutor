@@ -20,7 +20,7 @@ import static android.os.Environment.DIRECTORY_MUSIC;
  * 这个activity的作用是测试文件存储的文件夹
  */
 
-public class EnvirnmentFilePathTest extends AppCompatActivity {
+public class EnvirnmentFilePathTestActivity extends AppCompatActivity {
 
 
     String test;
@@ -36,7 +36,9 @@ public class EnvirnmentFilePathTest extends AppCompatActivity {
          */
         Log.d("test", "路径" + Environment.getDataDirectory().getAbsolutePath());//                       /data
         Log.d("test", "路径" + Environment.getExternalStoragePublicDirectory(DIRECTORY_MUSIC));//         /storage/emulated/0/Music
-        Log.d("test", "路径" + Environment.getExternalStoragePublicDirectory(DIRECTORY_DOCUMENTS));//     /storage/emulated/0/Documents
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Log.d("test", "路径" + Environment.getExternalStoragePublicDirectory(DIRECTORY_DOCUMENTS));//     /storage/emulated/0/Documents
+        }
         Log.d("test", "路径" + Environment.getDownloadCacheDirectory().getAbsolutePath());//              /data/cache
         Log.d("test", "路径" + Environment.getExternalStorageDirectory().getAbsolutePath());//            /storage/emulated/0/
         Log.d("test", "路径" + Environment.getRootDirectory().getAbsolutePath());//                       /system

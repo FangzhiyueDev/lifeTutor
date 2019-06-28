@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import com.example.momomusic.R;
 import com.example.momomusic.activity.ui.MainView;
+import com.example.momomusic.fragment.MusicPlayFragment;
 import com.example.momomusic.fragment.jingxuan.JingXuanFragment;
 import com.example.momomusic.fragment.MeFragment;
 import com.example.momomusic.fragment.shiping.ShiPinFragment;
@@ -129,7 +130,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         switch (view.getId()) {
 
             case R.id.bofang:
-                Tools.startActivity(this, "com.example.momomusic.fragment.MusicPlayFragment");
+                Tools.startActivity(this, MusicPlayFragment.class);
                 break;
         }
     }

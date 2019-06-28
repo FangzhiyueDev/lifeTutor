@@ -23,7 +23,7 @@ import java.util.List;
  * 实现移动的7种方法
  */
 
-public class ScrollViewDemo1 extends AppCompatActivity implements View.OnTouchListener {
+public class ScrollViewDemo1Activity extends AppCompatActivity implements View.OnTouchListener {
 
     Button button;
 

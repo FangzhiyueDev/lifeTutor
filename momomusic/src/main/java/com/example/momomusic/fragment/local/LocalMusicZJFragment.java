@@ -25,6 +25,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
@@ -130,6 +131,6 @@ public class LocalMusicZJFragment extends ParentFragment implements AdapterView.
         bundle.putSerializable(LocalMusicSingerZJMusicFragment.CONDITIONS, map);
         bundle.putString(LocalMusicSingerZJMusicFragment.SOURCE, Music.class.getSimpleName());
         getMyActivity().setBundle(bundle);
-        Tools.startActivity(getActivity(), "com.example.momomusic.fragment.local.LocalMusicSingerZJMusicFragment", bundle);
+        Tools.startActivity(getActivity(), LocalMusicSingerZJMusicFragment.class, bundle);
     }
 }

@@ -33,20 +33,48 @@ public class PrimaryPresenter extends BasePresenter<PrimaryView> implements XmlP
         xmlParseUtil = new XmlParseUtil();
     }
 
-    public void daymicFragment(PrimaryActivity primaryActivity) throws KeyNotValueException {
+
+//    @Deprecated
+//    public void daymicFragment(PrimaryActivity primaryActivity) throws KeyNotValueException {
+//
+//        context = primaryActivity;
+//        Intent intent = primaryActivity.getIntent();
+//
+//        className = intent.getStringExtra(PrimaryActivity.INTENT_KEY);
+//
+//
+//        if (TextUtils.isEmpty(className)) {
+//            throw new KeyNotValueException("PrimaryActivity启动的时候传递的Extra为空");
+//        }
+//        xmlParseUtil.setParseXMLListener(this);
+//        xmlParseUtil.parseXML(primaryActivity, fileName);
+//    }
+
+
+    /**
+     * 这个接口是为了取代之前的接口，之前的借口在设计上面较为复杂，不建议使用
+     * #{daymicFragment}
+     *
+     * @param primaryActivity
+     * @param
+     * @throws KeyNotValueException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    public void daymicFragment(PrimaryActivity primaryActivity) throws KeyNotValueException, InstantiationException, IllegalAccessException {
 
         context = primaryActivity;
         Intent intent = primaryActivity.getIntent();
 
-        className = intent.getStringExtra(PrimaryActivity.INTENT_KEY);
-
-
-        if (TextUtils.isEmpty(className)) {
+        Class aClass = (Class) intent.getSerializableExtra(PrimaryActivity.INTENT_KEY);
+        if (aClass == null) {
             throw new KeyNotValueException("PrimaryActivity启动的时候传递的Extra为空");
         }
-        xmlParseUtil.setParseXMLListener(this);
-        xmlParseUtil.parseXML(primaryActivity, fileName);
+
+        Fragment fragment = (Fragment) aClass.newInstance();
+        getView().replaceFragment((ParentFragment) fragment);
     }
+
 
     @Override
     public boolean parsering(String value) {

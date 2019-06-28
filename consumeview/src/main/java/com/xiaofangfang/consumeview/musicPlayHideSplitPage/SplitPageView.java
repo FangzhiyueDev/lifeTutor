@@ -13,8 +13,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +25,18 @@ import androidx.core.widget.NestedScrollView;
 
 import com.xiaofangfang.consumeview.R;
 
+
+/**
+ * 当前的view是一个折叠的view
+ * 我们重写的view是linearlayout
+ * <p>
+ * 下面是自己总结的一些问题
+ * <p>
+ * 对于是LienarLayoutt  如果内部的某个布局是不可见的，那么他的高度为0，并不是在下面显示，但由于外部高度不够不去显示，而是直接为0
+ * <p>
+ * <p>
+ * 当对第一个占满全屏的视图进行高度的递减时。。会使得二个布局的高度自适应 ，当然前提是你的第二个布局使用的是match_parent布局设置
+ */
 public class SplitPageView extends LinearLayout {
 
     private static final String TAG = "test";
@@ -67,6 +82,11 @@ public class SplitPageView extends LinearLayout {
      */
     ImageView imageView;
 
+    /**
+     * 下面触发的第二屏
+     */
+    TextView downBtn;
+
 
     /**
      * toolbar1上面用来显示当前音乐播放的图片
@@ -82,6 +102,8 @@ public class SplitPageView extends LinearLayout {
         this.context = context;
 
         MIN_DRAG_DISTANCE = dp2px(100);
+
+        padding = dp2px(4);
 
         mainWidth = getResources().getDisplayMetrics().widthPixels;
 
@@ -109,12 +131,15 @@ public class SplitPageView extends LinearLayout {
      * 0 :存放的是专辑的左边距离
      * 1，代表的是存放的是专辑宽度
      */
-    private int[] musicImgInfo=new int[2];
+    private int[] musicImgInfo = new int[2];
+
+    private float imgWidth;
 
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
 
         if (mainHeight == 0) {
 
@@ -133,14 +158,29 @@ public class SplitPageView extends LinearLayout {
 
             music = findViewById(R.id.music);
 
+            downBtn = findViewById(R.id.downBtn);
+
+            downBtn.setOnClickListener((v) -> {
+                startTwoAnim();
+                inalidate();
+            });
+
 
             imageView = ((ViewGroup) getParent()).findViewById(R.id.albumImg);
 
-            musicImgInfo[0]=music.getLeft();
-            musicImgInfo[1]=music.getMeasuredWidth();
+            imageView.post(() -> {//有值了
+                imgWidth = imageView.getMeasuredWidth();
+                Log.d(TAG, "onMeasure: " + imgWidth);
+            });
 
 
-            toolbarHeight = toolbar.getMeasuredHeight();
+            musicImgInfo[0] = music.getLeft();
+            musicImgInfo[1] = music.getWidth();
+
+
+            toolbarHeight = toolbar.getMeasuredHeight();//有值
+
+//            Log.d(TAG, "onMeasure: "+toolbarHeight);
 
             scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
                 @Override
@@ -209,14 +249,19 @@ public class SplitPageView extends LinearLayout {
                                         int value = (int) va.getAnimatedValue();
                                         mainLayout.height = value;
                                         main.requestLayout();
+                                        imageView.setTranslationY(-mainHeight + value);
                                     }
                                 });
+
+
+                                //对专辑图片的位置进行恢复
                                 AnimatorSet as = new AnimatorSet();
 
                                 as.setInterpolator(new AccelerateDecelerateInterpolator());
                                 as.addListener(new AnimatorListenerAdapter() {
                                     @Override
-                                    public void onAnimationEnd(Animator animation) {
+                                    public void onAnimationStart(Animator animation) {
+                                        Log.d(TAG, "onAnimationStart: ");
                                         isTwoScreen = false;
                                         toolbar1.setVisibility(GONE);
                                     }
@@ -371,9 +416,13 @@ public class SplitPageView extends LinearLayout {
 
     boolean isTwoScreen = false;
 
+    int padding;
+
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+
+//        toolbar1.setVisibility(GONE);
 
         switch (ev.getAction()) {
 
@@ -411,6 +460,8 @@ public class SplitPageView extends LinearLayout {
 
                         main.requestLayout();
 
+                        toDrop = false;
+
                     }
                 } else {
 
@@ -429,6 +480,8 @@ public class SplitPageView extends LinearLayout {
 
                 //判断是否达到了下滑动的要求
 
+                Log.d(TAG, "onTouchEvent: toDrop" + toDrop + "isTwoScreen=" + isTwoScreen);
+
                 if (isTwoScreen) {
                     //第二屏幕的手势的操作
 
@@ -436,71 +489,12 @@ public class SplitPageView extends LinearLayout {
                 } else {
 
                     if (toDrop) {
-                        //达到了要求
 
-                        /**
-                         *toolbar1设置可见
-                         */
-                        toolbar1.setVisibility(View.VISIBLE);
-
-                        /**
-                         *
-                         * 进行隐藏one布局，看到第二个布局
-                         *
-                         */
-                        final LayoutParams mainLayout = (LayoutParams) main.getLayoutParams();
-
-                        final ValueAnimator va = ValueAnimator.ofInt(mainLayout.height, 0);
-                        va.setDuration(200);
-
-                        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                            @Override
-                            public void onAnimationUpdate(ValueAnimator animation) {
-                                int value = (int) va.getAnimatedValue();
-                                mainLayout.height = value;
-                                main.requestLayout();
-
-                                
-
-                            }
-                        });
-
-
-                        //在这里我们设置进入第二屏幕的相关动画
-                        //toolbar的移入渐变动画
-
-
-                        ObjectAnimator oa = ObjectAnimator.ofFloat(toolbar1, "translationX", mainWidth, 0);
-
-                        ObjectAnimator oa1 = ObjectAnimator.ofFloat(toolbar1, "alpha", 0f, 1f);
-
-
-
-
-                        AnimatorSet a1 = new AnimatorSet();
-                        a1.setDuration(1000);
-                        a1.playTogether(oa, oa1);
-
-
-                        AnimatorSet animatorSet = new AnimatorSet();
-                        animatorSet.playTogether(va, a1);
-                        va.setInterpolator(new AccelerateDecelerateInterpolator());
-                        animatorSet.start();
-
-
-                        /**
-                         * 设置scrollview滚动到顶部标志位
-                         */
-
-                        scrollToTop = true;
-
-
-                        /**
-                         * 设置我们滚动了到第二屏
-                         */
-                        isTwoScreen = true;
+                        startTwoAnim();
 
                     } else {
+
+                        isTwoScreen = false;
 
                         //没有达到要求
                         //执行恢复现场的实现
@@ -522,7 +516,6 @@ public class SplitPageView extends LinearLayout {
                         va.start();
                     }
 
-
                 }
 
 
@@ -530,9 +523,7 @@ public class SplitPageView extends LinearLayout {
                  * 进行现场的恢复
                  */
 
-                moveY = 0;
-                startY = 0;
-                toDrop = false;
+                inalidate();
 
                 break;
 
@@ -543,6 +534,94 @@ public class SplitPageView extends LinearLayout {
          * 将事件消费掉
          */
         return true;
+    }
+
+
+    public void inalidate() {
+        moveY = 0;
+        startY = 0;
+        toDrop = false;
+    }
+
+
+    /**
+     * 启动第二个页面的动画
+     */
+    public void startTwoAnim() {
+
+        //达到了要求
+        /**
+         *
+         * 进行隐藏one布局，看到第二个布局
+         *
+         */
+        final LayoutParams mainLayout = (LayoutParams) main.getLayoutParams();
+
+        final ValueAnimator va = ValueAnimator.ofInt(mainLayout.height, 0);
+        va.setDuration(200);
+
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int value = (int) va.getAnimatedValue();
+                mainLayout.height = value;
+                main.requestLayout();
+
+                imageView.setTranslationY(value - mainHeight);
+
+
+                if (music.getMeasuredWidth() != 0 && musicImgInfo[1] == 0) {
+                    musicImgInfo[1] = music.getMeasuredWidth();
+                    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) music.getLayoutParams();
+                    musicImgInfo[0] = music.getLeft() + lp.leftMargin;
+
+                }
+
+            }
+        });
+
+        va.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                /**
+                 *toolbar1设置可见
+                 */
+                toolbar1.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        //在这里我们设置进入第二屏幕的相关动画
+        //toolbar的移入渐变动画
+
+
+        ObjectAnimator oa = ObjectAnimator.ofFloat(toolbar1, "translationX", mainWidth, 0);
+
+        ObjectAnimator oa1 = ObjectAnimator.ofFloat(toolbar1, "alpha", 0f, 1f);
+
+
+        AnimatorSet a1 = new AnimatorSet();
+        a1.setDuration(1000);
+        a1.playTogether(oa, oa1);
+
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(va, a1);
+        va.setInterpolator(new AccelerateDecelerateInterpolator());
+        animatorSet.start();
+
+
+        /**
+         * 设置scrollview滚动到顶部标志位
+         */
+
+        scrollToTop = true;
+
+
+        /**
+         * 设置我们滚动了到第二屏
+         */
+        isTwoScreen = true;
     }
 
 

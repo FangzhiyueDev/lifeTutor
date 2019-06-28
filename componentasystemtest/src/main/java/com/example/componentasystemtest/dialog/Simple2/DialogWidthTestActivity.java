@@ -32,7 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * 默认的dialog都是有边距的，不能和屏幕的宽度重合，通过案例测试能不能实现alertdialog的宽度为屏幕的width值的显示效果
  */
-public class DialogWidthTest extends AppCompatActivity {
+public class DialogWidthTestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -179,7 +179,7 @@ public class DialogWidthTest extends AppCompatActivity {
             view2.findViewById(R.id.container).addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                 @Override
                 public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                    Toast.makeText(DialogWidthTest.this, "布局发生变换", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DialogWidthTestActivity.this, "布局发生变换", Toast.LENGTH_SHORT).show();
                     if (!isM) {
                         bottom1 = bottom;
                         isM = true;

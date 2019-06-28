@@ -319,7 +319,7 @@ public class HotCommentList extends LinearLayout implements View.OnClickListener
         bundle.putBoolean(CommentListFragment.IS_HUIFU, true);
         bundle.putSerializable(CommentListFragment.COMMENT, new Comment());
         context.setBundle(bundle);
-        Tools.startActivity(getContext(), "com.example.momomusic.fragment.commons.CommentListFragment");
+        Tools.startActivity(getContext(), CommentListFragment.class);
 
     }
 

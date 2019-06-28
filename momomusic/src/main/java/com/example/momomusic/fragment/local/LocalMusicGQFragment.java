@@ -234,7 +234,7 @@ public class LocalMusicGQFragment extends ParentFragment implements AdapterView.
 
                     Bundle bundle = new Bundle();
                     bundle.putParcelable(ModifyMusicInfoFragment.SOURCE, obj);
-                    Tools.startActivity(getContext(), "com.example.momomusic.fragment.ModifyMusicInfoFragment", bundle);
+                    Tools.startActivity(getContext(), ModifyMusicInfoFragment.class, bundle);
                     return;
                 });
                 d.setClickListener(R.id.deleteMusic, (v) -> {
