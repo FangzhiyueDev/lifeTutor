@@ -36,10 +36,6 @@ public class ANRApplication extends Application {
 
 
 
-        //blockCanary框架初始化代码
-        BlockCanary.install(this, new AppContext(this)).start();
-
-
 
     }
 

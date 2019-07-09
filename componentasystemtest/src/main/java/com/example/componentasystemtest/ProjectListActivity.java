@@ -67,6 +67,7 @@ public class ProjectListActivity extends AppCompatActivity {
     ListView listView;
 
     Class[] array = {
+            AsyncActivity.class,
             HandlerPrincipleActivity.class,
             AlarmActivity.class,
             MyActivityDemo7.class,
@@ -76,7 +77,6 @@ public class ProjectListActivity extends AppCompatActivity {
             NullNotificationActivity.class,
             OnePixelActivity.class,
             SinglePixelActivity.class,
-            AsyncActivity.class,
             LoaderActivity.class,
             MainActivity.class,
             NetChangeActivity.class,

@@ -37,7 +37,6 @@ public class PhotoZipActivity extends AppCompatActivity {
         imageView = findViewById(R.id.image);
 
 
-
     }
 
 
@@ -110,9 +109,7 @@ public class PhotoZipActivity extends AppCompatActivity {
                     imageView.setImageBitmap(bitmap);
                 }
             });
-
         }
-
     }
 
 

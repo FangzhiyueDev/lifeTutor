@@ -4,13 +4,14 @@ package com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple2;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple1.UserManager;
 import com.xiaofangfang.opensourceframeworkdemo.R;
 
 import javax.inject.Inject;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import dagger.internal.DaggerCollections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dagger_activity);
 
-        DaggerMainActivityComponent.create().inject(this);
+
 
         Toast.makeText(this, sellMoe.sellMoe(), Toast.LENGTH_SHORT).show();
 

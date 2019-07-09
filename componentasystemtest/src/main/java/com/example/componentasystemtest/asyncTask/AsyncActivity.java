@@ -4,8 +4,13 @@ import android.Manifest;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,10 +36,10 @@ public class AsyncActivity extends AppCompatActivity {
         AsyncTask.handlerThread1Process(this);
 
 
-        findViewById(R.id.newCall).setOnClickListener((v)->{
+        findViewById(R.id.newCall).setOnClickListener((v) -> {
 
 
-            new android.os.AsyncTask<String,Integer,Character>(){
+            new android.os.AsyncTask<String, Integer, Character>() {
 
                 @Override
                 protected void onPostExecute(Character character) {
@@ -65,9 +70,6 @@ public class AsyncActivity extends AppCompatActivity {
             };
 
         });
-
-
-
 
 
         findViewById(R.id.button).setOnClickListener((v) -> {
@@ -110,7 +112,53 @@ public class AsyncActivity extends AppCompatActivity {
 
 
         });
+
+
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                /**
+                 *
+                 * 我们使用asyncTask默认是在主线程进行创建的，根据对源码的了解，我们发现，如果在子线程创建handler，将创建一个Handler传递给AsyncTask
+                 *遗憾的是，AsyncTask的构造函数对外是隐藏的，
+                 * 但是通过源码的分析，我们在子线程创建AsyncTask，在内部会使用Handler，
+                 * 这个Handler同样使用的是MainLooper，所以消息同样能够回调到主线程中
+                 *
+                 *
+                 */
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+//
+//                        Looper.prepare();
+//
+//                        handler = new Handler();
+//                        Looper.loop();
+
+                        new android.os.AsyncTask<Void, Integer, String>() {
+
+                            @Override
+                            protected String doInBackground(Void... voids) {
+                                SystemClock.sleep(2000);
+                                return "你好";
+                            }
+
+                            @Override
+                            protected void onPostExecute(String s) {
+                                Toast.makeText(AsyncActivity.this, "执行结束", Toast.LENGTH_SHORT).show();
+                            }
+                        }.execute();
+                    }
+                }).start();
+            }
+        });
     }
+
+
+    Handler handler;
 
 
     @Override

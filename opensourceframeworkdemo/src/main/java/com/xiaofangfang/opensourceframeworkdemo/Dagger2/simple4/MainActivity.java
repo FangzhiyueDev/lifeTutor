@@ -4,7 +4,7 @@ package com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4.component.DaggerUserManagerComponent;
+//import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4.component.DaggerUserManagerComponent;
 import com.xiaofangfang.opensourceframeworkdemo.R;
 
 import javax.inject.Inject;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
          */
 
 
-        DaggerUserManagerComponent.create().inject(this);
+//        DaggerUserManagerComponent.create().inject(this);
 
         userManager.register(this);
 

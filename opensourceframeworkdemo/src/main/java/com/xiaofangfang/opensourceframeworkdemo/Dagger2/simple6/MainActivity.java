@@ -3,8 +3,6 @@ package com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple6;
 
 import android.os.Bundle;
 
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple2.DaggerMainActivityComponent;
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple5.component.DaggerLoginComponent;
 import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple5.mode.Login;
 import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple5.module.LoginModule;
 import com.xiaofangfang.opensourceframeworkdemo.R;

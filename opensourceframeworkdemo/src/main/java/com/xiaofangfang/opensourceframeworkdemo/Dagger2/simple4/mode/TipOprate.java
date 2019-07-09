@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4.component.DaggerContextComponent;
+//import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4.component.DaggerContextComponent;
 import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4.module.ContextModule;
 import com.xiaofangfang.opensourceframeworkdemo.R;
 
@@ -19,7 +19,7 @@ public class TipOprate {
 
     public TipOprate(Context context) {
 
-        DaggerContextComponent.builder().contextModule(new ContextModule(context)).build().inject(this);
+//        DaggerContextComponent.builder().contextModule(new ContextModule(context)).build().inject(this);
 
     }
 

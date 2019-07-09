@@ -3,9 +3,7 @@ package com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple5;
 
 import android.os.Bundle;
 
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4.UserManager;
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple4.component.DaggerUserManagerComponent;
-import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple5.component.DaggerLoginComponent;
+
 import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple5.mode.Login;
 import com.xiaofangfang.opensourceframeworkdemo.Dagger2.simple5.module.LoginModule;
 import com.xiaofangfang.opensourceframeworkdemo.R;
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 生成 类的名字只Component的名字前面加上Dagger
          */
-        DaggerLoginComponent.builder().loginModule(new LoginModule("fang", "sddsdfh"));
+//        DaggerLoginComponent.builder().loginModule(new LoginModule("fang", "sddsdfh"));
 
 
         login.getPassword();

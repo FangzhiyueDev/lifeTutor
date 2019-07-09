@@ -16,9 +16,6 @@
     </style>
 
 
-
-
-
     <style name="window_anim" parent="Animation.AppCompat.Dialog">
         <item name="android:windowEnterAnimation">@anim/window_enter</item>
         <item name="android:windowExitAnimation">@anim/window_exit</item>

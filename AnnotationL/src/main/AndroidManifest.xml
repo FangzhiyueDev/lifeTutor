@@ -17,7 +17,7 @@
             <!--</intent-filter>-->
         </activity>
 
-        <activity android:name="com.fang.annotationProcessor.MainActivity">
+        <activity android:name="com.annotation.annotationProcessor.MainActivity">
 
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -27,7 +27,7 @@
         </activity>
 
 
-        <activity android:name="com.fang.annotationProcessor1.ProcessorActivity" >
+        <activity android:name="com.annotation.annotationProcessor1.ProcessorActivity" >
 
 
             <!--<intent-filter>-->
@@ -36,7 +36,7 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name="com.fang.annotaionProcessor2.Processor2Activity" >
+        <activity android:name="com.annotation.annotaionProcessor2.Processor2Activity" >
 
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -45,7 +45,7 @@
             <!--</intent-filter>-->
 
         </activity>
-        <activity android:name="com.fang.annotationProcessor4.Processor4Activity" >
+        <activity android:name="com.annotation.annotationProcessor4.Processor4Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

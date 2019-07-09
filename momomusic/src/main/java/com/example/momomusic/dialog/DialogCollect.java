@@ -1,11 +1,11 @@
 package com.example.momomusic.dialog;
 
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,8 +30,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AlertDialog;
 
 /**
  * 由于程序复用，定义的已经写好布局和实现的dialog
@@ -210,6 +212,8 @@ public class DialogCollect {
 
     /**
      * 加载一个弹出窗口
+     * 这个弹出的窗口的实现是通过
+     * #{{@link android.app.ActivityManager}}实现的，用户体验较为差
      *
      * @param context
      * @param eventProgress
@@ -230,6 +234,41 @@ public class DialogCollect {
         eventProgress.eventProgress(view);
         windowManager.addView(view, layoutParams);
         //设置背景变暗
+    }
+
+
+    /**
+     * 打开一个dialog
+     *
+     * @param context
+     * @param viewid
+     * @param cancelable
+     * @param isWidthScreen
+     * @param position
+     * @param style
+     */
+    public static void openDialog(Context context, @LayoutRes int viewid, boolean cancelable, boolean isWidthScreen, int position, @StyleRes int style, @DrawableRes int drawableBg) {
+       AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                .setView(viewid)
+                .setCancelable(cancelable);
+
+        AlertDialog dialog = builder.create();
+        if (isWidthScreen) {
+            dialog.getWindow().getDecorView().setPadding(0, 0, 0, 0);
+            /**
+             * 我们发现了,上面所说的是正确的,那么通过设置背景,就能将dectorView的确定大小确定下来
+             */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                dialog.getWindow().getDecorView().setBackground(context.getResources().getDrawable(drawableBg));
+            }
+        }
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, (int) -2, WindowManager.LayoutParams.TYPE_APPLICATION,
+                WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
+        );
+        layoutParams.gravity = position;
+        layoutParams.windowAnimations = style;//小心使用的style错误
+        dialog.getWindow().setAttributes(layoutParams);
+        dialog.show();
     }
 
 
