@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">NCManStreet</string>
+    <string name="app_name">南昌人道</string>
+    <string name="title_activity_validate_code">ValidateCodeActivity</string>
+    <string name="nchszh">南昌市红十字会</string>
+    <string name="rdbafx">人道、博爱、奉献</string>
+    <string name="wyyd">我已阅读并同意</string>
+    <string name="yonghuxieyi">用户协议</string>
+    <string name="yhxy">用户协议</string>
+    <string name="h">和</string>
+    <string name="yszc">隐私政策</string>
+    <string name="sjhm">手机号码</string>
+    <string name="yfsyzm">已发送验证码至</string>
+    <string name="sjhm_1">13077995907</string>
+    <string name="cxfs">重新发送</string>
+    <string name="ydwt">遇到问题</string>
+    <string name="sjyzm">手机验证码</string>
+    <string name="sy">首页</string>
+    <string name="jhpx">救护培训</string>
+    <string name="wd">我的</string>
+    <string name="jhypx">救护员培训</string>
+    <string name="aedfb">AED分布</string>
+    <string name="zyzjy">志愿者救援</string>
+    <string name="zajz">正在加载...</string>
+    <string name="gd">更多</string>
+    <string name="wdl">登录注册</string>
+    <string name="cswb">南昌市红十字会的前身是始建于1912年的中国红十字会南昌分会，是由南昌市36名社会各界贤达人士发起组建的。在旧中国危难和战争的年代，市红十字会以“恤兵救灾”为宗旨，开展战地救护、难民救济、筹募基金等活动。新中国成立后，1951年初南昌市人民政府接管了市红十字会并划归市民政局管理。1953年起挂靠市卫生局管理</string>
 </resources>

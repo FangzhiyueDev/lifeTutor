@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rcs.nchumanity.view.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.rcs.nchumanity.view.CommandBar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.rcs.nchumanity.view.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <VideoView
+                android:id="@+id/video"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_heightPercent="27%" />
+
+
+            <LinearLayout
+                android:id="@+id/imgArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!--
+                 用来实现数据库中的img进行的填充
+                -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/banner1" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3sp"
+                android:padding="5dp"
+                android:text="@string/cswb"
+                android:textColor="#111" />
+
+
+        </com.rcs.nchumanity.view.PercentLinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</com.rcs.nchumanity.view.PercentLinearLayout>

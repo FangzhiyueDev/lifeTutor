@@ -154,6 +154,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".handler.HandlerPrincipleActivity" />
+        <activity android:name=".MediaPlayer.VideoPlayerActivity" />
+        <activity android:name=".MediaPlayer.VideoPlayer1Activity" />
 
 
         <!-- exported  这个地方必须是True，否则外界的应用无法启动该JobService -->

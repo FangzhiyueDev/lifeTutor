@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rcs.nchumanity.view.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rcs.nchumanity.ul.ValidateCodeActivity">
+
+    <com.rcs.nchumanity.view.CommandBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:src="@drawable/timg1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/nchszh"
+        android:textColor="@android:color/black"
+        android:textSize="40sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/rdbafx"
+        android:textSize="24sp" />
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:layout_widthPercent="70%">
+
+        <TextView
+            android:id="@+id/sjyam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_guanyu"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="@string/sjyzm" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/sjyam"
+            android:stretchColumns="1,3,5">
+
+            <TableRow>
+
+                <EditText
+                    android:id="@+id/code1"
+                    android:layout_width="50dp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:layout_height="50dp"
+                    android:background="@drawable/graybg_yj" />
+
+                <View />
+
+                <EditText
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:id="@+id/code2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/graybg_yj" />
+
+                <View />
+
+                <EditText
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:id="@+id/code3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/graybg_yj" />
+
+                <View />
+
+                <EditText
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:id="@+id/code4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/graybg_yj" />
+
+                <View />
+            </TableRow>
+        </TableLayout>
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yfsyzm" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sjhm_1" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reSend"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/validate_btn"
+        android:elevation="10dp"
+        android:text="@string/cxfs"
+        android:textColor="@color/smssdk_white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:text="@string/ydwt"
+        android:textColor="@color/themecolor" />
+
+
+</com.rcs.nchumanity.view.PercentLinearLayout>

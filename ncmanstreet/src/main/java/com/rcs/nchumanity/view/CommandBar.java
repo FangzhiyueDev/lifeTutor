@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 
-import com.fang.nchumanity.R;
+import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.ul.ParentActivity;
 
 
 /**
- * 自定义的toolbar ，是一个通用的View 实现的是
+ * 自定义的toolbar ，是一个通用的View
  */
 public class CommandBar extends PercentLinearLayout {
 
@@ -56,6 +56,11 @@ public class CommandBar extends PercentLinearLayout {
             mcl.click(v);
         });
     }
+
+    public void hideMenu() {
+        ibtn.setVisibility(INVISIBLE);
+    }
+
 
     public void setTitle(String title) {
         barTitle.setText(title);

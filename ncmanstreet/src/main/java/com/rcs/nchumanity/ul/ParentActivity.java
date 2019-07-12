@@ -43,7 +43,7 @@ import okhttp3.Response;
 public abstract class ParentActivity extends AppCompatActivity {
 
 
-    protected String[] permissionas = {
+    protected String[] permissions = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA,
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -314,20 +314,6 @@ public abstract class ParentActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         activities.remove(this);
-    }
-
-    /**
-     * 这个bundle的作用是用来实现
-     */
-    private Bundle bundle;
-
-    public void setBundle(Bundle bundle) {
-
-        this.bundle = bundle;
-    }
-
-    public Bundle getBundle() {
-        return bundle;
     }
 
 

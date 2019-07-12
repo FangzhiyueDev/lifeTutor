@@ -61,7 +61,7 @@ public class NetConnectionUrl {
     /**
      * 服务器的主地址
      */
-    public static final String ROOT_SERVER = "";
+    public static final String ROOT_SERVER = "http://localhost:8080/GF";
 
     /**
      * 登录的接口

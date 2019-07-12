@@ -2,6 +2,7 @@ package com.example.momomusic.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -9,11 +10,13 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -35,6 +38,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -59,12 +63,25 @@ public abstract class ParentActivity extends AppCompatActivity {
 
     public static List<Activity> activities = new ArrayList();
 
+    protected WindowManager mWindowManager;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activities.add(this);
 
         Logger.init("test");//初始化
+
+
+        mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+
+        WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
+        mParams.format = PixelFormat.TRANSLUCENT;
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            mParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;  //设置状态栏透明
+        }
+
+
     }
 
 

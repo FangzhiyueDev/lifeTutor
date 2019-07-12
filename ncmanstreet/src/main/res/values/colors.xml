@@ -7,4 +7,15 @@
     <color name="button_press">#6c79c6</color>
 
     <color name="themecolor">#d53232</color>
+    <color name="black">#111</color>
+    <color name="gray">#DFDFDF</color>
+    <color name="btn_fade">#81FD3129</color>
+
+
+    <integer name="index0">0</integer>
+    <integer name="index1">1</integer>
+    <integer name="index2">2</integer>
+    <integer name="index3">3</integer>
+
+
 </resources>

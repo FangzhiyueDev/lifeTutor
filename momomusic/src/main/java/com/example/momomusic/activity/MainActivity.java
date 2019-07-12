@@ -29,6 +29,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
+/**
+ *当前
+ */
 public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView {
 
 

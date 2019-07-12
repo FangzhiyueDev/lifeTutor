@@ -21,6 +21,8 @@ import com.example.componentasystemtest.JobScheduler.simple2.JobSchedulerActivit
 import com.example.componentasystemtest.JobScheduler.simple3.JobScheActivity;
 import com.example.componentasystemtest.Lifecycle.ObserableActivity;
 import com.example.componentasystemtest.MediaPlayer.MediaPlayerActivity;
+import com.example.componentasystemtest.MediaPlayer.VideoPlayer1Activity;
+import com.example.componentasystemtest.MediaPlayer.VideoPlayerActivity;
 import com.example.componentasystemtest.MediaPlayer.demo.MusicPlayActivity;
 import com.example.componentasystemtest.ScreenTest.ScreenTestActivity;
 import com.example.componentasystemtest.TabedActivity.TabedActivity;
@@ -67,6 +69,8 @@ public class ProjectListActivity extends AppCompatActivity {
     ListView listView;
 
     Class[] array = {
+            VideoPlayer1Activity.class,
+            VideoPlayerActivity.class,
             AsyncActivity.class,
             HandlerPrincipleActivity.class,
             AlarmActivity.class,

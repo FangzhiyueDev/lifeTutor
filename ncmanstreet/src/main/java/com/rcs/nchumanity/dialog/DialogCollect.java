@@ -16,7 +16,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.StyleRes;
 
-import com.fang.nchumanity.ul.ParentActivity;
+import com.rcs.nchumanity.ul.ParentActivity;
 
 /**
  * 由于程序复用，定义的已经写好布局和实现的dialog

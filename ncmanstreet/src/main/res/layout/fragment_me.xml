@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rcs.nchumanity.view.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="20%">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/photoC"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner2" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/photoC"
+            android:drawableRight="@drawable/ic_downstep"
+            android:paddingRight="10dp"
+            android:tag="@string/wdl"
+            android:text="@string/wdl"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#111"></View>
+
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#ccc"></View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="#111"></View>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/ic_kecheng"
+        android:drawableRight="@drawable/ic_downstep"
+        android:drawablePadding="10dp"
+        android:gravity="left|center_vertical"
+        android:id="@+id/curse"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="我的课程" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#ccc"></View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="#111"></View>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/ic_kaohe"
+        android:drawableRight="@drawable/ic_downstep"
+        android:drawablePadding="10dp"
+        android:gravity="left|center_vertical"
+        android:id="@+id/assessResult"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="考核结果" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="#111"></View>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/ic_zhengshu"
+        android:drawableRight="@drawable/ic_downstep"
+        android:drawablePadding="10dp"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
+        android:id="@+id/elecMark"
+        android:paddingRight="10dp"
+        android:text="电子证书" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="#111"></View>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/ic_zhengshu_1"
+        android:drawableRight="@drawable/ic_downstep"
+        android:drawablePadding="10dp"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/realMark"
+        android:text="实体证书" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="#111"></View>
+
+
+</com.rcs.nchumanity.view.PercentLinearLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.rcs.nchumanity.view.BannerFlip
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"></com.rcs.nchumanity.view.BannerFlip>
+
+
+    <com.rcs.nchumanity.view.PercentLinearLayout
+        android:id="@+id/funcArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.rcs.nchumanity.view.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <!--
+               里面的子节点代表的是布局中的每一个元素
+               由于前两个元素是默认的，所以在这里直接添加
+
+            -->
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_widthPercent="25%">
+
+
+                <androidx.percentlayout.widget.PercentFrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/circle_select"
+                    app:layout_aspectRatio="100%"
+                    app:layout_widthPercent="80%">
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/circle_fff"
+                        android:src="@drawable/ic_jiuhuche_50"
+                        app:layout_aspectRatio="100%"
+                        app:layout_widthPercent="95%" />
+
+
+                </androidx.percentlayout.widget.PercentFrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/jhypx"
+                    android:textColor="@color/black" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_widthPercent="25%">
+
+
+                <androidx.percentlayout.widget.PercentFrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/circle_select"
+                    app:layout_aspectRatio="100%"
+                    app:layout_widthPercent="80%">
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/circle_fff"
+                        android:src="@drawable/ic_xindong_50"
+                        app:layout_aspectRatio="100%"
+                        app:layout_widthPercent="95%" />
+
+
+                </androidx.percentlayout.widget.PercentFrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/aedfb"
+                    android:textColor="@color/black" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_widthPercent="25%">
+
+
+                <androidx.percentlayout.widget.PercentFrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/circle_select"
+                    app:layout_aspectRatio="100%"
+                    app:layout_widthPercent="80%">
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/circle_fff"
+                        android:src="@drawable/ic_shentidong_50"
+                        app:layout_aspectRatio="100%"
+                        app:layout_widthPercent="95%" />
+
+
+                </androidx.percentlayout.widget.PercentFrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/zyzjy"
+                    android:textColor="@color/black" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+
+        </com.rcs.nchumanity.view.PercentLinearLayout>
+
+
+    </com.rcs.nchumanity.view.PercentLinearLayout>
+
+
+    <!--
+    下面是基本信息模块的实现
+     -->
+
+    <LinearLayout
+        android:id="@+id/basicInfoArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <com.rcs.nchumanity.view.BasicItem
+            android:id="@+id/basicItem1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></com.rcs.nchumanity.view.BasicItem>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
