@@ -55,7 +55,8 @@ public class BasicItem extends LinearLayout {
      * 设置标题
      */
     private void setTitle(String title) {
-        this.title.setText(title);
+            this.title.setText(title);
+
     }
 
     /**
@@ -64,8 +65,10 @@ public class BasicItem extends LinearLayout {
      * @param onClickListener
      */
     private void setMoreClick(OnClickListener onClickListener) {
-        more = findViewById(R.id.more);
-        more.setOnClickListener(onClickListener);
+        if (onClickListener != null) {
+            more = findViewById(R.id.more);
+            more.setOnClickListener(onClickListener);
+        }
     }
 
 
@@ -88,8 +91,14 @@ public class BasicItem extends LinearLayout {
      * @param m_speinf_speinfCla 封装对象
      */
     public void setAllSet(OnClickListener onClickListener, ComplexModelSet.M_speinf_speinfCla m_speinf_speinfCla) {
+        if (m_speinf_speinfCla == null) {
+            return;
+        }
         setTitle(m_speinf_speinfCla.specificInfoClassification.title);
         setMoreClick(onClickListener);
+        if (m_speinf_speinfCla.specificInfos == null) {
+            return;
+        }
         setDataList(m_speinf_speinfCla.specificInfos, onClickListener);
     }
 

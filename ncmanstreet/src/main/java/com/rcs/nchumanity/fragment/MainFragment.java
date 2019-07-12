@@ -94,7 +94,7 @@ public class MainFragment extends ParentFragment {
                         SpecificInfo specificInfo = (SpecificInfo) v.getTag();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(SpecificInfo.class.getSimpleName(), specificInfo);
-                        Tool.startActivity(getContext(), SpecificDetailDisActivity.class,bundle);
+                        Tool.startActivity(getContext(), SpecificDetailDisActivity.class, bundle);
                     }
 
                 }
@@ -141,7 +141,6 @@ public class MainFragment extends ParentFragment {
         ply.setOnClickListener((v) -> {
             //对于新添加的view我们设置点击事件
             Tool.startActivity(getContext(), ComplexListActivity.class);
-
         });
 
 

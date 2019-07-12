@@ -26,7 +26,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/circle_select"
         app:layout_aspectRatio="100%"
-        app:layout_widthPercent="80%">
+        app:layout_widthPercent="60%">
 
         <ImageButton
             android:id="@+id/image"

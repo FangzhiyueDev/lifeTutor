@@ -13,28 +13,14 @@
 
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:src="@drawable/timg1" />
+        android:src="@drawable/logo"
+        app:layout_aspectRatio="100%"
+        app:layout_widthPercent="60%" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/nchszh"
-        android:textColor="@android:color/black"
-        android:textSize="40sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/rdbafx"
-        android:textSize="24sp" />
 
     <androidx.percentlayout.widget.PercentRelativeLayout
         android:layout_width="wrap_content"
@@ -46,10 +32,10 @@
             android:id="@+id/sjyam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/ic_guanyu"
             android:drawablePadding="5dp"
             android:gravity="center"
-            android:layout_marginBottom="10dp"
             android:text="@string/sjyzm" />
 
         <TableLayout
@@ -63,48 +49,48 @@
                 <EditText
                     android:id="@+id/code1"
                     android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/graybg_yj"
                     android:gravity="center"
-                    android:maxLines="1"
                     android:inputType="number"
                     android:maxLength="1"
-                    android:layout_height="50dp"
-                    android:background="@drawable/graybg_yj" />
+                    android:maxLines="1" />
 
                 <View />
 
                 <EditText
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:inputType="number"
-                    android:maxLength="1"
                     android:id="@+id/code2"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/graybg_yj" />
+                    android:background="@drawable/graybg_yj"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1" />
 
                 <View />
 
                 <EditText
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:inputType="number"
-                    android:maxLength="1"
                     android:id="@+id/code3"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/graybg_yj" />
+                    android:background="@drawable/graybg_yj"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1" />
 
                 <View />
 
                 <EditText
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:inputType="number"
-                    android:maxLength="1"
                     android:id="@+id/code4"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/graybg_yj" />
+                    android:background="@drawable/graybg_yj"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1" />
 
                 <View />
             </TableRow>
