@@ -17,7 +17,7 @@ public class FeedbackRecord {
    /** 回复 */
    public String reply;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

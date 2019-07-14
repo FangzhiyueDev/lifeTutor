@@ -17,13 +17,13 @@ public class UserAccount {
    /** 微信Id */
    public String wechatId;
    /** 可用性 */
-   public byte available;
+   public Boolean available;
    /** 用户昵称 */
    public String nickname;
    /** 用户头像 */
    public String picUrl;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

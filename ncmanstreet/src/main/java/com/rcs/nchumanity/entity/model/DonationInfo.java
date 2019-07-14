@@ -11,7 +11,7 @@ public class DonationInfo {
    /** 主键 */
    public long id;
    /** 类型 */
-   public byte type;
+   public Boolean type;
    /** 经度 */
    public float longitude;
    /** 纬度 */
@@ -21,7 +21,7 @@ public class DonationInfo {
    /** 图片 */
    public String imgUrl;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
 

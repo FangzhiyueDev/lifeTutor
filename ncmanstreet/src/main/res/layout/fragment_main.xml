@@ -10,7 +10,7 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"></com.rcs.nchumanity.view.BannerFlip>
+        android:layout_marginBottom="10dp"></com.rcs.nchumanity.view.BannerFlip>
 
 
     <com.rcs.nchumanity.view.PercentLinearLayout
@@ -20,19 +20,21 @@
         android:orientation="vertical">
 
         <com.rcs.nchumanity.view.PercentLinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            app:layout_widthPercent="90%">
 
             <!--
                里面的子节点代表的是布局中的每一个元素
                由于前两个元素是默认的，所以在这里直接添加
-
             -->
             <com.rcs.nchumanity.view.PercentLinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:id="@+id/jhypx"
                 app:layout_widthPercent="25%">
 
 
@@ -48,7 +50,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:background="@drawable/circle_fff"
-                        android:src="@drawable/ic_jiuhuche_50"
+                        android:src="@drawable/ic_jiuhuche"
                         app:layout_aspectRatio="100%"
                         app:layout_widthPercent="95%" />
 
@@ -70,6 +72,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:id="@+id/aedfb"
                 app:layout_widthPercent="25%">
 
 
@@ -85,7 +88,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:background="@drawable/circle_fff"
-                        android:src="@drawable/ic_xindong_50"
+                        android:src="@drawable/ic_xindong"
                         app:layout_aspectRatio="100%"
                         app:layout_widthPercent="95%" />
 
@@ -107,6 +110,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:id="@+id/zjzjy"
                 app:layout_widthPercent="25%">
 
 
@@ -122,7 +126,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:background="@drawable/circle_fff"
-                        android:src="@drawable/ic_shentidong_50"
+                        android:src="@drawable/ic_shentidong_24"
                         app:layout_aspectRatio="100%"
                         app:layout_widthPercent="95%" />
 

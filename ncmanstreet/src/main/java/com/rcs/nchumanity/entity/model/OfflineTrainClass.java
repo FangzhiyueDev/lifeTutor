@@ -21,7 +21,7 @@ public class OfflineTrainClass {
    /** 图片地址 */
    public String imgUrl;
    /** vr课程 */
-   public byte isVr;
+   public Boolean isVr;
    /** 当前人数 */
    public int currentNum;
    /** 最大人数 */
@@ -31,7 +31,7 @@ public class OfflineTrainClass {
    /** 备用文本 */
    public String backupText;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

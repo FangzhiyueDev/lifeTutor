@@ -19,7 +19,7 @@ public class AreaInfo {
    /** 排序 */
    public int sort;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

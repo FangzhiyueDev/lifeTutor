@@ -24,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.rcs.nchumanity.application.MyApplication;
+import com.rcs.nchumanity.fragment.ParentFragment;
 import com.rcs.nchumanity.net.NetRequest;
 import com.rcs.nchumanity.tool.LoadProgress;
 import com.rcs.nchumanity.tool.UiThread;
@@ -32,6 +33,7 @@ import com.orhanobut.logger.Logger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -234,19 +236,25 @@ public abstract class ParentActivity extends AppCompatActivity {
 
 
     /**
-     * 这个方法是用来加载网络资源的
+     * 用来实现对网络资源的加载
      *
-     * @param url
-     * @param what
+     * @param url    请求的url
+     * @param what   用来生成请求标示
+     * @param method 请求的方法
+     * @param params 如果使用的是Post请求，该参数代表的是请求的参数
      * @param <T>
      */
-    public <T> void loadData(final String url, final String what) {
+    public <T> void loadData(final String url, final String what, String method, Map<String, String> params) {
         progressBar = LoadProgress.loadProgress(this);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 myCallHandler = new MyCallHandler(what);
-                NetRequest.requestUrl(url, myCallHandler);
+                if (method.equalsIgnoreCase("GET")) {
+                    NetRequest.requestUrl(url, myCallHandler);
+                } else if (method.equalsIgnoreCase("POST")) {
+                    NetRequest.requestPost(url, params, myCallHandler);
+                }
             }
         }).start();
     }
@@ -268,7 +276,6 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param e
      */
     public void onError(IOException e, String what) {
-
     }
 
 

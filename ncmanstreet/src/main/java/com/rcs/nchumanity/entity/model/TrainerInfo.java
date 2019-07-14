@@ -13,7 +13,7 @@ public class TrainerInfo {
    /** 姓名 */
    public String name;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

@@ -13,13 +13,13 @@ public class CourseClassification {
    /** 课程名称 */
    public String courseName;
    /** 必修 */
-   public byte required;
+   public Boolean required;
    /** 类型 */
    public int type;
    /** 子类型 */
    public int subType;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

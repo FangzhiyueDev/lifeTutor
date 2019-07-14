@@ -14,7 +14,12 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".ul.MainActivity">
+        <!--
+          我们将MainActivity设置为  singleInstance的启动模式，将会清除掉在MainActivity上面的所有的Activity
+        -->
+        <activity
+            android:name=".ul.MainActivity"
+            android:launchMode="singleInstance">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +47,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ul.MapBasicActivity" />
+        <activity android:name=".ul.AssessLoginActivity" />
 
 
     </application>

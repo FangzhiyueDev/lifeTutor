@@ -15,7 +15,7 @@ public class UserOfflineStudyRecord {
    /** 签退时间 */
    public Date endTime;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

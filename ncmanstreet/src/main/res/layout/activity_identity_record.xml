@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.rcs.nchumanity.view.CommandBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.rcs.nchumanity.view.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/userPhoto"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/black_frame"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner2"
+                app:layout_aspectRatio="100%"
+                app:layout_widthPercent="26%" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/radius_all_reg_bg"
+                android:text="@string/scyczjz"
+                android:textColor="@color/smssdk_white"
+                android:textSize="12sp"
+                app:layout_widthPercent="30%" />
+
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/name"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/black_frame"
+                    android:hint="@string/bt"
+                    android:inputType="text"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/phone"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <EditText
+                    android:id="@+id/phoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/black_frame"
+                    android:hint="@string/bt"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/six"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_frame">
+
+                    <Spinner
+                        android:id="@+id/six"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:entries="@array/sixs"></Spinner>
+                </FrameLayout>
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/sfzh"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <EditText
+                    android:id="@+id/identityCardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/black_frame"
+                    android:hint="@string/bt"
+                    android:inputType="text"
+                    android:maxLength="18"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/gzdw"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <EditText
+                    android:id="@+id/workCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/black_frame"
+                    android:hint="@string/bt"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/whcd"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_frame">
+
+                    <Spinner
+                        android:id="@+id/degEduca"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:entries="@array/degEduca"></Spinner>
+                </FrameLayout>
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/gznx"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <EditText
+                    android:id="@+id/workLife"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/black_frame"
+                    android:hint="@string/xt"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp" />
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/zwzc"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <EditText
+                    android:id="@+id/officialCapacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/black_frame"
+                    android:hint="@string/xt"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp" />
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="@string/jtzz"
+                    android:textColor="@color/black_181818"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="30%" />
+
+                <EditText
+                    android:id="@+id/homeAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/black_frame"
+                    android:hint="@string/xt"
+                    android:inputType="text"
+                    android:maxLength="40"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp" />
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/mzsm"
+                android:textColor="@color/themecolor"
+                android:textSize="16sp" />
+
+
+        </com.rcs.nchumanity.view.PercentLinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/submit"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/radius_all_reg_bg"
+        android:text="@string/qd"
+        android:textColor="@color/smssdk_white" />
+
+</LinearLayout>

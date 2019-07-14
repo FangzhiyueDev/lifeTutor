@@ -19,7 +19,7 @@ public class PushInfo {
    /** 已读次数 */
    public int readCount;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
 

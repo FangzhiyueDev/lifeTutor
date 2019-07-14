@@ -23,7 +23,7 @@ public class ExpressOrderInfo {
    /** 邮寄状态 */
    public int expressStatus;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

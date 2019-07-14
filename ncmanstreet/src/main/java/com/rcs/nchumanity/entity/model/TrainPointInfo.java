@@ -19,13 +19,13 @@ public class TrainPointInfo {
    /** 纬度 */
    public float latitude;
    /** 半径 */
-   public float radiu;
+   public float radius;
    /** 是否VR */
-   public byte isVr;
+   public Boolean isVr;
    /** 是否临时 */
-   public byte isTemp;
+   public Boolean isTemp;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

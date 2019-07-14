@@ -12,8 +12,10 @@ import com.rcs.nchumanity.entity.model.SpecificInfo;
 
 /**
  * 这个界面是用来实现复合列表的详细信息界面
+ * <p>
+ * 对于
  */
-public abstract class ComplexListDetailActivity<T> extends ParentActivity {
+public abstract class ComplexDetailActivity<T> extends ParentActivity {
 
 
     private View rootView;
@@ -21,7 +23,6 @@ public abstract class ComplexListDetailActivity<T> extends ParentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(rootView = LayoutInflater.from(this).inflate(R.layout.activity_complex_detail, null));
         bundleData();
     }

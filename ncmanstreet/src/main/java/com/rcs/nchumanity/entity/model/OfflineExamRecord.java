@@ -23,7 +23,7 @@ public class OfflineExamRecord {
    /** 地点 */
    public String position;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

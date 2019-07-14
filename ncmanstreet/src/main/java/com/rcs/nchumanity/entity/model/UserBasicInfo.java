@@ -35,7 +35,7 @@ public class UserBasicInfo {
    /** 家庭住址 */
    public String address;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

@@ -15,7 +15,7 @@ public class SpecificInfoClassification {
    /** 父类 */
    public String parent;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

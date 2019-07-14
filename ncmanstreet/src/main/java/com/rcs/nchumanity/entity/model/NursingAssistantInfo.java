@@ -19,7 +19,7 @@ public class NursingAssistantInfo {
    /** 文本 */
    public String writing;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
 

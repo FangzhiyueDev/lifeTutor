@@ -17,13 +17,13 @@ public class AdminAccount {
    /** 手机号 */
    public String phone;
    /** 可用性 */
-   public byte available;
+   public Boolean available;
    /** 姓名 */
    public String name;
    /** 账户类型 */
    public int type;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

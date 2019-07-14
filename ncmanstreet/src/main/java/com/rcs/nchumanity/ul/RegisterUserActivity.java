@@ -64,6 +64,16 @@ public class RegisterUserActivity extends ParentActivity {
     public void registerSubmit(View view) {
         switch (view.getId()) {
             case R.id.registerSubmit:
+
+
+                /**
+                 *
+                 * 请求网络，查看当前的用户是否已经被注册，如果被注册，直接跳转到
+                 * 输入密码的界面
+                 *
+                 */
+
+
                 String userPhone = phoneNumber.getText().toString();
                 if (TextUtils.isEmpty(userPhone) || userPhone.length() != 11) {
                     Toast.makeText(this, "请输入合法的手机号码", Toast.LENGTH_SHORT).show();
@@ -72,7 +82,9 @@ public class RegisterUserActivity extends ParentActivity {
                 //发送验证码到该手机上
                 ValidateCodeServler.sendValidateCode("86", userPhone);
 
-                //进入验证码填写界面
+                /**
+                 * 根据返回数据的结果，动态的跳转相应的界面
+                 */
                 Tool.startActivity(this, ValidateCodeActivity.class);
 
                 break;

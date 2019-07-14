@@ -44,7 +44,7 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
 
     public BannerFlip(@NonNull Context context, AttributeSet attr) {
         super(context, attr);
-        this.setPadding(padding, 0, padding, 0);
+//        this.setPadding(padding, 0, padding, 0);
         initView();
     }
 

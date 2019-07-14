@@ -17,7 +17,7 @@ public class AedDistributionInfo {
    /** 详细信息 */
    public String detail;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
 

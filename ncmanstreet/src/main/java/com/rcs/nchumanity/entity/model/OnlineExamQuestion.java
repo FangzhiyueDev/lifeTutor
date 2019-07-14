@@ -19,7 +19,7 @@ public class OnlineExamQuestion {
    /** 试卷类型 */
    public int type;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

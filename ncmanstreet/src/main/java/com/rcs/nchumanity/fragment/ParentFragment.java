@@ -19,6 +19,7 @@ import com.rcs.nchumanity.tool.UiThread;
 import com.rcs.nchumanity.ul.ParentActivity;
 
 import java.io.IOException;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import okhttp3.Call;
@@ -73,19 +74,25 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
 
 
     /**
-     * 这个方法是用来加载网络资源的
+     * 用来实现对网络资源的加载
      *
-     * @param url
-     * @param what
+     * @param url    请求的url
+     * @param what   用来生成请求标示
+     * @param method 请求的方法
+     * @param params 如果使用的是Post请求，该参数代表的是请求的参数
      * @param <T>
      */
-    public <T> void loadData(final String url, final String what) {
+    public <T> void loadData(final String url, final String what, String method, Map<String, String> params) {
         progressBar = LoadProgress.loadProgress(getMyActivity());
         new Thread(new Runnable() {
             @Override
             public void run() {
                 myCallHandler = new MyCallHandler(what);
-                NetRequest.requestUrl(url, myCallHandler);
+                if (method.equalsIgnoreCase("GET")) {
+                    NetRequest.requestUrl(url, myCallHandler);
+                } else if (method.equalsIgnoreCase("POST")) {
+                    NetRequest.requestPost(url, params, myCallHandler);
+                }
             }
         }).start();
     }

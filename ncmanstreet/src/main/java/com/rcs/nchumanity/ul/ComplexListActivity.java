@@ -6,11 +6,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,13 +35,19 @@ public abstract class ComplexListActivity<T> extends ParentActivity {
 
     ListViewCommonsAdapter<T> lvca;
 
+    private List<T> tList;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complex);
         ButterKnife.bind(this);
-        listView.setAdapter(lvca = new ListViewCommonsAdapter<T>(getDataList(), getLayout()) {
+
+        tList = new ArrayList<>();
+
+
+        listView.setAdapter(lvca = new ListViewCommonsAdapter<T>((ArrayList<T>) tList, getLayout()) {
             @Override
             public void bindView(ViewHolder holder, T obj) {
                 bindViewValue(holder, obj);
@@ -47,14 +55,13 @@ public abstract class ComplexListActivity<T> extends ParentActivity {
 
             @Override
             public int getCount() {
-                return getDataList().size();
+                return tList.size();
             }
         });
 
         listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
             itemClick(parent, view, position, id, lvca.getItem(position));
         });
-
     }
 
     /**
@@ -81,12 +88,22 @@ public abstract class ComplexListActivity<T> extends ParentActivity {
      */
     protected abstract int getLayout();
 
+
     /**
-     * 获得数据信息
+     * 用来设置数据
+     * 当我们进行异步加载数据的时候，加载结束之后，通过调用该方法实现数据的设置
      *
-     * @return
+     * @param listData
      */
-    public abstract ArrayList<T> getDataList();
+    @UiThread
+    public void setDataList(List<T> listData) {
+        tList.clear();
+        tList.addAll(listData);
+        /**
+         * 刷新UI
+         */
+        lvca.notifyDataSetChanged();
+    }
 
 
 }

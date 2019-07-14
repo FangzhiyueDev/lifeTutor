@@ -38,6 +38,22 @@ public abstract class DialogTool<T> implements DialogSet {
 
     private Context context;
 
+    /**
+     * 一个简化版的dialog
+     * 与
+     * {@link #openDialog(Context, int, boolean, boolean, int, int, int, Object[])}相比较
+     * 取消了下面几个
+     * 1.对是否可以取消进行定制
+     * 2.是否是屏幕宽度的大小
+     * 3.显示的位置
+     * 4.动画风格
+     * 5.设置背景
+     *
+     * @param context
+     * @param viewResId
+     * @param t
+     * @return
+     */
     public Dialog getDialog(Context context, @LayoutRes int viewResId, T... t) {
 
         this.context = context;

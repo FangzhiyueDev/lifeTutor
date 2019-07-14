@@ -46,7 +46,7 @@ public class SpecificInfo implements Serializable {
     /**
      * 隐藏
      */
-    public byte isDelete;
+    public Boolean isDelete;
     /**
      * 备注
      */
@@ -79,6 +79,5 @@ public class SpecificInfo implements Serializable {
             }
         }
     }
-
 
 }

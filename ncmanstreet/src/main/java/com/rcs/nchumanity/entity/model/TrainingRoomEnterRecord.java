@@ -15,7 +15,7 @@ public class TrainingRoomEnterRecord {
    /** 进入时间 */
    public Date enterTime;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

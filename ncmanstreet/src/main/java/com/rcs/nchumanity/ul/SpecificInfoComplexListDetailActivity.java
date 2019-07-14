@@ -27,6 +27,7 @@ public class SpecificInfoComplexListDetailActivity extends ComplexListDetailActi
 
     @Override
     protected Class<?> getInfoClass() {
+
         return info.getClass();
     }
 

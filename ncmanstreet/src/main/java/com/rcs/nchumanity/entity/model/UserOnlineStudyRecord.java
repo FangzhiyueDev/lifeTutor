@@ -15,7 +15,7 @@ public class UserOnlineStudyRecord {
    /** 学习时间 */
    public int totalTime;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

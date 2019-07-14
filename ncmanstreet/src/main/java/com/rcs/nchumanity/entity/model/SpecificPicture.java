@@ -17,7 +17,7 @@ public class SpecificPicture {
    /** 地址 */
    public String url;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
 

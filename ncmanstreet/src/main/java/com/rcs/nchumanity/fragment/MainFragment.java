@@ -14,7 +14,9 @@ import com.rcs.nchumanity.entity.model.SpecificInfo;
 import com.rcs.nchumanity.tool.DensityConvertUtil;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.ComplexListActivity;
+import com.rcs.nchumanity.ul.MapBasicActivity;
 import com.rcs.nchumanity.ul.SpecificDetailDisActivity;
+import com.rcs.nchumanity.ul.TrainStepActivity;
 import com.rcs.nchumanity.view.BannerFlip;
 import com.rcs.nchumanity.view.BasicItem;
 import com.rcs.nchumanity.view.PercentLinearLayout;
@@ -22,6 +24,7 @@ import com.rcs.nchumanity.view.PercentLinearLayout;
 import java.util.Arrays;
 
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.OnClick;
 
 /**
@@ -48,6 +51,7 @@ public class MainFragment extends ParentFragment {
     @BindView(R.id.basicInfoArea)
     LinearLayout basicInfoArea;
 
+
     private int defBannerHeight = 200;
 
     /**
@@ -57,7 +61,7 @@ public class MainFragment extends ParentFragment {
 
     private int delay = 3000;
 
-    private int itemHWidth;
+    private int rowWidth;
 
     private static final int marginBottom = 5;
 
@@ -67,8 +71,7 @@ public class MainFragment extends ParentFragment {
         banner.setBannerHeight(DensityConvertUtil.dpi2px(getContext(), defBannerHeight));
         banner.setImageUrl(Arrays.asList(new Integer[]{R.drawable.banner1, R.drawable.banner2}));
         banner.startAutoRoll(delay);
-        itemHWidth = Tool.getScreenDimension(getContext())[0] / 4;
-
+        rowWidth = Tool.getScreenDimension(getContext())[0] / 10 * 9;
     }
 
 
@@ -89,7 +92,6 @@ public class MainFragment extends ParentFragment {
                         break;
 
                     default: {
-
                         //对于其他的点击，就是对item的点击
                         SpecificInfo specificInfo = (SpecificInfo) v.getTag();
                         Bundle bundle = new Bundle();
@@ -148,8 +150,10 @@ public class MainFragment extends ParentFragment {
             //创建新的行
 
             LinearLayout ly = new PercentLinearLayout(getContext());
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
+            int width = getResources().getDisplayMetrics().widthPixels / 10 * 9;
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, -2);
             lp.bottomMargin = DensityConvertUtil.dp2px(getContext(), marginBottom);
+//            lp.topMargin=DensityConvertUtil.dp2px(getContext(), marginBottom);
             ly.setLayoutParams(lp);
 
             ly.addView(ply);
@@ -167,10 +171,36 @@ public class MainFragment extends ParentFragment {
 
     private PercentLinearLayout addFuncItem(@DrawableRes int drawResId, String text) {
         PercentLinearLayout ply = cacheView();
-        ply.setLayoutParams(new LinearLayout.LayoutParams(itemHWidth, -2));
+        ply.setLayoutParams(new LinearLayout.LayoutParams(rowWidth / 4, -2));
         ((ImageButton) ply.findViewById(R.id.image)).setImageResource(drawResId);
         ((TextView) ply.findViewById(R.id.js)).setText(text);
         return ply;
+    }
+
+
+    /**
+     * 功能区的其他3个按钮
+     */
+    @OnClick({R.id.jhypx, R.id.aedfb, R.id.zjzjy})
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+            case R.id.jhypx:
+
+                Tool.startActivity(getContext(), TrainStepActivity.class);
+
+                break;
+
+            case R.id.aedfb:
+                Tool.startActivity(getContext(), MapBasicActivity.class);
+
+                break;
+
+            case R.id.zjzjy:
+
+
+                break;
+        }
     }
 
 

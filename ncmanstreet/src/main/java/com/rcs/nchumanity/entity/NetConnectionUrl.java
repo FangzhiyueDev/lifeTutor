@@ -73,7 +73,7 @@ public class NetConnectionUrl {
     /**
      * 注册的接口
      */
-    public static String REGISTEER = "";
+    public static String REGISTER = "";
     /**
      * 主页查询分类信息对应的数据接口
      */
@@ -193,6 +193,12 @@ public class NetConnectionUrl {
      */
     public static String BLOOD_DONATION_POSITION_LIST;
 
+    /**
+     * 获得当前用户的注册状态、
+     * 传递的参数是用户的phoneNumber
+     * 返回的参数是json格式的数据 格式是BasicResponse类的实现
+     */
+    public static final String REGISTER_STATUS = "";
 
     static {
 

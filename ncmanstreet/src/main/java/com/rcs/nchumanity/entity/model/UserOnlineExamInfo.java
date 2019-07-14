@@ -15,7 +15,7 @@ public class UserOnlineExamInfo {
    /** 得分 */
    public int score;
    /** 隐藏 */
-   public byte isDelete;
+   public Boolean isDelete;
    /** 备注 */
    public String remark;
    

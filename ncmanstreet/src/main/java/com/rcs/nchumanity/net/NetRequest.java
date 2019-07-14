@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
+import java.util.Set;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -41,7 +43,6 @@ public class NetRequest {
         Request request = new Request.Builder().url(url).build();
         OkHttpClient ok = new OkHttpClient();
         ok.newCall(request).enqueue(callback);
-
     }
 
 
@@ -50,7 +51,6 @@ public class NetRequest {
      * @param savePath     保存文件的位置 ，如果保存到sdcard，请申请权限，建议在软件启动的时候进行权限的申请
      * @param fileName     保存文件的名称
      * @param downListener 下载过程的监听
-     *
      */
     public static void onDown(String url, final String savePath, final String fileName, final DownListener downListener) {
         Request request = new Request.Builder().url(url).build();
@@ -130,14 +130,15 @@ public class NetRequest {
      * @param param
      * @param callback
      */
-    public static void requestPost(String url, String param, Callback callback) {
+    public static void requestPost(String url, Map<String, String> param, Callback callback) {
 
         FormBody.Builder builder = new FormBody.Builder();
-        String[] keyValue = param.split("&");
-        for (int i = 0; i < keyValue.length; i++) {
-            String[] singleKeyValue = keyValue[i].split("=");
-            builder.add(singleKeyValue[0], singleKeyValue[1]);
+        
+        Set<String> keys = param.keySet();
+        for (String key : keys) {
+            builder.add(key, param.get(key));
         }
+
         RequestBody requestBody = builder.build();
         Request request = new Request.Builder().url(url).post(requestBody).build();
         OkHttpClient ok = new OkHttpClient();
@@ -199,8 +200,6 @@ public class NetRequest {
         }
         return "";
     }
-
-
 
 
 }

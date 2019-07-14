@@ -11,6 +11,15 @@
     <color name="gray">#DFDFDF</color>
     <color name="btn_fade">#81FD3129</color>
 
+    <color name="gray_BEBEBE">#BEBEBE</color>
+
+
+    <color name="gray_DBDBDB">#DBDBDB</color>
+
+    <color name="red_FC0606">#FC0606</color>
+
+    <color name="black_181818">#181818</color>
+
 
     <integer name="index0">0</integer>
     <integer name="index1">1</integer>
