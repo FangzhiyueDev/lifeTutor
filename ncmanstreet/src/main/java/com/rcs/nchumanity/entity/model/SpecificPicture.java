@@ -1,24 +1,63 @@
-package com.rcs.nchumanity.entity.model; /***********************************************************************
- * Module:  SpecificPicture.java
- * Author:  mayn
- * Purpose: Defines the Class SpecificPicture
- ***********************************************************************/
+package com.rcs.nchumanity.entity.model;
 
-import java.util.*;
-
-/** 特定图片信息 */
 public class SpecificPicture {
-   /** 主键 */
-   public long id;
-   /** 特定编号 */
-   public int specificNo;
-   /** 标题 */
-   public String title;
-   /** 地址 */
-   public String url;
-   /** 隐藏 */
-   public Boolean isDelete;
-   /** 备注 */
-   public String remark;
+    private Integer id;
 
+    private Integer specificNo;
+
+    private String title;
+
+    private String url;
+
+    private Boolean isDelete;
+
+    private String remark;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getSpecificNo() {
+        return specificNo;
+    }
+
+    public void setSpecificNo(Integer specificNo) {
+        this.specificNo = specificNo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }

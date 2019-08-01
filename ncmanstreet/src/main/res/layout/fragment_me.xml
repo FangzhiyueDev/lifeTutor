@@ -1,149 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.rcs.nchumanity.view.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
 
-    <androidx.percentlayout.widget.PercentRelativeLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_heightPercent="20%">
+        android:layout_height="246dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_beijing" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/photoC"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            app:cardCornerRadius="5dp">
+    <ImageButton
+        android:id="@+id/setting"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_shezhi" />
 
-            <ImageView
-                android:id="@+id/photo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/banner2" />
 
-        </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="207dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="20dp">
 
-        <TextView
-            android:id="@+id/user"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/photoC"
-            android:drawableRight="@drawable/ic_downstep"
-            android:paddingRight="10dp"
-            android:tag="@string/wdl"
-            android:text="@string/wdl"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp">
 
-        <View
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/meCourse"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/smssdk_white"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_wodkecheng" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/meCourse"
+                    android:layout_centerHorizontal="true"
+                    android:text="我的课程"
+                    android:textColor="#ff666666"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/assessResult"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/smssdk_white"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_kaohejieguo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/assessResult"
+                    android:layout_centerHorizontal="true"
+                    android:text="考核结果"
+                    android:textColor="#ff666666"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/elecCertificate"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/smssdk_white"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_dianzizhengsu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/elecCertificate"
+                    android:layout_centerHorizontal="true"
+                    android:text="电子证书"
+                    android:textColor="#ff666666"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/entityCertificate"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/smssdk_white"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_shitizhengshu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/entityCertificate"
+                    android:layout_centerHorizontal="true"
+                    android:text="实体证书"
+                    android:textColor="#ff666666"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <RelativeLayout
+        android:layout_width="87dp"
+        android:layout_height="87dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:elevation="6dp">
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:background="#111"></View>
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_touxiang" />
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_logo" />
 
 
-    </androidx.percentlayout.widget.PercentRelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#ccc"></View>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_alignParentBottom="true"
-        android:background="#111"></View>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:drawableLeft="@drawable/ic_kecheng"
-        android:drawableRight="@drawable/ic_downstep"
-        android:drawablePadding="10dp"
-        android:gravity="left|center_vertical"
-        android:id="@+id/curse"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="我的课程" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#ccc"></View>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_alignParentBottom="true"
-        android:background="#111"></View>
+    </RelativeLayout>
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:drawableLeft="@drawable/ic_kaohe"
-        android:drawableRight="@drawable/ic_downstep"
-        android:drawablePadding="10dp"
-        android:gravity="left|center_vertical"
-        android:id="@+id/assessResult"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="考核结果" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_alignParentBottom="true"
-        android:background="#111"></View>
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:drawableLeft="@drawable/ic_zhengshu"
-        android:drawableRight="@drawable/ic_downstep"
-        android:drawablePadding="10dp"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="10dp"
-        android:id="@+id/elecMark"
-        android:paddingRight="10dp"
-        android:text="电子证书" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_alignParentBottom="true"
-        android:background="#111"></View>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:drawableLeft="@drawable/ic_zhengshu_1"
-        android:drawableRight="@drawable/ic_downstep"
-        android:drawablePadding="10dp"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:id="@+id/realMark"
-        android:text="实体证书" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_alignParentBottom="true"
-        android:background="#111"></View>
-
-
-</com.rcs.nchumanity.view.PercentLinearLayout>
+</RelativeLayout>

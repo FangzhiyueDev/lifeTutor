@@ -35,11 +35,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:drawableTop="@drawable/ic_zy"
+                android:drawableTop="@drawable/ic_shouye"
                 android:paddingTop="4dp"
                 android:tag="0"
                 android:text="@string/sy"
-                android:textSize="12sp" />
+                android:textColor="#999999"
+                android:textSize="10sp" />
 
             <View />
 
@@ -48,11 +49,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="?android:attr/selectableItemBackground"
-                android:drawableTop="@drawable/ic_peixun"
+                android:drawableTop="@drawable/ic_jiuhuyuan"
                 android:paddingTop="4dp"
                 android:tag="1"
                 android:text="@string/jhpx"
-                android:textSize="12sp" />
+                android:textColor="#999999"
+                android:textSize="10sp" />
 
             <View />
 
@@ -61,11 +63,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="?android:attr/selectableItemBackground"
-                android:drawableTop="@drawable/ic_jiuhuche"
+                android:drawableTop="@drawable/ic_qitayihurenyuan"
                 android:paddingTop="4dp"
                 android:tag="2"
-                android:text="@string/jhpx"
-                android:textSize="12sp" />
+                android:text="@string/jhyjy"
+                android:textColor="#999999"
+                android:textSize="10sp" />
 
             <View />
 
@@ -75,11 +78,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:drawableTop="@drawable/ic_wode"
+                android:drawableTop="@drawable/ic_icon_wode"
                 android:paddingTop="4dp"
                 android:tag="3"
                 android:text="@string/wd"
-                android:textSize="12sp" />
+                android:textColor="#999999"
+                android:textSize="10sp" />
 
         </TableRow>
     </TableLayout>

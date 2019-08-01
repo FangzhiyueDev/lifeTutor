@@ -1,57 +1,103 @@
-package com.rcs.nchumanity.entity.model; /***********************************************************************
- * Module:  ExpressOrderInfo.java
- * Author:  mayn
- * Purpose: Defines the Class ExpressOrderInfo
- ***********************************************************************/
+package com.rcs.nchumanity.entity.model;
 
-import java.util.*;
-
-/** 邮寄下单信息表 */
 public class ExpressOrderInfo {
-   /** 主键 */
-   public long id;
-   /** 姓名 */
-   public String name;
-   /** 电话 */
-   public String mobilephone;
-   /** 地址 */
-   public String address;
-   /** 快递单号 */
-   public String expressNo;
-   /** 快递公司 */
-   public String expressCompany;
-   /** 邮寄状态 */
-   public int expressStatus;
-   /** 隐藏 */
-   public Boolean isDelete;
-   /** 备注 */
-   public String remark;
-   
-   public UserAccount userAccount;
-   
-   
-   /** @pdGenerated default parent getter */
-   public UserAccount getUserAccount() {
-      return userAccount;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newUserAccount */
-   public void setUserAccount(UserAccount newUserAccount) {
-      if (this.userAccount == null || !this.userAccount.equals(newUserAccount))
-      {
-         if (this.userAccount != null)
-         {
-            UserAccount oldUserAccount = this.userAccount;
-            this.userAccount = null;
-            oldUserAccount.removeExpressOrderInfo(this);
-         }
-         if (newUserAccount != null)
-         {
-            this.userAccount = newUserAccount;
-            this.userAccount.addExpressOrderInfo(this);
-         }
-      }
-   }
+    private Integer id;
 
+    private Integer userId;
+
+    private String name;
+
+    private String mobilephone;
+
+    private String address;
+
+    private String expressNo;
+
+    private String expressCompany;
+
+    private Integer expressStatus;
+
+    private Boolean isDelete;
+
+    private String remark;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getMobilephone() {
+        return mobilephone;
+    }
+
+    public void setMobilephone(String mobilephone) {
+        this.mobilephone = mobilephone == null ? null : mobilephone.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public String getExpressNo() {
+        return expressNo;
+    }
+
+    public void setExpressNo(String expressNo) {
+        this.expressNo = expressNo == null ? null : expressNo.trim();
+    }
+
+    public String getExpressCompany() {
+        return expressCompany;
+    }
+
+    public void setExpressCompany(String expressCompany) {
+        this.expressCompany = expressCompany == null ? null : expressCompany.trim();
+    }
+
+    public Integer getExpressStatus() {
+        return expressStatus;
+    }
+
+    public void setExpressStatus(Integer expressStatus) {
+        this.expressStatus = expressStatus;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }

@@ -9,6 +9,8 @@ import java.security.MessageDigest;
 /**
  * 用于对系统的密码进行加密以及进行解密的操作
  */
+
+@Deprecated
 public class Crypto {
 
 

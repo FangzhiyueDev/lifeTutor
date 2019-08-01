@@ -39,6 +39,4 @@ public class Crypto {
             throw new RuntimeException("MD5加密错误:" + e.getMessage(), e);
         }
     }
-
-
 }

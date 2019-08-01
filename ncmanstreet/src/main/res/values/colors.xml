@@ -19,6 +19,9 @@
     <color name="red_FC0606">#FC0606</color>
 
     <color name="black_181818">#181818</color>
+    <color name="icon_menu">#666666</color>
+    <color name="item_img_text_title">#333333</color>
+    <color name="item_img_text_des">#666666</color>
 
 
     <integer name="index0">0</integer>

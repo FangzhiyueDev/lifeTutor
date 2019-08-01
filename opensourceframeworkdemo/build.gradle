@@ -16,7 +16,6 @@ android {
     compileSdkVersion 28
 
 
-
     defaultConfig {
         applicationId "com.xiaofangfang.opensourceframeworkdemo"
         minSdkVersion 15
@@ -68,8 +67,6 @@ android {
 //            keyPassword "android"
 //        }
 //    }
-
-
 
 
     compileOptions {
@@ -136,7 +133,7 @@ dependencies {
 
     implementation 'com.squareup.dagger:dagger:1.2.2'
 
-    provided 'com.squareup.dagger:dagger-compiler:1.2.2'
+    compileOnly 'com.squareup.dagger:dagger-compiler:1.2.2'
 
 
     //dagger2
@@ -181,19 +178,15 @@ dependencies {
 //    implementation files('libs/umeng-share-douban-6.9.4.jar')
 
 
-
-
     //PushSDK必须依赖utdid库，所以需要加入对应依赖
 //    implementation 'com.umeng.umsdk:utdid:1.1.5.3'
     //PushSDK
 //    implementation 'com.umeng.umsdk:push:5.0.2'
 
 
-
 }
 
 apply plugin: 'org.greenrobot.greendao'
-
 
 
 greendao {

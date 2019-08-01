@@ -1,5 +1,6 @@
 package com.rcs.nchumanity.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,11 @@ import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.entity.model.SpecificInfo;
 import com.rcs.nchumanity.tool.DensityConvertUtil;
 import com.rcs.nchumanity.tool.Tool;
-import com.rcs.nchumanity.ul.ComplexListActivity;
-import com.rcs.nchumanity.ul.MapBasicActivity;
-import com.rcs.nchumanity.ul.SpecificDetailDisActivity;
+import com.rcs.nchumanity.ul.AmbulanceRescueActivity;
+import com.rcs.nchumanity.ul.list.ComplexListActivity;
+import com.rcs.nchumanity.ul.list.SpecificInfoComplexListActivity;
 import com.rcs.nchumanity.ul.TrainStepActivity;
+import com.rcs.nchumanity.ul.basicMap.BasicMapActivity;
 import com.rcs.nchumanity.view.BannerFlip;
 import com.rcs.nchumanity.view.BasicItem;
 import com.rcs.nchumanity.view.PercentLinearLayout;
@@ -24,7 +26,6 @@ import com.rcs.nchumanity.view.PercentLinearLayout;
 import java.util.Arrays;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.OnClick;
 
 /**
@@ -71,7 +72,7 @@ public class MainFragment extends ParentFragment {
         banner.setBannerHeight(DensityConvertUtil.dpi2px(getContext(), defBannerHeight));
         banner.setImageUrl(Arrays.asList(new Integer[]{R.drawable.banner1, R.drawable.banner2}));
         banner.startAutoRoll(delay);
-        rowWidth = Tool.getScreenDimension(getContext())[0] / 10 * 9;
+        rowWidth = (int) (Tool.getScreenDimension(getContext())[0] / 10 * 9.6);
     }
 
 
@@ -96,9 +97,8 @@ public class MainFragment extends ParentFragment {
                         SpecificInfo specificInfo = (SpecificInfo) v.getTag();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(SpecificInfo.class.getSimpleName(), specificInfo);
-                        Tool.startActivity(getContext(), SpecificDetailDisActivity.class, bundle);
+                        Tool.startActivity(getContext(), SpecificInfoComplexListActivity.class, bundle);
                     }
-
                 }
             }
         }, null);
@@ -139,7 +139,7 @@ public class MainFragment extends ParentFragment {
          *    ---TextView
          *
          */
-        PercentLinearLayout ply = addFuncItem(R.drawable.ic_jiuhuche_50, "dfd");
+        PercentLinearLayout ply = addFuncItem(R.drawable.ic_08, "dfd");
         ply.setOnClickListener((v) -> {
             //对于新添加的view我们设置点击事件
             Tool.startActivity(getContext(), ComplexListActivity.class);
@@ -150,10 +150,9 @@ public class MainFragment extends ParentFragment {
             //创建新的行
 
             LinearLayout ly = new PercentLinearLayout(getContext());
-            int width = getResources().getDisplayMetrics().widthPixels / 10 * 9;
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, -2);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(rowWidth, -2);
             lp.bottomMargin = DensityConvertUtil.dp2px(getContext(), marginBottom);
-//            lp.topMargin=DensityConvertUtil.dp2px(getContext(), marginBottom);
+            ly.setBackgroundColor(Color.parseColor("#ffffff"));
             ly.setLayoutParams(lp);
 
             ly.addView(ply);
@@ -172,8 +171,8 @@ public class MainFragment extends ParentFragment {
     private PercentLinearLayout addFuncItem(@DrawableRes int drawResId, String text) {
         PercentLinearLayout ply = cacheView();
         ply.setLayoutParams(new LinearLayout.LayoutParams(rowWidth / 4, -2));
-        ((ImageButton) ply.findViewById(R.id.image)).setImageResource(drawResId);
-        ((TextView) ply.findViewById(R.id.js)).setText(text);
+        ((ImageButton) ply.findViewById(R.id.menuIcon)).setImageResource(drawResId);
+        ((TextView) ply.findViewById(R.id.iconText)).setText(text);
         return ply;
     }
 
@@ -181,7 +180,7 @@ public class MainFragment extends ParentFragment {
     /**
      * 功能区的其他3个按钮
      */
-    @OnClick({R.id.jhypx, R.id.aedfb, R.id.zjzjy})
+    @OnClick({R.id.jhypx, R.id.aedfb, R.id.jhyjy})
     public void onClick(View view) {
         switch (view.getId()) {
 
@@ -192,12 +191,16 @@ public class MainFragment extends ParentFragment {
                 break;
 
             case R.id.aedfb:
-                Tool.startActivity(getContext(), MapBasicActivity.class);
+
+                Tool.startActivity(getContext(), BasicMapActivity.class);
 
                 break;
 
-            case R.id.zjzjy:
+            case R.id.jhyjy:
 
+                Tool.startActivity(getContext(),
+                        AmbulanceRescueActivity.class
+                );
 
                 break;
         }

@@ -5,6 +5,8 @@ import android.content.Context;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.rcs.nchumanity.tool.ActivityStackManager;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,6 +24,11 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.fang.ncmanstreet", appContext.getPackageName());
+
+        ActivityStackManager asm = ActivityStackManager.getInstance(appContext);
+
+        System.out.print("当前activity的name=" + asm.getTopStackPackageName());
+        
+//        assertEquals("com.fang.ncmanstreet", appContext.getPackageName());
     }
 }

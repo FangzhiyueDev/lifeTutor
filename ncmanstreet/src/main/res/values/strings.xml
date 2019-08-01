@@ -58,6 +58,11 @@
     <string name="hszhydjbzs">红十字会运动基本知识</string>
     <string name="wxx">未学习</string>
     <string name="ywc">已完成</string>
+    <string name="load">加载中...</string>
+    <string name="to">去这里</string>
+    <string name="jhyjy">救护员救援</string>
+    <string name="need">必填</string>
+    <string name="hjjhy">呼叫救护员</string>
 
 
     <string-array name="sixs">

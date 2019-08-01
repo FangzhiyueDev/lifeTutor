@@ -17,4 +17,21 @@ public class SystemSet {
     public static final String AED_SEARCH_RADIUS = "aedSearchRadius";
 
 
+    /**
+     * 首页的参数设置
+     */
+    public static class PageMainParam {
+
+        /**
+         * 获得banner图片的默认大小
+         */
+        public static final int BANNER_IMG_SIZE = 3;
+
+        /**
+         * 获得新闻的默认大小
+         */
+        public static final int NEWS_SIZE = 3;
+    }
+
+
 }

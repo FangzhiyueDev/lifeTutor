@@ -43,11 +43,20 @@ public class BasicResponse {
      */
     public int code;
 
+    /***
+     * 消息提示
+     */
     public String message;
 
-    public BasicResponse(int code, String message) {
+    /**
+     * 传输的数据对象
+     */
+    public Object data;
+
+    public BasicResponse(int code, String message, Object object) {
         this.code = code;
         this.message = message;
+        this.data = object;
     }
 
 

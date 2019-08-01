@@ -38,6 +38,7 @@ import com.example.componentasystemtest.broadcastTest.netStatusChange.NetChangeA
 import com.example.componentasystemtest.canvas.MainActivity.Activity;
 import com.example.componentasystemtest.canvas.MainActivity.MyViewGroupTestActivity;
 import com.example.componentasystemtest.consumeViewAttribute.AttrActivity;
+import com.example.componentasystemtest.density.Density;
 import com.example.componentasystemtest.dialog.Simple2.DialogWidthTestActivity;
 import com.example.componentasystemtest.dialog.simple1.DialogActivity;
 import com.example.componentasystemtest.dialog.simple1.MyDialogFragment;
@@ -69,6 +70,7 @@ public class ProjectListActivity extends AppCompatActivity {
     ListView listView;
 
     Class[] array = {
+            Density.class,
             VideoPlayer1Activity.class,
             VideoPlayerActivity.class,
             AsyncActivity.class,

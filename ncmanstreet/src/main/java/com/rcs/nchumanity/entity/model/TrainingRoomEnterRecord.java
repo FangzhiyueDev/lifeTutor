@@ -1,73 +1,75 @@
-package com.rcs.nchumanity.entity.model; /***********************************************************************
- * Module:  TrainingRoomEnterRecord.java
- * Author:  mayn
- * Purpose: Defines the Class TrainingRoomEnterRecord
- ***********************************************************************/
+package com.rcs.nchumanity.entity.model;
 
-import java.util.*;
+import java.util.Date;
 
-/** 培训房进入记录表 */
 public class TrainingRoomEnterRecord {
-   /** 主键 */
-   public long id;
-   /** 身份证号 */
-   public String idNumber;
-   /** 进入时间 */
-   public Date enterTime;
-   /** 隐藏 */
-   public Boolean isDelete;
-   /** 备注 */
-   public String remark;
-   
-   public UserAccount userAccount;
-   public TrainPointInfo trainPointInfo;
-   
-   
-   /** @pdGenerated default parent getter */
-   public UserAccount getUserAccount() {
-      return userAccount;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newUserAccount */
-   public void setUserAccount(UserAccount newUserAccount) {
-      if (this.userAccount == null || !this.userAccount.equals(newUserAccount))
-      {
-         if (this.userAccount != null)
-         {
-            UserAccount oldUserAccount = this.userAccount;
-            this.userAccount = null;
-            oldUserAccount.removeTrainingRoomEnterRecord(this);
-         }
-         if (newUserAccount != null)
-         {
-            this.userAccount = newUserAccount;
-            this.userAccount.addTrainingRoomEnterRecord(this);
-         }
-      }
-   }
-   /** @pdGenerated default parent getter */
-   public TrainPointInfo getTrainPointInfo() {
-      return trainPointInfo;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newTrainPointInfo */
-   public void setTrainPointInfo(TrainPointInfo newTrainPointInfo) {
-      if (this.trainPointInfo == null || !this.trainPointInfo.equals(newTrainPointInfo))
-      {
-         if (this.trainPointInfo != null)
-         {
-            TrainPointInfo oldTrainPointInfo = this.trainPointInfo;
-            this.trainPointInfo = null;
-            oldTrainPointInfo.removeTrainingRoomEnterRecord(this);
-         }
-         if (newTrainPointInfo != null)
-         {
-            this.trainPointInfo = newTrainPointInfo;
-            this.trainPointInfo.addTrainingRoomEnterRecord(this);
-         }
-      }
-   }
+    private Integer id;
 
+    private Integer userId;
+
+    private Integer pointId;
+
+    private String idNumber;
+
+    private Date enterTime;
+
+    private Boolean isDelete;
+
+    private String remark;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getPointId() {
+        return pointId;
+    }
+
+    public void setPointId(Integer pointId) {
+        this.pointId = pointId;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber == null ? null : idNumber.trim();
+    }
+
+    public Date getEnterTime() {
+        return enterTime;
+    }
+
+    public void setEnterTime(Date enterTime) {
+        this.enterTime = enterTime;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }

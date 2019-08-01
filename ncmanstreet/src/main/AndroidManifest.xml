@@ -14,6 +14,14 @@
         android:theme="@style/AppTheme">
 
 
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <activity android:name=".ul.basicMap.BasicMapActivity"></activity>
+
+
         <!--
           我们将MainActivity设置为  singleInstance的启动模式，将会清除掉在MainActivity上面的所有的Activity
         -->
@@ -28,28 +36,56 @@
 
         </activity>
 
+        <activity android:name=".ul.InputPasswordActivity">
+
+        </activity>
+
 
         <activity
             android:name="com.rcs.nchumanity.ul.ValidateCodeActivity"
             android:label="@string/title_activity_validate_code"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name="com.rcs.nchumanity.ul.RegisterUserActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".ul.MapBasicActivity" />
         <activity android:name=".ul.AssessLoginActivity" />
 
+        <!-- 用于实现的功能是
+           对课程的详情界面的显示 ，提供的功能包括了对视频的基本的操作，
+        -->
+        <activity
+            android:name=".ul.detail.ElectiveCourseInfoComplexDetailActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+
+        <!--
+          用于显示特定信息的Activity
+          包括 国内外咨询  新闻  ，无偿献血的相关信息  视频  造血干细胞的   器官遗体捐献  爱心捐款
+
+        -->
+        <activity android:name=".ul.detail.SpecificInfoComplexListDetailActivity"></activity>
+
+
+        <activity
+            android:name=".ul.AmbulanceRescueActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+
+        <activity android:name=".ul.IdentityInfoRecordActivity"></activity>
+        <activity android:name=".ul.TrainStepActivity"></activity>
+        <activity android:name=".ul.AssessResultActivity" />
+        <activity android:name=".ul.EntityCertificateActivity" />
+        <activity android:name=".ul.MailPostActivity" />
+        <activity android:name=".ul.SettingActivity" />
+        <activity android:name=".ul.MyCourseActivity" />
+
+        <!--
+         配置秘钥
+        -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="OI5XrlbyflrMMfuwS4sGlHP0IYaA7K0s" />
 
     </application>
 
@@ -78,5 +114,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+
 
 </manifest>

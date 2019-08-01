@@ -36,6 +36,8 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+
+
 }
 
 allprojects {
@@ -45,7 +47,8 @@ allprojects {
         maven { url "https://jitpack.io" }
         maven {
             url 'https://maven.google.com/'
-            name 'Google' }
+            name 'Google'
+        }
         maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 }
@@ -53,6 +56,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
 
 
 

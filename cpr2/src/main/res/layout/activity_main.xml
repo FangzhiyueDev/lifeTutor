@@ -1,0 +1,129 @@
+﻿<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+    tools:context="${relativePackage}.${activityClass}" >
+   
+    <!--  顶部-->
+   <RelativeLayout 
+       android:id="@+id/top"
+       android:layout_marginTop="5px"
+       android:layout_height="52px"
+       android:layout_width="fill_parent">
+
+       <ImageView
+           android:id="@+id/logo"
+           android:layout_width="wrap_content"
+           android:layout_height="fill_parent"
+           android:layout_alignParentBottom="true"
+           android:layout_marginLeft="20px"
+           android:visibility="invisible"
+           android:background="@drawable/logo2" />
+
+        <TextView 
+               android:id="@+id/title"
+               android:text=""
+               android:textSize="24sp"
+               android:textColor="#fff"
+                android:layout_height="wrap_content"
+	               android:layout_width="wrap_content"
+	               android:layout_centerHorizontal="true"
+	               android:layout_centerVertical="true"/>
+         <TextView 
+               android:id="@+id/title2"
+               android:text=""
+               android:textSize="24sp"
+               android:textColor="#fff"
+                android:layout_height="wrap_content"
+	               android:layout_width="wrap_content"
+	               android:layout_marginLeft="28px"
+	               android:layout_centerVertical="true"/>
+        <RelativeLayout 
+           android:layout_height="fill_parent"
+           android:layout_width="250px"
+           android:layout_alignParentRight="true">
+           
+          
+           <com.lyc.ui.ButtonEx
+               android:id="@+id/modelstate"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:scaleType="fitXY"
+               android:layout_centerVertical="true"
+               android:onClick="onClick"
+               android:background="@drawable/modelstatex"/>
+            <com.lyc.ui.ButtonEx 
+               android:id="@+id/printstate"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:layout_marginLeft="50px"
+                 android:onClick="onClick"
+                 android:layout_centerVertical="true"
+               android:background="@drawable/printstatex"/>
+             <RelativeLayout 
+                android:layout_height="13px"
+               android:layout_width="27px"
+               android:layout_marginLeft="100px"
+               
+                 android:layout_centerVertical="true"
+               android:background="@drawable/battery">
+              	 <View
+              	     android:id="@+id/battery"
+              	     android:layout_alignParentLeft="true"
+              	     android:background="#0CFF6F" 
+              	     android:layout_width="22px"
+              	     android:layout_marginLeft="2px"
+              	     android:layout_marginTop="2.48px"
+              	     android:layout_marginBottom="2px"
+              	     android:layout_height="fill_parent"/>
+               </RelativeLayout>
+
+              <com.lyc.ui.ButtonEx
+                  android:id="@+id/setting"
+                    android:onClick="onClick"
+	               android:layout_height="wrap_content"
+	               android:layout_width="wrap_content"
+	               android:layout_marginLeft="138px"
+	               android:layout_centerVertical="true"
+	               android:background="@drawable/setting" />
+               <com.lyc.ui.ButtonEx
+                  android:id="@+id/language"
+                    android:onClick="onClick"
+	               android:layout_height="wrap_content"
+	               android:layout_width="wrap_content"
+	               android:layout_marginLeft="178px"
+	               android:layout_centerVertical="true"
+	               android:background="@drawable/cn" />
+           
+       </RelativeLayout>
+       
+   </RelativeLayout>  
+   <!--  内容区 -->
+   <RelativeLayout 
+       android:id="@+id/content"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="60px"
+       android:layout_height="460px" 
+       android:layout_width="956px" 
+       android:background="#000">
+     
+   </RelativeLayout>
+
+    <AbsoluteLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/content" >
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#fff"
+            android:textSize="24sp" />
+
+    </AbsoluteLayout>
+ 
+</RelativeLayout>

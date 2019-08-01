@@ -1,53 +1,103 @@
-package com.rcs.nchumanity.entity.model; /***********************************************************************
- * Module:  OnlineExamQuestion.java
- * Author:  mayn
- * Purpose: Defines the Class OnlineExamQuestion
- ***********************************************************************/
+package com.rcs.nchumanity.entity.model;
 
-import java.util.*;
-
-/** 在线考核题目信息表 */
 public class OnlineExamQuestion {
-   /** 主键 */
-   public long id;
-   /** 问题 */
-   public String question;
-   /** 选项 */
-   public String options;
-   /** 答案 */
-   public String answer;
-   /** 试卷类型 */
-   public int type;
-   /** 隐藏 */
-   public Boolean isDelete;
-   /** 备注 */
-   public String remark;
-   
-   public CourseClassification courseClassification;
-   
-   
-   /** @pdGenerated default parent getter */
-   public CourseClassification getCourseClassification() {
-      return courseClassification;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newCourseClassification */
-   public void setCourseClassification(CourseClassification newCourseClassification) {
-      if (this.courseClassification == null || !this.courseClassification.equals(newCourseClassification))
-      {
-         if (this.courseClassification != null)
-         {
-            CourseClassification oldCourseClassification = this.courseClassification;
-            this.courseClassification = null;
-            oldCourseClassification.removeOnlineExamQuestion(this);
-         }
-         if (newCourseClassification != null)
-         {
-            this.courseClassification = newCourseClassification;
-            this.courseClassification.addOnlineExamQuestion(this);
-         }
-      }
-   }
+    private Integer id;
 
+    private Integer courseNo;
+
+    private String question;
+
+    private String options;
+
+    private String answer;
+
+    private Integer type;
+
+    private Boolean isExercises;
+
+    private Integer marks;
+
+    private Boolean isDelete;
+
+    private String remark;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getCourseNo() {
+        return courseNo;
+    }
+
+    public void setCourseNo(Integer courseNo) {
+        this.courseNo = courseNo;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question == null ? null : question.trim();
+    }
+
+    public String getOptions() {
+        return options;
+    }
+
+    public void setOptions(String options) {
+        this.options = options == null ? null : options.trim();
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer == null ? null : answer.trim();
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Boolean getIsExercises() {
+        return isExercises;
+    }
+
+    public void setIsExercises(Boolean isExercises) {
+        this.isExercises = isExercises;
+    }
+
+    public Integer getMarks() {
+        return marks;
+    }
+
+    public void setMarks(Integer marks) {
+        this.marks = marks;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }

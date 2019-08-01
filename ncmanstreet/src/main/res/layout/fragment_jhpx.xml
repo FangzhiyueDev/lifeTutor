@@ -5,301 +5,298 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#f6f6f6"></View>
 
-    <com.rcs.nchumanity.view.PercentLinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        app:layout_widthPercent="90%">
-
+        android:background="#ffffff"
+        android:orientation="vertical">
 
         <com.rcs.nchumanity.view.PercentLinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_widthPercent="50%">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            app:layout_widthPercent="90%">
 
 
-            <androidx.percentlayout.widget.PercentFrameLayout
-                android:id="@+id/step_1"
+            <com.rcs.nchumanity.view.PercentLinearLayout
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/circle_select"
-                app:layout_aspectRatio="100%"
-                app:layout_widthPercent="30%">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
 
                 <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/circle_fff"
-                    android:src="@drawable/ic_jiuhuche"
-                    app:layout_aspectRatio="100%"
-                    app:layout_widthPercent="95%" />
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_26" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/step_1"
+                    android:textColor="#ff666666"
+                    android:textSize="11sp" />
 
 
-            </androidx.percentlayout.widget.PercentFrameLayout>
+            </com.rcs.nchumanity.view.PercentLinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center_horizontal"
-                android:text="@string/step_1"
-                android:textColor="@color/black" />
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
+                <ImageButton
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_fff"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_38" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/step_2"
+                    android:textColor="#ff666666"
+                    android:textSize="11sp" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
 
 
         </com.rcs.nchumanity.view.PercentLinearLayout>
 
         <com.rcs.nchumanity.view.PercentLinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_widthPercent="50%">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            app:layout_widthPercent="90%">
 
 
-            <androidx.percentlayout.widget.PercentFrameLayout
-                android:id="@+id/step_2"
+            <com.rcs.nchumanity.view.PercentLinearLayout
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/circle_select"
-                app:layout_aspectRatio="100%"
-                app:layout_widthPercent="30%">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
 
                 <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/circle_fff"
-                    android:src="@drawable/ic_jiuhuche"
-                    app:layout_aspectRatio="100%"
-                    app:layout_widthPercent="95%" />
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_37" />
 
 
-            </androidx.percentlayout.widget.PercentFrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/step_3"
+                    android:textColor="#ff666666"
+                    android:textSize="11sp" />
 
-            <TextView
-                android:layout_width="match_parent"
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
+
+            <com.rcs.nchumanity.view.PercentLinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center_horizontal"
-                android:text="@string/step_2"
-                android:textColor="@color/black" />
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
+
+                <ImageButton
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_fff"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_36" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/step_4"
+                    android:textColor="#ff666666"
+                    android:textSize="11sp" />
+
+
+            </com.rcs.nchumanity.view.PercentLinearLayout>
 
 
         </com.rcs.nchumanity.view.PercentLinearLayout>
 
+    </LinearLayout>
 
-    </com.rcs.nchumanity.view.PercentLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#f6f6f6"></View>
 
-    <com.rcs.nchumanity.view.PercentLinearLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        app:layout_widthPercent="90%">
+        android:elevation="12dp">
 
-
-        <com.rcs.nchumanity.view.PercentLinearLayout
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_widthPercent="50%">
-
-
-            <androidx.percentlayout.widget.PercentFrameLayout
-                android:id="@+id/step_3"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/circle_select"
-                app:layout_aspectRatio="100%"
-                app:layout_widthPercent="30%">
-
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/circle_fff"
-                    android:src="@drawable/ic_jiuhuche"
-                    app:layout_aspectRatio="100%"
-                    app:layout_widthPercent="95%" />
-
-
-            </androidx.percentlayout.widget.PercentFrameLayout>
+            android:background="#ffffff"
+            android:orientation="vertical">
 
             <TextView
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="18dp"
+                android:text="第五步：线下心肺复苏实操培训"
+                android:textColor="#ff666666"
+                android:textSize="13sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center_horizontal"
-                android:text="@string/step_3"
-                android:textColor="@color/black" />
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:columnCount="3">
 
-
-        </com.rcs.nchumanity.view.PercentLinearLayout>
-
-        <com.rcs.nchumanity.view.PercentLinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_widthPercent="50%">
-
-
-            <androidx.percentlayout.widget.PercentFrameLayout
-                android:id="@+id/step_4"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/circle_select"
-                app:layout_aspectRatio="100%"
-                app:layout_widthPercent="30%">
-
-                <ImageButton
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/circle_fff"
-                    android:src="@drawable/ic_jiuhuche"
-                    app:layout_aspectRatio="100%"
-                    app:layout_widthPercent="95%" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@color/smssdk_white"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_29" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
 
-            </androidx.percentlayout.widget.PercentFrameLayout>
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@color/smssdk_white"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_31" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@color/smssdk_white"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_23" />
+                </LinearLayout>
+
+            </LinearLayout>
+
 
             <TextView
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="18dp"
+                android:text="第六步：线下创伤救护实操培训"
+                android:textColor="#ff666666"
+                android:textSize="13sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center_horizontal"
-                android:text="@string/step_4"
-                android:textColor="@color/black" />
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="15dp"
+                android:columnCount="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@color/smssdk_white"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_29" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@color/smssdk_white"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_31" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@color/smssdk_white"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_23" />
+                </LinearLayout>
+
+            </LinearLayout>
 
 
-        </com.rcs.nchumanity.view.PercentLinearLayout>
+        </LinearLayout>
 
-
-    </com.rcs.nchumanity.view.PercentLinearLayout>
-
-
-    <androidx.percentlayout.widget.PercentRelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_aspectRatio="300%"
-        app:layout_widthPercent="80%">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/gray_DBDBDB" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/black_frame">
-
-            <TextView
-                android:id="@+id/title1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:gravity="center_horizontal"
-                android:text="@string/step_5"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:id="@+id/bm1"
-                android:layout_alignLeft="@+id/title1"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/black_frame"
-                android:text="@string/bm" />
-
-            <Button
-                android:id="@+id/query1"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignRight="@+id/title1"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/black_frame"
-                android:text="@string/cx" />
-
-
-        </RelativeLayout>
-
-
-    </androidx.percentlayout.widget.PercentRelativeLayout>
-
-
-    <androidx.percentlayout.widget.PercentRelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_aspectRatio="300%"
-        app:layout_widthPercent="80%">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/gray_DBDBDB" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/black_frame">
-
-            <TextView
-                android:id="@+id/title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:gravity="center_horizontal"
-                android:text="@string/step_6"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:id="@+id/bm2"
-                android:layout_alignLeft="@+id/title2"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/black_frame"
-                android:text="@string/bm" />
-
-            <Button
-                android:id="@+id/query2"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignRight="@+id/title2"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/black_frame"
-                android:text="@string/cx" />
-
-        </RelativeLayout>
-
-
-    </androidx.percentlayout.widget.PercentRelativeLayout>
-
+    </androidx.cardview.widget.CardView>
 
 </com.rcs.nchumanity.view.PercentLinearLayout>

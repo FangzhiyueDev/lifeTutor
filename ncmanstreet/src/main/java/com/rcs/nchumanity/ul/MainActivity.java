@@ -3,6 +3,7 @@ package com.rcs.nchumanity.ul;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.rcs.nchumanity.fragment.JYPXFragment;
 import com.rcs.nchumanity.fragment.MainFragment;
 import com.rcs.nchumanity.fragment.MeFragment;
 import com.rcs.nchumanity.fragment.ZYJYFragment;
+import com.rcs.nchumanity.tool.ActivityStackManager;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.view.CommandBar;
 import com.rcs.nchumanity.view.MyViewPager;
@@ -61,12 +63,13 @@ import butterknife.OnClick;
 public class MainActivity extends ParentActivity {
 
 
+    private static final String TAG = "test";
     @BindViews({R.id.main, R.id.jhpx, R.id.zyjy, R.id.me})
     List<Button> downBtns;
 
 
     @BindView(R.id.toolbar)
-    CommandBar toolbar;
+    public CommandBar toolbar;
 
 
     /**
@@ -77,7 +80,7 @@ public class MainActivity extends ParentActivity {
 
 
     private int themeColor = Color.parseColor("#d53232");
-    private int defColor = Color.parseColor("#111111");
+    private int defColor = Color.parseColor("#999999");
 
     private String title;
 
@@ -119,6 +122,11 @@ public class MainActivity extends ParentActivity {
         viewPager.setOffscreenPageLimit(cachePage);//设置页面缓存为4个，但是使用了懒加载机制
         viewPager.setCurrentItem(defaultIndex);
 
+        ActivityStackManager asm = ActivityStackManager.getInstance(this);
+
+        Log.d(TAG, "当前activity的name=" + asm.getTopStackPackageName());
+        Log.d(TAG, "当前活动栈的size=" + asm.getStackSize());
+
     }
 
 
@@ -128,8 +136,13 @@ public class MainActivity extends ParentActivity {
         String indexS = (String) view.getTag();
         int index = Integer.parseInt(indexS);
         if (index != defaultIndex) {
+
             Tool.setDrawableColor(defColor, downBtns.get(defaultIndex));
             Tool.setDrawableColor(themeColor, downBtns.get(index));
+            downBtns.get(index).setTextColor(themeColor);
+            downBtns.get(defaultIndex).setTextColor(defColor);
+
+
             defaultIndex = index;
             title = (String) downBtns.get(defaultIndex).getText();
             toolbar.setTitle(title);
@@ -138,12 +151,12 @@ public class MainActivity extends ParentActivity {
 
 
         if (index == cachePage - 1) {
+            toolbar.setVisibility(View.GONE);
             //代表的是我的界面
-            toolbar.setMenu(R.drawable.ic_setting, (v) -> {
-                //设置点击事件
-                Tool.startActivity(MainActivity.this, Setting.class);
-            });
+        } else if (index == cachePage - 2) {
+            toolbar.setVisibility(View.GONE);
         } else {
+            toolbar.setVisibility(View.VISIBLE);
             toolbar.hideMenu();
         }
     }

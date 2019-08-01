@@ -26,7 +26,13 @@
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="0dp"-->
             <!--app:layout_heightPercent="27%" />-->
-            <include layout="@layout/include_video_play"></include>
+            <!--<include layout="@layout/include_video_play"></include>-->
+
+            <fragment
+                android:id="@+id/videoFragment"
+                android:name="com.rcs.nchumanity.fragment.VideoPlayFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></fragment>
 
 
             <LinearLayout
@@ -39,6 +45,7 @@
                 <!--
                  用来实现数据库中的img进行的填充
                 -->
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

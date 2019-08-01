@@ -6,8 +6,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:background="@color/gray_DBDBDB"></View>
+        android:layout_height="8dp"
+        android:background="#EEEEEE"></View>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,15 +17,26 @@
             android:id="@+id/top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/divider"
+                android:layout_width="3dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/ic_17" />
+
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_toRightOf="@id/divider"
                 android:text="@string/zajz"
-                android:textColor="#111"
-                android:textSize="20dp" />
+                android:textColor="#ff252525"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/more"
@@ -33,17 +44,19 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:drawableRight="@drawable/ic_downstep"
-                android:text="@string/gd" />
+                android:layout_marginRight="1dp"
+                android:text="更多>>"
+                android:textColor="#ff252525"
+                android:textSize="10sp" />
 
         </RelativeLayout>
 
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:layout_below="@id/top"
-            android:background="@color/black"></View>
+            android:background="@drawable/ic_22"></View>
 
         <LinearLayout
             android:id="@+id/infoArea"

@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 
 import com.rcs.nchumanity.R;
@@ -29,7 +32,8 @@ public class CommandBar extends PercentLinearLayout {
     private View view;
     private ImageButton ibtn;
     private TextView barTitle;
-    public Button backupPage;
+    public ImageButton backupPage;
+    RelativeLayout root;
 
     private void init() {
 
@@ -42,6 +46,9 @@ public class CommandBar extends PercentLinearLayout {
         });
         ibtn = view.findViewById(R.id.menu);
         barTitle = view.findViewById(R.id.barTitle);
+
+        root = view.findViewById(R.id.root);
+
     }
 
     public void hiddenBack() {
@@ -73,5 +80,11 @@ public class CommandBar extends PercentLinearLayout {
     public static interface MenuClickListener {
         void click(View view);
     }
+
+
+    public void setBackGroundColor1(@ColorRes int colorId) {
+        root.setBackgroundResource(colorId);
+    }
+
 
 }

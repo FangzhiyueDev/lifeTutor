@@ -230,7 +230,7 @@ public abstract class ParentActivity extends AppCompatActivity {
     }
 
 
-    private ProgressBar progressBar;
+    protected ProgressBar progressBar;
 
     private MyCallHandler myCallHandler;
 

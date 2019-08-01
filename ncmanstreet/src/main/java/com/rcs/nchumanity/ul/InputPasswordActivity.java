@@ -13,8 +13,8 @@ import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
-import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
-import com.rcs.nchumanity.entity.model.UserAccount;
+
+import com.rcs.nchumanity.entity.model.sys.UserAccount;
 import com.rcs.nchumanity.net.NetRequest;
 import com.rcs.nchumanity.tool.Tool;
 
@@ -57,6 +57,7 @@ public class InputPasswordActivity extends ParentActivity {
         ButterKnife.bind(this);
 
         phoneNumber = PersistenceData.getPhoneNumber(this);
+        phoneNumber = "13077995907";
         if (phoneNumber.equalsIgnoreCase(PersistenceData.DEF_PHONE)) {
             throw new RuntimeException("" + InputPasswordActivity.class.getName() + "phone number param error please check param!");
         }
@@ -106,9 +107,9 @@ public class InputPasswordActivity extends ParentActivity {
             /**
              * 注册结果的回调，注册成功的话，就跳转到主页面去
              */
-            ComplexModelSet.M_basResp_useAcc useAcc = new Gson().fromJson(backData[0], ComplexModelSet.M_basResp_useAcc.class);
+            BasicResponse basicResponse = new Gson().fromJson(backData[0], BasicResponse.class);
 
-            if (useAcc.basicResponse.code == BasicResponse.REGISTED_SUCCESS) {
+            if (basicResponse.code == BasicResponse.REGISTED_SUCCESS) {
 
                 /**
                  * 返回注册用户的用户信息
@@ -136,23 +137,23 @@ public class InputPasswordActivity extends ParentActivity {
         Map<String, String> params = new HashMap<>();
         params.put("mobilephone", phoneNumber);
         params.put("password", String.valueOf(password.getText()));
-        loadData(url, what, "POST", params);
+        loadData(url, what, "GET", params);
     }
 
 
     public void loginOrRegisterCallback(int code, String jsonData) {
-        ComplexModelSet.M_basResp_useAcc useAcc = new Gson().fromJson(jsonData, ComplexModelSet.M_basResp_useAcc.class);
+        BasicResponse basicResponse = new Gson().fromJson(jsonData, BasicResponse.class);
 
-        if (useAcc.basicResponse.code == code) {
+        if (basicResponse.code == code) {
 
             /**
              * 返回注册用户的用户信息
              */
-            String nickname = useAcc.userAccount.nickname;
-            String user_id = useAcc.userAccount.userId + "";
+            UserAccount userAccount = (UserAccount) basicResponse.data;
+            String user_id = userAccount.getUserId() + "";
 
             PersistenceData.setUserId(this, user_id);
-            PersistenceData.setNickName(this, nickname);
+            PersistenceData.setNickName(this, userAccount.getNickname());
 
             Tool.startActivity(this, MainActivity.class);
         }

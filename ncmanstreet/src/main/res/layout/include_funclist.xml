@@ -15,39 +15,25 @@
 
 <com.rcs.nchumanity.view.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/jhypx"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-
-    <androidx.percentlayout.widget.PercentFrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/circle_select"
-        app:layout_aspectRatio="100%"
-        app:layout_widthPercent="60%">
-
-        <ImageButton
-            android:id="@+id/image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/circle_fff"
-            android:src="@drawable/ic_shentidong_50"
-            app:layout_aspectRatio="100%"
-            app:layout_widthPercent="95%" />
-
-
-    </androidx.percentlayout.widget.PercentFrameLayout>
+    <ImageButton
+        android:id="@+id/menuIcon"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/smssdk_white"
+        android:scaleType="fitCenter" />
 
     <TextView
-        android:id="@+id/js"
+        android:id="@+id/iconText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:gravity="center_horizontal"
-        android:text="@string/zyzjy"
-        android:textColor="@color/black" />
+        android:textColor="@color/icon_menu"
+        android:textSize="@dimen/dimen_34" />
 
 
 </com.rcs.nchumanity.view.PercentLinearLayout>

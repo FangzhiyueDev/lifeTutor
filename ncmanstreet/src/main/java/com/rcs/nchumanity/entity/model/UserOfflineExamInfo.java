@@ -1,97 +1,105 @@
-package com.rcs.nchumanity.entity.model; /***********************************************************************
- * Module:  UserOfflineExamInfo.java
- * Author:  mayn
- * Purpose: Defines the Class UserOfflineExamInfo
- ***********************************************************************/
+package com.rcs.nchumanity.entity.model;
 
-import java.util.*;
+import java.util.Date;
 
-/** 用户线下考核记录信息表 */
 public class UserOfflineExamInfo {
-   /** 主键 */
-   public long id;
-   /** 考核时间 */
-   public Date examTime;
-   /** 得分 */
-   public int score;
-   /** 隐藏 */
-   public Boolean isDelete;
-   /** 备注 */
-   public String remark;
-   
-   public UserTrainRecord userTrainRecord;
-   public CourseClassification courseClassification;
-   public OfflineExamRecord offlineExamRecord;
-   
-   
-   /** @pdGenerated default parent getter */
-   public UserTrainRecord getUserTrainRecord() {
-      return userTrainRecord;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newUserTrainRecord */
-   public void setUserTrainRecord(UserTrainRecord newUserTrainRecord) {
-      if (this.userTrainRecord == null || !this.userTrainRecord.equals(newUserTrainRecord))
-      {
-         if (this.userTrainRecord != null)
-         {
-            UserTrainRecord oldUserTrainRecord = this.userTrainRecord;
-            this.userTrainRecord = null;
-            oldUserTrainRecord.removeUserOfflineExamInfo(this);
-         }
-         if (newUserTrainRecord != null)
-         {
-            this.userTrainRecord = newUserTrainRecord;
-            this.userTrainRecord.addUserOfflineExamInfo(this);
-         }
-      }
-   }
-   /** @pdGenerated default parent getter */
-   public CourseClassification getCourseClassification() {
-      return courseClassification;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newCourseClassification */
-   public void setCourseClassification(CourseClassification newCourseClassification) {
-      if (this.courseClassification == null || !this.courseClassification.equals(newCourseClassification))
-      {
-         if (this.courseClassification != null)
-         {
-            CourseClassification oldCourseClassification = this.courseClassification;
-            this.courseClassification = null;
-            oldCourseClassification.removeUserOfflineExamInfo(this);
-         }
-         if (newCourseClassification != null)
-         {
-            this.courseClassification = newCourseClassification;
-            this.courseClassification.addUserOfflineExamInfo(this);
-         }
-      }
-   }
-   /** @pdGenerated default parent getter */
-   public OfflineExamRecord getOfflineExamRecord() {
-      return offlineExamRecord;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newOfflineExamRecord */
-   public void setOfflineExamRecord(OfflineExamRecord newOfflineExamRecord) {
-      if (this.offlineExamRecord == null || !this.offlineExamRecord.equals(newOfflineExamRecord))
-      {
-         if (this.offlineExamRecord != null)
-         {
-            OfflineExamRecord oldOfflineExamRecord = this.offlineExamRecord;
-            this.offlineExamRecord = null;
-            oldOfflineExamRecord.removeUserOfflineExamInfo(this);
-         }
-         if (newOfflineExamRecord != null)
-         {
-            this.offlineExamRecord = newOfflineExamRecord;
-            this.offlineExamRecord.addUserOfflineExamInfo(this);
-         }
-      }
-   }
+    private Integer id;
 
+    private Integer trainId;
+
+    private Integer classId;
+
+    private Integer examId;
+
+    private Date examTime;
+
+    private Integer score;
+
+    private Boolean checked;
+
+    private String checkMan;
+
+    private Boolean isDelete;
+
+    private String remark;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getTrainId() {
+        return trainId;
+    }
+
+    public void setTrainId(Integer trainId) {
+        this.trainId = trainId;
+    }
+
+    public Integer getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Integer classId) {
+        this.classId = classId;
+    }
+
+    public Integer getExamId() {
+        return examId;
+    }
+
+    public void setExamId(Integer examId) {
+        this.examId = examId;
+    }
+
+    public Date getExamTime() {
+        return examTime;
+    }
+
+    public void setExamTime(Date examTime) {
+        this.examTime = examTime;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
+
+    public String getCheckMan() {
+        return checkMan;
+    }
+
+    public void setCheckMan(String checkMan) {
+        this.checkMan = checkMan == null ? null : checkMan.trim();
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }

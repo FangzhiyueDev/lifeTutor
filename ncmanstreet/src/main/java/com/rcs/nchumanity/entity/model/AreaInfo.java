@@ -1,92 +1,73 @@
-package com.rcs.nchumanity.entity.model; /***********************************************************************
- * Module:  AreaInfo.java
- * Author:  mayn
- * Purpose: Defines the Class AreaInfo
- ***********************************************************************/
+package com.rcs.nchumanity.entity.model;
 
-import java.util.*;
-
-/** 地区信息 */
 public class AreaInfo {
-   /** 主键 */
-   public long areaId;
-   /** 省 */
-   public String province;
-   /** 市 */
-   public String city;
-   /** 区 */
-   public String district;
-   /** 排序 */
-   public int sort;
-   /** 隐藏 */
-   public Boolean isDelete;
-   /** 备注 */
-   public String remark;
-   
-   public Collection<TrainPointInfo> trainPointInfo;
-   
-   
-   /** @pdGenerated default getter */
-   public Collection<TrainPointInfo> getTrainPointInfo() {
-      if (trainPointInfo == null)
-         trainPointInfo = new HashSet<TrainPointInfo>();
-      return trainPointInfo;
-   }
-   
-   /** @pdGenerated default iterator getter */
-   public Iterator getIteratorTrainPointInfo() {
-      if (trainPointInfo == null)
-         trainPointInfo = new HashSet<TrainPointInfo>();
-      return trainPointInfo.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newTrainPointInfo */
-   public void setTrainPointInfo(Collection<TrainPointInfo> newTrainPointInfo) {
-      removeAllTrainPointInfo();
-      for (Iterator iter = newTrainPointInfo.iterator(); iter.hasNext();)
-         addTrainPointInfo((TrainPointInfo)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newTrainPointInfo */
-   public void addTrainPointInfo(TrainPointInfo newTrainPointInfo) {
-      if (newTrainPointInfo == null)
-         return;
-      if (this.trainPointInfo == null)
-         this.trainPointInfo = new HashSet<TrainPointInfo>();
-      if (!this.trainPointInfo.contains(newTrainPointInfo))
-      {
-         this.trainPointInfo.add(newTrainPointInfo);
-         newTrainPointInfo.setAreaInfo(this);      
-      }
-   }
-   
-   /** @pdGenerated default remove
-     * @param oldTrainPointInfo */
-   public void removeTrainPointInfo(TrainPointInfo oldTrainPointInfo) {
-      if (oldTrainPointInfo == null)
-         return;
-      if (this.trainPointInfo != null)
-         if (this.trainPointInfo.contains(oldTrainPointInfo))
-         {
-            this.trainPointInfo.remove(oldTrainPointInfo);
-            oldTrainPointInfo.setAreaInfo((AreaInfo)null);
-         }
-   }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllTrainPointInfo() {
-      if (trainPointInfo != null)
-      {
-         TrainPointInfo oldTrainPointInfo;
-         for (Iterator iter = getIteratorTrainPointInfo(); iter.hasNext();)
-         {
-            oldTrainPointInfo = (TrainPointInfo)iter.next();
-            iter.remove();
-            oldTrainPointInfo.setAreaInfo((AreaInfo)null);
-         }
-      }
-   }
+    private Integer areaId;
 
+    private String province;
+
+    private String city;
+
+    private String district;
+
+    private Integer sort;
+
+    private Boolean isDelete;
+
+    private String remark;
+
+    public Integer getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Integer areaId) {
+        this.areaId = areaId;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province == null ? null : province.trim();
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city == null ? null : city.trim();
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district == null ? null : district.trim();
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }

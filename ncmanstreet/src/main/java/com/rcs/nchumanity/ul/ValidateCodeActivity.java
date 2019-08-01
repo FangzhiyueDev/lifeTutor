@@ -37,7 +37,6 @@ public class ValidateCodeActivity extends ParentActivity {
 
         //点击操作之后，我们禁用该控件
 
-
     }
 
 

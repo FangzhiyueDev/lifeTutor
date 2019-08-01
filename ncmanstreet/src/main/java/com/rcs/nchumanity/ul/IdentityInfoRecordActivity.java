@@ -50,7 +50,7 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
     Spinner degEducaSpinner;
 
     @BindView(R.id.workLife)
-    EditText workLife;
+    Spinner workLife;
 
     @BindView(R.id.officialCapacity)
     EditText officialCapacity;
@@ -69,49 +69,72 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
     }
 
 
-    @OnClick(R.id.submit)
+    @OnClick({R.id.submit, R.id.capture})
     public void onClick(View view) {
 
-        /**
-         * 进行验证
-         *1.验证必填数据的合法性
-         *2.获得下拉列表的数据
-         *3.验证选填数据的合法性
-         *4.提交数据
-         */
-        String value = null;
+        switch (view.getId()) {
 
-        value += StringTool.accessLength(String.valueOf(name.getText()), 2) == false ? "请输入合法的姓名\n" : "";
+            case R.id.submit:
+                /**
+                 * 进行验证
+                 *1.验证必填数据的合法性
+                 *2.获得下拉列表的数据
+                 *3.验证选填数据的合法性
+                 *4.提交数据
+                 */
+                String value = null;
 
-        value += StringTool.accessLength(String.valueOf(phoneNumber.getText()), 11) == false ? "请输入合法的手机号\n" : "";
+                value += StringTool.accessLength(String.valueOf(name.getText()), 2) == false ? "请输入合法的姓名\n" : "";
 
-        value += StringTool.accessLength(String.valueOf(identityCarNumber.getText()), 18) == false
-                ? "身份证位数不足18位\n" : StringTool.identityAssess(String.valueOf(phoneNumber.getText())) == false ? "身份证不合法" : "";
+                value += StringTool.accessLength(String.valueOf(phoneNumber.getText()), 11) == false ? "请输入合法的手机号\n" : "";
 
-        value += StringTool.accessLength(String.valueOf(workCompany.getText()), 2) == false ? "请输入合法的工作单位\n" : "";
+                value += StringTool.accessLength(String.valueOf(identityCarNumber.getText()), 18) == false
+                        ? "身份证位数不足18位\n" : StringTool.identityAssess(String.valueOf(phoneNumber.getText())) == false ? "身份证不合法" : "";
+
+                value += StringTool.accessLength(String.valueOf(workCompany.getText()), 2) == false ? "请输入合法的工作单位\n" : "";
 
 
-        if (value.length() != 0) {
-            Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
-            return;
+                if (value.length() != 0) {
+                    Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                String sex = (String) sixSpinner.getSelectedItem();
+
+                String educa = (String) degEducaSpinner.getSelectedItem();
+
+                String workLifeI = String.valueOf(workLife.getSelectedItem());
+
+                String officialCapacityS = officialCapacity.getText().toString();
+
+                String homeAddressS = String.valueOf(homeAddress.getText());
+
+
+
+
+
+
+
+                /**
+                 * 下面直接提交数据
+                 */
+                loadData(NetConnectionUrl.TRAIN_SIGN_UP, "12", "GET", null);
+
+                break;
+
+            case R.id.capture:
+
+                //选证件照
+
+                break;
+
+            case R.id.homeAddressTag:
+                //家庭地址的选择
+
+                break;
         }
 
-
-        String sex = (String) sixSpinner.getSelectedItem();
-
-        String educa = (String) degEducaSpinner.getSelectedItem();
-
-        String workLifeI = String.valueOf(workLife.getText());
-
-        String officialCapacityS = officialCapacity.getText().toString();
-
-        String homeAddressS = String.valueOf(homeAddress.getText());
-
-
-        /**
-         * 下面直接提交数据
-         */
-        loadData(NetConnectionUrl.TRAIN_SIGN_UP, "12", "GET", null);
     }
 
 

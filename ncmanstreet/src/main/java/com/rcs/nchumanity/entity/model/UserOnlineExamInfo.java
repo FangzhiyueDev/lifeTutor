@@ -1,49 +1,65 @@
-package com.rcs.nchumanity.entity.model; /***********************************************************************
- * Module:  UserOnlineExamInfo.java
- * Author:  mayn
- * Purpose: Defines the Class UserOnlineExamInfo
- ***********************************************************************/
+package com.rcs.nchumanity.entity.model;
 
-import java.util.*;
+import java.util.Date;
 
-/** 用户线上考核记录信息表 */
 public class UserOnlineExamInfo {
-   /** 主键 */
-   public long id;
-   /** 考核时间 */
-   public Date examTime;
-   /** 得分 */
-   public int score;
-   /** 隐藏 */
-   public Boolean isDelete;
-   /** 备注 */
-   public String remark;
-   
-   public UserTrainRecord userTrainRecord;
-   
-   
-   /** @pdGenerated default parent getter */
-   public UserTrainRecord getUserTrainRecord() {
-      return userTrainRecord;
-   }
-   
-   /** @pdGenerated default parent setter
-     * @param newUserTrainRecord */
-   public void setUserTrainRecord(UserTrainRecord newUserTrainRecord) {
-      if (this.userTrainRecord == null || !this.userTrainRecord.equals(newUserTrainRecord))
-      {
-         if (this.userTrainRecord != null)
-         {
-            UserTrainRecord oldUserTrainRecord = this.userTrainRecord;
-            this.userTrainRecord = null;
-            oldUserTrainRecord.removeUserOnlineExamInfo(this);
-         }
-         if (newUserTrainRecord != null)
-         {
-            this.userTrainRecord = newUserTrainRecord;
-            this.userTrainRecord.addUserOnlineExamInfo(this);
-         }
-      }
-   }
+    private Integer id;
 
+    private Integer trainId;
+
+    private Date examTime;
+
+    private Integer score;
+
+    private Boolean isDelete;
+
+    private String remark;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getTrainId() {
+        return trainId;
+    }
+
+    public void setTrainId(Integer trainId) {
+        this.trainId = trainId;
+    }
+
+    public Date getExamTime() {
+        return examTime;
+    }
+
+    public void setExamTime(Date examTime) {
+        this.examTime = examTime;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Boolean getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }

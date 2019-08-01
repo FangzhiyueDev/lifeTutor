@@ -55,7 +55,7 @@ public class BasicItem extends LinearLayout {
      * 设置标题
      */
     private void setTitle(String title) {
-            this.title.setText(title);
+        this.title.setText(title);
 
     }
 
@@ -78,8 +78,8 @@ public class BasicItem extends LinearLayout {
             View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_img_text, null);
             itemView.setOnClickListener(onClickListener);
             itemView.setTag(specificInfo);//使用tag存放具体的信息
-            Glide.with(getContext()).load(specificInfo.imgUrl).into((ImageView) itemView.findViewById(R.id.itemImg));
-            ((TextView) itemView.findViewById(R.id.itemText)).setText(specificInfo.title);
+            Glide.with(getContext()).load(specificInfo.getImgUrl()).into((ImageView) itemView.findViewById(R.id.itemImg));
+            ((TextView) itemView.findViewById(R.id.itemText)).setText(specificInfo.getTitle());
             infoArea.addView(itemView);
         }
     }
@@ -94,7 +94,7 @@ public class BasicItem extends LinearLayout {
         if (m_speinf_speinfCla == null) {
             return;
         }
-        setTitle(m_speinf_speinfCla.specificInfoClassification.title);
+        setTitle(m_speinf_speinfCla.specificInfoClassification.getTitle());
         setMoreClick(onClickListener);
         if (m_speinf_speinfCla.specificInfos == null) {
             return;
