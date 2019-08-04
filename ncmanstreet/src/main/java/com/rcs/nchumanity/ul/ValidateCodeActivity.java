@@ -1,60 +1,199 @@
 package com.rcs.nchumanity.ul;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
+import com.rcs.nchumanity.entity.BasicResponse;
+import com.rcs.nchumanity.entity.NetConnectionUrl;
+import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.service.thirdParty.ValidateCodeServler;
 import com.rcs.nchumanity.tool.LoadProgress;
+import com.rcs.nchumanity.tool.Tool;
+import com.rcs.nchumanity.view.CommandBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.commons.codec.binary.StringUtils;
+
+import java.io.IOException;
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.BindViews;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.smssdk.SMSSDK;
+import okhttp3.Response;
 
 
 public class ValidateCodeActivity extends ParentActivity {
 
 
+    private static final String TAG = "test";
     @BindViews({R.id.code1, R.id.code2, R.id.code3, R.id.code4})
     List<EditText> codes;
 
+    @BindView(R.id.reSend)
+    Button reSend;
+
+    @BindView(R.id.toolbar)
+    CommandBar toolbar;
+
+    @BindView(R.id.phone)
+    TextView phone;
+
+    public static final String MOBILE_PHONE = "mobilePhone";
+
+
     @OnClick(R.id.reSend)
     public void onClick(View view) {
-
         //点击操作之后，我们禁用该控件
+        //发送验证码到该手机上
+        isSubmitSuccess=false;
+        anim();
+        ValidateCodeServler.sendValidateCode("86", userPhone);
+    }
+
+
+    public void anim() {
+
+        ValueAnimator va = ValueAnimator.ofInt(60, 0);
+        va.setInterpolator(new LinearInterpolator());
+        va.setDuration(60000);
+        va.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                reSend.setClickable(true);
+                reSend.setBackgroundResource(R.drawable.login_button_radius);
+                reSend.setText("重新发送");
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+                reSend.setClickable(false);
+                reSend.setBackgroundResource(R.drawable.login_button_radius_enable);
+            }
+        });
+
+        va.addUpdateListener(animation -> {
+            int value = (int) animation.getAnimatedValue();
+            reSend.setText("重新发送\t" + value + "s");
+        });
+
+        va.start();
 
     }
+
+
+    private String userPhone;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate_code);
+        ButterKnife.bind(this);
 
+        for (int i = 0; i < codes.size(); i++) {
+            codes.get(i).addTextChangedListener(tw);
+        }
+
+        toolbar.setTitle("验证码输入");
+        anim();
+
+        Bundle bundle = getIntent().getExtras();
+        userPhone = bundle.getString(MOBILE_PHONE);
+
+
+        if (userPhone == null) {
+            throw new InvalidParameterException("please bundle params to this");
+        }
+
+        phone.setText(userPhone);
 
         ValidateCodeServler.registerProgress(new MyHandlerCallback());
 
+        init();
 
     }
 
-    /**
-     * 加载进度条
-     */
-    private ProgressBar progressBar;
+
+    public void init() {
+        for (int i = 0; i < codes.size(); i++) {
+            codes.get(i).setFocusableInTouchMode(false);
+            codes.get(i).setText("");
+        }
+        codes.get(currentFocusIndex).setFocusableInTouchMode(true);
+        codes.get(currentFocusIndex).requestFocus();
+    }
+
+
+    private TextWatcher tw = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+            Log.d(TAG, "afterTextChanged: " + s.toString().trim());
+
+            if (s.toString().trim().length() == 1) {
+
+                codes.get(currentFocusIndex).clearFocus();
+                codes.get(currentFocusIndex).setFocusableInTouchMode(false);
+
+                codeLink[currentFocusIndex] = codes.get(currentFocusIndex).getText().toString();
+
+                if (currentFocusIndex < codes.size()) {//3
+                    //代表的最后一个
+                    if (currentFocusIndex == codes.size() - 1) {
+                        for (String s1 : codeLink) {
+                            code += s1;
+                        }
+                        //在这里进行提交 ，最后一个edittext
+                        ValidateCodeServler.submitValidateCode("86", userPhone, code);
+
+                    } else {
+                        currentFocusIndex++;
+                    }
+                    codes.get(currentFocusIndex).setFocusableInTouchMode(true);
+                    codes.get(currentFocusIndex).requestFocus();
+                }
+                Log.d(TAG, "当前索引: " + currentFocusIndex);//3
+
+            }
+        }
+    };
 
 
     /**
@@ -95,11 +234,22 @@ public class ValidateCodeActivity extends ParentActivity {
     }
 
 
+    private boolean isSubmitSuccess = false;
+
+
     /**
      * 提交验证码完成
      */
     private void submitVerificationComplete() {
-        //代表的事死
+
+        Log.d(TAG, "submitVerificationComplete: 提交验证码成功");
+
+        String param= String.format(NetConnectionUrl.REGISTER_STATUS,userPhone);
+
+        if(!isSubmitSuccess) {
+            isSubmitSuccess=true;
+            loadDataGet(param, "registerStatus");
+        }
     }
 
 
@@ -116,8 +266,99 @@ public class ValidateCodeActivity extends ParentActivity {
      */
     private void submitVerficationError() {
         Toast.makeText(this, "验证码不正确", Toast.LENGTH_SHORT).show();
-        LoadProgress.removeLoadProgress(ValidateCodeActivity.this, progressBar);
     }
 
 
+    private int currentFocusIndex = 0;
+
+    private String code = "";
+
+    private String[] codeLink = new String[4];
+
+    {
+        for (String c : codeLink) {
+            c = "";
+        }
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        Log.d(TAG, "onKeyDown: currentIndex" + currentFocusIndex);
+
+        if (keyCode == KeyEvent.KEYCODE_DEL) {
+            for (int i = 0; i < codes.size(); i++) {
+                if (codes.get(i).isFocused()) {
+                    currentFocusIndex = i;
+                    codes.get(i).clearFocus();
+                    codes.get(i).setFocusableInTouchMode(false);
+                }
+            }
+        }
+
+        if (currentFocusIndex > 0) {
+            currentFocusIndex--;
+            codes.get(currentFocusIndex).setFocusableInTouchMode(true);
+            codes.get(currentFocusIndex).requestFocus();
+            codes.get(currentFocusIndex).setText("");
+            codeLink[currentFocusIndex] = "";
+        }
+
+        if (currentFocusIndex == 0) {
+            codes.get(currentFocusIndex).setFocusableInTouchMode(true);
+            codes.get(currentFocusIndex).requestFocus();
+        }
+
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        Log.d(TAG, "onRestart: ");
+
+        reSet();
+    }
+
+    public void reSet() {
+        code = "";
+        currentFocusIndex = 0;
+        init();
+        for (String c : codeLink) {
+            c = "";
+        }
+        isSubmitSuccess = false;
+
+    }
+
+
+    @Override
+    public void onSucessful(Response response, String what, String... backData) throws IOException {
+
+
+        BasicResponse br=new Gson().fromJson(backData[0],BasicResponse.class);
+
+        switch (what){
+
+            case "registerStatus":{
+
+                    switch (br.code){
+                        case BasicResponse.NOT_REGISTER:
+                                //持久化数据 手机号码
+                                PersistenceData.setPhoneNumber(this, userPhone);
+                                //代表成功
+                                Tool.startActivity(this, InputPasswordActivity.class);
+                            break;
+                        case BasicResponse.REGISTED:
+                            Tool.startActivity(this,MainActivity.class);
+                            break;
+                    }
+            }
+                break;
+        }
+    }
 }

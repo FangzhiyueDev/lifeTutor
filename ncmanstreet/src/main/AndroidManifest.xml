@@ -36,7 +36,9 @@
 
         </activity>
 
-        <activity android:name=".ul.InputPasswordActivity">
+        <activity
+            android:name=".ul.InputPasswordActivity"
+            android:launchMode="singleTop">
 
         </activity>
 
@@ -79,6 +81,13 @@
         <activity android:name=".ul.MailPostActivity" />
         <activity android:name=".ul.SettingActivity" />
         <activity android:name=".ul.MyCourseActivity" />
+        <activity android:name=".ul.ElectronicCertificateActivity" />
+        <activity android:name=".ul.SelfTakeActivity" />
+        <activity android:name=".ul.AboutWeActivity" />
+        <activity android:name=".ul.HelpCenterActivity" />
+        <activity android:name=".ul.FeedbackActivity" />
+        <activity android:name=".ul.ChangePhoneNumberActivity" />
+        <activity android:name=".ul.ChangePasswordActivity" />
 
         <!--
          配置秘钥
@@ -114,11 +123,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
 
 
 </manifest>

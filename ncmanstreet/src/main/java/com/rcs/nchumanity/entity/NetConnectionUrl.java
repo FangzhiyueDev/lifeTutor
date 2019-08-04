@@ -61,7 +61,7 @@ public class NetConnectionUrl {
     /**
      * 服务器的主地址
      */
-    public static final String ROOT_SERVER = "http://localhost:8080/GF";
+    public static final String ROOT_SERVER = "http://193.112.182.184:8888/ncrd/api/";
 
     /**
      * 登录的接口
@@ -69,11 +69,11 @@ public class NetConnectionUrl {
      * <p>
      * send 数据
      */
-    public static String LOGIN = "";
+    public static String LOGIN = ROOT_SERVER + "userLogin?mobilephone=%s&password=%s";
     /**
      * 注册的接口
      */
-    public static String REGISTER = "";
+    public static String REGISTER = ROOT_SERVER + "userRegister?mobilephone=%s&password=%s";
     /**
      * 主页查询分类信息对应的数据接口
      */
@@ -197,8 +197,11 @@ public class NetConnectionUrl {
      * 获得当前用户的注册状态、
      * 传递的参数是用户的phoneNumber
      * 返回的参数是json格式的数据 格式是BasicResponse类的实现
+     * <p>
+     * 参数
+     * mobilephone=
      */
-    public static final String REGISTER_STATUS = "";
+    public static final String REGISTER_STATUS = ROOT_SERVER + "getUserRegisterStatus?mobilephone=%s";
 
     static {
 

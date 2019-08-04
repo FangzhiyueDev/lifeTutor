@@ -44,6 +44,7 @@ import com.example.componentasystemtest.dialog.simple1.DialogActivity;
 import com.example.componentasystemtest.dialog.simple1.MyDialogFragment;
 import com.example.componentasystemtest.downloadService.activity.DownloadFileTestActivity;
 import com.example.componentasystemtest.downloadService.activity.EnvirnmentFilePathTestActivity;
+import com.example.componentasystemtest.editText_inputManager_trans.InputManager_Activity;
 import com.example.componentasystemtest.fireWall.FireWallActivity;
 import com.example.componentasystemtest.handler.HandlerPrincipleActivity;
 import com.example.componentasystemtest.moveLinearViewDisplay.LinearActivity;
@@ -70,6 +71,8 @@ public class ProjectListActivity extends AppCompatActivity {
     ListView listView;
 
     Class[] array = {
+            InputManager_Activity.class,
+            DialogWidthTestActivity.class,
             Density.class,
             VideoPlayer1Activity.class,
             VideoPlayerActivity.class,

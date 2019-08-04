@@ -20,12 +20,12 @@ public class BasicResponse {
      * 没有这个用户
      * 也就是用户未注册
      */
-    public static final int NOT_REGISTER = 0X001;
+    public static final int NOT_REGISTER = 1;
 
     /**
      * 用户被注册
      */
-    public static final int REGISTED = 0x002;
+    public static final int REGISTED = 2;
 
     /**
      * 注册成功
@@ -60,4 +60,12 @@ public class BasicResponse {
     }
 
 
+    @Override
+    public String toString() {
+        return "BasicResponse{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

@@ -1,11 +1,14 @@
 package com.rcs.nchumanity.entity.complexModel;
 
+import com.rcs.nchumanity.entity.model.AreaInfo;
+import com.rcs.nchumanity.entity.model.OfflineTrainClass;
 import com.rcs.nchumanity.entity.model.OnlineCourseInfo;
 import com.rcs.nchumanity.entity.model.OnlineCourseInfoExample;
 import com.rcs.nchumanity.entity.model.OnlineExamQuestion;
 import com.rcs.nchumanity.entity.model.SpecificInfo;
 import com.rcs.nchumanity.entity.model.SpecificInfoClassification;
 import com.rcs.nchumanity.entity.model.SpecificPicture;
+import com.rcs.nchumanity.entity.model.TrainPointInfo;
 import com.rcs.nchumanity.entity.model.UserOnlineStudyRecord;
 import com.rcs.nchumanity.entity.model.train.CourseClassification;
 
@@ -72,11 +75,8 @@ public class ComplexModelSet {
      * 包括了3-5个banner列表 存放在@{{@link com.rcs.nchumanity.entity.model.SpecificPicture}}表中
      * 包括了特定信息分类 查询的是父类为<span>培训相关</span>和<span>捐款捐献</span>  存放在@{{@link SpecificInfoClassification}}表中
      * 包括了 特定信息分类，以及信息分类对应的特定信息记录表（1--->多） 查询的是<span>认识红十字</span>和<span>资讯</span>的各3条数据
-     *
+     * <p>
      * 更多的参数设置，请参考
-     *
-     *
-     *
      */
     public static class M_IndexPageInfo {
 
@@ -106,6 +106,35 @@ public class ComplexModelSet {
         M_speinf_speinfCla m_speinf_speinfCla;
         List<OnlineExamQuestion> examQuestions;
     }
+
+
+    /**
+     * 培训点----->1:1 ------>地区信息
+     * 培训点及其地区信息
+     */
+    public static class M_traPoi_areaInf {
+
+        public TrainPointInfo pointInfo;
+
+        public AreaInfo areaInfo;
+
+    }
+
+
+    /**
+     * 线下培训班----->1:1----->培训点及其地区信息
+     * <p>
+     * 培训班对应的培训点以及对应的地区信息
+     */
+    public static class M_offliTraClas_M_traPoi_areaInf {
+
+        public OfflineTrainClass trainClass;
+
+        public M_traPoi_areaInf traPoi_areaInf;
+    }
+
+    public static class M_
+
 
 
 }

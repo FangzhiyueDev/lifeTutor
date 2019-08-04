@@ -149,6 +149,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/user"
         android:layout_width="87dp"
         android:layout_height="87dp"
         android:layout_centerHorizontal="true"
@@ -168,8 +169,20 @@
             android:layout_centerInParent="true"
             android:src="@drawable/ic_logo" />
 
-
     </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:elevation="6dp"
+        android:text="@string/wdl"
+        android:textColor="#ff000000"
+        android:textSize="13sp" />
 
 
 </RelativeLayout>

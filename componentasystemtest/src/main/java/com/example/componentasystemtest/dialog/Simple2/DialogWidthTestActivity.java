@@ -3,6 +3,7 @@ package com.example.componentasystemtest.dialog.Simple2;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -229,7 +231,39 @@ public class DialogWidthTestActivity extends AppCompatActivity {
 
         }
 
+        if (view.getId() == R.id.openDialog6) {
 
+            View view2 = LayoutInflater.from(this).inflate(R.layout.dialog_6, null);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.BottomDialog)
+                    .setView(view2)
+                    .setCancelable(true);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+        }
+        if (view.getId() == R.id.openDialog7) {
+
+            View view2 = LayoutInflater.from(this).inflate(R.layout.dialog_7, null);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.BottomDialog)
+                    .setView(view2)
+                    .setCancelable(true);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+
+        if (view.getId() == R.id.openDialog8) {
+
+            View view2 = LayoutInflater.from(this).inflate(R.layout.dialog_inner, null);
+            DialogTool.openDialog(new DialogTool(this, view2) {
+                @Override
+                public void bindViewEvent(View view, AlertDialog dialog) {
+
+                }
+            });
+        }
+        
     }
 
     /**
@@ -287,6 +321,38 @@ public class DialogWidthTestActivity extends AppCompatActivity {
         dialog.getWindow().setAttributes(layoutParams);
         dialog.show();
     }
+
+}
+
+
+abstract class DialogTool {
+
+    public void openDialog() {
+        ViewGroup view2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_7, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.BottomDialog)
+                .setView(view2)
+                .setCancelable(true);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        ((ViewGroup) view2.findViewById(R.id.innerRoot)).addView(view);
+        bindViewEvent(view, dialog);
+    }
+
+    private Context context;
+    private View view;
+
+    public DialogTool(Context context, View view) {
+        this.context = context;
+        this.view = view;
+    }
+
+    public static void openDialog(DialogTool dialogTool) {
+        dialogTool.openDialog();
+    }
+
+
+    public abstract void bindViewEvent(View view, AlertDialog dialog);
 
 
 }

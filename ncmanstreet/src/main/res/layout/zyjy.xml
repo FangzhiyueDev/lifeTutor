@@ -101,8 +101,8 @@
 
                     <TextView
                         android:id="@+id/title"
-                        android:layout_width="80dp"
-                        android:layout_height="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="南昌大学求救"
                         android:textColor="#ff333333"
                         android:textSize="13sp" />

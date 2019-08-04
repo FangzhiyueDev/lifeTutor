@@ -15,9 +15,13 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringDef;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+import com.rcs.nchumanity.entity.PersistenceData;
+import com.rcs.nchumanity.ul.LoginCheckActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
+import com.rcs.nchumanity.ul.RegisterUserActivity;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -25,6 +29,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tool {
+
+    public static final int LOGIN_REQUEST_CODE = 12;
+
 
     /**
      * @param classObj
@@ -37,10 +44,28 @@ public class Tool {
     public static void startActivity(Context context, Class<?> classObj, Bundle bundle) {
         Intent intent = new Intent(context, classObj);
         if (bundle != null) {
-            intent.putExtra(Bundle.class.getSimpleName(), bundle);
+            intent.putExtras(bundle);
         }
         context.startActivity(intent);
     }
+
+
+    public static void startActivityForResult(Context context, int requestCode, Class<?> classObj) {
+        Intent intent = new Intent(context, classObj);
+        ((AppCompatActivity) context).startActivityForResult(intent, requestCode);
+
+
+    }
+
+
+    public static boolean loginCheck(Context context) {
+        if (PersistenceData.getUserId(context) == PersistenceData.DEF_USER) {
+            Tool.startActivityForResult(context, LOGIN_REQUEST_CODE, RegisterUserActivity.class);
+            return false;
+        }
+        return true;
+    }
+
 
     /**
      * 获得屏幕的宽高

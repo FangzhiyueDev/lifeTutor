@@ -12,7 +12,7 @@ import com.rcs.nchumanity.R;
  * 该类并没有具体的实现，因为部分功能的重合，将所有的业务步骤
  * 放到了 #{{@link com.rcs.nchumanity.fragment.JYPXFragment}}中  ，
  */
-public class TrainStepActivity extends AppCompatActivity {
+public class TrainStepActivity extends ParentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

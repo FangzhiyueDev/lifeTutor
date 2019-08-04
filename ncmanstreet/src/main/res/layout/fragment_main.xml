@@ -32,7 +32,6 @@
                由于前两个元素是默认的，所以在这里直接添加
             -->
             <com.rcs.nchumanity.view.PercentLinearLayout
-                android:id="@+id/jhypx"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -41,6 +40,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/jhypx"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/smssdk_white"
@@ -59,7 +59,6 @@
             </com.rcs.nchumanity.view.PercentLinearLayout>
 
             <com.rcs.nchumanity.view.PercentLinearLayout
-                android:id="@+id/aedfb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -68,6 +67,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/aedfb"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/smssdk_white"
@@ -87,7 +87,6 @@
             </com.rcs.nchumanity.view.PercentLinearLayout>
 
             <com.rcs.nchumanity.view.PercentLinearLayout
-                android:id="@+id/jhyjy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -96,6 +95,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/jhyjy"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/smssdk_white"
@@ -115,7 +115,6 @@
 
 
             <com.rcs.nchumanity.view.PercentLinearLayout
-                android:id="@+id/hjjhy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -124,6 +123,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/hjjhy"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/smssdk_white"

@@ -48,4 +48,27 @@
         android:textAllCaps="false" />
 
 
+    <Button
+        android:id="@+id/openDialog6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/openDialog7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:textAllCaps="false" />
+
+
+    <Button
+        android:id="@+id/openDialog8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:textAllCaps="false" />
+
+
 </LinearLayout>

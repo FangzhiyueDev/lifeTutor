@@ -47,9 +47,14 @@ public class ZYJYFragment extends ParentFragment {
 
         Log.d(TAG, "onViewCreated: " + packName);
 
-        if (asm.getStackSize() == 1 && asm.getTopStackPackageName().equals(packName)) {
+//        if (asm.getStackSize() == 1 && asm.getTopStackPackageName().equals(packName)) {
+//            commandBar.hiddenBack();
+//        }
+
+        if(getMyActivity() instanceof MainActivity){
             commandBar.hiddenBack();
         }
+
 
 
         commandBar.setBackGroundColor1(android.R.color.transparent);

@@ -2,6 +2,7 @@ package com.rcs.nchumanity.ul;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -24,6 +25,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.rcs.nchumanity.application.MyApplication;
+import com.rcs.nchumanity.dialog.DialogCollect;
+import com.rcs.nchumanity.dialog.DialogTool;
 import com.rcs.nchumanity.fragment.ParentFragment;
 import com.rcs.nchumanity.net.NetRequest;
 import com.rcs.nchumanity.tool.LoadProgress;
@@ -31,6 +34,7 @@ import com.rcs.nchumanity.tool.UiThread;
 import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -234,6 +238,8 @@ public abstract class ParentActivity extends AppCompatActivity {
 
     private MyCallHandler myCallHandler;
 
+    private AlertDialog dialog;
+
 
     /**
      * 用来实现对网络资源的加载
@@ -245,19 +251,35 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param <T>
      */
     public <T> void loadData(final String url, final String what, String method, Map<String, String> params) {
-        progressBar = LoadProgress.loadProgress(this);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                myCallHandler = new MyCallHandler(what);
-                if (method.equalsIgnoreCase("GET")) {
-                    NetRequest.requestUrl(url, myCallHandler);
-                } else if (method.equalsIgnoreCase("POST")) {
-                    NetRequest.requestPost(url, params, myCallHandler);
-                }
+//        progressBar = LoadProgress.loadProgress(this);
+        dialog = (AlertDialog) DialogCollect.openLoadDialog(this);
+
+        Thread t = new Thread(() -> {
+            myCallHandler = new MyCallHandler(what);
+            if (method.equalsIgnoreCase("GET")) {
+                NetRequest.requestUrl(url, myCallHandler);
+            } else if (method.equalsIgnoreCase("POST")) {
+                NetRequest.requestPost(url, params, myCallHandler);
             }
-        }).start();
+        });
+
+        t.start();
+
+        dialog.setOnDismissListener((dialog) -> {
+            Log.d(TAG, "onDismiss: ");
+            if (t.getState() != Thread.State.TERMINATED) {
+                t.interrupt();
+                onError(new InterruptedIOException("自己取消异常"), what);
+            }
+        });
+
+
     }
+
+    public void loadDataGet(final String url, final String what) {
+        loadData(url, what, "GET", null);
+    }
+
 
     /**
      * 网络请求成功的回调函数
@@ -292,7 +314,8 @@ public abstract class ParentActivity extends AppCompatActivity {
             UiThread.getUiThread().post(new Runnable() {
                 @Override
                 public void run() {
-                    LoadProgress.removeLoadProgress(ParentActivity.this, progressBar);
+//                    LoadProgress.removeLoadProgress(ParentActivity.this, progressBar);
+                    dialog.dismiss();
                     Toast.makeText(ParentActivity.this, "加载数据出错,请稍后再试", Toast.LENGTH_SHORT).show();
                     onError(e, what);
                 }
@@ -305,7 +328,8 @@ public abstract class ParentActivity extends AppCompatActivity {
             UiThread.getUiThread().post(new Runnable() {
                 @Override
                 public void run() {
-                    LoadProgress.removeLoadProgress(ParentActivity.this, progressBar);
+//                    LoadProgress.removeLoadProgress(ParentActivity.this, progressBar);
+                    dialog.dismiss();
                     try {
                         //这里返回的数据比较复杂,需要解析
                         onSucessful(response, what, value);

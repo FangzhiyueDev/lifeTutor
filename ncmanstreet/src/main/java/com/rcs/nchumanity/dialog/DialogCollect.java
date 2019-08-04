@@ -1,7 +1,6 @@
 package com.rcs.nchumanity.dialog;
 
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,7 +14,9 @@ import android.view.WindowManager;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AlertDialog;
 
+import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.ul.ParentActivity;
 
 /**
@@ -36,7 +37,7 @@ public class DialogCollect {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title)
-                .setNegativeButton("确定", (dialog, which) -> {
+                .setPositiveButton("确定", (dialog, which) -> {
                     progress.onProgre(dialog, builder);
                     dialog.cancel();
                 })
@@ -132,6 +133,24 @@ public class DialogCollect {
 
         void eventProgress(View view);
 
+    }
+
+    /**
+     * 打开登录
+     *
+     * @param context
+     * @return
+     */
+    public static Dialog openLoadDialog(Context context) {
+
+        View view2 = LayoutInflater.from(context).inflate(R.layout.dialog_load, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.BottomDialog)
+                .setView(view2)
+                .setCancelable(true);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        return dialog;
     }
 
 

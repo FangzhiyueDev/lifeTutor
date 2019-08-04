@@ -180,7 +180,7 @@ public class MainFragment extends ParentFragment {
     /**
      * 功能区的其他3个按钮
      */
-    @OnClick({R.id.jhypx, R.id.aedfb, R.id.jhyjy})
+    @OnClick({R.id.jhypx, R.id.aedfb, R.id.jhyjy, R.id.hjjhy})
     public void onClick(View view) {
         switch (view.getId()) {
 
@@ -201,6 +201,14 @@ public class MainFragment extends ParentFragment {
                 Tool.startActivity(getContext(),
                         AmbulanceRescueActivity.class
                 );
+
+                break;
+
+            case R.id.hjjhy:
+
+
+                //直接发送激光推送
+                
 
                 break;
         }

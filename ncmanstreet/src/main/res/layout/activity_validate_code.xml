@@ -8,6 +8,7 @@
     tools:context="com.rcs.nchumanity.ul.ValidateCodeActivity">
 
     <com.rcs.nchumanity.view.CommandBar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
 
@@ -114,6 +115,7 @@
             android:text="@string/yfsyzm" />
 
         <TextView
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sjhm_1" />
