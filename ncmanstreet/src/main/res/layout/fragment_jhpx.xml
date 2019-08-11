@@ -32,6 +32,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/one"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -58,6 +59,7 @@
                 app:layout_widthPercent="50%">
 
                 <ImageButton
+                    android:id="@+id/two"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -96,6 +98,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/three"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -124,6 +127,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/four"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -190,6 +194,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/five_signUp"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:background="@color/smssdk_white"
@@ -206,11 +211,12 @@
 
 
                     <ImageButton
+                        android:id="@+id/five_signIn"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:background="@color/smssdk_white"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_31" />
+                        android:src="@drawable/ic_23" />
 
 
                 </LinearLayout>
@@ -222,11 +228,13 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/five_query"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:background="@color/smssdk_white"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_23" />
+                        android:src="@drawable/ic_31" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -257,6 +265,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/six_signUp"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:background="@color/smssdk_white"
@@ -271,11 +280,13 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/sixSignIn"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:background="@color/smssdk_white"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_31" />
+                        android:src="@drawable/ic_23" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -285,11 +296,13 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/sixQuery"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:background="@color/smssdk_white"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_23" />
+                        android:src="@drawable/ic_31" />
+
                 </LinearLayout>
 
             </LinearLayout>

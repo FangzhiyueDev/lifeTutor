@@ -52,7 +52,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/login_button_radius"
-        android:text="注册"
+        android:text="提交"
         android:textColor="#FFF" />
 
     <RelativeLayout

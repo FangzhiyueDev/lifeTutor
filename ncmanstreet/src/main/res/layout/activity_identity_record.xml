@@ -8,6 +8,7 @@
 
     <com.rcs.nchumanity.view.CommandBar
         android:layout_width="match_parent"
+        android:id="@+id/toolbar"
         android:layout_height="wrap_content"
         android:background="@color/themecolor"></com.rcs.nchumanity.view.CommandBar>
 
@@ -95,7 +96,7 @@
                     android:layout_toRightOf="@id/four"
                     android:src="@drawable/ic_39" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/capture"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -158,7 +159,7 @@
                     android:background="@null"
                     android:hint="@string/need"
                     android:paddingLeft="10dp"
-                    android:textSize="11sp" />
+                    android:textSize="13sp" />
 
 
             </RelativeLayout>
@@ -193,7 +194,7 @@
                     android:background="@null"
                     android:hint="@string/need"
                     android:paddingLeft="10dp"
-                    android:textSize="11sp" />
+                    android:textSize="13sp" />
 
 
             </RelativeLayout>
@@ -263,7 +264,7 @@
                     android:entries="@array/sixs"
                     android:hint="@string/need"
                     android:paddingLeft="10dp"
-                    android:textSize="11sp" />
+                    android:textSize="13sp" />
 
             </RelativeLayout>
 
@@ -297,7 +298,7 @@
                     android:entries="@array/sixs"
                     android:hint="@string/need"
                     android:paddingLeft="10dp"
-                    android:textSize="11sp" />
+                    android:textSize="13sp" />
 
             </RelativeLayout>
 
@@ -395,7 +396,7 @@
                     android:gravity="center_vertical"
                     android:hint="选填"
                     android:paddingLeft="10dp"
-                    android:textSize="11sp" />
+                    android:textSize="13sp" />
             </RelativeLayout>
 
             <View
@@ -410,14 +411,25 @@
                 android:background="@color/smssdk_white">
 
                 <TextView
-                    android:id="@+id/homeAddressTag"
-                    android:layout_width="match_parent"
+                    android:id="@+id/homeAddressTag1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="13dp"
-                    android:drawableRight="@drawable/ic_downstep"
-                    android:text="家庭地址"
+                    android:text="家庭住址："
                     android:textColor="#ff0c0c0c"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/homeAddressTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="13dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/homeAddressTag1"
+                    android:drawableRight="@drawable/ic_downstep"
+                    android:textColor="#ff0c0c0c"
+                    android:gravity="center_vertical"
                     android:textSize="14sp" />
             </RelativeLayout>
 
@@ -434,7 +446,7 @@
                 android:background="@color/smssdk_white"
                 android:hint="详细地址:"
                 android:textColor="#999999"
-                android:textSize="11sp" />
+                android:textSize="13sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -450,7 +462,7 @@
                 android:layout_marginBottom="48dp"
                 android:text="免责声明：您应该保证您填写的信息和上传的头像与您本人真实情况一致，由于个人资料错误的问题所导致的一切后果，由您自行承担。"
                 android:textColor="#ffda251d"
-                android:textSize="11sp" />
+                android:textSize="12sp" />
 
 
         </com.rcs.nchumanity.view.PercentLinearLayout>
@@ -460,7 +472,7 @@
 
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/submitSignUp"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="20dp"

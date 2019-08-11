@@ -1,7 +1,9 @@
 package com.rcs.nchumanity.ul.list;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -11,6 +13,7 @@ import androidx.annotation.UiThread;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.ul.ParentActivity;
+import com.rcs.nchumanity.view.CommandBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,15 +31,19 @@ import butterknife.ButterKnife;
  * #{{@link ComplexListDetailActivity}} 界面进行文本信息的展示
  * 2.另一种情况，需要跳转到 地图的展示界面，传递的数据类似于一个地图点，我们根据地图点，进入
  */
-public abstract class ComplexListActivity<T> extends ParentActivity {
+public abstract class ComplexListActivity<T> extends ParentActivity implements AbsListView.OnScrollListener {
 
 
+    private static final String TAG = "test";
     @BindView(R.id.listView)
     ListView listView;
 
     ListViewCommonsAdapter<T> lvca;
 
     private List<T> tList;
+
+    @BindView(R.id.toolbar)
+    CommandBar toolbar;
 
 
     @Override
@@ -61,8 +68,13 @@ public abstract class ComplexListActivity<T> extends ParentActivity {
         });
 
         listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+
+            Log.d(TAG, "click: ====");
             itemClick(parent, view, position, id, lvca.getItem(position));
         });
+
+        listView.setOnScrollListener(this);
+
     }
 
     /**
@@ -104,7 +116,42 @@ public abstract class ComplexListActivity<T> extends ParentActivity {
          * 刷新UI
          */
         lvca.notifyDataSetChanged();
+
     }
 
 
+    public void setTitle(String title) {
+        if (toolbar != null) {
+            toolbar.setTitle(title);
+        }
+    }
+
+
+    /**
+     * 添加数据
+     *
+     * @param listData
+     */
+    public void addDataList(List<T> listData) {
+        tList.addAll(listData);
+        lvca.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+        if (firstVisibleItem + visibleItemCount == totalItemCount && totalItemCount != 0) {
+            scrollToBottom();
+        }
+    }
+
+    protected void scrollToBottom() {
+        Log.d(TAG, "滚动到最底部 ");
+    }
 }

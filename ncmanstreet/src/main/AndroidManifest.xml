@@ -27,7 +27,7 @@
         -->
         <activity
             android:name=".ul.MainActivity"
-            android:launchMode="singleInstance">
+            android:launchMode="singleTask">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,9 +36,7 @@
 
         </activity>
 
-        <activity
-            android:name=".ul.InputPasswordActivity"
-            android:launchMode="singleTop">
+        <activity android:name=".ul.InputPasswordActivity">
 
         </activity>
 
@@ -53,20 +51,6 @@
 
         </activity>
         <activity android:name=".ul.AssessLoginActivity" />
-
-        <!-- 用于实现的功能是
-           对课程的详情界面的显示 ，提供的功能包括了对视频的基本的操作，
-        -->
-        <activity
-            android:name=".ul.detail.ElectiveCourseInfoComplexDetailActivity"
-            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
-
-        <!--
-          用于显示特定信息的Activity
-          包括 国内外咨询  新闻  ，无偿献血的相关信息  视频  造血干细胞的   器官遗体捐献  爱心捐款
-
-        -->
-        <activity android:name=".ul.detail.SpecificInfoComplexListDetailActivity"></activity>
 
 
         <activity
@@ -88,6 +72,30 @@
         <activity android:name=".ul.FeedbackActivity" />
         <activity android:name=".ul.ChangePhoneNumberActivity" />
         <activity android:name=".ul.ChangePasswordActivity" />
+        <activity android:name=".ul.list.CourseComplexListActivity" />
+
+
+        <activity
+            android:name=".ul.detail.ObligatoryCourseInfoComplexDetailActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden" />
+
+        <!-- 用于实现的功能是
+        对课程的详情界面的显示 ，提供的功能包括了对视频的基本的操作，
+     -->
+        <activity
+            android:name=".ul.detail.ElectiveCourseInfoComplexDetailActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+
+        <!--
+         用于显示特定信息的Activity
+         包括 国内外咨询  新闻  ，无偿献血的相关信息  视频  造血干细胞的   器官遗体捐献  爱心捐款
+
+       -->
+        <activity
+            android:name=".ul.detail.SpecificInfoComplexListDetailActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+        <activity android:name=".ul.OnlineAssessmentActivity" />
+
 
         <!--
          配置秘钥

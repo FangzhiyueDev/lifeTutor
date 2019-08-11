@@ -47,8 +47,6 @@ public abstract class ComplexDetailActivity<T> extends ParentActivity {
         setContentView(rootView = LayoutInflater.from(this).inflate(getViewLayoutId(), null));
 
         videoPlayFragment = (VideoPlayFragment) getSupportFragmentManager().findFragmentById(R.id.videoFragment);
-
-        bundleData();
     }
 
     /**
@@ -60,15 +58,12 @@ public abstract class ComplexDetailActivity<T> extends ParentActivity {
 
     protected T info;
 
-    private void bundleData() {
-        info = (T) getIntent().getBundleExtra(Bundle.class.getSimpleName()).getSerializable(getInfoClass().getSimpleName());
+    protected void bundleData() {
         if (info == null) {
             throw new RuntimeException("bundle的数据为空");
         }
         bindView(rootView, info);
     }
-
-    protected abstract Class<?> getInfoClass();
 
     /**
      * 绑定View的数据

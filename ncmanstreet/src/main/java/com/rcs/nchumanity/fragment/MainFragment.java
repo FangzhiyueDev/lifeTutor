@@ -1,5 +1,6 @@
 package com.rcs.nchumanity.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +13,11 @@ import androidx.annotation.DrawableRes;
 
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.entity.model.SpecificInfo;
+import com.rcs.nchumanity.entity.model.SpecificInfoClassification;
 import com.rcs.nchumanity.tool.DensityConvertUtil;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.AmbulanceRescueActivity;
+import com.rcs.nchumanity.ul.detail.SpecificInfoComplexListDetailActivity;
 import com.rcs.nchumanity.ul.list.ComplexListActivity;
 import com.rcs.nchumanity.ul.list.SpecificInfoComplexListActivity;
 import com.rcs.nchumanity.ul.TrainStepActivity;
@@ -90,6 +93,11 @@ public class MainFragment extends ParentFragment {
                 switch (v.getId()) {
                     case R.id.more:
 
+                        SpecificInfoClassification classification = (SpecificInfoClassification) v.getTag();
+
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putSerializable(SpecificInfoClassification.class.getSimpleName(),classification);
+                        Tool.startActivity(getContext(),SpecificInfoComplexListActivity.class,bundle1);
                         break;
 
                     default: {
@@ -97,7 +105,7 @@ public class MainFragment extends ParentFragment {
                         SpecificInfo specificInfo = (SpecificInfo) v.getTag();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(SpecificInfo.class.getSimpleName(), specificInfo);
-                        Tool.startActivity(getContext(), SpecificInfoComplexListActivity.class, bundle);
+                        Tool.startActivity(getContext(), SpecificInfoComplexListDetailActivity.class, bundle);
                     }
                 }
             }
@@ -208,7 +216,7 @@ public class MainFragment extends ParentFragment {
 
 
                 //直接发送激光推送
-                
+
 
                 break;
         }

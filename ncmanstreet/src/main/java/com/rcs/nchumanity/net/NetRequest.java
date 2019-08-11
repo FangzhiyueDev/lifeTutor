@@ -1,8 +1,13 @@
 package com.rcs.nchumanity.net;
 
+import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
+import android.util.Log;
+
+import com.rcs.nchumanity.application.MyApplication;
+import com.rcs.nchumanity.entity.PersistenceData;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -18,6 +23,8 @@ import java.util.Set;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -40,7 +47,13 @@ public class NetRequest {
      */
     public static void requestUrl(String url, Callback callback) {
 
-        Request request = new Request.Builder().url(url).build();
+        Request.Builder builder=new Request.Builder();
+        String sessionId=PersistenceData.getSessionId(MyApplication.getContext());
+        if(!sessionId.equals(PersistenceData.DEF_VAL)){
+            builder.addHeader("cookie",sessionId);
+        }
+        Request request = builder.url(url).build();
+        Log.d("test", "requestHead: "+request.headers());
         OkHttpClient ok = new OkHttpClient();
         ok.newCall(request).enqueue(callback);
     }
@@ -133,7 +146,7 @@ public class NetRequest {
     public static void requestPost(String url, Map<String, String> param, Callback callback) {
 
         FormBody.Builder builder = new FormBody.Builder();
-        
+
         Set<String> keys = param.keySet();
         for (String key : keys) {
             builder.add(key, param.get(key));
@@ -141,6 +154,62 @@ public class NetRequest {
 
         RequestBody requestBody = builder.build();
         Request request = new Request.Builder().url(url).post(requestBody).build();
+
+        Log.d("test", "requestHead: "+request.headers());
+        OkHttpClient ok = new OkHttpClient();
+        ok.newCall(request).enqueue(callback);
+    }
+
+
+    /**
+     * post json 数据
+     * @param url
+     * @param json
+     * @param callback
+     */
+    public static  void requestPostJson(String url,String json,Callback callback){
+        //MediaType  设置Content-Type 标头中包含的媒体类型值
+        RequestBody requestBody = FormBody.create(MediaType.parse("application/json; charset=utf-8")
+                , json);
+        Request request = new Request.Builder().url(url).post(requestBody).build();
+        OkHttpClient ok = new OkHttpClient();
+        ok.newCall(request).enqueue(callback);
+
+    }
+
+
+
+    private static String imageName="photo";
+
+    public static void setImageName(String imageName) {
+        NetRequest.imageName = imageName;
+    }
+
+    public static void postImage(String url, String imagePath, Map<String, String> param, Callback callback) {
+
+
+        File file = new File(imagePath);
+
+        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM)
+                .addFormDataPart(imageName, "HeadPortrait.jpg",
+                        RequestBody.create(MediaType.parse("image/png"), file));
+        Set<String> keys = param.keySet();
+        for (String key : keys) {
+            builder.addFormDataPart(key, param.get(key));
+        }
+
+        //请求体
+        RequestBody requestBody = builder.build();
+
+        //构建请求头
+        Request.Builder builder1=new Request.Builder();
+
+        String sessionId=PersistenceData.getSessionId(MyApplication.getContext());
+        if(!sessionId.equals(PersistenceData.DEF_VAL)){
+            builder1.addHeader("cookie",sessionId);
+        }
+
+        Request request = builder1.url(url).post(requestBody).build();
         OkHttpClient ok = new OkHttpClient();
         ok.newCall(request).enqueue(callback);
     }

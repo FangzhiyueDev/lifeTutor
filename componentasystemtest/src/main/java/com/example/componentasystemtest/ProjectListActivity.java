@@ -49,6 +49,7 @@ import com.example.componentasystemtest.fireWall.FireWallActivity;
 import com.example.componentasystemtest.handler.HandlerPrincipleActivity;
 import com.example.componentasystemtest.moveLinearViewDisplay.LinearActivity;
 import com.example.componentasystemtest.musicPlay.simple2.MusicListActivity;
+import com.example.componentasystemtest.net.NetRequestActivity;
 import com.example.componentasystemtest.notification.MyNotificationActivity;
 import com.example.componentasystemtest.palette.MyPaletteActivity;
 import com.example.componentasystemtest.photoZip.PhotoZipActivity;
@@ -71,6 +72,7 @@ public class ProjectListActivity extends AppCompatActivity {
     ListView listView;
 
     Class[] array = {
+            NetRequestActivity.class,
             InputManager_Activity.class,
             DialogWidthTestActivity.class,
             Density.class,

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.orhanobut.logger.Logger;
 import com.rcs.nchumanity.R;
@@ -17,6 +18,7 @@ import com.rcs.nchumanity.adapter.MyFragmentPageAdapter;
 import com.rcs.nchumanity.fragment.JYPXFragment;
 import com.rcs.nchumanity.fragment.MainFragment;
 import com.rcs.nchumanity.fragment.MeFragment;
+import com.rcs.nchumanity.fragment.ParentFragment;
 import com.rcs.nchumanity.fragment.ZYJYFragment;
 import com.rcs.nchumanity.tool.ActivityStackManager;
 import com.rcs.nchumanity.tool.Tool;
@@ -105,11 +107,18 @@ public class MainActivity extends ParentActivity {
     private int defaultIndex = 0;
 
     private void initView() {
+
+        for(int i=0;i<cachePage;i++){
+            Tool.setDrawableColor(defColor, downBtns.get(i));
+        }
+
         Tool.setDrawableColor(themeColor, downBtns.get(defaultIndex));
 
         title = (String) downBtns.get(defaultIndex).getText();
         toolbar.hiddenBack();
         toolbar.setTitle(title);
+
+        Log.d(TAG, "initView: "+defaultIndex);
 
 
         fragments = new ArrayList<>();
@@ -129,7 +138,6 @@ public class MainActivity extends ParentActivity {
 
     }
 
-
     @OnClick({R.id.main, R.id.zyjy, R.id.jhpx, R.id.me})
     public void onClick(View view) {
 
@@ -142,8 +150,8 @@ public class MainActivity extends ParentActivity {
             downBtns.get(index).setTextColor(themeColor);
             downBtns.get(defaultIndex).setTextColor(defColor);
 
-
             defaultIndex = index;
+
             title = (String) downBtns.get(defaultIndex).getText();
             toolbar.setTitle(title);
             viewPager.setCurrentItem(defaultIndex);
@@ -162,4 +170,24 @@ public class MainActivity extends ParentActivity {
     }
 
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        Log.d(TAG, "onRestart: "+defaultIndex);
+        if (defaultIndex == cachePage - 1) {
+            for (Fragment pf : getSupportFragmentManager().getFragments()) {
+                if (pf instanceof MeFragment) {
+                    ((MeFragment)pf).updateUserData();
+                }
+            }
+        }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: "+defaultIndex);
+    }
 }

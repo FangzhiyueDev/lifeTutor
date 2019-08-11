@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/rl_videolayout"
     android:layout_width="match_parent"
-    android:layout_height="240dp"
+    android:layout_height="300dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <com.best.testvideoview.MyVideoView
+        <com.rcs.nchumanity.view.MyVideoView
             android:id="@+id/vv_videoView"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="260dp" />
 
         <include layout="@layout/layout_progress"></include>
 
         <ImageView
             android:id="@+id/review"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="260dp" />
 
         <LinearLayout
             android:id="@+id/ll_controllerBar_layout"
@@ -31,7 +31,7 @@
                 android:layout_marginRight="-20dp"
                 android:indeterminate="false"
                 android:max="100"
-                android:progress="20"
+                android:progress="0"
                 android:progressDrawable="@drawable/seekbar_style_pro" />
 
             <RelativeLayout
@@ -110,7 +110,6 @@
                         android:layout_marginLeft="5dp"
                         android:indeterminate="false"
                         android:max="100"
-                        android:progress="20"
                         android:progressDrawable="@drawable/seekbar_style_pro"
                         android:visibility="gone" />
 

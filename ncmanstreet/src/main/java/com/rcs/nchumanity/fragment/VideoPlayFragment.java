@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.MediaMetadataRetriever;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,25 +49,22 @@ import static android.content.Context.AUDIO_SERVICE;
  * <p>
  * 1，需要暴露的接口有 视频的播放设置url
  * 2.设置当前的view的可见性
- *
+ * <p>
  * 当前的fragment支持横屏的操作
- *
+ * <p>
  * 通过在  ativity.
  *
- *   @Override
- *     public void onConfigurationChanged(Configuration newConfig) {
- *         super.onConfigurationChanged(newConfig);
- *         Log.d("test1", "onConfigurationChanged: ===----");
- *         videoPlayFragment.changeLayoutParams();
- *     }
- *
- *     可以实现横屏的操作
- *
- *     当然对应的Activity需要设置
- *     <activity android:name=".VideoPlayActivity"
- *             android:configChanges="orientation|screenSize|keyboard|keyboardHidden" >
- *
- *
+ * @Override public void onConfigurationChanged(Configuration newConfig) {
+ * super.onConfigurationChanged(newConfig);
+ * Log.d("test1", "onConfigurationChanged: ===----");
+ * videoPlayFragment.changeLayoutParams();
+ * }
+ * <p>
+ * 可以实现横屏的操作
+ * <p>
+ * 当然对应的Activity需要设置
+ * <activity android:name=".VideoPlayActivity"
+ * android:configChanges="orientation|screenSize|keyboard|keyboardHidden" >
  */
 public class VideoPlayFragment extends Fragment {
 
@@ -139,6 +137,10 @@ public class VideoPlayFragment extends Fragment {
     @BindView(R.id.review)
     ImageView reView;
 
+    public int controlHeight = 40;
+
+    public int playerHeight = 300;
+
 
     private static String url;
 
@@ -186,6 +188,15 @@ public class VideoPlayFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
+        mVvVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mBtStartPause.setImageResource(R.drawable.ic_bofang3);
+                if (listener != null) {
+                    listener.onCall(mVvVideoView.isPlaying());
+                }
+            }
+        });
 
         initScreenWidthAndHeight();
         initAudioManager();
@@ -202,12 +213,14 @@ public class VideoPlayFragment extends Fragment {
      * @param url
      */
     public void setUrl(String url) {
+        Log.d("test", "setUrl: ==视频的url=" + url);
         this.url = url;
-        if(null==url){
+        if (null == url) {
             return;
         }
         initNetVideoPath();
         initVideoPlay();
+
     }
 
     /**
@@ -344,6 +357,8 @@ public class VideoPlayFragment extends Fragment {
                 bitmap = retriever.getFrameAtTime();
             } catch (Exception ex) {
                 ex.printStackTrace();
+
+
             } finally {
                 try {
                     retriever.release();
@@ -353,11 +368,12 @@ public class VideoPlayFragment extends Fragment {
             }
             new Handler(Looper.getMainLooper()).post(() -> {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                byte[] bytes = baos.toByteArray();
-                Glide.with(this.getContext()).load(bytes).into(reView);
+                if (bitmap != null) {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                    byte[] bytes = baos.toByteArray();
+                    Glide.with(this.getContext()).load(bytes).into(reView);
+                }
             });
-
         });
 
         //第一个参数是标志，第二个参数是刷新间隔时间
@@ -436,6 +452,11 @@ public class VideoPlayFragment extends Fragment {
                     }
 
                 }
+
+                if (listener != null) {
+                    listener.onCall(mVvVideoView.isPlaying());
+                }
+
                 break;
             //手动横竖屏切换
             case R.id.bt_switch:
@@ -473,7 +494,7 @@ public class VideoPlayFragment extends Fragment {
         }
         //当屏幕方向是竖屏的时候，竖屏的时候的高我们需要把dp转为px
         else {
-            setVideoViewScale(ViewGroup.LayoutParams.MATCH_PARENT, DensityConvertUtil.dpi2px(getContext(), 240));
+            setVideoViewScale(ViewGroup.LayoutParams.MATCH_PARENT, DensityConvertUtil.dpi2px(getContext(), playerHeight));
             //竖屏的时候吟唱
             mTvVolName.setVisibility(View.GONE);
             mVLine.setVisibility(View.GONE);
@@ -500,7 +521,7 @@ public class VideoPlayFragment extends Fragment {
         if (height == -1) {
             height = getResources().getDisplayMetrics().heightPixels;
         }
-        layoutParams.height = height - DensityConvertUtil.dpi2px(getContext(), 40);
+        layoutParams.height = height - DensityConvertUtil.dpi2px(getContext(), controlHeight);
 
         //设置VideoView的宽和高
         mVvVideoView.setLayoutParams(layoutParams);
@@ -606,4 +627,14 @@ public class VideoPlayFragment extends Fragment {
     }
 
 
+    public void setPlayListener(PlayingListener listener) {
+        this.listener = listener;
+    }
+
+    private PlayingListener listener;
+
+
+    public interface PlayingListener {
+        void onCall(boolean isplay);
+    }
 }

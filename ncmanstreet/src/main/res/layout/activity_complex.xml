@@ -6,6 +6,7 @@
 
 
     <com.rcs.nchumanity.view.CommandBar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
 
@@ -17,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null">
-
 
     </ListView>
 

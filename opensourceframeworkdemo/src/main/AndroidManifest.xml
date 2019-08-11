@@ -22,12 +22,12 @@
   下面是RxJava的实验
 
             -->
-        <activity android:name=".RxJava.RxJavaTestActivity" >
+        <activity android:name=".RxJava.RxJavaTestActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
 
         </activity>
 
@@ -35,12 +35,12 @@
         <activity android:name=".RxAndroid.Simple5.DownActivity"></activity>
         <activity android:name=".MainActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".looger.LoogerActivity">
 
@@ -61,32 +61,23 @@
         </activity>
 
 
-        <activity android:name=".Dagger2.simple2.MainActivity">
+        <!--<activity android:name=".Dagger2.simple2.MainActivity">-->
 
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".Dagger2.simple3.MainActivity">
+        <!--</activity>-->
+        <!--<activity android:name=".Dagger2.simple3.MainActivity">-->
 
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".Dagger2.simple5.MainActivity">
-
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-
-        </activity>
-        <activity android:name=".Dagger2.simple6.MainActivity">
+        <!--</activity>-->
+        <!--<activity android:name=".Dagger2.simple5.MainActivity">-->
 
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
@@ -94,9 +85,18 @@
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
 
+        <!--</activity>-->
+        <!--<activity android:name=".Dagger2.simple6.MainActivity">-->
 
-        </activity>
-        <activity android:name=".Dagger2.simple7.MainActivity"></activity>
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+
+        <!--</activity>-->
+        <!--<activity android:name=".Dagger2.simple7.MainActivity"></activity>-->
         <activity android:name=".AspectJ.AspectJMainActivity"></activity>
         <activity android:name=".gson.GsonParseActivity">
             <!--<intent-filter>-->
@@ -214,6 +214,20 @@
             <!--</intent-filter>-->
         </activity>
 
+
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="wxd930ea5d5a258f4f" />
+            </intent-filter>
+
+        </activity>
+
+
     </application>
 
 
@@ -250,5 +264,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+
+    <!--微信支付权限-->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
 </manifest>

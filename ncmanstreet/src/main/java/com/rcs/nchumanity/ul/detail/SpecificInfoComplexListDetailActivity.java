@@ -27,11 +27,6 @@ public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity
         return R.layout.activity_complex_detail;
     }
 
-    @Override
-    protected Class<?> getInfoClass() {
-
-        return info.getClass();
-    }
 
     /**
      * 用来实现的功能是数据的绑定
@@ -81,7 +76,6 @@ public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity
         } else {
             videoPlayFragment.setVisiblity(View.GONE);
         }
-
 
         if (!TextUtils.isEmpty(specificInfo.getContent())) {
             TextView content = view.findViewById(R.id.content);

@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.rcs.nchumanity.R;
+import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.tool.Tool;
 
 import butterknife.ButterKnife;
@@ -35,9 +36,43 @@ public class SettingActivity extends ParentActivity {
         switch (view.getId()) {
             case R.id.backLogin:
 
+                AlertDialog.Builder builder=new AlertDialog.Builder(this)
+                        .setTitle("退出登录")
+                        .setMessage("确认退出登录吗?")
+                        .setNegativeButton("取消",((dialog, which) -> {
+
+                            dialog.dismiss();
+
+                        })).setPositiveButton("确定",(dialog, which) -> {
+                            PersistenceData.clear(this);
+                                dialog.dismiss();
+                                Tool.startActivity(this,    MainActivity.class);
+                        });
+
+                builder.create().show();
 
                 break;
             case R.id.softwareUpdate:
+
+                AlertDialog.Builder builder1=new AlertDialog.Builder(this)
+                        .setTitle("更新提醒")
+                        .setMessage("确定检验更新吗?")
+                        .setNegativeButton("取消",((dialog, which) -> {
+
+                            dialog.dismiss();
+
+                        })).setPositiveButton("确定",(dialog, which) -> {
+
+                            /**
+                             * 使用网络加载数据
+                             */
+
+
+                        });
+
+                builder1.create().show();
+
+
 
                 break;
 

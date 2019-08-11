@@ -1,6 +1,8 @@
 package com.rcs.nchumanity.entity.model;
 
-public class SpecificInfoClassification {
+import java.io.Serializable;
+
+public class SpecificInfoClassification implements Serializable {
     private Integer typeId;
 
     private String title;

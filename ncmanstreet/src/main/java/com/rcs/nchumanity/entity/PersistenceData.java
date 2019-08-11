@@ -33,6 +33,8 @@ public class PersistenceData {
 
     public static String PICTURE = "picture";
 
+    public static String SESSION_ID = "sessionId";
+
 
     public static SharedPreferences getSp(Context context) {
         return context.getSharedPreferences(DATA, Context.MODE_PRIVATE);
@@ -87,4 +89,34 @@ public class PersistenceData {
         SharedPreferences sp = getSp(context);
         return sp.getString(PICTURE, "-1");
     }
+
+    public static void clear(Context context) {
+        SharedPreferences sp = getSp(context);
+        sp.edit().clear().commit();
+    }
+
+    public static void loginSuccess(Context context, String picture, String nickName, String user_id, String sessionId) {
+        //用户头像pictureUrl   用户id  userid  用户nickname
+        PersistenceData.setUserPicture(context, picture);
+        PersistenceData.setUserId(context, user_id);
+        PersistenceData.setNickName(context, nickName);
+        PersistenceData.setSessionId(context, sessionId);
+    }
+
+    public static void setSessionId(Context context, String sessionId) {
+        SharedPreferences sp = getSp(context);
+        SharedPreferences.Editor editor = sp.edit();
+        if (sessionId==null){
+            return;
+        }
+        editor.putString(SESSION_ID, sessionId);
+        editor.commit();
+    }
+
+    public static String getSessionId(Context context) {
+        SharedPreferences sp = getSp(context);
+        return sp.getString(SESSION_ID, String.valueOf(DEF_VAL));
+    }
+
+
 }

@@ -35,7 +35,11 @@ public class BasicResponse {
     /**
      * 登录成功
      */
-    public static final int LOGIN_SUCCESS = 0x004;
+    public static final int LOGIN_SUCCESS = 004;
+
+    public static final int RESPONSE_SUCCESS = 200;
+    public static final int CHANGE_PASSWORD_SUCCESS = 3;
+    public static final int NOT_LOGIN = 401;
 
 
     /**
@@ -51,21 +55,44 @@ public class BasicResponse {
     /**
      * 传输的数据对象
      */
-    public Object data;
+    public Object object;
 
     public BasicResponse(int code, String message, Object object) {
         this.code = code;
         this.message = message;
-        this.data = object;
+        this.object = object;
     }
-
 
     @Override
     public String toString() {
         return "BasicResponse{" +
                 "code=" + code +
                 ", message='" + message + '\'' +
-                ", data=" + data +
+                ", object=" + object +
                 '}';
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Object getObject() {
+        return object;
+    }
+
+    public void setObject(Object object) {
+        this.object = object;
     }
 }

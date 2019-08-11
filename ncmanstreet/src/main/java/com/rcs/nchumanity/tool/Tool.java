@@ -19,9 +19,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.rcs.nchumanity.entity.PersistenceData;
+import com.rcs.nchumanity.ul.InputPasswordActivity;
 import com.rcs.nchumanity.ul.LoginCheckActivity;
+import com.rcs.nchumanity.ul.MainActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.ul.RegisterUserActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -180,6 +185,40 @@ public class Tool {
 
 
     /**
+     * 登录的响应操作
+     * @param context
+     * @param jsonData
+     */
+
+    public static void loginResponse(Context context, String jsonData,String sessionId) {
+
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(jsonData);
+
+            JSONObject userAccountJson = jsonObject.getJSONObject("object");
+
+            String user_id = userAccountJson.getInt("userId") + "";
+
+            String picture = null;
+            if (userAccountJson.has("picUrl")) {
+                picture = userAccountJson.getString("picUrl");
+            }
+
+            String nickName = userAccountJson.getString("nickname");
+
+            PersistenceData.loginSuccess(context,picture,nickName,user_id,sessionId);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Tool.startActivity(context, MainActivity.class);
+
+    }
+
+
+    /**
      * @hide
      */
     @StringDef(value = {
@@ -295,6 +334,9 @@ public class Tool {
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         textView.setCompoundDrawables(null, drawable, null, null);
     }
+
+
+
 
 
 }

@@ -134,15 +134,17 @@ public class RegisterUserActivity extends ParentActivity {
                          */
                         Bundle bundle = new Bundle();
                         bundle.putString(ValidateCodeActivity.MOBILE_PHONE, userPhone);
+                        bundle.putString(ValidateCodeActivity.ACTION,ValidateCodeActivity.ACTION_REGISTER);
                         Tool.startActivity(this, ValidateCodeActivity.class, bundle);
-
                         break;
 
                     case BasicResponse.REGISTED:
 
-                        PersistenceData.setPhoneNumber(this,userPhone);
-
-                        Tool.startActivity(this,InputPasswordActivity.class);
+                        PersistenceData.setPhoneNumber(this, userPhone);
+                        Bundle bundle1 = new Bundle();
+                        //进行登录
+                        bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_LOGIN);
+                        Tool.startActivity(this, InputPasswordActivity.class,bundle1);
 
                         break;
                 }

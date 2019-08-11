@@ -39,13 +39,16 @@ import org.apache.commons.codec.binary.StringUtils;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.smssdk.SMSSDK;
+import okhttp3.Headers;
 import okhttp3.Response;
 
 
@@ -67,12 +70,20 @@ public class ValidateCodeActivity extends ParentActivity {
 
     public static final String MOBILE_PHONE = "mobilePhone";
 
+    public static final String ACTION = "action";
+
+    public static String ACTION_VALIDE_CODE_LOGIN = "login";
+
+    public static String ACTION_REGISTER = "register";
+
+    public static String ACTION_RESET_PASSWORD = "resetPassword";
+
 
     @OnClick(R.id.reSend)
     public void onClick(View view) {
         //点击操作之后，我们禁用该控件
         //发送验证码到该手机上
-        isSubmitSuccess=false;
+        isSubmitSuccess = false;
         anim();
         ValidateCodeServler.sendValidateCode("86", userPhone);
     }
@@ -110,6 +121,8 @@ public class ValidateCodeActivity extends ParentActivity {
 
     private String userPhone;
 
+    private String action;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,8 +140,10 @@ public class ValidateCodeActivity extends ParentActivity {
         Bundle bundle = getIntent().getExtras();
         userPhone = bundle.getString(MOBILE_PHONE);
 
+        action = bundle.getString(ACTION);
 
-        if (userPhone == null) {
+
+        if (userPhone == null || action == null) {
             throw new InvalidParameterException("please bundle params to this");
         }
 
@@ -244,11 +259,30 @@ public class ValidateCodeActivity extends ParentActivity {
 
         Log.d(TAG, "submitVerificationComplete: 提交验证码成功");
 
-        String param= String.format(NetConnectionUrl.REGISTER_STATUS,userPhone);
+        if (!isSubmitSuccess) {
+            isSubmitSuccess = true;
 
-        if(!isSubmitSuccess) {
-            isSubmitSuccess=true;
-            loadDataGet(param, "registerStatus");
+            if (action.equals(ACTION_REGISTER)) {
+
+                //持久化数据 手机号码
+                PersistenceData.setPhoneNumber(this, userPhone);
+                Bundle bundle = new Bundle();
+                bundle.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_REGISTER);
+                //代表成功
+                Tool.startActivity(this, InputPasswordActivity.class, bundle);
+
+            } else if (action.equals(ACTION_RESET_PASSWORD)) {
+
+                Bundle bundle1 = new Bundle();
+                bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_SET_PASSWORD);
+                Tool.startActivity(this, InputPasswordActivity.class, bundle1);
+
+            } else if (action.equals(ACTION_VALIDE_CODE_LOGIN)) {
+//                String param = String.format(NetConnectionUrl.smsLogin);
+                Map<String,String> param=new HashMap();
+                param.put("mobilephone",userPhone);
+                loadDataPost(NetConnectionUrl.smsLogin, "validateCodeLogin",param);
+            }
         }
     }
 
@@ -259,6 +293,7 @@ public class ValidateCodeActivity extends ParentActivity {
      */
     private void sucessfulSendVerification() {
 
+        reSet();
     }
 
     /**
@@ -332,33 +367,21 @@ public class ValidateCodeActivity extends ParentActivity {
             c = "";
         }
         isSubmitSuccess = false;
-
     }
 
 
     @Override
     public void onSucessful(Response response, String what, String... backData) throws IOException {
+        super.onSucessful(response, what, backData);
 
-
-        BasicResponse br=new Gson().fromJson(backData[0],BasicResponse.class);
-
-        switch (what){
-
-            case "registerStatus":{
-
-                    switch (br.code){
-                        case BasicResponse.NOT_REGISTER:
-                                //持久化数据 手机号码
-                                PersistenceData.setPhoneNumber(this, userPhone);
-                                //代表成功
-                                Tool.startActivity(this, InputPasswordActivity.class);
-                            break;
-                        case BasicResponse.REGISTED:
-                            Tool.startActivity(this,MainActivity.class);
-                            break;
-                    }
+        if (what.equals("validateCodeLogin")) {
+            BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+            if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+                String sessionId = response.header("Set-Cookie");//JSESSIONID=0879B42A28FEEB113E883D6FC295C7CA; Path=/ncrd; HttpOnly
+                Log.d("test", "onSucessful:当前的sessionId " + sessionId);
+                sessionId = sessionId.substring(0, sessionId.indexOf(";"));
+                Tool.loginResponse(this, backData[0],sessionId);
             }
-                break;
         }
     }
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.rcs.nchumanity.R;
+import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.AssessResultActivity;
@@ -57,23 +58,29 @@ public class MeFragment extends ParentFragment {
     }
 
 
-    @Override
-    protected void onLoadData() {
-        super.onLoadData();
-
+    public void updateUserData() {
         String userNameS = PersistenceData.getNickName(getContext());
 
         if (!PersistenceData.DEF_USER.equals(PersistenceData.getNickName(getContext()))) {
             userName.setText(userNameS);
+        }else{
+            userName.setText("注册登录");
         }
 
         String pictureUri = (String) PersistenceData.getPicture(getContext());
         if (!PersistenceData.DEF_VAL.equals(pictureUri)) {
-            Glide.with(getContext()).load(pictureUri);
+            Glide.with(getContext()).load(NetConnectionUrl.HOST + pictureUri);
+        }else {
+            Glide.with(getContext()).load(R.drawable.ic_logo);
         }
-
-
     }
+
+    @Override
+    protected void onLoadData() {
+        super.onLoadData();
+        updateUserData();
+    }
+
 
     @OnClick({R.id.meCourse, R.id.picture, R.id.assessResult,
             R.id.elecCertificate, R.id.entityCertificate,

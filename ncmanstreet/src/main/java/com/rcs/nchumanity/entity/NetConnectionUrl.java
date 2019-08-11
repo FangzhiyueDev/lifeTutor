@@ -61,7 +61,41 @@ public class NetConnectionUrl {
     /**
      * 服务器的主地址
      */
-    public static final String ROOT_SERVER = "http://193.112.182.184:8888/ncrd/api/";
+    public static final String ROOT_SERVER = "http://193.112.182.184:8888/ncrd/";
+
+    public static final String HOST = "http://193.112.182.184:8888";
+
+
+    public static final String APP = ROOT_SERVER + "app/";
+
+
+    public static final String system = ROOT_SERVER + "sys/";
+
+    public static final String api = ROOT_SERVER + "api/";
+
+
+    /**
+     * 获取线上必修课程列表（匿名）
+     */
+    public static String getOnlineClass = APP + "onlineStudy/getOnlineClass";
+
+
+    /**
+     * 获取线上必修课程及用户学习记录列表 （非匿名）
+     */
+    public static String getOnlineClassAndRecordByUser = APP + "onlineStudy/getOnlineClassAndRecordByUser";
+
+
+    /**
+     * 获取线上选修课程及用户学习记录列表 (非匿名)
+     */
+    public static String getNotRequiredOnlineClassAndRecordByUser = APP + "onlineStudy/getNotRequiredOnlineClassAndRecordByUser";
+
+    /**
+     * 获取线上选修课程及用户学习记录列表 (非匿名)
+     */
+    public static String getNotRequiredOnlineClass = APP + "onlineStudy/getNotRequiredOnlineClass";
+
 
     /**
      * 登录的接口
@@ -69,11 +103,120 @@ public class NetConnectionUrl {
      * <p>
      * send 数据
      */
-    public static String LOGIN = ROOT_SERVER + "userLogin?mobilephone=%s&password=%s";
+    public static String login = system + "admin/login";
     /**
      * 注册的接口
      */
-    public static String REGISTER = ROOT_SERVER + "userRegister?mobilephone=%s&password=%s";
+    public static String register = ROOT_SERVER + "userRegister?mobilephone=%s&password=%s";
+
+
+    public static String smsLogin = system + "admin/smsLogin?mobilephone=%s";
+
+
+    public static String resetPasswordWithMobilePhone = api + "resetPasswordWithMobilePhone?mobilephone=%s&password=%s";
+
+
+    /**
+     * 查询指定的SpecificInfoClassfication的typeid对应的 SpecificInfo
+     */
+    public static final String getSpecificInfoForClassId = ROOT_SERVER + "getSpecificInfoForClassId?size=%s&page=?";
+
+
+    /**
+     * 通过id 查询 特定的 SpecificInfo
+     */
+    public static final String getSpecificInfoForId = ROOT_SERVER + "getSpecificInfoForId";
+
+
+    /**
+     * 用户报名状态的查询
+     */
+    public static String getSignInStatus = APP + "signUp/getStatusByUser";
+
+
+    /**
+     * post方式  提交用户报名信息
+     */
+    public static String submitSignInUserInfo = APP + "signUp/submitSignUpInfoByUser";
+
+
+    /**
+     * 获得用户已有报名信息
+     */
+    public static String getUserHasSignInInfo = "";
+
+
+    /**
+     * 获得获得线上课程内容详情
+     */
+    public static String getOnlineCourseContentForId = APP + "onlineStudy/getCourseByCourseNo?courseNo=%s";
+
+
+    /**
+     * 提交观看数据
+     * post
+     * <p>
+     * courseNo
+     * start_time
+     * total_time
+     */
+    public static String submitWatchData = APP + "onlineStudy/recieveWatchData";
+
+    /**
+     * 获得选修以及对应的学习记录
+     */
+    public static String getSelectCourseAndStudyRecord = "";
+
+
+    /**
+     * 获得试卷的数据
+     */
+    public static String getExamSubject = APP + "onlineTest/getExamPaper";
+
+
+    /**
+     * 提交试卷
+     * POST
+     */
+    public static String submitExamSubject = APP + "onlineTest/postExamPaper";
+
+
+    /**
+     * 获得线下培训班列表
+     */
+    public static String getOfflineTrainClassList = "?areaId=%s";
+
+
+    /**
+     * 获得线下培训班课程详情
+     */
+    public static String getOfflineTrainClassDetail = "?classId=%s";
+
+
+    /**
+     * 报名线下培训班
+     */
+    public static String offlineTrainClassSignUp = "";
+
+
+    /**
+     * 线下培训班签到
+     */
+    public static String offlineTrainClassSignIn = "?longitude=%s&latitude=%s";
+
+
+    /**
+     * 查询心肺复苏的成绩
+     */
+    public static String queryXFScore = "?bindNo=%s";
+
+
+    /**
+     * 查询创伤救护的成绩
+     */
+    public static String queryCSJHScore = "?specialText=%s";
+
+
     /**
      * 主页查询分类信息对应的数据接口
      */
@@ -201,7 +344,7 @@ public class NetConnectionUrl {
      * 参数
      * mobilephone=
      */
-    public static final String REGISTER_STATUS = ROOT_SERVER + "getUserRegisterStatus?mobilephone=%s";
+    public static final String REGISTER_STATUS = api + "getUserRegisterStatus?mobilephone=%s";
 
     static {
 

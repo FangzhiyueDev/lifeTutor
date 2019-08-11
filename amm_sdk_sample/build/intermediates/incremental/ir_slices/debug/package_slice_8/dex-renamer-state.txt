@@ -1,0 +1,4 @@
+#Thu Aug 08 08:27:19 EDT 2019
+base.0=/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/transforms/dexMerger/debug/8
+path.0=classes.dex
+renamed.0=classes.dex

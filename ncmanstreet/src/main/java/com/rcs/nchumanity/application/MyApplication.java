@@ -1,6 +1,7 @@
 package com.rcs.nchumanity.application;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -10,7 +11,7 @@ import org.litepal.LitePal;
 
 public class MyApplication extends Application {
 
-
+    private static Context context;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -23,6 +24,7 @@ public class MyApplication extends Application {
          */
         Logger.init("test");
 
+        context=getApplicationContext();
 
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         SDKInitializer.initialize(this);
@@ -31,4 +33,9 @@ public class MyApplication extends Application {
         SDKInitializer.setCoordType(CoordType.BD09LL);
 
     }
+
+    public static Context getContext(){
+        return context;
+    }
+
 }

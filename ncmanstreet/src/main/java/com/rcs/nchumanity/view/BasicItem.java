@@ -61,12 +61,13 @@ public class BasicItem extends LinearLayout {
 
     /**
      * 多更多按钮设置点击事件
-     *
-     * @param onClickListener
+     *  @param onClickListener
+     * @param classification
      */
-    private void setMoreClick(OnClickListener onClickListener) {
+    private void setMoreClick(OnClickListener onClickListener, SpecificInfoClassification classification) {
         if (onClickListener != null) {
             more = findViewById(R.id.more);
+            more.setTag(classification);
             more.setOnClickListener(onClickListener);
         }
     }
@@ -95,7 +96,7 @@ public class BasicItem extends LinearLayout {
             return;
         }
         setTitle(m_speinf_speinfCla.specificInfoClassification.getTitle());
-        setMoreClick(onClickListener);
+        setMoreClick(onClickListener,m_speinf_speinfCla.specificInfoClassification);
         if (m_speinf_speinfCla.specificInfos == null) {
             return;
         }

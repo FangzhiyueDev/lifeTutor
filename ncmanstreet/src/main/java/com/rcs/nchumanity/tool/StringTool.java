@@ -21,6 +21,12 @@ public class StringTool {
 
 
     /**
+     * 首行缩进
+     */
+    public static final String TEXT_INDENT="\u3000\u3000";
+
+
+    /**
      * 验证数据的是否为空，以及长度
      *
      * @param text
