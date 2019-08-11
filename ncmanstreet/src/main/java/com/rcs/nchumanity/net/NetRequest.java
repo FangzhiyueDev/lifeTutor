@@ -171,7 +171,15 @@ public class NetRequest {
         //MediaType  设置Content-Type 标头中包含的媒体类型值
         RequestBody requestBody = FormBody.create(MediaType.parse("application/json; charset=utf-8")
                 , json);
-        Request request = new Request.Builder().url(url).post(requestBody).build();
+
+        Request.Builder builder=new Request.Builder();
+
+        String sessionId=PersistenceData.getSessionId(MyApplication.getContext());
+        if(!sessionId.equals(PersistenceData.DEF_VAL)){
+            builder.addHeader("cookie",sessionId);
+        }
+
+        Request request = builder.url(url).post(requestBody).build();
         OkHttpClient ok = new OkHttpClient();
         ok.newCall(request).enqueue(callback);
 
