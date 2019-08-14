@@ -8,6 +8,7 @@ package com.rcs.nchumanity.entity;
 public class NetConnectionUrl {
 
 
+
     /**
      * 快递查询的相关的接口信息常量
      */
@@ -72,6 +73,36 @@ public class NetConnectionUrl {
     public static final String system = ROOT_SERVER + "sys/";
 
     public static final String api = ROOT_SERVER + "api/";
+
+
+    /**
+     * 我的课程
+     */
+    public static String myCourse=APP+"my/myCourse/getMyClassList";
+
+    /**
+     * 取消选课
+     */
+    public static String getMyClassList=APP+"my/myCourse/cancelChosenClass";
+
+/**
+ * 获取考核结果
+ */
+    public static String getMyScore= "/my/myCourse/getMyScore";
+
+
+
+
+
+    /**
+     * 发送求救
+     */
+    public static String addInfo = ROOT_SERVER + "emergency/ForHelp/addInfo";
+
+    /**
+     * 获得aed分布
+     */
+    public static final String getAEDList = ROOT_SERVER + "emergency/aed/getAEDList";
 
 
     /**
@@ -182,9 +213,14 @@ public class NetConnectionUrl {
 
 
     /**
-     * 获得线下培训班列表
+     * 获取创伤救护培训班列表
      */
-    public static String getOfflineTrainClassList = "?areaId=%s";
+    public static String getTraumaClassList = APP + "offlineTrain/getTraumaClassList";
+
+    /**
+     * 获取心肺复苏培训班列表
+     */
+    public static String getCPRClassList = APP + "offlineTrain/getCPRClassList";
 
 
     /**
@@ -200,21 +236,105 @@ public class NetConnectionUrl {
 
 
     /**
-     * 线下培训班签到
+     * 心肺复苏培训班签到
+     * POST
      */
-    public static String offlineTrainClassSignIn = "?longitude=%s&latitude=%s";
+    public static String signInCPRClass = APP + "offlineTrain/signInCPRClass";
 
+    /**
+     * 创伤救护培训班签到
+     * POST
+     */
+    public static String signInTraumaClass = APP + "offlineTrain/signInTraumaClass";
 
     /**
      * 查询心肺复苏的成绩
+     * GET
      */
-    public static String queryXFScore = "?bindNo=%s";
+    public static String queryXFScore = APP + "offlineTrain/saveCPRScore?bindNo=%s";
 
 
     /**
      * 查询创伤救护的成绩
+     * GET
      */
-    public static String queryCSJHScore = "?specialText=%s";
+    public static String queryCSJHScore = APP + "offlineTrain/saveTraumaScore?specialText=%s&name=%s";
+
+
+    /**
+     * 相关资讯
+     */
+    public static String getNews = APP + "info/getNews";
+
+    /**
+     * 关于红十字会
+     */
+    public static String getAboutRedCross = APP + "info/getAboutRedCross";
+
+    /**
+     * 获得无偿献血信息
+     */
+    public static String getBloodDonation = APP + "info/getBloodDonation";
+
+    /**
+     * 获得急救知识信息
+     */
+    public static String getKnowledge = APP + "info/getKnowledge";
+
+    /**
+     * 获得爱心捐献信息
+     */
+    public static String getLoveDonation = APP + "info/getLoveDonation";
+
+    /**
+     * 获得骨髓捐献信息
+     */
+    public static String getMarrowDonation = APP + "info/getMarrowDonation";
+
+
+    /**
+     * 获得养老救护信息
+     */
+    public static String getOldCare = APP + "info/getOldCare";
+
+    /**
+     * 获得遗体捐献的信息
+     */
+    public static String getOrganBodyDonation = APP + "info/getOrganBodyDonation";
+
+    /**
+     * 取消报名
+     */
+    public static String cancelSignUp = APP + "settings/cancelSignUp";
+
+    /**
+     * 提交流言反馈
+     */
+    public static String commitFeedback = APP + "settings/commitFeedback";
+
+    /**
+     * 获得流言反馈
+     */
+    public static String getFeedback = APP + "settings/getFeedback";
+
+
+    /**
+     * 获得首页数据
+     */
+    public static String getIndexInfo = APP + "index/getInfo";
+
+
+    /**
+     * 救护信息列表
+     */
+    public static String selectInfo = ROOT_SERVER + "emergency/ForHelp/selectInfo?pageSize=150";
+
+
+    /**
+     * 救护信息列表
+     */
+    public static String selectInfoSplitPage = ROOT_SERVER + "emergency/ForHelp/selectInfo?pageSize=%d&pageNumber=%d";
+
 
 
     /**

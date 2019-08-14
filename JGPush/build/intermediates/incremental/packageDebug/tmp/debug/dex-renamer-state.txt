@@ -1,0 +1,4 @@
+#Wed Aug 14 01:36:36 EDT 2019
+base.0=/media/fang/codeAndNote/developer/android/lifeTutor/JGPush/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

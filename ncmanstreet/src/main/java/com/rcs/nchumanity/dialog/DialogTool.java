@@ -173,7 +173,9 @@ public abstract class DialogTool<T> implements DialogSet {
                 WindowManager.LayoutParams.FLAG_DITHER, PixelFormat.RGBA_8888
         );
         layoutParams.gravity = position;
-        layoutParams.windowAnimations = style;//小心使用的style错误
+        if(style!=-1){
+            layoutParams.windowAnimations = style;//小心使用的style错误
+        }
         dialog.getWindow().setAttributes(layoutParams);
         bindView(this, dialog, t);
         return dialog;

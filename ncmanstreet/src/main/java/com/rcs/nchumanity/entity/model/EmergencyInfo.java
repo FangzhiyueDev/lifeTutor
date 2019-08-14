@@ -1,8 +1,9 @@
 package com.rcs.nchumanity.entity.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class EmergencyInfo {
+public class EmergencyInfo implements Serializable {
     private Integer emerId;
 
     private Date createTime;
@@ -22,6 +23,24 @@ public class EmergencyInfo {
     private Boolean isDelete;
 
     private String remark;
+
+    private String mobilePhone;
+
+    public Boolean getDelete() {
+        return isDelete;
+    }
+
+    public void setDelete(Boolean delete) {
+        isDelete = delete;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
 
     public Integer getEmerId() {
         return emerId;

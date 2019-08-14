@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/media/fang/codeAndNote/developer/android/lifeTutor/securityandroidpatform/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+            "map": [
+                {
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/blockcanary-android-1.5.0.aar/bf08a15766c1e605e645b4b311618001/res/values-v14/values-v14.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "3",
+                        "endColumns": "12",
+                        "endOffsets": "140"
+                    }
+                }
+            ]
+        }
+    ]
+}

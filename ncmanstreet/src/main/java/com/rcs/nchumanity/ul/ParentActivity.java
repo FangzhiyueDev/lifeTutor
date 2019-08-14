@@ -173,7 +173,7 @@ public abstract class ParentActivity extends AppCompatActivity {
                 permissionSuccess(REQUEST_CODE_PERMISSION);
             } else {
                 permissionFail(REQUEST_CODE_PERMISSION);
-                showTipsDialog();
+              //  showTipsDialog();
             }
         }
     }

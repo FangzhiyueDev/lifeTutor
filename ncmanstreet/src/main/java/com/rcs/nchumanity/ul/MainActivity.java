@@ -1,38 +1,41 @@
 package com.rcs.nchumanity.ul;
 
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
-import com.orhanobut.logger.Logger;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.MyFragmentPageAdapter;
+import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.fragment.JYPXFragment;
 import com.rcs.nchumanity.fragment.MainFragment;
 import com.rcs.nchumanity.fragment.MeFragment;
-import com.rcs.nchumanity.fragment.ParentFragment;
 import com.rcs.nchumanity.fragment.ZYJYFragment;
+import com.rcs.nchumanity.service.JG.LocalBroadcastManager;
+import com.rcs.nchumanity.service.JG.MyReceiver;
 import com.rcs.nchumanity.tool.ActivityStackManager;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.view.CommandBar;
 import com.rcs.nchumanity.view.MyViewPager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * 前后端接口 使用json作为前后端的交互的实现
@@ -99,6 +102,11 @@ public class MainActivity extends ParentActivity {
         ButterKnife.bind(this);
         initView();
 
+
+        registerMessageReceiver();  // used for receive msg
+
+        init();
+
     }
 
     /**
@@ -108,7 +116,7 @@ public class MainActivity extends ParentActivity {
 
     private void initView() {
 
-        for(int i=0;i<cachePage;i++){
+        for (int i = 0; i < cachePage; i++) {
             Tool.setDrawableColor(defColor, downBtns.get(i));
         }
 
@@ -118,7 +126,7 @@ public class MainActivity extends ParentActivity {
         toolbar.hiddenBack();
         toolbar.setTitle(title);
 
-        Log.d(TAG, "initView: "+defaultIndex);
+        Log.d(TAG, "initView: " + defaultIndex);
 
 
         fragments = new ArrayList<>();
@@ -140,6 +148,17 @@ public class MainActivity extends ParentActivity {
 
     @OnClick({R.id.main, R.id.zyjy, R.id.jhpx, R.id.me})
     public void onClick(View view) {
+
+        if (view.getId() == R.id.zyjy) {
+            for (Fragment pf : getSupportFragmentManager().getFragments()) {
+                if (pf instanceof MainFragment) {
+                    Intent intent = new Intent();
+                    intent.setAction(getPackageName());
+                    intent.putExtra(MyReceiver.FUNC, MyReceiver.FUN_CLICK_TIP);
+                    sendBroadcast(intent);
+                }
+            }
+        }
 
         String indexS = (String) view.getTag();
         int index = Integer.parseInt(indexS);
@@ -174,20 +193,103 @@ public class MainActivity extends ParentActivity {
     protected void onRestart() {
         super.onRestart();
 
-        Log.d(TAG, "onRestart: "+defaultIndex);
+        Log.d(TAG, "onRestart: " + defaultIndex);
         if (defaultIndex == cachePage - 1) {
             for (Fragment pf : getSupportFragmentManager().getFragments()) {
                 if (pf instanceof MeFragment) {
-                    ((MeFragment)pf).updateUserData();
+                    ((MeFragment) pf).updateUserData();
                 }
             }
         }
     }
 
 
+    public static boolean isForeground = false;
+
+    /**
+     * 下面是极光推送的和接入
+     */
+
+    // 初始化 JPush。如果已经初始化，但没有登录成功，则执行重新登录。
+    private void init() {
+        JPushInterface.init(getApplicationContext());
+    }
+
+
+    @Override
+    protected void onResume() {
+        isForeground = true;
+        super.onResume();
+    }
+
+
+    @Override
+    protected void onPause() {
+        isForeground = false;
+        super.onPause();
+    }
+
+
     @Override
     protected void onDestroy() {
+        Log.d(TAG, "onDestroy: " + defaultIndex);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
         super.onDestroy();
-        Log.d(TAG, "onDestroy: "+defaultIndex);
     }
+
+
+    //for receive customer msg from jpush server
+    private MessageReceiver mMessageReceiver;
+    public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_MESSAGE = "message";
+    public static final String KEY_EXTRAS = "extras";
+
+    public void registerMessageReceiver() {
+        mMessageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction(MESSAGE_RECEIVED_ACTION);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, filter);
+    }
+
+    public class MessageReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
+                    String messge = intent.getStringExtra(KEY_MESSAGE);
+                    String extras = intent.getStringExtra(KEY_EXTRAS);
+                    StringBuilder showMsg = new StringBuilder();
+                    showMsg.append(KEY_MESSAGE + " : " + messge + "\n");
+                    if (!isEmpty(extras)) {
+                        showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
+                    }
+                    setCostomMsg(showMsg.toString());
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    private void setCostomMsg(String msg) {
+//        if (null != msgText) {
+//            msgText.setText(msg);
+//            msgText.setVisibility(android.view.View.VISIBLE);
+//        }
+    }
+
+
+    public static boolean isEmpty(String s) {
+        if (null == s)
+            return true;
+        if (s.length() == 0)
+            return true;
+        if (s.trim().length() == 0)
+            return true;
+        return false;
+    }
+
+
 }

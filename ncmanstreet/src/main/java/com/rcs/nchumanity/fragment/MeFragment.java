@@ -194,6 +194,10 @@ public class MeFragment extends ParentFragment {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
     }
 }

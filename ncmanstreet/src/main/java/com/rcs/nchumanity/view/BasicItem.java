@@ -64,7 +64,7 @@ public class BasicItem extends LinearLayout {
      *  @param onClickListener
      * @param classification
      */
-    private void setMoreClick(OnClickListener onClickListener, SpecificInfoClassification classification) {
+    private void setMoreClick(OnClickListener onClickListener, String classification) {
         if (onClickListener != null) {
             more = findViewById(R.id.more);
             more.setTag(classification);
@@ -95,8 +95,8 @@ public class BasicItem extends LinearLayout {
         if (m_speinf_speinfCla == null) {
             return;
         }
-        setTitle(m_speinf_speinfCla.specificInfoClassification.getTitle());
-        setMoreClick(onClickListener,m_speinf_speinfCla.specificInfoClassification);
+        setTitle(m_speinf_speinfCla.title);
+        setMoreClick(onClickListener,m_speinf_speinfCla.title);
         if (m_speinf_speinfCla.specificInfos == null) {
             return;
         }

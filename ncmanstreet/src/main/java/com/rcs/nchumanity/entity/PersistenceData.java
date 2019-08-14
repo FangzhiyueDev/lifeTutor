@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentActivity;
+
 import com.rcs.nchumanity.tool.StringTool;
 import com.rcs.nchumanity.ul.InputPasswordActivity;
 
@@ -18,6 +20,7 @@ public class PersistenceData {
 
     public static final String DEF_USER = "-1";
     public static final Object DEF_VAL = "-1";
+    private static final String TOTAL_HELP = "totalHelp";
 
 
     public static String USER_ID = "userId";
@@ -34,6 +37,8 @@ public class PersistenceData {
     public static String PICTURE = "picture";
 
     public static String SESSION_ID = "sessionId";
+
+    public static String CLICKED = "clicked";
 
 
     public static SharedPreferences getSp(Context context) {
@@ -106,7 +111,7 @@ public class PersistenceData {
     public static void setSessionId(Context context, String sessionId) {
         SharedPreferences sp = getSp(context);
         SharedPreferences.Editor editor = sp.edit();
-        if (sessionId==null){
+        if (sessionId == null) {
             return;
         }
         editor.putString(SESSION_ID, sessionId);
@@ -116,6 +121,31 @@ public class PersistenceData {
     public static String getSessionId(Context context) {
         SharedPreferences sp = getSp(context);
         return sp.getString(SESSION_ID, String.valueOf(DEF_VAL));
+    }
+
+
+    public static void setHelpNumber(Context context, int totalI) {
+        SharedPreferences sp = getSp(context);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(TOTAL_HELP, totalI);
+        editor.commit();
+    }
+
+    public static int getHelpNumber(Context context) {
+        SharedPreferences sp = getSp(context);
+        return sp.getInt(TOTAL_HELP, 0);
+    }
+
+    public static boolean getClicked(Context context) {
+        SharedPreferences sp = getSp(context);
+        return sp.getBoolean(CLICKED, false);
+    }
+
+    public static void setClicked(Context context,boolean clicked) {
+        SharedPreferences sp = getSp(context);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean(CLICKED, clicked);
+        editor.commit();
     }
 
 

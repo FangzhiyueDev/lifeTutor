@@ -80,6 +80,15 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'commons-codec:commons-codec:1.8'
     implementation files('libs/BaiduLBS_Android.jar')
+    /**
+     *   添加二维码扫描
+     */
+    implementation 'com.github.yuzhiqiang1993:zxing:2.1.1'
+    implementation files('libs/jcore-android-2.0.1.jar')
+    implementation files('libs/jpush-android-3.3.4.jar')
+    implementation files('libs/jiguang-common-1.1.5.jar')
+    implementation files('libs/jpush-client-3.3.11.jar')
+    implementation files('libs/slf4j-api-1.7.7.jar')
 }
 
 

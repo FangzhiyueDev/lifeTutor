@@ -664,6 +664,8 @@ public class BasicMapActivity extends ParentActivity {
                         MapStartParam.invokeTecentNavi(BasicMapActivity.this, obj.getLocationName(),
                                 obj.getLongitude() + "," + obj.getLatitude());
                         return;
+                    }else {
+                        Toast.makeText(BasicMapActivity.this, "请安装地图软件", Toast.LENGTH_SHORT).show();
                     }
                 });
 

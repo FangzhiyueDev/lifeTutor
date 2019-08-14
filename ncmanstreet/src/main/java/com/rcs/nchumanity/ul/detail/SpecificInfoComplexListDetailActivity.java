@@ -1,11 +1,15 @@
 package com.rcs.nchumanity.ul.detail;
 
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.rcs.nchumanity.R;
@@ -21,6 +25,8 @@ import com.rcs.nchumanity.tool.StringTool;
  */
 public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity<SpecificInfo> {
 
+
+    public static final String DATA = "data";
 
     @Override
     protected int getViewLayoutId() {
@@ -59,27 +65,48 @@ public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity
          */
         ViewGroup imgArea = view.findViewById(R.id.imgArea);
 
-        for (String url : specificInfo.getImgUrl().split(StringTool.DELIMITER)) {
+        String imgs=specificInfo.getImgUrl();
 
-            ImageView imageView = new ImageView(this);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Glide.with(this).load(url).into(imageView);
-            imgArea.addView(imageView);
+        if(imgs!=null&&(!TextUtils.isEmpty(imgs))&&(!imgs.equals("null"))){
+            for (String url : specificInfo.getImgUrl().split(StringTool.DELIMITER)) {
+                ImageView imageView = new ImageView(this);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                Glide.with(this).load(url).into(imageView);
+                imgArea.addView(imageView);
+            }
         }
+
 
         /**
          * 设置视频的播放地址
+
          */
-        if (!TextUtils.isEmpty(specificInfo.getVideoUrl())) {
+
+        String videoUrl=specificInfo.getVideoUrl();
+        if (videoUrl!=null&&(!TextUtils.isEmpty(videoUrl))&&(!videoUrl.equals("null"))) {
             videoPlayFragment.setUrl(specificInfo.getVideoUrl());
         } else {
             videoPlayFragment.setVisiblity(View.GONE);
         }
 
-        if (!TextUtils.isEmpty(specificInfo.getContent())) {
+        String contentS=specificInfo.getContent();
+        if (contentS!=null&&(!TextUtils.isEmpty(contentS))&&(!contentS.equals("null"))) {
             TextView content = view.findViewById(R.id.content);
-            content.setText(specificInfo.getContent());
+            content.setText(StringTool.TEXT_INDENT+specificInfo.getContent());
         }
+    }
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        info= (SpecificInfo) getIntent().getExtras().getSerializable(DATA);
+        Log.d("test", "onCreate: ==="+info);
+
+        if(info==null){
+            throw new IllegalArgumentException("please transport data");
+        }
+        bundleData();
     }
 }

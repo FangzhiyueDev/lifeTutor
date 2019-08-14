@@ -32,12 +32,12 @@ public class ComplexModelSet {
      */
     public static class M_speinf_speinfCla {
 
-        public SpecificInfoClassification specificInfoClassification;
+        public String  title;
 
         public List<SpecificInfo> specificInfos;
 
-        public M_speinf_speinfCla(SpecificInfoClassification specificInfoClassification, List<SpecificInfo> specificInfos) {
-            this.specificInfoClassification = specificInfoClassification;
+        public M_speinf_speinfCla(String title, List<SpecificInfo> specificInfos) {
+            this.title = title;
             this.specificInfos = specificInfos;
         }
     }
@@ -250,4 +250,38 @@ public class ComplexModelSet {
     }
 
 
+    public static class M_traiCla_areaInf {
+
+        public int classId;
+
+        public String starTime;
+        public String position;
+
+        public String maxNum;
+
+        public String leftNum;
+
+        public String org;
+
+        public int  vrAttr;
+
+        public boolean vrClass;
+
+        public String area;
+
+        public M_traiCla_areaInf(int classId, String starTime, String position, String maxNum, String leftNum, String org, int vrAttr, boolean vrClass, String area) {
+            this.classId = classId;
+            this.starTime = starTime;
+            this.position = position;
+            this.maxNum = maxNum;
+            this.leftNum = leftNum;
+            this.org = org;
+            this.vrAttr = vrAttr;
+            this.vrClass = vrClass;
+            this.area = area;
+        }
+
+        public M_traiCla_areaInf() {
+        }
+    }
 }

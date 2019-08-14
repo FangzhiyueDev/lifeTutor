@@ -21,13 +21,6 @@
             android:orientation="vertical">
 
 
-            <!--<VideoView-->
-            <!--android:id="@+id/video"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--app:layout_heightPercent="27%" />-->
-            <!--<include layout="@layout/include_video_play"></include>-->
-
             <fragment
                 android:id="@+id/videoFragment"
                 android:name="com.rcs.nchumanity.fragment.VideoPlayFragment"
@@ -46,12 +39,6 @@
                  用来实现数据库中的img进行的填充
                 -->
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/banner1" />
-
             </LinearLayout>
 
 
@@ -61,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="3sp"
                 android:padding="5dp"
-                android:text="@string/cswb"
                 android:textColor="#111" />
 
 

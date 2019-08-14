@@ -17,6 +17,8 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 /**
@@ -46,8 +48,11 @@ public class ExampleInstrumentedTest {
 //        BasicResponse basicResponse=new Gson().fromJson(value,BasicResponse.class);
 
 
+//        2019-08-06T04:45:35.000+0000
 
+        Date  date=new Date("2019-08-06T04:45:35.000+0000");
 
+        assertNull(date);
 
 
 

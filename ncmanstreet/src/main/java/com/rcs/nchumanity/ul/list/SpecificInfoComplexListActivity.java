@@ -3,10 +3,12 @@ package com.rcs.nchumanity.ul.list;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.entity.BasicResponse;
@@ -18,8 +20,13 @@ import com.rcs.nchumanity.entity.modelInter.SpecificInfoWithLocation;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.list.ComplexListActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Response;
@@ -30,6 +37,10 @@ import okhttp3.Response;
 public class SpecificInfoComplexListActivity extends ComplexListActivity<SpecificInfoWithLocation> {
 
 
+    public static final String URL = "url";
+
+    public static final String CLASS_NAME = "className";
+
     @Override
     protected void bindViewValue(ListViewCommonsAdapter.ViewHolder holder, SpecificInfoWithLocation obj) {
         holder.setText(R.id.itemName, obj.getTitle());
@@ -38,13 +49,17 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
     @Override
     protected void itemClick(AdapterView<?> parent, View view, int position, long id, SpecificInfoWithLocation item) {
         Bundle bundle = new Bundle();
-        if(item.getLatitude()!=null){
+        if (item.getLatitude() != null) {
 
             //进入
 
 
-        }else {
 
+
+
+
+
+        } else {
 
 
         }
@@ -60,21 +75,29 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SpecificInfoClassification spclass = (SpecificInfoClassification) getIntent().getExtras().getSerializable(SpecificInfoClassification.class.getSimpleName());
+        String name = getIntent().getExtras().getString(CLASS_NAME);
 
-        if (spclass == null) {
+        if (name == null) {
             throw new InvalidParameterException("param is not match");
         }
-        setTitle(spclass.getTitle());
+        setTitle(name);
 
         loadDataForNet();
 
     }
 
 
+    /**
+     * 加载网络数据
+     */
     private void loadDataForNet() {
-        String param = String.format(NetConnectionUrl.getSpecificInfoForClassId, size, page);
-        loadDataGetForForce(param, "loadData");
+
+        String url = getIntent().getExtras().getString(URL);
+
+        if (url == null) {
+            throw new IllegalArgumentException("please transport parameter ");
+        }
+        loadDataGetForForce(url, "loadData");
     }
 
 
@@ -101,7 +124,7 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
             isFlush = false;
             page++;
             //加载数据
-            loadDataForNet();
+//            loadDataForNet();
         }
     }
 
@@ -111,28 +134,122 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
 
         BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
 
-        switch (what) {
-            case "loadData":
+        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
 
-                ComplexModelSet.M_speinf_speinfClaLoca specificInfoClassWidthLoca = (ComplexModelSet.M_speinf_speinfClaLoca) br.object;
+            switch (what) {
+                case "loadData":
 
-                List<SpecificInfoWithLocation> specificInfos = specificInfoClassWidthLoca.infoWithLocations;
+                    try {
+                        JSONObject brJ = new JSONObject(backData[0]);
 
-                if (specificInfos.size() < size) {
-                    //代表的是没有数据了
-                    notData = true;
-                } else {
-                    notData = false;
-                }
+                        JSONArray object = brJ.getJSONArray("object");
 
-                //当数据加载完成后，判断是否是进行的刷新，如果是就代表刷新结束
-                if (!notData) {
-                    isFlush = true;//代表我们已经可以再一次的刷新了
-                } else {
-                    isFlush = false;//如果没有数据，就不能在刷新
-                }
-                addDataList(specificInfos);
-                break;
+
+                        JSONArray infos = object.getJSONArray(0);
+                        JSONArray locations = object.getJSONArray(1);
+
+
+                        margeData(infos, locations);
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
+//                if (specificInfos.size() < size) {
+//                    //代表的是没有数据了
+//                    notData = true;
+//                } else {
+//                    notData = false;
+//                }
+//
+//                //当数据加载完成后，判断是否是进行的刷新，如果是就代表刷新结束
+//                if (!notData) {
+//                    isFlush = true;//代表我们已经可以再一次的刷新了
+//                } else {
+//                    isFlush = false;//如果没有数据，就不能在刷新
+//                }
+//                addDataList(specificInfos);
+//                break;
+            }
+        }else {
+            Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void margeData(JSONArray infos, JSONArray locations) throws JSONException {
+        for (int i = 0; i < locations.length(); i++) {
+            infos.put(locations.getJSONObject(i));
+        }
+
+
+        List<SpecificInfoWithLocation> specificInfoWithLocations = new ArrayList<>();
+
+
+        for (int i = 0; i < infos.length(); i++) {
+
+            JSONObject specJ = infos.getJSONObject(i);
+
+            String title = specJ.getString("title");
+            String createTime = null;
+            String icon = null;
+            String videoId = null;
+            String videoUrl = null;
+            String editor = null;
+            String imageUrl = null;
+            String content = null;
+            double longitute = 0;
+            double latitude = 0;
+            if (specJ.has("createTime")) {
+                createTime = specJ.getString("createTime");
+            }
+
+            if (specJ.has("icon")) {
+                icon = specJ.getString("icon");
+            }
+
+            if (specJ.has("videoId")) {
+                videoId = specJ.getString("videoId");
+            }
+
+            if (specJ.has("videoUrl")) {
+                videoUrl = specJ.getString("videoUrl");
+            }
+
+            if (specJ.has("editor")) {
+                editor = specJ.getString("editor");
+            }
+
+            if (specJ.has("imgUrl")) {
+                imageUrl = specJ.getString("imgUrl");
+            }
+
+            if (specJ.has("content")) {
+                content = specJ.getString("content");
+            }
+
+            if (specJ.has("longitute")) {
+                longitute = specJ.getDouble("longitute");
+            }
+
+            if (specJ.has("latitude")) {
+                latitude = specJ.getDouble("latitude");
+            }
+
+            SpecificInfoWithLocation specificInfo = new SpecificInfoWithLocation();
+            specificInfo.setTitle(title);
+            specificInfo.setIcon(icon);
+            specificInfo.setVideoId(videoId);
+            specificInfo.setVideoUrl(videoUrl);
+            specificInfo.setEditor(editor);
+            specificInfo.setContent(content);
+            specificInfo.setImgUrl(imageUrl);
+            specificInfo.setLatitude((float) latitude);
+            specificInfo.setLongitude((float) longitute);
+            specificInfoWithLocations.add(specificInfo);
+        }
+
+        setDataList(specificInfoWithLocations);
     }
 }

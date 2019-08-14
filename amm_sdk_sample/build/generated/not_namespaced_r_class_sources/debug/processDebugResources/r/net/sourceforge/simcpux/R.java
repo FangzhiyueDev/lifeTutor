@@ -127,7 +127,6 @@ public final class R {
     public static final int preference_one_item=0x7f050040;
     public static final int send_img=0x7f050041;
     public static final int send_music_thumb=0x7f050042;
-    public static final int send_music_thumb_backup=0x7f050043;
   }
   public static final class id {
     public static final int appay_btn=0x7f060000;

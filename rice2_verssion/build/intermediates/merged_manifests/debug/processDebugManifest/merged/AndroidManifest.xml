@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xiaofangfang.rice2_verssion" android:versionName="1.0" android:versionCode="1">
+  <uses-sdk android:targetSdkVersion="28" android:minSdkVersion="15"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.SEND_SMS"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <application android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.xiaofangfang.rice2_verssion.application.MyApplication" android:theme="@style/AppTheme" android:networkSecurityConfig="@xml/network_security_config" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round">
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.IndexActivity" android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.AddvanceBack" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.AboutSoftware" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.SelfDetailInfoActivity" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.LoginActivity" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.ProductSalePageActivity" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.QuerySetmealUseInfoEntry" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.RegisterUserActivity" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.Setting" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.CardDetailActivity" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.FlowInfoRecordActivity" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.ShortMessageTatour2" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.ShortMessageTatour1" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.MessageWork" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.ServerTatour" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.InternetManyou" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.AddAddress" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.AddressManager" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.WeChatAQQCode" android:screenOrientation="portrait"/>
+    <activity android:name="com.xiaofangfang.rice2_verssion.activity.SubmitCardProgress" android:screenOrientation="portrait"/>
+    <provider android:name="com.mob.MobProvider" android:exported="false" android:authorities="com.xiaofangfang.rice2_verssion.com.mob.MobProvider" android:multiprocess="true"/>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppKey" android:value="d580ad56b4b5" tools:node="merge"/>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppSecret" android:value="7fcae59a62342e7e2759e9e397c82bdd" tools:node="merge"/>
+    <activity xmlns:tools="http://schemas.android.com/tools" android:windowSoftInputMode="stateHidden|adjustResize" android:name="com.mob.tools.MobUIShell" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" tools:node="merge"/>
+  </application>
+  <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+  <uses-permission android:name="android.permission.READ_CONTACTS"/>
+</manifest>

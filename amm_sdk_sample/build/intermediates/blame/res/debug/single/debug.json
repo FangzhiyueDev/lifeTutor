@@ -88,12 +88,12 @@
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable/btn_style_alert_dialog_button.xml"
     },
     {
-        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-hdpi_mm_listitem_pressed.9.png.flat",
-        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable-hdpi/mm_listitem_pressed.9.png"
-    },
-    {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-hdpi_btn_style_alert_dialog_button_pressed.9.png.flat",
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable-hdpi/btn_style_alert_dialog_button_pressed.9.png"
+    },
+    {
+        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-hdpi_mm_listitem_pressed.9.png.flat",
+        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable-hdpi/mm_listitem_pressed.9.png"
     },
     {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/color_mm_pref_summary.xml.flat",
@@ -104,12 +104,12 @@
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/mm_preference_child.xml"
     },
     {
-        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_alert_dialog_menu_list_layout_title.xml.flat",
-        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/alert_dialog_menu_list_layout_title.xml"
-    },
-    {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/color_mm_style_two_btn_text.xml.flat",
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/color/mm_style_two_btn_text.xml"
+    },
+    {
+        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_alert_dialog_menu_list_layout_title.xml.flat",
+        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/alert_dialog_menu_list_layout_title.xml"
     },
     {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable_list_selector_background.xml.flat",
@@ -120,28 +120,28 @@
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/mm_preference_submenu.xml"
     },
     {
-        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_mm_title.xml.flat",
-        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/mm_title.xml"
+        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable_mm_title_btn_right.xml.flat",
+        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable/mm_title_btn_right.xml"
     },
     {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-ldpi_ic_launcher.png.flat",
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable-ldpi/ic_launcher.png"
     },
     {
-        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable_mm_title_btn_right.xml.flat",
-        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable/mm_title_btn_right.xml"
+        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_mm_title.xml.flat",
+        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/mm_title.xml"
     },
     {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-hdpi_ic_preference_first_normal.9.png.flat",
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable-hdpi/ic_preference_first_normal.9.png"
     },
     {
-        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_mm_preference_dialog_edittext.xml.flat",
-        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/mm_preference_dialog_edittext.xml"
-    },
-    {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_mm_activity.xml.flat",
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/mm_activity.xml"
+    },
+    {
+        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_mm_preference_dialog_edittext.xml.flat",
+        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/layout/mm_preference_dialog_edittext.xml"
     },
     {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-hdpi_mm_listitem_disable.9.png.flat",
@@ -154,10 +154,6 @@
     {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-hdpi_btn_check_off_normal.png.flat",
         "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable-hdpi/btn_check_off_normal.png"
-    },
-    {
-        "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/drawable-hdpi_send_music_thumb_backup.png.flat",
-        "source": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/src/main/res/drawable-hdpi/send_music_thumb_backup.png"
     },
     {
         "merged": "/media/fang/codeAndNote/developer/android/lifeTutor/amm_sdk_sample/build/intermediates/res/merged/debug/layout_webalert.xml.flat",
