@@ -30,16 +30,65 @@ public class BasicResponse {
     /**
      * 注册成功
      */
-    public static final int REGISTED_SUCCESS = 0x003;
+    public static final int REGISTED_SUCCESS = 3;
 
     /**
      * 登录成功
      */
-    public static final int LOGIN_SUCCESS = 004;
+    public static final int LOGIN_SUCCESS = 4;
 
     public static final int RESPONSE_SUCCESS = 200;
     public static final int CHANGE_PASSWORD_SUCCESS = 3;
     public static final int NOT_LOGIN = 401;
+    public static final int PASSWORD_ERROR = 5;
+
+    public static final String MESSAGE_OTHER = "用户未登入";
+
+    /**
+     * 用户非登录除外的其他错误
+     */
+    public static final int OTHER = 401;
+
+
+    public static final int NOT_REQUIRED = 202;
+
+    /**
+     * 验证码错误
+     */
+    public static final int VALIDATE_CODE_ERROR = 6;
+
+    /**
+     * 不能达到要求
+     */
+    public static final int NOT_REQUIRED_201 = 201;
+
+    /**
+     * 操作不允许
+     */
+    public static final int NOT_CANCEL = 501;
+
+    /**
+     * 重复报名
+     */
+    public static final int REPEAT_SIGN_UP = 207;
+
+    /**
+     * 不能报名
+     */
+    public static final int NOT_SIGNIN = 207;
+    /**
+     * 修改密码成功
+     */
+    public static final int CHANGE_PASSWORD_SUCCESS_11 = 11;
+    /**
+     * 报名成功
+     */
+    public static int SignUpSuccess = 4;
+
+    /**
+     * 取消操作失败
+     */
+    public static int CANCEL_FAIL = 500;
 
 
     /**

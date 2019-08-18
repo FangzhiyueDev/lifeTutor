@@ -17,6 +17,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.rcs.nchumanity.R;
+import com.rcs.nchumanity.tool.DensityConvertUtil;
+import com.rcs.nchumanity.tool.Tool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,12 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
 
     private int cardRadius = 10;
 
+    private int marginLeft;
+
+    private int dis;
+
+    private int marginBottom;
+
     /**
      * 这个设置的图片的地址
      */
@@ -97,11 +105,11 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
             LinearLayout.LayoutParams ly = new LinearLayout.LayoutParams(20, 20);
             ly.gravity = Gravity.CENTER_VERTICAL;
             if (i == 0) {
-                ly.leftMargin = 40;
+                ly.leftMargin = marginLeft;
             } else {
-                ly.leftMargin = 5;
+                ly.leftMargin = dis;
             }
-            ly.bottomMargin = 20;
+            ly.bottomMargin =marginBottom;
             view.setBackgroundResource(R.drawable.circle);
             view.setLayoutParams(ly);
 
@@ -115,6 +123,10 @@ public class BannerFlip extends FrameLayout implements ViewPager.OnPageChangeLis
     LinearLayout linearLayout;
 
     private void initView() {
+
+        marginLeft= DensityConvertUtil.dp2px(getContext(),20);
+        dis=DensityConvertUtil.dp2px(getContext(),5);
+        marginBottom=DensityConvertUtil.dp2px(getContext(),10);
         imageViews = new ArrayList<>();
         viewPager = new ViewPager(getContext());
 

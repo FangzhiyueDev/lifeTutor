@@ -30,4 +30,6 @@
     <integer name="index3">3</integer>
 
 
+    <color name="navpage">#FFE1E8EB</color>
+
 </resources>

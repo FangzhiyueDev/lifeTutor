@@ -38,6 +38,9 @@ public class LocalPoint implements ILocaPoint {
     public String position = null;
 
 
+    public boolean isHelp;
+
+
     @Override
     public Double getLongitude() {
         return longitude;
@@ -66,5 +69,10 @@ public class LocalPoint implements ILocaPoint {
     @Override
     public void setDistance(String distance) {
         this.distance = distance;
+    }
+
+    @Override
+    public boolean isHelp() {
+        return isHelp;
     }
 }

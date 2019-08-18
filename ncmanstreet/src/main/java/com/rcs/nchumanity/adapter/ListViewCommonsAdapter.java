@@ -1,6 +1,7 @@
 package com.rcs.nchumanity.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +20,9 @@ import java.util.ArrayList;
 
 /**
  * 由于我们不在清除，内部使用什么样的bean来作为封装的数据，所以我们只能通过泛型机制进行bean测接收
- *
+ * <p>
  * 该类是listview的通用适配器，实现是的是通用的效果实现，对于部分特别的功能，如果考虑listview的item错乱问题
  * 可以使用原始的最基本的开发实现方式。
- *
  *
  * @param <T>
  */
@@ -63,8 +63,6 @@ public abstract class ListViewCommonsAdapter<T> extends BaseAdapter {
         bindView(holder, getItem(position));
         return holder.getItemView();
     }
-
-
 
 
     public abstract void bindView(ViewHolder holder, T obj);
@@ -205,6 +203,20 @@ public abstract class ListViewCommonsAdapter<T> extends BaseAdapter {
                 ((CheckBox) view).setOnCheckedChangeListener(changeListener);
             }
 
+        }
+
+        /**
+         * 设置 上面的drawable
+         * @param id
+         * @param drawableId
+         */
+        public void setDrawableTop(int id, int drawableId) {
+            View view=getView(id);
+            if(view instanceof TextView){
+                 Drawable res=view.getContext().getResources().getDrawable(drawableId);
+                res.setBounds(0, 0, res.getMinimumWidth(), res.getMinimumHeight());
+                ((TextView) view).setCompoundDrawables(null,res,null,null);
+            }
         }
     }
 

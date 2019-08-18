@@ -12,7 +12,6 @@ public class AboutWeActivity extends ParentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_me);
-
     }
 
 }

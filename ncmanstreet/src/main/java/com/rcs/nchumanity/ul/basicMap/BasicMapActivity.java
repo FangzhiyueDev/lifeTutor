@@ -490,8 +490,6 @@ public class BasicMapActivity extends ParentActivity {
         locationBuilder.longitude(location.getLongitude());
         MyLocationData locationData = locationBuilder.build();
         baiduMap.setMyLocationData(locationData);
-
-
     }
 
     /**

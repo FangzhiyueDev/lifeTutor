@@ -1,5 +1,6 @@
 package com.rcs.nchumanity.fragment;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,6 +18,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.entity.BasicResponse;
@@ -23,10 +29,16 @@ import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.entity.model.EmergencyInfo;
 import com.rcs.nchumanity.service.JG.MyReceiver;
+import com.rcs.nchumanity.service.JG_server.JGServer_sendNotification;
 import com.rcs.nchumanity.tool.ActivityStackManager;
 import com.rcs.nchumanity.tool.DateProce;
+import com.rcs.nchumanity.tool.JsonDataParse;
+import com.rcs.nchumanity.tool.LBSallocation;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.MainActivity;
+import com.rcs.nchumanity.ul.basicMap.BasicMapChangeActivity;
+import com.rcs.nchumanity.ul.basicMap.ILocaPoint;
+import com.rcs.nchumanity.ul.basicMap.LocalPoint;
 import com.rcs.nchumanity.ul.list.EmergencyComplexListActivity;
 import com.rcs.nchumanity.view.CommandBar;
 
@@ -41,7 +53,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -64,7 +78,7 @@ public class ZYJYFragment extends ParentFragment {
     ImageButton sendHelp;
 
     @BindView(R.id.rootHelpView)
-      LinearLayout rootHelpView;
+    LinearLayout rootHelpView;
 
 
     public static final String ACTION_HELP_DATA = "com.fang.getHelpData.ACTION";
@@ -121,16 +135,19 @@ public class ZYJYFragment extends ParentFragment {
         super.setUserVisibleHint(isVisibleToUser);
     }
 
+    private  EmergencyInfo currentClickEmergencyInfo;
+    private LocalPoint currentHelpLocation;
+
     @Override
     public void onSucess(Response response, String what, String... backData) throws IOException {
         super.onSucess(response, what, backData);
         BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
         if (br.code == BasicResponse.RESPONSE_SUCCESS) {
 
-            if(what.equals("selectInfo")){
+            if (what.equals("selectInfo")) {
                 try {
                     List<EmergencyInfo> emergencyInfos1 = new ArrayList<>();
-                    List<EmergencyInfo> emergencyInfos = parseEmergencyData(backData[0]);
+                    List<EmergencyInfo> emergencyInfos = JsonDataParse.parseEmergencyData(backData[0]);
 
                     for (EmergencyInfo emergencyInfo : emergencyInfos) {
 
@@ -147,6 +164,8 @@ public class ZYJYFragment extends ParentFragment {
                         String title = emergencyInfo.getTitle();
                         String content = emergencyInfo.getContent();
                         double lantitute = emergencyInfo.getLatitude();
+                        Date createDate = emergencyInfo.getCreateTime();
+                        int emerId = emergencyInfo.getEmerId();
                         double longitude = emergencyInfo.getLongitude();
                         String mobile = emergencyInfo.getMobilePhone();
 
@@ -154,30 +173,60 @@ public class ZYJYFragment extends ParentFragment {
                         TextView titleS = view.findViewById(R.id.title);
                         titleS.setText(title);
                         TextView des = view.findViewById(R.id.des);
-                        des.setText(content);
-                        view.findViewById(R.id.join).setOnClickListener((v) -> {
-                            //进入地图显示界面
+                        des.setText(DateProce.formatDate(createDate) + "\t\t" + content);
 
+                        Button join = view.findViewById(R.id.join);
+                        join.setTag(emergencyInfo);
+                        view.findViewById(R.id.join).setOnClickListener((v) -> {
+                            /**
+                             * 重置aed数据
+                             */
+                            resetInfo();
+                            //进入地图显示界面
+                            currentClickEmergencyInfo = (EmergencyInfo) v.getTag();
+                             currentHelpLocation = new LocalPoint(lantitute, longitude, "用户" + mobile, "", content);
+                            currentHelpLocation.isHelp = true;
+
+                            LBSallocation.startLocationWithFragment(this, JYPXFragment.requestPermissionCode_DW);
 
                         });
                         rootHelpView.addView(view);
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (what.equals("aedInfo")) {
+                try {
+                        ArrayList<ILocaPoint> locaPoints = JsonDataParse.getAEDLocations(backData[0]);
+                        locaPoints.add(0, currentHelpLocation);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable(BasicMapChangeActivity.DATA, locaPoints);
+                        Tool.startActivity(getContext(), BasicMapChangeActivity.class, bundle);
+                        //提交响应数据到数据库
+
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-
+            } else if (what.equals("addResEmergency")) {
+                loadDataGet(NetConnectionUrl.getAEDList, "aedInfo");
             }
-
-
-
-
         } else if (br.code == BasicResponse.NOT_LOGIN) {
             Tool.loginCheck(getActivity());
         } else {
             Toast.makeText(getActivity(), "发生错误", Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * 重置aed的数据
+     */
+    private void resetInfo() {
+        currentClickEmergencyInfo=null;
+        currentHelpLocation=null;
+    }
+
+
 
 
     @OnClick(R.id.sendHelp)
@@ -195,7 +244,7 @@ public class ZYJYFragment extends ParentFragment {
     }
 
 
-    public  class HelpDataBroadcastReceiver extends BroadcastReceiver {
+    public class HelpDataBroadcastReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -204,54 +253,11 @@ public class ZYJYFragment extends ParentFragment {
 
             String func = intent.getStringExtra(MyReceiver.FUNC);
 
-            if (func.equals(MyReceiver.FUN_NOTIFICATION)){
+            if (func.equals(MyReceiver.FUN_NOTIFICATION)) {
                 loadDataGet(NetConnectionUrl.selectInfo, "selectInfo");
             }
         }
     }
-
-
-    /**
-     * 解析出当前的求救的数据
-     *
-     * @param backDatum
-     * @return
-     */
-    private ArrayList<EmergencyInfo> parseEmergencyData(String backDatum) throws JSONException {
-        JSONObject brJ = new JSONObject(backDatum);
-        JSONObject data = brJ.getJSONObject("data");
-        JSONArray totalList = data.getJSONArray("list");
-
-        ArrayList<EmergencyInfo> emergencyInfos = new ArrayList<>();
-
-        for (int i = 0; i < totalList.length(); i++) {
-            EmergencyInfo emergencyInfo = new EmergencyInfo();
-            JSONObject emerO = totalList.getJSONObject(i);
-            int emerId = emerO.getInt("emerId");
-            String createTime = emerO.getString("createTime");
-            String title = emerO.getString("title");
-            String content = emerO.getString("content");
-            int longitude = emerO.getInt("longitude");
-            double latitude = emerO.getDouble("latitude");
-            int readCount = emerO.getInt("readCount");
-            String mobilePhone = emerO.getString("mobilePhone");
-            int userId = emerO.getInt("userId");
-            emergencyInfo.setContent(content);
-            emergencyInfo.setCreateTime(DateProce.parseDate(createTime));
-            emergencyInfo.setEmerId(emerId);
-            emergencyInfo.setTitle(title);
-            emergencyInfo.setLatitude((float) latitude);
-            emergencyInfo.setLongitude((float) longitude);
-            emergencyInfo.setUserId(userId);
-            emergencyInfo.setReadCount(readCount);
-            emergencyInfo.setMobilePhone(mobilePhone);
-            emergencyInfos.add(emergencyInfo);
-        }
-        return emergencyInfos;
-    }
-
-
-
 
 
     public static Date getBeforeDay() {
@@ -262,6 +268,38 @@ public class ZYJYFragment extends ParentFragment {
     }
 
 
+    @Override
+    public void permissionSuccess(int requestCode) {
+        super.permissionSuccess(requestCode);
+        if (requestCode == JYPXFragment.requestPermissionCode_DW) {
+            LBSallocation.getCurrentLocation(getContext(), new BDAbstractLocationListener() {
+                @Override
+                public void onReceiveLocation(BDLocation bdLocation) {
+                    //aed分布的实现
 
+                    /**
+                     * 提交响应数据到数据库
+                     */
+                    Map<String, String> param = new HashMap<>();
+                    param.put("emerId", currentClickEmergencyInfo.getEmerId() + "");
+                    param.put("latitude", bdLocation.getLatitude() + "");
+                    param.put("longitude", bdLocation.getLongitude() + "");
+                    param.put("resMobilePhone", currentClickEmergencyInfo.getMobilePhone());
+                    param.put("mobilephone", PersistenceData.getPhoneNumber(getContext()));
+                    param.put("userId", PersistenceData.getUserId(getContext()));
 
+                    loadDataPost(NetConnectionUrl.addResEmergency, "addResEmergency", param);
+
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if(helpDataBroadcastReceiver!=null) {
+            getActivity().unregisterReceiver(helpDataBroadcastReceiver);
+        }
+        super.onDestroy();
+    }
 }

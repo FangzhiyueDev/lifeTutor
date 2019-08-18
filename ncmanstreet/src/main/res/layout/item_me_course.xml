@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="13dp"
                 android:layout_toRightOf="@+id/timeTag"
-                android:text="2019/10/11 8:00" />
+                 android:id="@+id/dateTime"
+                />
 
             <TextView
                 android:id="@+id/address"
@@ -46,8 +47,8 @@
                 android:layout_alignTop="@id/address"
                 android:layout_marginLeft="13dp"
                 android:layout_toRightOf="@+id/timeTag"
-                android:text="南昌大学(前湖校区) 培训基地(VR)"
                 android:textColor="#ff333333"
+                android:id="@+id/trainPosition"
                 android:textSize="13sp" />
 
             <TextView
@@ -66,7 +67,7 @@
                 android:layout_alignTop="@id/count"
                 android:layout_marginLeft="13dp"
                 android:layout_toRightOf="@+id/count"
-                android:text="30人"
+                android:id="@+id/currentCount"
                 android:textColor="#ff333333"
                 android:textSize="13sp" />
 
@@ -86,7 +87,7 @@
                 android:layout_alignTop="@id/trainCom"
                 android:layout_marginLeft="13dp"
                 android:layout_toRightOf="@+id/trainCom"
-                android:text="南昌红十字会"
+                android:id="@+id/trainOrg"
                 android:textColor="#ff333333"
                 android:textSize="13sp" />
 

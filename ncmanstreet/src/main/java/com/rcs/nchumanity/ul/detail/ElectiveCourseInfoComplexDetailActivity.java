@@ -58,9 +58,9 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
     @Override
     protected void bindView(View view, OnlineCourseInfo obj) {
 
-        if(isError){
+        if (isError) {
             view.setVisibility(View.INVISIBLE);
-        }else {
+        } else {
 
             /**
              * 设置标题
@@ -95,22 +95,27 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 Glide.with(this).load(url).into(imageView);
-                imgArea.addView(imageView,lp);
+                imgArea.addView(imageView, lp);
             }
 
 
             /**
              * 设置视频的播放地址
              */
-            if (!TextUtils.isEmpty(obj.getVideoUrl())) {
+            if (!TextUtils.isEmpty(obj.getVideoUrl()) && (!"null".equals(obj.getVideoUrl()))) {
                 videoPlayFragment.setUrl(obj.getVideoUrl());
             } else {
                 videoPlayFragment.setVisiblity(View.GONE);
             }
 
-            if (!TextUtils.isEmpty(obj.getWriting())) {
+            if (!TextUtils.isEmpty(obj.getWriting()) && (!"null".equals(obj.getWriting()))) {
                 TextView content = view.findViewById(R.id.content);
-                content.setText(StringTool.TEXT_INDENT+obj.getWriting());
+                content.setText(StringTool.TEXT_INDENT + obj.getWriting());
+            }
+
+            if (!TextUtils.isEmpty(obj.getTitle()) && (!"null".equals(obj.getTitle()))) {
+                TextView title = view.findViewById(R.id.title);
+                title.setText(obj.getTitle());
             }
 
 
@@ -122,20 +127,21 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
     }
 
     private void postWatchData(OnlineCourseInfo obj) {
-
-        Map<String, String> param = new HashMap<>();
-        param.put("courseNo", obj.getCourseNo() + "");
-        param.put("startTime", System.currentTimeMillis() + "");
-        param.put("totalTime", totalTime + "");
-        loadDataPost(NetConnectionUrl.submitWatchData, "postWatchData", param);
+        if (obj != null && isError == false) {
+            Map<String, String> param = new HashMap<>();
+            param.put("courseNo", courseNo + "");
+//            param.put("startTime", System.currentTimeMillis() + "");
+            param.put("totalTime", totalTime + "");
+            loadDataPostSilence(NetConnectionUrl.submitWatchData, "postWatchData", param);
+        }
     }
 
 
-    private  Thread thread;
+    private Thread thread;
 
-    private  boolean isStartTime=false;
+    private boolean isStartTime = false;
 
-    private int totalTime=0;
+    private int totalTime = 0;
 
     @BindView(R.id.toolbar)
     CommandBar toolbar;
@@ -145,7 +151,6 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
         super.onCreate(savedInstanceState);
 
 
-
         thread = new Thread(() -> {
             while (isStartTime) {
                 try {
@@ -153,14 +158,14 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                    totalTime++;
+                totalTime++;
                 Log.d("test", "当前停留时长" + totalTime);
             }
         });
 
-        isStartTime=true;
+        isStartTime = true;
 
-        String courseNo = getIntent().getExtras().getString(COURSE_NO);
+        courseNo = getIntent().getExtras().getString(COURSE_NO);
         ButterKnife.bind(this);
 
         if (courseNo == null) {
@@ -171,6 +176,8 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
         String param = String.format(NetConnectionUrl.getOnlineCourseContentForId, courseNo);
         loadDataGet(param, "courseDetail");
     }
+
+    private String  courseNo;
 
     @Override
     public void onSucessful(Response response, String what, String... backData) throws IOException {
@@ -194,8 +201,8 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
                         String title = courseDetail.getString("title");
 
                         String videoUrl = null;
-//                          videoUrl  = courseDetail.getString("videoUrl");
-                        videoUrl = "http://172.27.35.12:8080/GF/video.mp4";
+                        videoUrl = courseDetail.getString("videoUrl");
+//                        videoUrl = "http://172.27.35.12:8080/GF/video.mp4";
 
                         String imgUrl = courseDetail.getString("imgUrl");
 
@@ -203,7 +210,7 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
 
                         String remark = courseDetail.getString("remark");
 
-                        info=new OnlineCourseInfo();
+                        info = new OnlineCourseInfo();
 
                         info.setCourseNo(courseNo);
                         info.setTitle(title);
@@ -212,22 +219,28 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
                         info.setWriting(writing);
                         info.setRemark(remark);
                         bundleData();
-
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    isError = true;
+                    Toast.makeText(this, "暂无数据", Toast.LENGTH_SHORT).show();
+                    info = new OnlineCourseInfo();
+                    bundleData();
                 }
-            }else {
+            } else {
                 Toast.makeText(this, "数据加载出错", Toast.LENGTH_SHORT).show();
-                isError=true;
+                info = new OnlineCourseInfo();
+                isError = true;
+                bundleData();
             }
         }
     }
-    private boolean isError=false;
+
+    private boolean isError = false;
 
 
-    private void stopTime(){
-        isStartTime=false;
+    private void stopTime() {
+        isStartTime = false;
         thread.interrupt();
     }
 

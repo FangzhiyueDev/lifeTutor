@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /media/fang/codeAndNote/developer/android/lifeTutor/aidltest/src/main/aidl/android/os/INetworkManagementService.aidl
+ * Original file: /home/fang/androidProject/android/lifeTutor/aidltest/src/main/aidl/android/os/INetworkManagementService.aidl
  */
 package android.os;
 // Declare any non-default types here with import statements

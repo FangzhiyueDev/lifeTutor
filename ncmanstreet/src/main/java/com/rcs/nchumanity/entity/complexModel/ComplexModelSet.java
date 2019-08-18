@@ -18,6 +18,7 @@ import com.rcs.nchumanity.entity.model.sys.TrainOrgInfo;
 import com.rcs.nchumanity.entity.model.train.CourseClassification;
 import com.rcs.nchumanity.entity.modelInter.SpecificInfoWithLocation;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -161,6 +162,9 @@ public class ComplexModelSet {
             this.questionList = questionList;
         }
 
+        public M__speinf_speinfCla_onLiExamQues() {
+        }
+
         public List<Question> questionList;
     }
 
@@ -269,6 +273,8 @@ public class ComplexModelSet {
 
         public String area;
 
+        public String trainer;
+
         public M_traiCla_areaInf(int classId, String starTime, String position, String maxNum, String leftNum, String org, int vrAttr, boolean vrClass, String area) {
             this.classId = classId;
             this.starTime = starTime;
@@ -284,4 +290,44 @@ public class ComplexModelSet {
         public M_traiCla_areaInf() {
         }
     }
+
+    /**
+     * 课程分类详情
+     */
+    public static class ClassDetail {
+
+        public int classId;
+        public String className;
+        public Date startTime;
+        public Date endTime;
+        public String trainer;
+        public String intro;
+        public String imgUrl;
+        public String position;
+        public String vrAttr;
+        public boolean vrClass;
+        public int currentNum;
+        public int maxNum;
+        public String org;
+
+        public ClassDetail(int classId, String className, Date startTime, Date endTime, String trainer, String intro, String imgUrl, String position, String vrAttr, boolean vrClass, int currentNum, int maxNum,String org) {
+            this.classId = classId;
+            this.className = className;
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.org=org;
+            this.trainer = trainer;
+            this.intro = intro;
+            this.imgUrl = imgUrl;
+            this.position = position;
+            this.vrAttr = vrAttr;
+            this.vrClass = vrClass;
+            this.currentNum = currentNum;
+            this.maxNum = maxNum;
+        }
+
+        public ClassDetail() {
+        }
+    }
+
 }

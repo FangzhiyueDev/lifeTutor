@@ -38,9 +38,13 @@ import com.rcs.nchumanity.service.JG.MyReceiver;
 import com.rcs.nchumanity.service.JG_server.JGServer_sendNotification;
 import com.rcs.nchumanity.tool.DateProce;
 import com.rcs.nchumanity.tool.DensityConvertUtil;
+import com.rcs.nchumanity.tool.JsonDataParse;
+import com.rcs.nchumanity.tool.LBSallocation;
 import com.rcs.nchumanity.tool.StringTool;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.AmbulanceRescueActivity;
+import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
+import com.rcs.nchumanity.ul.basicMap.BasicMapChangeActivity;
 import com.rcs.nchumanity.ul.basicMap.ILocaPoint;
 import com.rcs.nchumanity.ul.basicMap.LocalPoint;
 import com.rcs.nchumanity.ul.detail.SpecificInfoComplexListDetailActivity;
@@ -51,7 +55,7 @@ import com.rcs.nchumanity.ul.basicMap.BasicMapActivity;
 import com.rcs.nchumanity.view.BannerFlip;
 import com.rcs.nchumanity.view.BasicItem;
 import com.rcs.nchumanity.view.PercentLinearLayout;
-import com.yzq.zxinglibrary.android.CaptureActivity;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,7 +78,7 @@ import okhttp3.Response;
 /**
  * 首页的界面的显示
  */
-public class MainFragment extends ParentFragment {
+public class MainFragment extends BasicResponseProcessHandleFragment {
 
 
     private int requestPermissionCode_QJ = 34;
@@ -134,22 +138,16 @@ public class MainFragment extends ParentFragment {
     @Override
     protected void onViewCreated(View view, Bundle savedInstanceState, boolean isViewCreated) {
         banner.setBannerHeight(DensityConvertUtil.dpi2px(getContext(), defBannerHeight));
-//        banner.setImageUrl(Arrays.asList(new Integer[]{R.drawable.banner1, R.drawable.banner2}));
         rowWidth = (int) (Tool.getScreenDimension(getContext())[0] / 10 * 9.6);
-
         helpCountBroadcastReceiver = new HelpCountBroadcastReceiver();
-
         IntentFilter intentFilter = new IntentFilter(getActivity().getPackageName());
-
         getActivity().registerReceiver(helpCountBroadcastReceiver, intentFilter);
-
 
         /**
          * 加载求救的数量
          */
 
         loadDataGetForForce(NetConnectionUrl.selectInfo, "selectInfo");
-
 
     }
 
@@ -310,15 +308,7 @@ public class MainFragment extends ParentFragment {
                 .setMessage("确定发出求救？")
                 .setPositiveButton("确定", ((dialog, which) -> {
 
-
-                    String[] permission = {
-                            Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.READ_PHONE_STATE,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    };
-
-                    requestPermission(permission, requestPermissionCode_QJ);
-
+                    LBSallocation.startLocationWithFragment(this, requestPermissionCode_QJ);
 
                     dialog.dismiss();
                 })).setNegativeButton("按错了", ((dialog, which) -> {
@@ -329,76 +319,33 @@ public class MainFragment extends ParentFragment {
     }
 
 
+
     @Override
-    public void onSucess(Response response, String what, String... backData) throws IOException {
-        super.onSucess(response, what, backData);
-
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+    protected void responseDataSuccess(String what, String backData,Response response,BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData,response,br);
         if (what.equals("AEDList")) {
-            if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-                //
-                try {
-
-                    JSONObject brJ = new JSONObject(backData[0]);
-
-                    JSONObject listObj = brJ.getJSONObject("data");
-
-                    JSONArray aedList = listObj.getJSONArray("list");
-
-                    ArrayList<ILocaPoint> locaPoints = new ArrayList<>();
-
-                    for (int i = 0; i < aedList.length(); i++) {
-
-                        JSONObject aedDetail = aedList.getJSONObject(i);
-
-                        double longitude = aedDetail.getDouble("longitude");
-                        double latitude = aedDetail.getDouble("latitude");
-                        String detail = aedDetail.getString("detail");
-
-
-                        int startIndex = detail.indexOf("（") >= detail.length() ? detail.indexOf("(") : detail.indexOf("（");
-                        int endIndex = detail.indexOf("）") >= detail.length() ? detail.indexOf(")") : detail.indexOf("）");
-
-                        String position = detail.substring(startIndex, endIndex);
-
-                        String location = detail.replace(position, "");
-                        locaPoints.add(new LocalPoint(latitude, longitude, location, "", position));
-                    }
-
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(ArrayList.class.getSimpleName(), locaPoints);
-                    bundle.putString(BasicMapActivity.TITLE, "AED分布");
-                    Tool.startActivity(getContext(), BasicMapActivity.class, bundle);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Toast.makeText(getContext(), "加载出错", Toast.LENGTH_SHORT).show();
-            }
+            ArrayList<ILocaPoint> locaPoints = JsonDataParse.getAEDLocations(backData);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(BasicMapChangeActivity.DATA, locaPoints);
+            Tool.startActivity(getContext(), BasicMapChangeActivity.class, bundle);
         } else if (what.equals("pageIndex")) {
-            try {
-                JSONObject brJ = new JSONObject(backData[0]);
-                JSONObject dataObj = brJ.getJSONObject("object");
+            JSONObject brJ = new JSONObject(backData);
+            JSONObject dataObj = brJ.getJSONObject("object");
 
-                JSONArray bannerList = dataObj.getJSONArray("specificPictureList");
+            JSONArray bannerList = dataObj.getJSONArray("specificPictureList");
 
-                parseBannerData(bannerList);
+            parseBannerData(bannerList);
 
-                JSONArray iconList = dataObj.getJSONArray("specificInfoClassificationList");
+            JSONArray iconList = dataObj.getJSONArray("specificInfoClassificationList");
 
-                parseIconListData(iconList);
+            parseIconListData(iconList);
 
-                JSONArray hszNews = dataObj.getJSONArray("aboutRedCrossList");
+            JSONArray hszNews = dataObj.getJSONArray("aboutRedCrossList");
 
-                JSONArray zxNews = dataObj.getJSONArray("newsList");
+            JSONArray zxNews = dataObj.getJSONArray("newsList");
 
-                parseNews(hszNews, zxNews);
+            parseNews(hszNews, zxNews);
 
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         } else if (what.equals("selectInfo")) {
 
             if (!broadCallback) {
@@ -415,35 +362,23 @@ public class MainFragment extends ParentFragment {
              *     "total": 3,
              */
 
-            try {
-                JSONObject object = new JSONObject(backData[0]);
+            JSONObject object = new JSONObject(backData);
 
-                totalNoti = object.getJSONObject("data").getInt("total");
+            totalNoti = object.getJSONObject("data").getInt("total");
 
-                if (totalNoti > 0) {
-                    int len = 0;
-                    len = PersistenceData.getHelpNumber(getActivity());
-                    if (totalNoti - len > 0) {
-                        total.setVisibility(View.VISIBLE);
-                        total.setText((totalNoti - len) + "");
-                    }
+            if (totalNoti > 0) {
+                int len = 0;
+                len = PersistenceData.getHelpNumber(getActivity());
+                if (totalNoti - len > 0) {
+                    total.setVisibility(View.VISIBLE);
+                    total.setText((totalNoti - len) + "");
                 }
-
-
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-
         } else if (what.equals("addInfo")) {
 
-            Log.d("test", "onSucess:" + backData[0]);
+            Log.d("test", "onSucess:" + backData);
         }
     }
-
-
-    private boolean clickHelp;
 
     private boolean broadCallback;
 
@@ -464,20 +399,7 @@ public class MainFragment extends ParentFragment {
      */
     private void parseIconListData(JSONArray iconList) throws JSONException {
 
-        List<SpecificInfo> specificInfos = new ArrayList<>();
-
-        for (int i = 0; i < iconList.length(); i++) {
-            JSONObject new1 = iconList.getJSONObject(i);
-            String parentView = new1.getString("parent");
-            if (parentView.equals("捐款捐献") || parentView.equals("培训相关")) {
-                String title = new1.getString("title");
-                String icon = new1.getString("icon");
-                SpecificInfo specificInfo = new SpecificInfo();
-                specificInfo.setTitle(title);
-                specificInfo.setIcon(icon);
-                specificInfos.add(specificInfo);
-            }
-        }
+        List<SpecificInfo> specificInfos = JsonDataParse.parseIconListData(iconList);
         daymicFuncList(specificInfos);
     }
 
@@ -505,8 +427,8 @@ public class MainFragment extends ParentFragment {
     private void parseNews(JSONArray hszNews, JSONArray zxNews) throws JSONException {
 
 
-        List<SpecificInfo> one1 = parseNewItem(hszNews);
-        List<SpecificInfo> two1 = parseNewItem(zxNews);
+        List<SpecificInfo> one1 = JsonDataParse.parseNewItem(hszNews);
+        List<SpecificInfo> two1 = JsonDataParse.parseNewItem(zxNews);
         ComplexModelSet.M_speinf_speinfCla mSpeinfSpeinfCla = new ComplexModelSet.M_speinf_speinfCla("关于红十字", one1);
 
         BasicItem basicItem = new BasicItem(getContext());
@@ -562,65 +484,16 @@ public class MainFragment extends ParentFragment {
 
     }
 
-    /**
-     * "id": 36,
-     * "specificNo": 1,
-     * "title": "新闻1",
-     * "createTime": null,
-     * "icon": null,
-     * "imgUrl": "https://ncrd2019.oss-cn-shenzhen.aliyuncs.com/specificInfo/pic/xinwen1.jpg?Expires=1565599747&OSSAccessKeyId=TMP.hVJ9P4c7YcK26gN4zuafY8AYm8JQP9nrV4taHn9JTUBXf2RiZq4dmwEgKNwCfbwBqmbdYJtbofpKEasyZ5zzAYc27TtfAKJ2kboQcedCUapWvjjQbTFMHGteGauZ9C.tmp&Signature=oiLDGHoP9hOUmtTvJ2KnkUjJ%2FVU%3D",
-     * "videoId": null,
-     * "videoUrl": null,
-     * "editor": null,
-     * "checked": null,
-     * "typeId": 2,
-     * "isDelete": false,
-     * "remark": null,
-     * "content": null
-     *
-     * @param news
-     * @return
-     * @throws JSONException
-     */
-    private List<SpecificInfo> parseNewItem(JSONArray news) throws JSONException {
-
-        List<SpecificInfo> specificInfos = new ArrayList<>();
-
-        for (int i = 0; i < news.length(); i++) {
-            JSONObject new1 = news.getJSONObject(i);
-            String title = new1.getString("title");
-            String createTime = new1.getString("createTime");
-            String icon = new1.getString("icon");
-            String videoId = new1.getString("videoId");
-            String videoUrl = new1.getString("videoUrl");
-            String editor = new1.getString("editor");
-            String content = new1.getString("content");
-            String imageUrl = new1.getString("imgUrl");
-
-
-            SpecificInfo specificInfo = new SpecificInfo();
-            specificInfo.setTitle(title);
-            specificInfo.setIcon(icon);
-            specificInfo.setVideoId(videoId);
-            specificInfo.setVideoUrl(videoUrl);
-            specificInfo.setEditor(editor);
-            specificInfo.setContent(content);
-            specificInfo.setImgUrl(imageUrl);
-
-            specificInfos.add(specificInfo);
-
-        }
-        return specificInfos;
-    }
-
 
     /**
      * 注册救护的广播接受者
      */
-    class HelpCountBroadcastReceiver extends BroadcastReceiver {
+    public class HelpCountBroadcastReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+
+            Log.d("test", "onReceive: ====拉去数据");
 
             String func = intent.getStringExtra(MyReceiver.FUNC);
 
@@ -644,67 +517,50 @@ public class MainFragment extends ParentFragment {
 
     @Override
     public void onDestroy() {
-
-        getActivity().unregisterReceiver(helpCountBroadcastReceiver);
-        if (locationClient != null) {
-            locationClient.stop();
+        if (helpCountBroadcastReceiver != null) {
+            getActivity().unregisterReceiver(helpCountBroadcastReceiver);
         }
-
         super.onDestroy();
     }
 
-
-    private LocationClient locationClient;
 
     @Override
     public void permissionSuccess(int requestCode) {
         super.permissionSuccess(requestCode);
         if (requestCode == requestPermissionCode_QJ) {
-            locationClient = new LocationClient(getContext());
-            locationClient.registerLocationListener(new BDAbstractLocationListener() {
+
+
+            LBSallocation.getCurrentLocation(getContext(), new BDAbstractLocationListener() {
                 @Override
                 public void onReceiveLocation(BDLocation bdLocation) {
+                    String latitute = bdLocation.getLatitude() + "";
+                    String longitute = bdLocation.getLongitude() + "";
+                    Map<String, String> param = new HashMap<>();
+                    String phone = PersistenceData.getPhoneNumber(getContext());
 
-                    if (!hasLoca) {
-                        hasLoca = true;
-                        String latitute = bdLocation.getLatitude() + "";
-                        String longitute = bdLocation.getLongitude() + "";
-                        Map<String, String> param = new HashMap<>();
-                        String phone = PersistenceData.getPhoneNumber(getContext());
+                    String city = bdLocation.getCity();
+                    String district = bdLocation.getDistrict();
+                    String street = bdLocation.getStreet();
+                    String content = "用户 " + phone + " 在" + city +
+                            district + street + "求救";
 
-                        String city = bdLocation.getCity();
-                        String district = bdLocation.getDistrict();
-                        String street = bdLocation.getStreet();
-                        String content = "用户 " + phone + " 在" + city +
-                                district + street + "求救";
-
-                        Log.d("test", "onReceiveLocation: " + latitute + longitute + city + "  \t" + district + " " + street);
-                        String content1 = "用户在" + city +
-                                district + street + "求救";
-                        param.put("content", content1);
-                        param.put("latitude", latitute);
-                        param.put("longitude", longitute);
-                        param.put("mobilePhone", phone);
-                        param.put("readCount","0");
-                        param.put("title",district+" "+phone+" 求救");
-                        param.put("userId", PersistenceData.getUserId(getActivity()));
-                        clickHelp = true;
-                        loadDataPostForce(NetConnectionUrl.addInfo, "addInfo", param);
-                        JGServer_sendNotification.sendPushNoti(content);
-                    }
+                    Log.d("test", "onReceiveLocation: " + latitute + longitute + city + "  \t" + district + " " + street);
+                    String content1 = "用户在" + city +
+                            district + street + "求救";
+                    param.put("content", content1);
+                    param.put("latitude", latitute);
+                    param.put("longitude", longitute);
+                    param.put("mobilePhone", phone);
+                    param.put("readCount", "0");
+                    param.put("title", district + " " + phone + " 求救");
+                    param.put("userId", PersistenceData.getUserId(getActivity()));
+                    loadDataPostForce(NetConnectionUrl.addInfo, "addInfo", param);
+                    JGServer_sendNotification.sendPushNoti(content);
                 }
             });
-            hasLoca = false;
-            LocationClientOption lp = new LocationClientOption();
-            lp.setOpenGps(true);
-            lp.setIsNeedAddress(true);
-            locationClient.setLocOption(lp);
-            locationClient.start();
+
         }
     }
-
-
-    private boolean hasLoca = false;
 
 
 }

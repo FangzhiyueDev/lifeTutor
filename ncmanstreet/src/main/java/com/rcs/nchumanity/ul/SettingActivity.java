@@ -1,8 +1,11 @@
 package com.rcs.nchumanity.ul;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Toast;
 
@@ -10,13 +13,23 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
+import com.rcs.nchumanity.dialog.DialogCollect;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
+import com.rcs.nchumanity.entity.model.FeedbackRecord;
+import com.rcs.nchumanity.tool.DateProce;
 import com.rcs.nchumanity.tool.Tool;
+import com.rcs.nchumanity.ul.list.SpecificInfoComplexListActivity;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -39,7 +52,7 @@ public class SettingActivity extends ParentActivity {
 
     @OnClick({R.id.backLogin, R.id.softwareUpdate,
             R.id.aboutWe, R.id.cancelSignup, R.id.helpCenter,
-            R.id.feedback, R.id.changePhone, R.id.changePassword})
+            R.id.feedback, R.id.changePassword})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.backLogin:
@@ -55,6 +68,7 @@ public class SettingActivity extends ParentActivity {
                             PersistenceData.clear(this);
                             dialog.dismiss();
                             Tool.startActivity(this, MainActivity.class);
+//                            backStackLower();
                         });
 
                 builder.create().show();
@@ -74,18 +88,34 @@ public class SettingActivity extends ParentActivity {
                             /**
                              * 使用网络加载数据
                              */
+                            dialog.dismiss();
 
-
+                            final Dialog dialog1 = DialogCollect.openLoadDialog(this);
+                            dialog1.setCancelable(false);
+                            dialog1.show();
+                            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    dialog1.dismiss();
+                                    new AlertDialog.Builder(SettingActivity.this)
+                                            .setTitle("提示")
+                                            .setMessage("暂无更新?")
+                                            .setPositiveButton("确定", (dialog, which) -> {
+                                                dialog.dismiss();
+                                            }).create().show();
+                                }
+                            }, 2000);
                         });
-
                 builder1.create().show();
-
 
                 break;
 
             case R.id.aboutWe:
 
-                Tool.startActivity(this, AboutWeActivity.class);
+                Bundle bundle3 = new Bundle();
+                bundle3.putString(SpecificInfoComplexListActivity.CLASS_NAME, "帮助中心");
+                bundle3.putString(SpecificInfoComplexListActivity.URL, NetConnectionUrl.getAboutUs);
+                Tool.startActivity(this, SpecificInfoComplexListActivity.class, bundle3);
 
                 break;
 
@@ -112,20 +142,19 @@ public class SettingActivity extends ParentActivity {
 
             case R.id.helpCenter:
 
-                Tool.startActivity(this, HelpCenterActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(SpecificInfoComplexListActivity.CLASS_NAME, "帮助中心");
+                bundle.putString(SpecificInfoComplexListActivity.URL, NetConnectionUrl.getHelpInfo);
+                Tool.startActivity(this, SpecificInfoComplexListActivity.class, bundle);
 
                 break;
 
             case R.id.feedback:
 
-                loadDataGet(NetConnectionUrl.getFeedback, "getFeedback");
+                loadDataPost(NetConnectionUrl.getFeedback, "getFeedback", new HashMap<>());
 
                 break;
 
-            case R.id.changePhone:
-                Tool.startActivity(this, ChangePhoneNumberActivity.class);
-
-                break;
 
             case R.id.changePassword:
 
@@ -156,16 +185,72 @@ public class SettingActivity extends ParentActivity {
 
             } else if (what.equals("getFeedback")) {
 
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(FeedbackActivity.DATA,"");
+                try {
+                    JSONObject brJ = new JSONObject(backData[0]);
+                    JSONArray objS = brJ.getJSONArray("object");
 
-                Tool.startActivity(this, FeedbackActivity.class);
+                    ArrayList<FeedbackRecord> feedbackRecords = new ArrayList<>();
+
+                    for (int i = 0; i < objS.length(); i++) {
+                        JSONObject obj = objS.getJSONObject(i);
+                        String createTime = obj.getString("createTime");
+                        String message = obj.getString("message");
+                        String replay = obj.getString("reply");
+
+                        FeedbackRecord feedbackRecord = new FeedbackRecord();
+                        feedbackRecord.setCreateTime(DateProce.parseDate(createTime));
+                        feedbackRecord.setMessage(message);
+                        feedbackRecord.setReply(replay);
+                        feedbackRecords.add(feedbackRecord);
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(FeedbackActivity.DATA, feedbackRecords);
+                    Tool.startActivity(this, FeedbackActivity.class, bundle);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
 
         } else if (br.code == BasicResponse.NOT_LOGIN) {
+            PersistenceData.clear(this);
             Tool.loginCheck(this);
-        } else {
+        } else if (br.code == BasicResponse.NOT_CANCEL) {
+            try {
+                JSONObject brJ = new JSONObject(backData[0]);
+
+                String message = brJ.has("message") ? brJ.getString("message") : brJ.getString("msg");
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                        .setTitle("提示")
+                        .setMessage(message)
+                        .setPositiveButton("确定", (dialog, which) -> {
+                            dialog.dismiss();
+                        });
+                builder.create().show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(br.code==BasicResponse.CANCEL_FAIL) {
+
+            if(what.equals("cancelSignUp")){
+
+                try {
+                    JSONObject brJ = new JSONObject(backData[0]);
+                    String message = brJ.has("message") ? brJ.getString("message") : brJ.getString("msg");
+
+                     new AlertDialog.Builder(this)
+                            .setTitle("提示")
+                            .setMessage(message)
+                            .setPositiveButton("确定", (dialog, which) -> {
+                                dialog.dismiss();
+                            }).create().show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+        }else {
             Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
         }
     }

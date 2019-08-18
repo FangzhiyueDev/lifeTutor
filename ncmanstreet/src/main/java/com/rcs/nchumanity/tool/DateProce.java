@@ -25,9 +25,7 @@ public class DateProce {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSSZ");
             Date result;
             result = df.parse(dateStr);
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-
+//
             return result;
 
         }catch (Exception  e) {
@@ -35,6 +33,17 @@ public class DateProce {
         return null;
     }
 
+
+    /**
+     *
+     * 格式化当前的日期
+     * @param date
+     * @return
+     */
+    public static String formatDate(Date date){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return  formatter.format(date);
+    }
 
 
 }

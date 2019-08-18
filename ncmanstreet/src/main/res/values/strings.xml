@@ -65,6 +65,10 @@
     <string name="hjjhy">呼叫救护员</string>
 
 
+    <string name="pay_result_tip">这个界面用于显示第三方app通过微信支付的结果</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+
+
     <string-array name="sixs">
         <item>男</item>
         <item>女</item>

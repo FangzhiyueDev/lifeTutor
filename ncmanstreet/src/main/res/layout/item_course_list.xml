@@ -35,12 +35,13 @@
         android:layout_height="40dp"
         android:layout_marginRight="30dp"
         android:layout_toLeftOf="@id/downStep"
-        android:background="@drawable/bg_frame_red_circle"
+        android:background="@drawable/bg_frame_red_circle1"
         android:gravity="center"
         android:text="@string/ywc"
+        android:visibility="invisible"
         android:textColor="@color/themecolor"
         android:textSize="12sp"
-        android:visibility="invisible" />
+       />
 
 
     <ImageView

@@ -176,7 +176,7 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
 
                 Map<String, String> maps = new HashMap<>();
                 maps.put("name", nameS);
-                maps.put("mobilePhone", mobilePhoneS);
+                maps.put("mobilephone", mobilePhoneS);
                 maps.put("gender", sex);
                 maps.put("idNumber", identityCarNumberS);
                 maps.put("employer", workCompanyS);
@@ -191,16 +191,24 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
                 maps.put("degreeOfEducation", educa);
 
 
-                if (TextUtils.isEmpty(imageFilePath)||(!new File(imageFilePath).isFile())) {
+                if (TextUtils.isEmpty(imageFilePath) || (!new File(imageFilePath).isFile())) {
                     Toast.makeText(this, "请选择正确的证件照", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                /**
-                 * 下面直接提交数据
-                 */
-                loadDataPostImg(NetConnectionUrl.submitSignInUserInfo,
-                        "trainSignIn", imageFilePath, maps);
+
+                new AlertDialog.Builder(this).setTitle("提示")
+                        .setMessage("确定报名吗？")
+                        .setPositiveButton("确定", ((dialog, which) -> {
+                            /**
+                             * 下面直接提交数据
+                             */
+                            loadDataPostImg(NetConnectionUrl.submitSignInUserInfo,
+                                    "trainSignIn", imageFilePath, maps);
+
+                        })).setNegativeButton("取消", (dialog, which) -> {
+
+                }).create().show();
 
                 break;
 
@@ -344,7 +352,7 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
     /**
      * 当前的位置==省 市 区
      */
-    private String position="";
+    private String position = "";
 
 
     private void init() {
@@ -353,7 +361,7 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
         currentArea = "";
         currentProvince = "";
         currentCity = "";
-        position="";
+        position = "";
     }
 
 
@@ -369,7 +377,7 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
         if (what.equals("trainSignIn")) {
 
             //进行报名
-            if(br.code==BasicResponse.RESPONSE_SUCCESS){
+            if (br.code == BasicResponse.SignUpSuccess) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this)
                         .setTitle("温馨提示")
                         .setMessage("报名成功")
@@ -377,7 +385,10 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
                             dialog.dismiss();
                             finish();
                         });
+                builder.setCancelable(false);
                 builder.create().show();
+            } else {
+                Toast.makeText(this, br.message, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -402,6 +413,9 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
 
     private String imageFilePath;
 
+    @BindView(R.id.userImg)
+    ImageView userImg;
+
     /**
      * @param data
      */
@@ -420,7 +434,7 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
                 InputStream is = getContentResolver().openInputStream(uri);
                 Bitmap bitmap = BitmapFactory.decodeStream(is);
 
-                capture.setImageBitmap(bitmap);
+                userImg.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

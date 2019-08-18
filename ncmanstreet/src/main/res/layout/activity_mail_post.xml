@@ -2,10 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
     <com.rcs.nchumanity.view.CommandBar
+        toolbar:title="邮寄下单"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
 
@@ -45,6 +47,9 @@
                     android:layout_toRightOf="@+id/name"
                     android:background="@color/smssdk_white"
                     android:hint="必填"
+                    android:id="@+id/realName"
+                    android:inputType="textPersonName"
+                    android:maxLength="5"
                     android:textColorHint="#ff999999"
                     android:textSize="11sp" />
 
@@ -75,6 +80,7 @@
                     android:layout_toRightOf="@+id/phone"
                     android:background="@color/smssdk_white"
                     android:hint="必填"
+                    android:id="@+id/mobilePhone"
                     android:inputType="phone"
                     android:textColorHint="#ff999999"
                     android:textSize="11sp" />
@@ -106,6 +112,7 @@
                     android:layout_toRightOf="@+id/detailAddress"
                     android:background="@color/smssdk_white"
                     android:hint="必填"
+                    android:id="@+id/address"
                     android:inputType="text"
                     android:textColorHint="#ff999999"
                     android:textSize="11sp" />
@@ -126,6 +133,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/radius_all_reg_bg"
         android:text="确定"
+        android:id="@+id/mail"
         android:textColor="#ffffffff"
         android:textSize="15sp" />
 

@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.entity.BasicResponse;
+import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
 import com.rcs.nchumanity.entity.model.UserOnlineStudyRecord;
 import com.rcs.nchumanity.tool.Tool;
@@ -59,19 +60,33 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
 
     public static final String FUN_NEED = "need";
 
+    /**
+     * 备份的url
+     */
+    public static final String BACKUP_URL = "backUrl";
+
+
+    public static final String BACKUP_FUN = "backUrl";
+
+    private String backFun;
+
+    private String backUrl;
+
 
     private String func;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        toolbar.setTitle("课程列表");
         Bundle bundle = getIntent().getExtras();
 
         url = bundle.getString(NET_URL);
         func = bundle.getString(FUN);
+        backUrl = bundle.getString(BACKUP_URL);
 
-        if (TextUtils.isEmpty(url) || TextUtils.isEmpty(func)) {
+        if (TextUtils.isEmpty(url) || TextUtils.isEmpty(func)
+                || TextUtils.isEmpty(backUrl)) {
             throw new RuntimeException("please transport right data param!!!");
         }
         /**
@@ -87,18 +102,42 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
 
         if (func.equals(FUN_NEED)) {
 
-            if (obj.isStudied) {
-                //没有观看记录，没有看过
-                holder.setVisibility(R.id.complete, View.VISIBLE);
-                return;
+            if (url.equals(backUrl)) {
+                //代表掉线或者用户未登录
+
             } else {
-                holder.setVisibility(R.id.notComplete, View.VISIBLE);
+                //代表在线
+                if (obj.isStudied) {
+                    holder.setVisibility(R.id.notComplete, View.INVISIBLE);
+                    holder.setVisibility(R.id.complete, View.VISIBLE);
+                } else {
+                    holder.setVisibility(R.id.notComplete, View.VISIBLE);
+                    holder.setVisibility(R.id.complete, View.INVISIBLE);
+                }
             }
 
+        } else if (func.equals(FUN_SELECT)) {
+            /**
+             * 1.判断当前的状态 是登陆还是没登录
+             *  2.根据学习的状态调整显示
+             */
+            if (url.equals(backUrl)) {
+                //代表掉线或者用户未登录
+                
 
-        }else if(func.equals(FUN_SELECT)){
-            holder.setVisibility(R.id.notComplete,View.INVISIBLE);
-            holder.setVisibility(R.id.complete,View.INVISIBLE);
+            } else {
+                //代表可能在线可能不
+
+                //代表在线
+                if (obj.isStudied) {
+                    holder.setVisibility(R.id.notComplete, View.INVISIBLE);
+                    holder.setVisibility(R.id.complete, View.VISIBLE);
+                } else {
+                    holder.setVisibility(R.id.notComplete, View.VISIBLE);
+                    holder.setVisibility(R.id.complete, View.INVISIBLE);
+                }
+            }
+
 
         }
     }
@@ -112,7 +151,7 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
         Log.d("test", "itemClick: ==");
 
         Bundle bundle = new Bundle();
-        bundle.putString(COURSE_NO, item.courseNo+"");
+        bundle.putString(COURSE_NO, item.courseNo + "");
         if (func.equals(FUN_NEED)) {
             Tool.startActivity(this, ObligatoryCourseInfoComplexDetailActivity.class, bundle);
         } else if (func.equals(FUN_SELECT)) {
@@ -136,16 +175,27 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
 
             case "courseList": {
 
-                try {
-                    List<ComplexModelSet.M_couClas_usOnStuRec> studyList = parseCourse(backData[0]);
+                if (br.code == BasicResponse.NOT_LOGIN) {
 
-                    setDataList(studyList);
+                    PersistenceData.clear(this);
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    url = backUrl;
+
+                    loadDataGetForForce(url, "courseList");
+
+                } else if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+                    try {
+                        List<ComplexModelSet.M_couClas_usOnStuRec> studyList = parseCourse(backData[0]);
+
+                        setDataList(studyList);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
-
             }
+
+
             break;
         }
     }
@@ -169,5 +219,19 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
             list.add(onStuRec);
         }
         return list;
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        /**
+         * 当为登录用户的时候，我们需要重新拉取数据
+         * ，进行列表数据的刷新
+         *
+         *
+         */
+        loadDataGetForForce(url, "courseList");
     }
 }

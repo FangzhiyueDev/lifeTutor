@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/media/fang/codeAndNote/developer/android/lifeTutor/opensourceframeworkdemo/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "/home/fang/androidProject/android/lifeTutor/opensourceframeworkdemo/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/8de97669eb6b9ab8022382561cbfa04d/res/values-v16/values-v16.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/a31c934b97f3c06fe787221d03c3eb17/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/063c4c59bff3a3f408b72ee27090a741/res/values-v16/values-v16.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/d681fd799df79c50561f9d56817a45d9/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

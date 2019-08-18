@@ -19,9 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
+        android:layout_marginRight="10dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_toLeftOf="@id/join"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
-        android:lines="1"
+        android:maxLines="2"
         android:text="2019年7月5日 15:00有人在南昌大学求救。"
         android:textColor="#ff666666"
         android:textSize="11sp" />

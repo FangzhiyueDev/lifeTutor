@@ -22,7 +22,6 @@
         <activity android:name=".ul.basicMap.BasicMapActivity"></activity>
 
 
-
         <!--
           我们将MainActivity设置为  singleInstance的启动模式，将会清除掉在MainActivity上面的所有的Activity
         -->
@@ -59,7 +58,9 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
 
-        <activity android:name=".ul.IdentityInfoRecordActivity"></activity>
+        <activity android:name=".ul.IdentityInfoRecordActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            ></activity>
         <activity android:name=".ul.TrainStepActivity"></activity>
         <activity android:name=".ul.AssessResultActivity" />
         <activity android:name=".ul.EntityCertificateActivity" />
@@ -98,15 +99,32 @@
         <activity android:name=".ul.OnlineAssessmentActivity" />
 
 
-        <activity android:name=".ul.list.OfflineTrainClassListActivity" >
+        <activity android:name=".ul.list.OfflineTrainClassListActivity">
 
         </activity>
 
         <!--
         接入第三方扫描工具
         -->
-        <activity android:name="com.yzq.zxinglibrary.android.CaptureActivity"></activity>
+
+        <activity android:name="com.google.zxing.activity.CaptureActivity"> </activity>
+
+
         <activity android:name=".ul.list.SpecificInfoComplexListActivity" />
+
+
+        <!--
+        微信支付的回调接口
+        -->
+        <activity android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="你的appid"/>
+            </intent-filter>
+        </activity>
 
         <!--
          配置秘钥
@@ -120,14 +138,18 @@
           下面是极光推送的实现
         -->
         <!-- Required  . Enable it you can get statistics data with channel -->
-        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
-        <meta-data android:name="JPUSH_APPKEY" android:value="e72bffb2c220d4872b894b07" /> <!--  </>值来自开发者平台取得的AppKey-->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="e72bffb2c220d4872b894b07" /> <!--  </>值来自开发者平台取得的AppKey-->
 
         <!-- User defined.  For test only  用户自定义的广播接收器-->
         <receiver
             android:name=".service.JG.MyReceiver"
-            android:exported="false"
-            android:enabled="true">
+            android:enabled="true"
+            android:exported="false">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
                 <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
@@ -162,7 +184,9 @@
         </receiver>
 
         <!-- Required SDK核心功能-->
-        <receiver android:name="cn.jpush.android.service.AlarmReceiver" android:exported="false"/>
+        <receiver
+            android:name="cn.jpush.android.service.AlarmReceiver"
+            android:exported="false" />
 
         <!--since 3.3.0 Required SDK核心功能-->
         <activity
@@ -178,7 +202,8 @@
 
         <!-- Since JCore2.0.0 Required SDK核心功能-->
         <!-- 这个Service要继承JCommonService -->
-        <service android:name=".service.JG.PushService"
+        <service
+            android:name=".service.JG.PushService"
             android:process=":pushcore">
             <intent-filter>
                 <action android:name="cn.jiguang.user.service.action" />
@@ -189,29 +214,33 @@
         <!-- Rich push 核心功能 since 2.0.6-->
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
-            android:theme="@style/MyDialogStyle"
-            android:exported="false">
-        </activity>
+            android:exported="false"
+            android:theme="@style/MyDialogStyle"></activity>
 
         <!-- Required SDK核心功能-->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="cn.jpush.android.ui.PushActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="com.rcs.nchumanity" />
             </intent-filter>
         </activity>
+        <activity android:name=".ul.list.EmergencyComplexListActivity" />
+        <activity android:name=".ul.basicMap.BasicMapChangeActivity" />
+        <activity android:name=".ul.detail.OfflineTrainClassDetailActivity" />
+
 
         <!-- Required SDK 核心功能-->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
         <service
             android:name="cn.jpush.android.service.PushService"
-            android:process=":pushcore"
-            android:exported="false">
+            android:exported="false"
+            android:process=":pushcore">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTER" />
                 <action android:name="cn.jpush.android.intent.REPORT" />
@@ -221,11 +250,10 @@
         </service>
         <!-- since 3.0.9 Required SDK 核心功能-->
         <provider
-            android:authorities="com.rcs.nchumanity.DataProvider"
             android:name="cn.jpush.android.service.DataProvider"
-            android:process=":pushcore"
+            android:authorities="com.rcs.nchumanity.DataProvider"
             android:exported="false"
-            />
+            android:process=":pushcore" />
 
         <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
         <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
@@ -251,16 +279,12 @@
 
         <!-- since 3.1.0 Required SDK 核心功能-->
         <provider
-            android:authorities="com.rcs.nchumanity.DownloadProvider"
             android:name="cn.jpush.android.service.DownloadProvider"
-            android:exported="true"
-            />
-
+            android:authorities="com.rcs.nchumanity.DownloadProvider"
+            android:exported="true" />
 
 
     </application>
-
-
 
 
     <!--
@@ -280,7 +304,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 
-
     <!-- Optional for location -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
@@ -288,10 +311,6 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-
-
-
-
 
 
     <!--添加网络权限-->

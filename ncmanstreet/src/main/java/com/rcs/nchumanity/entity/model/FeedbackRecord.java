@@ -1,8 +1,9 @@
 package com.rcs.nchumanity.entity.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FeedbackRecord {
+public class FeedbackRecord implements Serializable {
     private Integer id;
 
     private Integer userId;

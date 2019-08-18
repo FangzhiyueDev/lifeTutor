@@ -6,6 +6,7 @@ import android.content.Context;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.orhanobut.logger.Logger;
+import com.rcs.nchumanity.crashHandler.CrashReportedUtils;
 
 import org.litepal.LitePal;
 
@@ -14,6 +15,7 @@ import cn.jpush.android.api.JPushInterface;
 public class MyApplication extends Application {
 
     private static Context context;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -26,7 +28,7 @@ public class MyApplication extends Application {
          */
         Logger.init("test");
 
-        context=getApplicationContext();
+        context = getApplicationContext();
 
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         SDKInitializer.initialize(this);
@@ -35,13 +37,19 @@ public class MyApplication extends Application {
         SDKInitializer.setCoordType(CoordType.BD09LL);
 
 
-        JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
-        JPushInterface.init(this);     		// 初始化 JPush
+        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);            // 初始化 JPush
 
+
+        /**
+         * 日志上报模块的实现
+         */
+//        CrashReportedUtils.init(getApplicationContext(), getFilesDir() + "/crash");
+//        CrashReportedUtils.sendCrashedReportsToServer();
 
     }
 
-    public static Context getContext(){
+    public static Context getContext() {
         return context;
     }
 

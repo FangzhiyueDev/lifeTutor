@@ -4,7 +4,6 @@
     android:versionCode="320"
     android:versionName="3.2.0"
     >
-    <uses-sdk android:targetSdkVersion="21" />
 
     <!-- Required -->
     <permission

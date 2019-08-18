@@ -1,5 +1,6 @@
 package com.rcs.nchumanity.fragment;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,9 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
+import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
+import com.rcs.nchumanity.net.NetRequest;
+import com.rcs.nchumanity.tool.RealPathFromUriUtils;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.AssessResultActivity;
 import com.rcs.nchumanity.ul.ElectronicCertificateActivity;
@@ -26,12 +31,17 @@ import com.rcs.nchumanity.ul.SettingActivity;
 
 
 import org.apache.commons.codec.binary.StringUtils;
+import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.Response;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -63,15 +73,20 @@ public class MeFragment extends ParentFragment {
 
         if (!PersistenceData.DEF_USER.equals(PersistenceData.getNickName(getContext()))) {
             userName.setText(userNameS);
-        }else{
+        } else {
             userName.setText("注册登录");
         }
 
         String pictureUri = (String) PersistenceData.getPicture(getContext());
         if (!PersistenceData.DEF_VAL.equals(pictureUri)) {
-            Glide.with(getContext()).load(NetConnectionUrl.HOST + pictureUri);
-        }else {
-            Glide.with(getContext()).load(R.drawable.ic_logo);
+            if (pictureUri.startsWith("https:") || pictureUri.startsWith("http")) {
+                Glide.with(getContext()).load(pictureUri).into(photo);
+            } else {
+                //加载本地数据
+                Glide.with(getContext()).load(new File(pictureUri)).into(photo);
+            }
+        } else {
+            Glide.with(getContext()).load(R.drawable.ic_logo).into(photo);
         }
     }
 
@@ -81,6 +96,7 @@ public class MeFragment extends ParentFragment {
         updateUserData();
     }
 
+    private int clickStep;
 
     @OnClick({R.id.meCourse, R.id.picture, R.id.assessResult,
             R.id.elecCertificate, R.id.entityCertificate,
@@ -90,12 +106,11 @@ public class MeFragment extends ParentFragment {
 
             case R.id.meCourse:
 
-                if (!Tool.loginCheck(getActivity())) {
-                    return;
-                }
+                String param = NetConnectionUrl.getSignInStatus;
+                clickStep = R.id.one;
+                loadDataGet(param, "getSignInStatus");
 
-
-                Tool.startActivity(getContext(), MyCourseActivity.class);
+//                Tool.startActivity(getContext(), MyCourseActivity.class);
                 break;
 
             case R.id.picture:
@@ -124,24 +139,19 @@ public class MeFragment extends ParentFragment {
                 break;
 
             case R.id.elecCertificate:
-
                 if (!Tool.loginCheck(getActivity())) {
                     return;
                 }
 
-                Tool.startActivity(getActivity(), ElectronicCertificateActivity.class);
+                Intent intent2 = new Intent(getActivity(), ElectronicCertificateActivity.class);
+                startActivity(intent2);
 
                 break;
 
             case R.id.entityCertificate:
 
-                if (!Tool.loginCheck(getActivity())) {
-                    return;
-                }
+                Tool.startActivity(getContext(), EntityCertificateActivity.class);
 
-
-                Intent intent2 = new Intent(getActivity(), EntityCertificateActivity.class);
-                startActivity(intent2);
 
                 break;
 
@@ -178,6 +188,9 @@ public class MeFragment extends ParentFragment {
         }
     }
 
+
+    private String realPathFromUri;
+
     /**
      * @param data
      */
@@ -191,6 +204,18 @@ public class MeFragment extends ParentFragment {
 
             photo.setImageBitmap(bitmap);
 
+            realPathFromUri = RealPathFromUriUtils.getRealPathFromUri(getContext()
+                    , data.getData());
+
+            Log.d(TAG, "doChangePicture: " + realPathFromUri);
+
+            NetRequest.setImageName("userPic");
+            loadDataPostImg(
+                    NetConnectionUrl.updateUserPic,
+                    "updateUserPic",
+                    realPathFromUri, new HashMap<>());
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -199,5 +224,53 @@ public class MeFragment extends ParentFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
+    }
+
+
+    @Override
+    public void onSucess(Response response, String what, String... backData) throws IOException {
+        super.onSucess(response, what, backData);
+
+        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+
+        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+            if (what.equals("updateUserPic")) {
+                new AlertDialog.Builder(getContext())
+                        .setTitle("提示")
+                        .setMessage("修改头像成功")
+                        .setPositiveButton("确定", (dialog, which) -> {
+                            dialog.dismiss();
+                        });
+
+                PersistenceData.setUserPicture(getContext(), realPathFromUri);
+
+                updateUserData();
+                /**
+                 * 修改头像之后，成功后需要将数据重新返回
+                 */
+            } else if (what.equals("getSignInStatus")) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(backData[0]);
+                    JSONObject data = null;
+                    if (jsonObject.has("object")) {
+                        data = jsonObject.getJSONObject("object");
+                    } else if (jsonObject.has("data")) {
+                        data = jsonObject.getJSONObject("data");
+                    }
+                    int studyStatus = data.getInt("studyStatus");
+                    if (studyStatus > 1) {
+                        Tool.startActivity(getContext(), MyCourseActivity.class);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } else if (br.code == BasicResponse.NOT_LOGIN) {
+            PersistenceData.clear(getContext());
+            Tool.loginCheck(getContext());
+        } else {
+            Toast.makeText(getContext(), br.message, Toast.LENGTH_SHORT).show();
+        }
     }
 }

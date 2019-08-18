@@ -52,11 +52,12 @@ import okhttp3.Headers;
 import okhttp3.Response;
 
 
-public class ValidateCodeActivity extends ParentActivity {
+public class ValidateCodeActivity extends BasicResponseProcessHandleActivity {
 
 
     private static final String TAG = "test";
-    @BindViews({R.id.code1, R.id.code2, R.id.code3, R.id.code4})
+    @BindViews({R.id.code1, R.id.code2, R.id.code3,
+            R.id.code4, R.id.code5, R.id.code6})
     List<EditText> codes;
 
     @BindView(R.id.reSend)
@@ -85,7 +86,8 @@ public class ValidateCodeActivity extends ParentActivity {
         //发送验证码到该手机上
         isSubmitSuccess = false;
         anim();
-        ValidateCodeServler.sendValidateCode("86", userPhone);
+
+        sendmSms();
     }
 
 
@@ -115,6 +117,15 @@ public class ValidateCodeActivity extends ParentActivity {
         });
 
         va.start();
+
+    }
+
+    private void sendmSms() {
+        reSet();
+        Map<String, String> param = new HashMap<>();
+        param.put("mobilephone", userPhone);
+
+        loadDataPostForce(NetConnectionUrl.getValidateCode, "getValidateCode", param);
 
     }
 
@@ -149,7 +160,7 @@ public class ValidateCodeActivity extends ParentActivity {
 
         phone.setText(userPhone);
 
-        ValidateCodeServler.registerProgress(new MyHandlerCallback());
+        sendmSms();
 
         init();
 
@@ -196,7 +207,12 @@ public class ValidateCodeActivity extends ParentActivity {
                             code += s1;
                         }
                         //在这里进行提交 ，最后一个edittext
-                        ValidateCodeServler.submitValidateCode("86", userPhone, code);
+                        /**
+                         * 不在使用当前的验证方案，使用正式服务器的验证请求
+                         */
+//                        ValidateCodeServler.submitValidateCode("86", userPhone, code);
+
+                        oprateLogic();
 
                     } else {
                         currentFocusIndex++;
@@ -236,7 +252,7 @@ public class ValidateCodeActivity extends ParentActivity {
             } else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                 if (result == SMSSDK.RESULT_COMPLETE) {
                     // TODO 处理验证码验证通过的结果
-                    submitVerificationComplete();
+//                    submitVerificationComplete();
                 } else {
                     submitVerficationError();
                     // TODO 处理错误的结果
@@ -252,38 +268,32 @@ public class ValidateCodeActivity extends ParentActivity {
     private boolean isSubmitSuccess = false;
 
 
-    /**
-     * 提交验证码完成
-     */
-    private void submitVerificationComplete() {
+    public void oprateLogic() {
 
-        Log.d(TAG, "submitVerificationComplete: 提交验证码成功");
+        if (action.equals(ACTION_REGISTER)) {
 
-        if (!isSubmitSuccess) {
-            isSubmitSuccess = true;
 
-            if (action.equals(ACTION_REGISTER)) {
+            //持久化数据 手机号码
+            PersistenceData.setPhoneNumber(this, userPhone);
+            Bundle bundle = new Bundle();
+            bundle.putString(InputPasswordActivity.CODE, code);
+            bundle.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_REGISTER);
+            //代表成功
+            Tool.startActivity(this, InputPasswordActivity.class, bundle);
 
-                //持久化数据 手机号码
-                PersistenceData.setPhoneNumber(this, userPhone);
-                Bundle bundle = new Bundle();
-                bundle.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_REGISTER);
-                //代表成功
-                Tool.startActivity(this, InputPasswordActivity.class, bundle);
+        } else if (action.equals(ACTION_RESET_PASSWORD)) {
+            Bundle bundle1 = new Bundle();
+            bundle1.putString(InputPasswordActivity.CODE,code);
+            bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_SET_PASSWORD);
+            Tool.startActivity(this, InputPasswordActivity.class, bundle1);
 
-            } else if (action.equals(ACTION_RESET_PASSWORD)) {
-
-                Bundle bundle1 = new Bundle();
-                bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_SET_PASSWORD);
-                Tool.startActivity(this, InputPasswordActivity.class, bundle1);
-
-            } else if (action.equals(ACTION_VALIDE_CODE_LOGIN)) {
-//                String param = String.format(NetConnectionUrl.smsLogin);
-                Map<String,String> param=new HashMap();
-                param.put("mobilephone",userPhone);
-                loadDataPost(NetConnectionUrl.smsLogin, "validateCodeLogin",param);
-            }
+        } else if (action.equals(ACTION_VALIDE_CODE_LOGIN)) {
+            Map<String, String> param = new HashMap();
+            param.put("mobilephone", userPhone);
+            param.put("code",code);
+            loadDataPost(NetConnectionUrl.smsLogin, "validateCodeLogin", param);
         }
+
     }
 
 
@@ -308,7 +318,7 @@ public class ValidateCodeActivity extends ParentActivity {
 
     private String code = "";
 
-    private String[] codeLink = new String[4];
+    private String[] codeLink = new String[6];
 
     {
         for (String c : codeLink) {
@@ -371,17 +381,16 @@ public class ValidateCodeActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
-
+    protected void responseDataSuccess(String what, String backData, Response response) throws Exception {
+        super.responseDataSuccess(what, backData, response);
         if (what.equals("validateCodeLogin")) {
-            BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
-            if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-                String sessionId = response.header("Set-Cookie");//JSESSIONID=0879B42A28FEEB113E883D6FC295C7CA; Path=/ncrd; HttpOnly
-                Log.d("test", "onSucessful:当前的sessionId " + sessionId);
-                sessionId = sessionId.substring(0, sessionId.indexOf(";"));
-                Tool.loginResponse(this, backData[0],sessionId);
-            }
+            String sessionId = response.header("Set-Cookie");//JSESSIONID=0879B42A28FEEB113E883D6FC295C7CA; Path=/ncrd; HttpOnly
+            Log.d("test", "onSucessful:当前的sessionId " + sessionId);
+            sessionId = sessionId.substring(0, sessionId.indexOf(";"));
+            Tool.loginResponse(this, backData, sessionId);
+        }else if (what.equals("getValidateCode")) {
+            reSet();
         }
+
     }
 }

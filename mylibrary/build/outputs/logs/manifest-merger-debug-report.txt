@@ -1,37 +1,37 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+ADDED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
 	package
-		ADDED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:2:5-41
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:2:5-41
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-		ADDED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-		ADDED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:1-3:7
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml:1:11-69
 uses-sdk
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-		ADDED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-		ADDED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
-		INJECTED from /media/fang/codeAndNote/developer/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/mylibrary/src/main/AndroidManifest.xml

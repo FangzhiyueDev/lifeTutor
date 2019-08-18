@@ -27,10 +27,8 @@
   <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
   <uses-permission android:name="android.permission.WAKE_LOCK"/>
-  <uses-permission android:name="android.permission.FLASHLIGHT"/>
-  <uses-feature android:name="android.hardware.camera"/>
   <uses-feature android:name="android.hardware.camera.autofocus"/>
-  <application android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.rcs.nchumanity.application.MyApplication" android:theme="@style/AppTheme" android:networkSecurityConfig="@xml/network_security_config" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round">
+  <application android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.rcs.nchumanity.application.MyApplication" android:theme="@style/AppTheme" android:networkSecurityConfig="@xml/network_security_config" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:allowBackup="true" android:testOnly="true" android:roundIcon="@mipmap/ic_launcher_round">
     <service android:process=":remote" android:enabled="true" android:name="com.baidu.location.f"/>
     <activity android:name="com.rcs.nchumanity.ul.basicMap.BasicMapActivity"/>
     <activity android:name="com.rcs.nchumanity.ul.MainActivity" android:launchMode="singleTask">
@@ -44,7 +42,7 @@
     <activity android:name="com.rcs.nchumanity.ul.RegisterUserActivity"/>
     <activity android:name="com.rcs.nchumanity.ul.AssessLoginActivity"/>
     <activity android:name="com.rcs.nchumanity.ul.AmbulanceRescueActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-    <activity android:name="com.rcs.nchumanity.ul.IdentityInfoRecordActivity"/>
+    <activity android:name="com.rcs.nchumanity.ul.IdentityInfoRecordActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
     <activity android:name="com.rcs.nchumanity.ul.TrainStepActivity"/>
     <activity android:name="com.rcs.nchumanity.ul.AssessResultActivity"/>
     <activity android:name="com.rcs.nchumanity.ul.EntityCertificateActivity"/>
@@ -64,8 +62,15 @@
     <activity android:name="com.rcs.nchumanity.ul.detail.SpecificInfoComplexListDetailActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden"/>
     <activity android:name="com.rcs.nchumanity.ul.OnlineAssessmentActivity"/>
     <activity android:name="com.rcs.nchumanity.ul.list.OfflineTrainClassListActivity"/>
-    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden" android:name="com.yzq.zxinglibrary.android.CaptureActivity" android:configChanges="orientation|screenSize"/>
+    <activity android:name="com.google.zxing.activity.CaptureActivity"/>
     <activity android:name="com.rcs.nchumanity.ul.list.SpecificInfoComplexListActivity"/>
+    <activity android:launchMode="singleTop" android:name="com.rcs.nchumanity.wxapi.WXPayEntryActivity" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="你的appid"/>
+      </intent-filter>
+    </activity>
     <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="OI5XrlbyflrMMfuwS4sGlHP0IYaA7K0s"/>
     <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
     <meta-data android:name="JPUSH_APPKEY" android:value="e72bffb2c220d4872b894b07"/>
@@ -114,6 +119,9 @@
         <category android:name="com.rcs.nchumanity"/>
       </intent-filter>
     </activity>
+    <activity android:name="com.rcs.nchumanity.ul.list.EmergencyComplexListActivity"/>
+    <activity android:name="com.rcs.nchumanity.ul.basicMap.BasicMapChangeActivity"/>
+    <activity android:name="com.rcs.nchumanity.ul.detail.OfflineTrainClassDetailActivity"/>
     <service android:process=":pushcore" android:name="cn.jpush.android.service.PushService" android:exported="false">
       <intent-filter>
         <action android:name="cn.jpush.android.intent.REGISTER"/>
@@ -141,6 +149,7 @@
     <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppSecret" android:value="7fcae59a62342e7e2759e9e397c82bdd" tools:node="merge"/>
     <activity xmlns:tools="http://schemas.android.com/tools" android:windowSoftInputMode="stateHidden|adjustResize" android:name="com.mob.tools.MobUIShell" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" tools:node="merge"/>
   </application>
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
   <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
   <uses-permission android:name="android.permission.READ_CONTACTS"/>
 </manifest>

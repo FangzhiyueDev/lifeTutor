@@ -1,6 +1,7 @@
 package com.rcs.nchumanity.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,15 @@ public class CommandBar extends PercentLinearLayout {
     public CommandBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
+
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CommandBar);
+        String text = ta.getString(R.styleable.CommandBar_title);
+        if(text!=null){
+            setTitle(text);
+        }
+        ta.recycle();  //注意回收
+
+
     }
 
     private View view;

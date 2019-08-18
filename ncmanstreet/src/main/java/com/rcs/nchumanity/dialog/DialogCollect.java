@@ -146,10 +146,8 @@ public class DialogCollect {
         View view2 = LayoutInflater.from(context).inflate(R.layout.dialog_load, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.BottomDialog)
-                .setView(view2)
-                .setCancelable(true);
+                .setView(view2);
         AlertDialog dialog = builder.create();
-        dialog.show();
         return dialog;
     }
 

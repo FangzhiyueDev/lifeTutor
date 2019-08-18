@@ -186,11 +186,11 @@ public class Tool {
 
     /**
      * 登录的响应操作
-     * @param context
+     * @param activity
      * @param jsonData
      */
 
-    public static void loginResponse(Context context, String jsonData,String sessionId) {
+    public static <T extends ParentActivity> void loginResponse(T activity, String jsonData,String sessionId) {
 
         JSONObject jsonObject = null;
         try {
@@ -207,13 +207,14 @@ public class Tool {
 
             String nickName = userAccountJson.getString("nickname");
 
-            PersistenceData.loginSuccess(context,picture,nickName,user_id,sessionId);
+            PersistenceData.loginSuccess(activity,picture,nickName,user_id,sessionId);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        Tool.startActivity(context, MainActivity.class);
+//        activity.backStackLower();
+        Tool.startActivity(activity, MainActivity.class);
 
     }
 

@@ -1,5 +1,6 @@
 package com.rcs.nchumanity.ul;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +22,9 @@ import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
+import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
+import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.view.CommandBar;
 
 import org.json.JSONArray;
@@ -53,12 +56,12 @@ public class OnlineAssessmentActivity extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_assessment);
 
-        toolbar=findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("在线考核");
 
-        listRoot=findViewById(R.id.listRoot);
+        listRoot = findViewById(R.id.listRoot);
 
-        findViewById(R.id.submit).setOnClickListener((v)->{
+        findViewById(R.id.submit).setOnClickListener((v) -> {
 
             boolean post = true;
             //提交试卷
@@ -74,8 +77,21 @@ public class OnlineAssessmentActivity extends ParentActivity {
                 }
             }
             if (post) {
+                try {
+                    for (int i = 0; i < exams.length(); i++) {
+                        exams.getJSONObject(i).remove("question");
+                        exams.getJSONObject(i).remove("options");
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                String jsonData = exams.toString();
                 //进行提交
-                loadDataPostJsonForce(NetConnectionUrl.submitExamSubject,"submitExamSubject",exams.toString());
+                Log.d("test", jsonData);
+
+                Map<String, String> param = new HashMap<>();
+                param.put("answerList", jsonData);
+                loadDataPost(NetConnectionUrl.submitExamSubject, "submitExamSubject", param);
 
             } else {
                 //没有通过，不能提交
@@ -103,10 +119,25 @@ public class OnlineAssessmentActivity extends ParentActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            } else if (br.code == BasicResponse.NOT_LOGIN) {
+
+                PersistenceData.clear(this);
+                Tool.loginCheck(this);
+
             } else {
-                Toast.makeText(this, "发生错误" + br.message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "发生错误", Toast.LENGTH_SHORT).show();
             }
-        }else if(what.equals("submitExamSubject")){
+        } else if (what.equals("submitExamSubject")) {
+
+            if(br.code==BasicResponse.RESPONSE_SUCCESS){
+
+                new AlertDialog.Builder(this)
+                        .setTitle("提示")
+                        .setMessage("考试数据提交成功,审核通过后可以在我的成绩里查看")
+                        .setPositiveButton("确定",(dialog, which) -> {
+                            dialog.dismiss();
+                        }).create().show();
+            }
 
         }
 
@@ -151,19 +182,20 @@ public class OnlineAssessmentActivity extends ParentActivity {
             RadioButton c = view.findViewById(R.id.c);
             RadioButton d = view.findViewById(R.id.d);
 
-            a.setText("A、" + optionsBackup[0]);
-            b.setText("B、" + optionsBackup[1]);
-            c.setText("C、" + optionsBackup[2]);
-            d.setText("D、" + optionsBackup[3]);
+            a.setText(optionsBackup[0]);
+            b.setText(optionsBackup[1]);
+            c.setText(optionsBackup[2]);
+            d.setText(optionsBackup[3]);
 
             view.setTag(exam);
 
             RadioGroup groupO = view.findViewById(R.id.options);
-            int finalI = i;
+            groupO.setTag(i);
             groupO.setOnCheckedChangeListener((group, checkedId) -> {
-                RadioButton radbtn = (RadioButton) findViewById(checkedId);
+                RadioButton radbtn = (RadioButton) group.findViewById(checkedId);
                 try {
-                    exams.getJSONObject(finalI).put("answer", radbtn.getText());
+                    int index= (int) group.getTag();
+                    exams.getJSONObject(index).put("answer", radbtn.getTag());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -171,11 +203,6 @@ public class OnlineAssessmentActivity extends ParentActivity {
             listRoot.addView(view);
         }
     }
-
-
-
-
-
 
 
 }

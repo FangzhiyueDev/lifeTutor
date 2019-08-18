@@ -194,13 +194,13 @@ public class MainActivity extends ParentActivity {
         super.onRestart();
 
         Log.d(TAG, "onRestart: " + defaultIndex);
-        if (defaultIndex == cachePage - 1) {
+//        if (defaultIndex == cachePage - 1) {
             for (Fragment pf : getSupportFragmentManager().getFragments()) {
                 if (pf instanceof MeFragment) {
                     ((MeFragment) pf).updateUserData();
                 }
             }
-        }
+//        }
     }
 
 

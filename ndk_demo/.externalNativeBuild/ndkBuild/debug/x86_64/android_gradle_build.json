@@ -1,24 +1,24 @@
 {
   "buildFiles": [
-    "/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni/Android.mk",
-    "/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni/Application.mk"
+    "/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni/Android.mk",
+    "/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni/Application.mk"
   ],
   "cleanCommands": [
-    "/home/fang/Android/Sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/lib clean"
+    "/home/fang/Android/Sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/lib clean"
   ],
   "libraries": {
     "ArraySum-debug-x86_64": {
-      "buildCommand": "/home/fang/Android/Sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/lib /media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj/local/x86_64/libArraySum.so",
+      "buildCommand": "/home/fang/Android/Sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/fang/androidProject/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/lib /home/fang/androidProject/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj/local/x86_64/libArraySum.so",
       "toolchain": "toolchain-x86_64",
       "abi": "x86_64",
       "artifactName": "ArraySum",
       "files": [
         {
-          "src": "/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni/array.c",
-          "flags": "-target x86_64-none-linux-android21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /home/fang/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fPIC -O0 -UNDEBUG -fno-limit-debug-info -I/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+          "src": "/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni/array.c",
+          "flags": "-target x86_64-none-linux-android21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /home/fang/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fPIC -O0 -UNDEBUG -fno-limit-debug-info -I/home/fang/androidProject/android/lifeTutor/ndk_demo/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
         }
       ],
-      "output": "/media/fang/codeAndNote/developer/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj/local/x86_64/libArraySum.so"
+      "output": "/home/fang/androidProject/android/lifeTutor/ndk_demo/build/intermediates/ndkBuild/debug/obj/local/x86_64/libArraySum.so"
     }
   },
   "toolchains": {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,6 +9,7 @@
     <com.rcs.nchumanity.view.CommandBar
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
+        toolbar:title="报名"
         android:layout_height="wrap_content"
         android:background="@color/themecolor"></com.rcs.nchumanity.view.CommandBar>
 
@@ -103,6 +104,15 @@
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_35" />
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userImg"
+                    android:rotation="-90"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                     />
+
+
                 <ImageView
                     android:layout_width="57dp"
                     android:layout_height="70dp"
@@ -158,6 +168,9 @@
                     android:layout_toRightOf="@+id/nameTag"
                     android:background="@null"
                     android:hint="@string/need"
+                    android:maxLines="1"
+                    android:maxLength="5"
+                    android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:textSize="13sp" />
 
@@ -190,6 +203,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="13dp"
+                    android:maxLines="1"
+                    android:inputType="phone"
                     android:layout_toRightOf="@+id/phoneTag"
                     android:background="@null"
                     android:hint="@string/need"
@@ -263,6 +278,7 @@
                     android:background="@null"
                     android:entries="@array/sixs"
                     android:hint="@string/need"
+                    android:maxLines="1"
                     android:paddingLeft="10dp"
                     android:textSize="13sp" />
 
@@ -298,6 +314,8 @@
                     android:entries="@array/sixs"
                     android:hint="@string/need"
                     android:paddingLeft="10dp"
+                    android:maxLines="1"
+                    android:maxLength="20"
                     android:textSize="13sp" />
 
             </RelativeLayout>
@@ -395,6 +413,7 @@
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="选填"
+                    android:inputType="text"
                     android:paddingLeft="10dp"
                     android:textSize="13sp" />
             </RelativeLayout>
@@ -445,6 +464,9 @@
                 android:layout_marginLeft="13dp"
                 android:background="@color/smssdk_white"
                 android:hint="详细地址:"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="20"
                 android:textColor="#999999"
                 android:textSize="13sp" />
 

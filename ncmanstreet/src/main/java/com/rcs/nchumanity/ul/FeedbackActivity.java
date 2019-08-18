@@ -5,15 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
+import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.model.FeedbackRecord;
+import com.rcs.nchumanity.tool.DateProce;
 import com.rcs.nchumanity.tool.Tool;
 
 import java.io.IOException;
@@ -39,6 +42,13 @@ public class FeedbackActivity extends ParentActivity {
     EditText content;
 
 
+    @BindView(R.id.feedList)
+    ListView feedList;
+
+
+    ListViewCommonsAdapter<FeedbackRecord> commonsAdapter;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +58,30 @@ public class FeedbackActivity extends ParentActivity {
         feedbackRecords = (ArrayList<FeedbackRecord>) getIntent().getExtras().getSerializable(DATA);
 
         if (feedbackRecords == null) {
-
+            throw new IllegalArgumentException("param exception");
         }
 
 
+        commonsAdapter = new ListViewCommonsAdapter<FeedbackRecord>(feedbackRecords, R.layout.item_feedback) {
+            @Override
+            public void bindView(ViewHolder holder, FeedbackRecord obj) {
+                if (obj.getCreateTime() != null) {
+                    holder.setText(R.id.createTime, DateProce.formatDate(obj.getCreateTime()));
+                }
+                if (obj.getReply() != null) {
+                    holder.setText(R.id.reply, obj.getReply());
+                }
+                if (obj.getMessage() != null) {
+                    holder.setText(R.id.message, obj.getMessage());
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return feedbackRecords.size();
+            }
+        };
+        feedList.setAdapter(commonsAdapter);
     }
 
 
@@ -68,20 +98,20 @@ public class FeedbackActivity extends ParentActivity {
         BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
 
         if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+            if (what.equals("commitFeedback")) {
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                    .setTitle("提示")
-                    .setMessage("取消报名成功")
-                    .setPositiveButton("确定", (dialog, which) -> {
-                        dialog.dismiss();
-                    });
-            builder.create().show();
-
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                        .setTitle("提示")
+                        .setMessage("提交留言成功")
+                        .setPositiveButton("确定", (dialog, which) -> {
+                            dialog.dismiss();
+                        });
+                builder.create().show();
+            }
         } else {
             Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
         }
-
-
     }
+
+
 }

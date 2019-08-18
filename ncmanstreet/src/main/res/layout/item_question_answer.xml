@@ -29,8 +29,8 @@
         android:id="@+id/a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/number"
-        android:layout_marginTop="8dp"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="10dp"
         android:text="A、打开气道、口对口吹气、胸外心脏按压"
         android:textColor="#ff0c0c0c"
         android:textSize="15sp" />

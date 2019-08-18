@@ -21,8 +21,10 @@ import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.dialog.DialogTool;
 import com.rcs.nchumanity.entity.BasicResponse;
+import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
 import com.rcs.nchumanity.entity.model.AreaInfo;
+import com.rcs.nchumanity.tool.DateProce;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.ul.detail.OfflineTrainClassDetailActivity;
@@ -32,6 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -78,7 +81,7 @@ public class OfflineTrainClassListActivity extends ParentActivity {
     private int defIndex = 0;
 
 
-    private List<ComplexModelSet.M_traiCla_areaInf> traiCla_areaInfs;
+    private ArrayList<ComplexModelSet.M_traiCla_areaInf> traiCla_areaInfs;
 
 
     @Override
@@ -100,10 +103,18 @@ public class OfflineTrainClassListActivity extends ParentActivity {
         traiCla_areaInfs = new ArrayList<>();
 
 
-        classListAdapter = new ListViewCommonsAdapter((ArrayList) traiCla_areaInfs, R.layout.item_train_class) {
+        classListAdapter =
+                new ListViewCommonsAdapter<ComplexModelSet.M_traiCla_areaInf>
+                (traiCla_areaInfs, R.layout.item_train_class) {
             @Override
-            public void bindView(ViewHolder holder, Object obj) {
-
+            public void bindView(ViewHolder holder, ComplexModelSet.M_traiCla_areaInf obj) {
+                holder.setText(R.id.area,obj.area);
+                holder.setText(R.id.dateTime, DateProce.formatDate(DateProce.parseDate(obj.starTime)));
+                holder.setText(R.id.address,obj.position+" "+(obj.vrClass?"VR":"非VR"));
+                holder.setText(R.id.trainCount,obj.maxNum+"人");
+                holder.setText(R.id.leftCount,obj.leftNum+"人");
+                holder.setText(R.id.trainOrg,obj.org);
+                holder.setText(R.id.trainer,obj.trainer);
             }
 
             @Override
@@ -111,6 +122,9 @@ public class OfflineTrainClassListActivity extends ParentActivity {
                 return traiCla_areaInfs.size();
             }
         };
+
+
+
         classList.setAdapter(classListAdapter);
 
         classList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -119,8 +133,8 @@ public class OfflineTrainClassListActivity extends ParentActivity {
                 //进入详情界面
                 String classId = traiCla_areaInfs.get(position).classId + "";
                 Bundle bundle = new Bundle();
-                bundle.putString(OfflineTrainClassDetailActivity.CLASS_ID,classId);
-                Tool.startActivity(OfflineTrainClassListActivity.this, OfflineTrainClassDetailActivity.class,bundle);
+                bundle.putString(OfflineTrainClassDetailActivity.CLASS_ID, classId);
+                Tool.startActivity(OfflineTrainClassListActivity.this, OfflineTrainClassDetailActivity.class, bundle);
             }
         });
 
@@ -147,8 +161,6 @@ public class OfflineTrainClassListActivity extends ParentActivity {
             }
         });
 
-        areaInfos = new ArrayList<>();
-
         adapter = new ListViewCommonsAdapter<String>((ArrayList<String>) areaInfos, R.layout.item_area) {
             @Override
             public void bindView(ViewHolder holder, String obj) {
@@ -165,6 +177,8 @@ public class OfflineTrainClassListActivity extends ParentActivity {
         popupWindow = new PopupWindow(inner, -1, -2);
         // 外部点击事件
         popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);//要先让popupwindow获得焦点，才能正确获取popupwindow的状态
+
 
     }
 
@@ -175,11 +189,11 @@ public class OfflineTrainClassListActivity extends ParentActivity {
      */
     public void setHeadData(List<String> areaInfos) {
         this.areaInfos.clear();
-        this.areaInfos.containsAll(areaInfos);
+        this.areaInfos.addAll(areaInfos);
         adapter.notifyDataSetChanged();
     }
 
-    private List<String> areaInfos;
+    private List<String> areaInfos = new ArrayList<>();
 
     private ListViewCommonsAdapter<String> adapter;
 
@@ -189,9 +203,22 @@ public class OfflineTrainClassListActivity extends ParentActivity {
     @OnClick(R.id.changePosition)
     public void onClick(View view) {
         Log.d("test", "onClick: ");
-        popupWindow.showAsDropDown(changePosition);
+        if(popupWindow.isShowing()){
+            popupWindow.dismiss();
+        }else {
+            popupWindow.showAsDropDown(changePosition);
+        }
     }
 
+
+    @Override
+    protected void onDestroy() {
+       if (popupWindow.isShowing()){
+           popupWindow.dismiss();
+       }
+
+        super.onDestroy();
+    }
 
     private HashMap<String, List<ComplexModelSet.M_traiCla_areaInf>> classListAreaMap;
 
@@ -237,10 +264,15 @@ public class OfflineTrainClassListActivity extends ParentActivity {
                         int vrAttr = course.getInt("vrAttr");
                         boolean vrClass = course.getBoolean("vrClass");
                         String area = course.getString("area");
-
+                         String trainer=null;
+                        if(course.has("trainer")) {
+                             trainer = course.getString("trainer");
+                        }
 
                         ComplexModelSet.M_traiCla_areaInf traiCla_areaInf
                                 = new ComplexModelSet.M_traiCla_areaInf(classId, startme, position, maxNum, leftNum, org, vrAttr, vrClass, area);
+
+                        traiCla_areaInf.trainer=trainer;
 
                         if (classListAreaMap.get(area) == null) {
                             List<ComplexModelSet.M_traiCla_areaInf> backList = new ArrayList<>();
@@ -256,13 +288,22 @@ public class OfflineTrainClassListActivity extends ParentActivity {
 
 
                     Set<String> stringSet = classListAreaMap.keySet();
-                    setHeadData(new ArrayList<>(stringSet));
-                    changePosition.setText(areaInfos.get(defIndex));
-                    setContentList(classListAreaMap.get(changePosition.getText()));
 
+                    setHeadData(new ArrayList<>(stringSet));
+
+                    if(areaInfos.size()>0){
+                        defIndex=areaInfos.size()-1;
+                        changePosition.setText(areaInfos.get(defIndex));
+                        setContentList(classListAreaMap.get(changePosition.getText()));
+                    }else if (areaInfos.size()==0) {
+
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            } else if (br.code == BasicResponse.NOT_LOGIN) {
+                PersistenceData.clear(this);
+                Tool.loginCheck(this);
             }
         }
 
@@ -279,5 +320,8 @@ public class OfflineTrainClassListActivity extends ParentActivity {
         traiCla_areaInfs.addAll(list);
         classListAdapter.notifyDataSetChanged();
     }
+
+
+
 
 }

@@ -8,7 +8,6 @@ package com.rcs.nchumanity.entity;
 public class NetConnectionUrl {
 
 
-
     /**
      * 快递查询的相关的接口信息常量
      */
@@ -59,13 +58,13 @@ public class NetConnectionUrl {
 
     }
 
+
+    public static final String HOST = "https://www.tongkun5g.com/";
+
     /**
      * 服务器的主地址
      */
-    public static final String ROOT_SERVER = "http://193.112.182.184:8888/ncrd/";
-
-    public static final String HOST = "http://193.112.182.184:8888";
-
+    public static final String ROOT_SERVER = HOST + "ncrd/";
 
     public static final String APP = ROOT_SERVER + "app/";
 
@@ -76,22 +75,88 @@ public class NetConnectionUrl {
 
 
     /**
+     * 取消选课
+     */
+    public static String cancelChooseClass = APP + "my/myCourse/cancelChosenClass?id=%d";
+
+    /**
+     * 帮助中心
+     */
+    public static String getHelpInfo = APP + "settings/info/getHelpInfo";
+
+    /**
+     * 根据密码进行修改密码
+     */
+    public static String changePassword = api + "updatePassword";
+
+
+    public static String doUnifiedOrder = APP + "certification/doUnifiedOrder";
+
+
+    public static String getStatusByUser = APP + "certification/getStatusByUser";
+
+    /**
+     * 获得用户报名相关信息
+     */
+    public static String getPostInfoByUser = APP + "certification/getPostInfoByUser";
+
+    /**
+     * 获得验证码
+     */
+    public static String getValidateCode = system + "admin/sendSms";
+
+
+    /**
+     * 关于我们
+     */
+    public static String getAboutUs = APP + "settings/info/getHelpInfo";
+
+    /**
+     * 短信验证登录
+     */
+    public static String smsLogin = system + "admin/smsLogin";
+
+
+    /**
+     * 修改头像
+     */
+    public static String updateUserPic = APP + "settings/updateUserPic";
+
+    /**
+     * 短信验证注册
+     * post 方式
+     * code
+     * mobilephone
+     * password
+     */
+    public static String register = api + "userRegister";
+
+
+    /**
+     * 添加救护的响应信息
+     */
+    public static String addResEmergency = ROOT_SERVER + "emergency/res/addResEmergency";
+
+
+    /**
+     * 我的电子证书
+     */
+    public static String myCertificate = APP + "settings/getElectronicCertificate";
+
+    /**
      * 我的课程
      */
-    public static String myCourse=APP+"my/myCourse/getMyClassList";
+    public static String myCourse = APP + "my/myCourse/getMyClassList";
 
     /**
      * 取消选课
      */
-    public static String getMyClassList=APP+"my/myCourse/cancelChosenClass";
+    public static String getMyClassList = APP + "my/myCourse/cancelChosenClass";
 
-/**
- * 获取考核结果
- */
-    public static String getMyScore= "/my/myCourse/getMyScore";
-
-
-
+    /**
+     * 获取考核结果
+     */
+    public static String getMyScore = APP + "my/myCourse/getMyScore";
 
 
     /**
@@ -138,13 +203,13 @@ public class NetConnectionUrl {
     /**
      * 注册的接口
      */
-    public static String register = ROOT_SERVER + "userRegister?mobilephone=%s&password=%s";
+//    public static String register = ROOT_SERVER + "/api/userRegister";
 
 
-    public static String smsLogin = system + "admin/smsLogin?mobilephone=%s";
+//    public static String smsLogin = system + "admin/smsLogin?mobilephone=%s";
 
 
-    public static String resetPasswordWithMobilePhone = api + "resetPasswordWithMobilePhone?mobilephone=%s&password=%s";
+    public static String resetPasswordWithMobilePhone = api + "resetPasswordWithMobilePhone?code=%s&mobilephone=%s&password=%s";
 
 
     /**
@@ -226,13 +291,13 @@ public class NetConnectionUrl {
     /**
      * 获得线下培训班课程详情
      */
-    public static String getOfflineTrainClassDetail = "?classId=%s";
+    public static String getOfflineTrainClassDetail = APP + "offlineTrain/getClassInfo?classId=%s";
 
 
     /**
-     * 报名线下培训班
+     * 报名线下培训班报名
      */
-    public static String offlineTrainClassSignUp = "";
+    public static String offlineTrainClassSignUp = APP + "offlineTrain/saveStudyRecord";
 
 
     /**
@@ -327,14 +392,13 @@ public class NetConnectionUrl {
     /**
      * 救护信息列表
      */
-    public static String selectInfo = ROOT_SERVER + "emergency/ForHelp/selectInfo?pageSize=150";
+    public static String selectInfo = ROOT_SERVER + "emergency/ForHelp/selectInfo?pageSize=60";
 
 
     /**
      * 救护信息列表
      */
-    public static String selectInfoSplitPage = ROOT_SERVER + "emergency/ForHelp/selectInfo?pageSize=%d&pageNumber=%d";
-
+    public static String selectInfoSplitPage = ROOT_SERVER + "emergency/ForHelp/selectInfo?pageSize=%d&pageNum=%d";
 
 
     /**

@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.rcs.nchumanity.view.CommandBar
+        toolbar:title="设置"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
 
@@ -28,25 +30,6 @@
         android:layout_height="2px"
         android:background="@drawable/ic_22"></View>
 
-
-    <Button
-        android:id="@+id/changePhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/smssdk_white"
-        android:drawableRight="@drawable/ic_downstep"
-        android:drawableTint="#E5E5E5"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="13dp"
-        android:paddingRight="13dp"
-        android:text="修改绑定手机"
-        android:textColor="#ff0c0c0c"
-        android:textSize="14sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2px"
-        android:background="@drawable/ic_22"></View>
 
 
     <Button

@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Log;
 
+import androidx.annotation.IntDef;
+
 import com.rcs.nchumanity.application.MyApplication;
 import com.rcs.nchumanity.entity.PersistenceData;
 
@@ -15,10 +17,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -38,6 +43,25 @@ import okhttp3.ResponseBody;
 public class NetRequest {
 
 
+    public static final int MODE_FORCE = 201;
+
+    public static final int MODE_SILENCE = 202;
+
+    public static final int MODE_SOFT = 203;
+
+
+    @IntDef(flag = true, value = {
+            MODE_FORCE,
+            MODE_SILENCE,
+            MODE_SOFT,
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface LoadCase {
+    }
+
+
+    public static int connectTimeout = 10;
+
     /**
      * 发送网络请求的处理类
      * 这个默认是get请求
@@ -47,14 +71,16 @@ public class NetRequest {
      */
     public static void requestUrl(String url, Callback callback) {
 
-        Request.Builder builder=new Request.Builder();
-        String sessionId=PersistenceData.getSessionId(MyApplication.getContext());
-        if(!sessionId.equals(PersistenceData.DEF_VAL)){
-            builder.addHeader("cookie",sessionId);
+        Request.Builder builder = new Request.Builder();
+        String sessionId = PersistenceData.getSessionId(MyApplication.getContext());
+        if (!sessionId.equals(PersistenceData.DEF_VAL)) {
+            builder.addHeader("cookie", sessionId);
         }
         Request request = builder.url(url).build();
-        Log.d("test", "requestHead: "+request.headers());
-        OkHttpClient ok = new OkHttpClient();
+        Log.d("test", "requestHead: " + request.headers());
+        OkHttpClient ok = new OkHttpClient.Builder()
+                .connectTimeout(connectTimeout, TimeUnit.SECONDS).build();
+
         ok.newCall(request).enqueue(callback);
     }
 
@@ -152,46 +178,59 @@ public class NetRequest {
             builder.add(key, param.get(key));
         }
 
-        RequestBody requestBody = builder.build();
-        Request request = new Request.Builder().url(url).post(requestBody).build();
 
-        Log.d("test", "requestHead: "+request.headers());
-        OkHttpClient ok = new OkHttpClient();
+        RequestBody requestBody = builder.build();
+        Request.Builder requestBuilder = new Request.Builder();
+        String sessionId = PersistenceData.getSessionId(MyApplication.getContext());
+        requestBuilder.url(url).post(requestBody);
+        if (!sessionId.equals(PersistenceData.DEF_VAL)) {
+            requestBuilder.addHeader("cookie", sessionId);
+        }
+
+        requestBuilder.addHeader("Content-Type","application/x-www-form-urlencoded");
+
+        Request request = requestBuilder.build();
+
+        Log.d("test", "requestHead: " + request.headers());
+        OkHttpClient ok = new OkHttpClient.Builder()
+                .connectTimeout(connectTimeout, TimeUnit.SECONDS).build();
         ok.newCall(request).enqueue(callback);
     }
 
 
     /**
      * post json 数据
+     *
      * @param url
      * @param json
      * @param callback
      */
-    public static  void requestPostJson(String url,String json,Callback callback){
+    public static void requestPostJson(String url, String json, Callback callback) {
         //MediaType  设置Content-Type 标头中包含的媒体类型值
         RequestBody requestBody = FormBody.create(MediaType.parse("application/json; charset=utf-8")
                 , json);
 
-        Request.Builder builder=new Request.Builder();
+        Request.Builder builder = new Request.Builder();
 
-        String sessionId=PersistenceData.getSessionId(MyApplication.getContext());
-        if(!sessionId.equals(PersistenceData.DEF_VAL)){
-            builder.addHeader("cookie",sessionId);
+        String sessionId = PersistenceData.getSessionId(MyApplication.getContext());
+        if (!sessionId.equals(PersistenceData.DEF_VAL)) {
+            builder.addHeader("cookie", sessionId);
         }
 
         Request request = builder.url(url).post(requestBody).build();
-        OkHttpClient ok = new OkHttpClient();
+        OkHttpClient ok = new OkHttpClient.Builder()
+                .connectTimeout(connectTimeout, TimeUnit.SECONDS).build();
         ok.newCall(request).enqueue(callback);
 
     }
 
 
-
-    private static String imageName="photo";
+    private static String imageName = "photo";
 
     public static void setImageName(String imageName) {
         NetRequest.imageName = imageName;
     }
+
 
     public static void postImage(String url, String imagePath, Map<String, String> param, Callback callback) {
 
@@ -199,7 +238,7 @@ public class NetRequest {
         File file = new File(imagePath);
 
         MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM)
-                .addFormDataPart(imageName, "HeadPortrait.jpg",
+                .addFormDataPart(imageName, imageName + System.currentTimeMillis() + ".jpg",
                         RequestBody.create(MediaType.parse("image/png"), file));
         Set<String> keys = param.keySet();
         for (String key : keys) {
@@ -210,15 +249,21 @@ public class NetRequest {
         RequestBody requestBody = builder.build();
 
         //构建请求头
-        Request.Builder builder1=new Request.Builder();
+        Request.Builder builder1 = new Request.Builder();
 
-        String sessionId=PersistenceData.getSessionId(MyApplication.getContext());
-        if(!sessionId.equals(PersistenceData.DEF_VAL)){
-            builder1.addHeader("cookie",sessionId);
+        String sessionId = PersistenceData.getSessionId(MyApplication.getContext());
+        if (!sessionId.equals(PersistenceData.DEF_VAL)) {
+            builder1.addHeader("cookie", sessionId);
         }
 
+
         Request request = builder1.url(url).post(requestBody).build();
-        OkHttpClient ok = new OkHttpClient();
+
+
+        Log.d("test", "postImage: " + request.headers());
+
+        OkHttpClient ok = new OkHttpClient.Builder()
+                .connectTimeout(connectTimeout, TimeUnit.SECONDS).build();
         ok.newCall(request).enqueue(callback);
     }
 

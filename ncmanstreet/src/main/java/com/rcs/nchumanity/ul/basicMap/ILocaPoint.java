@@ -44,4 +44,7 @@ public interface ILocaPoint extends Serializable {
      */
     public void setDistance(String distance);
 
+
+    public boolean isHelp();
+
 }

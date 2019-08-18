@@ -10,16 +10,19 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AnnotationL" />
             <option value="$PROJECT_DIR$/BootStrapWebAppDemo" />
+            <option value="$PROJECT_DIR$/JGPush" />
             <option value="$PROJECT_DIR$/aidltest" />
             <option value="$PROJECT_DIR$/amm_sdk_sample" />
             <option value="$PROJECT_DIR$/animator" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/butterknitedemo" />
+            <option value="$PROJECT_DIR$/canvesbitmap" />
             <option value="$PROJECT_DIR$/codeoptimization" />
             <option value="$PROJECT_DIR$/componentasystemtest" />
             <option value="$PROJECT_DIR$/consumeview" />
             <option value="$PROJECT_DIR$/cpr_1" />
             <option value="$PROJECT_DIR$/filterrice" />
+            <option value="$PROJECT_DIR$/jsontosql" />
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/materialdesigndemo" />
             <option value="$PROJECT_DIR$/momomusic" />
@@ -34,6 +37,7 @@
             <option value="$PROJECT_DIR$/rice" />
             <option value="$PROJECT_DIR$/rice2_verssion" />
             <option value="$PROJECT_DIR$/securityandroidpatform" />
+            <option value="$PROJECT_DIR$/zxing-lib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

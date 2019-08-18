@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/media/fang/codeAndNote/developer/android/lifeTutor/aidltest/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml",
+            "outputFile": "/home/fang/androidProject/android/lifeTutor/aidltest/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/f35f05d2fecb015da02de6537c0ca571/res/values-v28/values-v28.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

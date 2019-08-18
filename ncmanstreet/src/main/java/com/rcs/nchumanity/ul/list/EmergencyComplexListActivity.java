@@ -1,6 +1,8 @@
 package com.rcs.nchumanity.ul.list;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.model.EmergencyInfo;
 import com.rcs.nchumanity.tool.DateProce;
+import com.rcs.nchumanity.tool.JsonDataParse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,11 +32,19 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
 
 
 
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+        toolbar.setTitle("历史记录");
+    }
 
     @Override
     protected void bindViewValue(ListViewCommonsAdapter.ViewHolder holder, EmergencyInfo obj) {
 
+        holder.setText(R.id.title, obj.getTitle());
+        holder.setText(R.id.content, obj.getContent());
+        holder.setText(R.id.phone, obj.getMobilePhone());
+        holder.setText(R.id.count,obj.getReadCount()+"次");
 
     }
 
@@ -46,10 +57,6 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
     protected int getLayout() {
         return R.layout.item_emergency;
     }
-
-
-
-
 
 
     private int page = 0;
@@ -75,21 +82,22 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
             isFlush = false;
             page++;
             //加载数据
-            String param=String.format(NetConnectionUrl.selectInfoSplitPage,size,page);
+            String param = String.format(NetConnectionUrl.selectInfoSplitPage, size, page);
 
-            loadDataGetForForce(param,"loadData");
+            loadDataGetSilence(param, "loadData");
+        }else {
+            Toast.makeText(this, "没有多余的数据了", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String param=String.format(NetConnectionUrl.selectInfoSplitPage,size,page);
+        String param = String.format(NetConnectionUrl.selectInfoSplitPage, size, page);
 
-        loadDataGetForForce(param,"loadData");
+        loadDataGetSilence(param, "loadData");
 
     }
 
@@ -105,7 +113,9 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
 
                     try {
 
-                       List<EmergencyInfo>  emergencyInfos =parseEmergencyData(backData[0]);
+                        List<EmergencyInfo> emergencyInfos = JsonDataParse.parseEmergencyData(backData[0]);
+
+                        Log.d("test", "onSucessful: emergencyInfos.size="+size);
 
                         if (emergencyInfos.size() < size) {
                             //代表的是没有数据了
@@ -125,58 +135,12 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                break;
+                    break;
             }
-        }else {
+        } else {
             Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
-    /**
-     * 解析出当前的求救的数据
-     *
-     * @param backDatum
-     * @return
-     */
-    private ArrayList<EmergencyInfo> parseEmergencyData(String backDatum) throws JSONException {
-        JSONObject brJ = new JSONObject(backDatum);
-        JSONObject data = brJ.getJSONObject("data");
-        JSONArray totalList = data.getJSONArray("list");
-
-        ArrayList<EmergencyInfo> emergencyInfos = new ArrayList<>();
-
-        for (int i = 0; i < totalList.length(); i++) {
-            EmergencyInfo emergencyInfo = new EmergencyInfo();
-            JSONObject emerO = totalList.getJSONObject(i);
-            int emerId = emerO.getInt("emerId");
-            String createTime = emerO.getString("createTime");
-            String title = emerO.getString("title");
-            String content = emerO.getString("content");
-            int longitude = emerO.getInt("longitude");
-            double latitude = emerO.getDouble("latitude");
-            int readCount = emerO.getInt("readCount");
-            String mobilePhone = emerO.getString("mobilePhone");
-            int userId = emerO.getInt("userId");
-            emergencyInfo.setContent(content);
-            emergencyInfo.setCreateTime(DateProce.parseDate(createTime));
-            emergencyInfo.setEmerId(emerId);
-            emergencyInfo.setTitle(title);
-            emergencyInfo.setLatitude((float) latitude);
-            emergencyInfo.setLongitude((float) longitude);
-            emergencyInfo.setUserId(userId);
-            emergencyInfo.setReadCount(readCount);
-            emergencyInfo.setMobilePhone(mobilePhone);
-            emergencyInfos.add(emergencyInfo);
-        }
-        return emergencyInfos;
-    }
-
-
-
-
-
 
 
 }

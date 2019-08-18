@@ -72,6 +72,7 @@ public class ProjectListActivity extends AppCompatActivity {
     ListView listView;
 
     Class[] array = {
+            DownloadFileTestActivity.class,
             NetRequestActivity.class,
             InputManager_Activity.class,
             DialogWidthTestActivity.class,

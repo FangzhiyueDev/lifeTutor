@@ -127,7 +127,7 @@ public class RegisterUserActivity extends ParentActivity {
                     case BasicResponse.NOT_REGISTER:
 
                         //发送验证码到该手机上
-                        ValidateCodeServler.sendValidateCode("86", userPhone);
+//                        ValidateCodeServler.sendValidateCode("86", userPhone);
 
                         /**
                          * 根据返回数据的结果，动态的跳转相应的界面

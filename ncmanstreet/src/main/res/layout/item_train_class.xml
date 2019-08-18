@@ -46,6 +46,7 @@
             android:layout_below="@id/area"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"
+            android:id="@+id/dateTime"
             android:layout_toRightOf="@id/timeTag"
             android:text="2019/10/11  8:00"
             android:textColor="#ff333333"
@@ -67,6 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/timeTag"
+            android:id="@+id/address"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/addressTag"
@@ -94,6 +96,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/addressTag"
             android:text="30人"
+            android:id="@+id/trainCount"
             android:textColor="#ff333333"
             android:textSize="13sp" />
 
@@ -116,6 +119,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/remainCountTag"
             android:text="10人"
+            android:id="@+id/leftCount"
             android:textColor="#ff333333"
             android:textSize="13sp" />
 
@@ -139,6 +143,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/orgTag"
             android:text="南昌红十字会"
+            android:id="@+id/trainOrg"
             android:textColor="#ff333333"
             android:textSize="13sp" />
 
@@ -161,6 +166,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/orgTag"
             android:text="李涛"
+            android:id="@+id/trainer"
             android:textColor="#ff333333"
             android:textSize="13sp" />
 

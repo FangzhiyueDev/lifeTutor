@@ -1,5 +1,6 @@
 package com.rcs.nchumanity.fragment;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -31,6 +33,8 @@ import com.rcs.nchumanity.ul.ParentActivity;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +42,10 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Response;
+
+import static com.rcs.nchumanity.net.NetRequest.MODE_FORCE;
+import static com.rcs.nchumanity.net.NetRequest.MODE_SILENCE;
+import static com.rcs.nchumanity.net.NetRequest.MODE_SOFT;
 
 
 /**
@@ -197,12 +205,6 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
     }
 
 
-
-
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -237,54 +239,59 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
     }
 
 
-    private ProgressBar progressBar;
-
-    private MyCallHandler myCallHandler;
-
-    private AlertDialog dialog;
-
-
     /**
-     * 用来实现对网络资源的加载
-     *
-     * @param <T>
-     * @param url    请求的url
-     * @param what   用来生成请求标示
-     * @param method 请求的方法
-     * @param params 如果使用的是Post请求，该参数代表的是请求的参数
-     * @param force  代表是否是强制加载
+     * @param url       请求的url
+     * @param what      请求的标示
+     * @param method    请求的方法
+     * @param params    POST请求使用的参数map
+     * @param loadCase  加载方案
+     * @param postImg   是否是提交图片  post方式
+     * @param imagePath 图片的路径
+     * @param postJson  是否是json格式的提交数据
+     * @param json      json格式数据
      */
-    public <T> void loadData(final String url, final String what, String method, Map<String, String> params, boolean force, boolean postImg, String imagePath) {
-        if (force) {
-            progressBar = LoadProgress.loadProgress(getContext());
-        } else {
-            dialog = (AlertDialog) DialogCollect.openLoadDialog(getContext());
+    public void loadData(final String url, final String what, String method, Map<String, String> params, @NetRequest.LoadCase int loadCase, boolean postImg, String imagePath, boolean postJson, String json) {
+        Log.d("test", "loadData: 请求的url：" + url);
+        final Dialog dialog = (AlertDialog) DialogCollect.openLoadDialog(getContext());
+        if (loadCase != MODE_SILENCE) {
+            dialog.show();
         }
+        if (loadCase == MODE_FORCE) {
+            dialog.setCancelable(false);
+        } else if (loadCase == MODE_SOFT) {
+            dialog.setCancelable(true);
+        }
+
         Thread t = new Thread(() -> {
-            myCallHandler = new MyCallHandler(what, force);
+            MyCallHandler myCallHandler = new MyCallHandler(what, dialog);
             if (method.equalsIgnoreCase("GET")) {
                 NetRequest.requestUrl(url, myCallHandler);
             } else if (method.equalsIgnoreCase("POST")) {
                 if (postImg) {
-
                     NetRequest.postImage(url, imagePath, params, myCallHandler);
-
+                } else if (postJson) {
+                    NetRequest.requestPostJson(url, json, myCallHandler);
                 } else {
                     NetRequest.requestPost(url, params, myCallHandler);
                 }
             }
         });
-
         t.start();
 
-        dialog.setOnDismissListener((dialog) -> {
-//            Log.d(TAG, "onDismiss: ");
+        dialog.setOnDismissListener((dialog1) -> {
+            Log.d("test", "onDismiss: ");
             if (t.getState() != Thread.State.TERMINATED) {
                 t.interrupt();
                 onError(new InterruptedIOException("自己取消异常"), what);
             }
         });
     }
+
+
+    public void loadDataGetSilence(final String url, final String what) {
+        loadData(url, what, "GET", null, MODE_SILENCE, false, null, false, null);
+    }
+
 
     /**
      * 软加载
@@ -293,7 +300,7 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
      * @param what
      */
     public void loadDataGet(final String url, final String what) {
-        loadData(url, what, "GET", null, false, false, null);
+        loadData(url, what, "GET", null, MODE_SOFT, false, null, false, null);
     }
 
     /**
@@ -303,9 +310,13 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
      * @param what
      */
     public void loadDataGetForForce(String url, final String what) {
-        loadData(url, what, "GET", null, false, false, null);
+        loadData(url, what, "GET", null, MODE_FORCE, false, null, false, null);
     }
 
+
+    public void loadDataPostSilence(final String url, final String what, Map<String, String> params) {
+        loadData(url, what, "POST", params, MODE_SILENCE, false, null, false, null);
+    }
 
     /**
      * 软加载提交
@@ -315,7 +326,7 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
      * @param params
      */
     public void loadDataPost(final String url, final String what, Map<String, String> params) {
-        loadData(url, what, "POST", params, false, false, null);
+        loadData(url, what, "POST", params, MODE_SOFT, false, null, false, null);
     }
 
 
@@ -327,7 +338,30 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
      * @param params
      */
     public void loadDataPostForce(final String url, final String what, Map<String, String> params) {
-        loadData(url, what, "POST", params, true, false, null);
+        loadData(url, what, "POST", params, MODE_FORCE, false, null, false, null);
+    }
+
+
+    /**
+     * 提交json数据
+     *
+     * @param url
+     * @param what
+     * @param json
+     */
+    public void loadDataPostJson(final String url, final String what, String json) {
+        loadData(url, what, "POST", null, MODE_SOFT, false, null, true, json);
+    }
+
+    /**
+     * 提交json数据 强制
+     *
+     * @param url
+     * @param what
+     * @param json
+     */
+    public void loadDataPostJsonForce(final String url, final String what, String json) {
+        loadData(url, what, "POST", null, MODE_FORCE, false, null, true, json);
     }
 
 
@@ -339,7 +373,7 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
      * @param imagePath
      */
     public void loadDataPostImg(final String url, final String what, String imagePath, Map<String, String> params) {
-        loadData(url, what, "POST", params, false, true, imagePath);
+        loadData(url, what, "POST", params, MODE_SOFT, true, imagePath, false, null);
     }
 
     /**
@@ -350,9 +384,8 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
      * @param imagePath
      */
     public void loadDataPostImgForce(final String url, final String what, String imagePath, Map<String, String> params) {
-        loadData(url, what, "POST", params,true,true,imagePath);
+        loadData(url, what, "POST", params, MODE_FORCE, true, imagePath, false, null);
     }
-
 
 
     public <T extends ParentActivity> T getMyActivity() {
@@ -364,11 +397,12 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
 
         private String what;
 
-        private boolean force;
 
-        public MyCallHandler(String what, boolean force) {
+        private Dialog dialog;
+
+        public MyCallHandler(String what, Dialog dialog) {
             this.what = what;
-            this.force = force;
+            this.dialog = dialog;
         }
 
         @Override
@@ -376,9 +410,7 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
             UiThread.getUiThread().post(new Runnable() {
                 @Override
                 public void run() {
-                    if (force) {
-                        LoadProgress.removeLoadProgress(getContext(), progressBar);
-                    } else {
+                    if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
                     Toast.makeText(getMyActivity(), "加载数据出错,请稍后再试", Toast.LENGTH_SHORT).show();
@@ -393,9 +425,7 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
             UiThread.getUiThread().post(new Runnable() {
                 @Override
                 public void run() {
-                    if (force) {
-                        LoadProgress.removeLoadProgress(getContext(), progressBar);
-                    } else {
+                    if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
                     try {

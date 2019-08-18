@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.rcs.nchumanity.view.CommandBar
+        toolbar:title="实体证书"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.rcs.nchumanity.view.CommandBar>
 

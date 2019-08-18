@@ -48,7 +48,12 @@ public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity
          */
         TextView barTitle = view.findViewById(R.id.barTitle);
 
+
         barTitle.setText(specificInfo.getTitle());
+
+
+        TextView title=view.findViewById(R.id.title);
+        title.setText(specificInfo.getTitle());
 
 
         /**
@@ -95,6 +100,8 @@ public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity
             TextView content = view.findViewById(R.id.content);
             content.setText(StringTool.TEXT_INDENT+specificInfo.getContent());
         }
+
+
     }
 
 

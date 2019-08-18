@@ -226,6 +226,7 @@ attr contentScrim
 attr controlBackground
 attr coordinatorLayoutStyle
 attr cornerRadius
+attr corner_color
 attr counterEnabled
 attr counterMaxLength
 attr counterOverflowTextAppearance
@@ -287,6 +288,7 @@ attr fontStyle
 attr fontVariationSettings
 attr fontWeight
 attr foregroundInsidePadding
+attr frame_color
 attr gapBetweenBars
 attr goIcon
 attr headerLayout
@@ -330,6 +332,11 @@ attr itemTextAppearanceInactive
 attr itemTextColor
 attr keylines
 attr labelVisibilityMode
+attr label_text
+attr label_text_color
+attr label_text_margin_top
+attr label_text_size
+attr laser_color
 attr lastBaselineToBottomHeight
 attr layout
 attr layoutManager
@@ -427,6 +434,7 @@ attr listPreferredItemPaddingLeft
 attr listPreferredItemPaddingRight
 attr logo
 attr logoDescription
+attr mask_color
 attr materialButtonStyle
 attr materialCardViewStyle
 attr maxActionInlineWidth
@@ -466,6 +474,8 @@ attr radioButtonStyle
 attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
+attr result_color
+attr result_point_color
 attr reverseLayout
 attr rippleColor
 attr scrimAnimationDuration
@@ -663,7 +673,7 @@ color cardview_shadow_start_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
-color contents_text
+color corner_color
 color design_bottom_navigation_shadow_color
 color design_default_color_primary
 color design_default_color_primary_dark
@@ -681,7 +691,6 @@ color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
-color encode_view
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
@@ -694,6 +703,7 @@ color highlighted_text_material_light
 color icon_menu
 color item_img_text_des
 color item_img_text_title
+color laser_color
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -732,9 +742,10 @@ color mtrl_textinput_default_box_stroke_color
 color mtrl_textinput_disabled_color
 color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_hovered_box_stroke_color
+color navpage
+color note_text_color
 color notification_action_color_filter
 color notification_icon_bg_color
-color possible_result_points
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -744,9 +755,7 @@ color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color red_FC0606
-color result_minor_text
-color result_points
-color result_text
+color result_point_color
 color result_view
 color ripple_material_dark
 color ripple_material_light
@@ -767,7 +776,6 @@ color smssdk_main_color
 color smssdk_transparent
 color smssdk_tv_light_gray
 color smssdk_white
-color status_text
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -777,8 +785,7 @@ color switch_thumb_normal_material_light
 color themecolor
 color tooltip_background_dark
 color tooltip_background_light
-color transparent
-color viewfinder_laser
+color viewfinder_frame
 color viewfinder_mask
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
@@ -855,8 +862,6 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
-dimen activity_horizontal_margin
-dimen activity_vertical_margin
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -1089,7 +1094,9 @@ drawable bg_detail_train_class
 drawable bg_fade
 drawable bg_frame_gray_circle
 drawable bg_frame_red_circle
+drawable bg_frame_red_circle1
 drawable black_frame
+drawable btn_back
 drawable btn_bg
 drawable btn_bg1
 drawable btn_cancel_bg
@@ -1099,6 +1106,8 @@ drawable bunde_red
 drawable button
 drawable buttonselect
 drawable card_bg
+drawable certificates
+drawable chapter
 drawable circle
 drawable circle_fff
 drawable circle_select
@@ -1109,6 +1118,8 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable dialog_bg
+drawable flash_off
+drawable flash_on
 drawable fullborder
 drawable func_menu
 drawable gray_frame
@@ -1189,6 +1200,7 @@ drawable ic_guanbi
 drawable ic_guanbi1
 drawable ic_guanbi2
 drawable ic_guanyu
+drawable ic_help
 drawable ic_hongbao
 drawable ic_huisekuai
 drawable ic_hujiao
@@ -1213,16 +1225,15 @@ drawable ic_launcher_foreground
 drawable ic_liuyanfankui
 drawable ic_logo
 drawable ic_marker
+drawable ic_marker_help
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_nav
-drawable ic_open
 drawable ic_password
 drawable ic_pause
 drawable ic_peixun
 drawable ic_phone
-drawable ic_photo
 drawable ic_position
 drawable ic_push
 drawable ic_qiandao
@@ -1269,6 +1280,7 @@ drawable ic_zhuxiao
 drawable ic_ziqu
 drawable ic_zuolakuang
 drawable ic_zy
+drawable just
 drawable load_bg
 drawable login_button
 drawable login_button_radius
@@ -1290,7 +1302,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable radius_all_reg_bg
-drawable scan_light
+drawable radius_while
+drawable reverse
 drawable seekbar_style_pro
 drawable seekbar_style_vol
 drawable shape_rect
@@ -1360,8 +1373,6 @@ id add
 id address
 id addressTag
 id aedfb
-id albumIv
-id albumLayout
 id alertTitle
 id all
 id always
@@ -1369,6 +1380,7 @@ id area
 id assessResult
 id async
 id auto
+id auto_focus
 id b
 id back
 id backLogin
@@ -1381,14 +1393,16 @@ id beginning
 id blocking
 id bmapView
 id bottom
-id bottomLayout
 id bt_start_pause
 id bt_submit_profile
 id bt_switch
 id btnQuery
 id btn_add
+id btn_album
+id btn_back
 id btn_dialog_cancel
 id btn_dialog_ok
+id btn_flash
 id btn_invite
 id btn_next
 id btn_sounds
@@ -1397,6 +1411,7 @@ id buttonPanel
 id c
 id cancel
 id cancelSignup
+id capter
 id capture
 id cardView
 id center
@@ -1404,7 +1419,6 @@ id center_horizontal
 id center_vertical
 id chains
 id changePassword
-id changePhone
 id changePosition
 id checkbox
 id chronometer
@@ -1413,10 +1427,13 @@ id clCountry
 id classList
 id clip_horizontal
 id clip_vertical
+id code
 id code1
 id code2
 id code3
 id code4
+id code5
+id code6
 id collapseActionView
 id commandBar
 id common_dialog_bottom_ll
@@ -1436,9 +1453,16 @@ id count
 id courseImg
 id courseImg1
 id courseList
+id createTime
+id currentCount
 id custom
 id customPanel
 id d
+id date
+id dateTime
+id decode
+id decode_failed
+id decode_succeeded
 id decor_content_parent
 id default_activity_button
 id degEduca
@@ -1452,6 +1476,7 @@ id detailAddress
 id devider
 id dimensions
 id direct
+id disArea
 id disableHome
 id distance
 id divider
@@ -1459,6 +1484,8 @@ id downStep
 id edit_query
 id eduDegTag
 id elecCertificate
+id encode_failed
+id encode_succeeded
 id end
 id enterAlways
 id enterAlwaysCollapsed
@@ -1469,6 +1496,7 @@ id et_write_phone
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id f
 id feedList
 id feedback
 id fill
@@ -1481,9 +1509,6 @@ id five_signIn
 id five_signUp
 id fixed
 id fl_content
-id flashLightIv
-id flashLightLayout
-id flashLightTv
 id forever
 id forgetPassword
 id four
@@ -1505,12 +1530,15 @@ id homeAsUp
 id icon
 id iconText
 id icon_group
+id idNumber
 id identityCardNumber
 id identityTag
 id identity_1
 id identity_2
 id ifRoom
 id image
+id img1
+id img2
 id imgArea
 id info
 id infoArea
@@ -1538,7 +1566,9 @@ id kcnr
 id kcnrxq
 id labeled
 id largeLabel
+id launch_product_query
 id left
+id leftCount
 id line
 id line1
 id line3
@@ -1563,9 +1593,11 @@ id logo
 id logo1
 id logo3
 id logo_
+id mail
 id main
 id manCountTag
 id mapPoints
+id mapView
 id masked
 id me
 id meCourse
@@ -1574,6 +1606,7 @@ id menuIcon
 id message
 id middle
 id mini
+id mobilePhone
 id more
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
@@ -1593,6 +1626,7 @@ id notification_main_column_container
 id number
 id officialCapacity
 id officialCapacityTag
+id oldPassword
 id one
 id operation_bg
 id operation_percent
@@ -1614,17 +1648,23 @@ id pin
 id pointName
 id position
 id positionDetail
-id preview_view
+id positionListView
 id privacyClause
 id progress_circular
 id progress_horizontal
 id pxzx
 id question
+id quit
 id radio
+id rePassword
 id reSelect
 id reSend
+id realName
 id registerSubmit
 id remainCountTag
+id reply
+id restart_preview
+id return_scan_result
 id review
 id right
 id right_icon
@@ -1640,6 +1680,7 @@ id save_non_transition_alpha
 id save_scale_type
 id sb_progress_seekbar
 id sb_vol_seekbar
+id scanner_view
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1649,6 +1690,8 @@ id scrollable
 id searchResult
 id search_badge
 id search_bar
+id search_book_contents_failed
+id search_book_contents_succeeded
 id search_button
 id search_close_btn
 id search_edit_frame
@@ -1662,6 +1705,7 @@ id select_dialog_listview
 id selected
 id sendHelp
 id setting
+id sex
 id shortcut
 id showCustom
 id showHome
@@ -1724,6 +1768,10 @@ id total
 id totalScore
 id touch_outside
 id trainCom
+id trainCount
+id trainOrg
+id trainPosition
+id trainer
 id transition_current_scene
 id transition_layout_save
 id transition_position
@@ -1756,11 +1804,13 @@ id tv_unreceive_identify
 id tv_voice
 id tv_vol_name
 id two
+id txt_title
 id uniform
 id unlabeled
 id up
 id useLogo
 id user
+id userImg
 id userName
 id userProtocol
 id v_line
@@ -1768,7 +1818,7 @@ id validateCodeLogin
 id videoFragment
 id viewPager
 id view_offset_helper
-id viewfinder_view
+id viewfinder_content
 id visible
 id vv_videoView
 id vw_divider2
@@ -1781,7 +1831,9 @@ id wrap
 id wrap_content
 id yes
 id youji
+id z
 id ziqu
+id zj
 id zyjy
 id zyjyFragment
 integer abc_config_activityDefaultDur
@@ -1840,7 +1892,6 @@ layout acitivity_offline_class_detail
 layout activity_aed_map
 layout activity_ambulance_rescue
 layout activity_assess_result
-layout activity_capture
 layout activity_complex
 layout activity_complex_detail
 layout activity_complex_obligatory
@@ -1854,7 +1905,9 @@ layout activity_main
 layout activity_map_basic
 layout activity_offlinetrain
 layout activity_online_assessment
+layout activity_pay_result
 layout activity_register
+layout activity_scanner
 layout activity_self_take
 layout activity_set
 layout activity_specific_detail
@@ -1898,6 +1951,7 @@ layout item_basic_down
 layout item_course_list
 layout item_emergency
 layout item_exam
+layout item_feedback
 layout item_help
 layout item_help_emergy
 layout item_img_text
@@ -1909,6 +1963,7 @@ layout item_train_class
 layout layout_progress
 layout list_head
 layout location_select
+layout map_basic
 layout map_item
 layout map_test
 layout my_course
@@ -1929,6 +1984,7 @@ layout smssdk_personal_info
 layout smssdk_popup_dialog
 layout smssdk_titlebar
 layout support_simple_spinner_dropdown_item
+layout toolbar_scanner
 layout view_commond_head_bar
 layout zyjy
 mipmap bright
@@ -1982,7 +2038,6 @@ string appbar_scrolling_view_behavior
 string bm
 string bottom_sheet_behavior
 string bt
-string button_ok
 string cancel
 string character_counter_content_description
 string character_counter_pattern
@@ -2002,18 +2057,26 @@ string jhpx
 string jhyjy
 string jhypx
 string jtzz
+string layout_album
+string layout_focus_qrcode
+string layout_scan
 string load
-string msg_camera_framework_bug
 string mtrl_chip_close_icon_content_description
 string mzsm
 string name
 string nchszh
 string need
+string note_identify_failed
+string note_no_flashlight
+string note_processing
+string note_scan_failed
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pay_result_callback_msg
+string pay_result_tip
 string phone
 string qd
 string qrmm
@@ -2245,8 +2308,6 @@ string sy
 string tip
 string title_activity_validate_code
 string to
-string viewfinderview_status_text1
-string viewfinderview_status_text2
 string wd
 string wdl
 string whcd
@@ -2465,6 +2526,7 @@ style CommonDialog
 style Dialog_Common
 style MobShellTheme
 style MyDialogStyle
+style NavPage
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents
@@ -2794,6 +2856,7 @@ styleable CircleImageView civ_border_color civ_border_overlay civ_border_width c
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
 styleable ColorStateListItem android_color android_alpha alpha
+styleable CommandBar title
 styleable CompoundButton android_button buttonTint buttonTintMode
 styleable ConstraintLayout_Layout android_orientation android_maxWidth android_maxHeight android_minWidth android_minHeight barrierAllowsGoneWidgets barrierDirection chainUseRtl constraintSet constraint_referenced_ids layout_constrainedHeight layout_constrainedWidth layout_constraintBaseline_creator layout_constraintBaseline_toBaselineOf layout_constraintBottom_creator layout_constraintBottom_toBottomOf layout_constraintBottom_toTopOf layout_constraintCircle layout_constraintCircleAngle layout_constraintCircleRadius layout_constraintDimensionRatio layout_constraintEnd_toEndOf layout_constraintEnd_toStartOf layout_constraintGuide_begin layout_constraintGuide_end layout_constraintGuide_percent layout_constraintHeight_default layout_constraintHeight_max layout_constraintHeight_min layout_constraintHeight_percent layout_constraintHorizontal_bias layout_constraintHorizontal_chainStyle layout_constraintHorizontal_weight layout_constraintLeft_creator layout_constraintLeft_toLeftOf layout_constraintLeft_toRightOf layout_constraintRight_creator layout_constraintRight_toLeftOf layout_constraintRight_toRightOf layout_constraintStart_toEndOf layout_constraintStart_toStartOf layout_constraintTop_creator layout_constraintTop_toBottomOf layout_constraintTop_toTopOf layout_constraintVertical_bias layout_constraintVertical_chainStyle layout_constraintVertical_weight layout_constraintWidth_default layout_constraintWidth_max layout_constraintWidth_min layout_constraintWidth_percent layout_editor_absoluteX layout_editor_absoluteY layout_goneMarginBottom layout_goneMarginEnd layout_goneMarginLeft layout_goneMarginRight layout_goneMarginStart layout_goneMarginTop layout_optimizationLevel
 styleable ConstraintLayout_placeholder content emptyVisibility
@@ -2844,4 +2907,5 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+styleable ViewfinderView corner_color frame_color label_text label_text_color label_text_margin_top label_text_size laser_color mask_color result_color result_point_color
 xml network_security_config

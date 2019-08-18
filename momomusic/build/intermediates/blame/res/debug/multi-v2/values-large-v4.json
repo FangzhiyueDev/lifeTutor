@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "/media/fang/codeAndNote/developer/android/lifeTutor/momomusic/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml",
+            "outputFile": "/home/fang/androidProject/android/lifeTutor/momomusic/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/55a08834ad1bd302fcec184746db5c8e/res/values-large-v4/values-large-v4.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/03f4d0d2d1bfab2d600d50d2a95f94e5/res/values-large-v4/values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
+                    }
+                },
+                {
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -18,16 +28,6 @@
                         "startOffsets": "752,874",
                         "endColumns": "121,133",
                         "endOffsets": "869,1003"
-                    }
-                },
-                {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/6ba3cff14713c8f68dfe3677c75f9359/res/values-large-v4/values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
                     }
                 }
             ]

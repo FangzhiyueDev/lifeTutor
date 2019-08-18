@@ -33,6 +33,26 @@ public class SpecificInfo implements Serializable {
 
     private String content;
 
+    public SpecificInfo(Integer id, Integer specificNo, String title, Date createTime, String icon, String imgUrl, String videoId, String videoUrl, String editor, Boolean checked, Integer typeId, Boolean isDelete, String remark, String content) {
+        this.id = id;
+        this.specificNo = specificNo;
+        this.title = title;
+        this.createTime = createTime;
+        this.icon = icon;
+        this.imgUrl = imgUrl;
+        this.videoId = videoId;
+        this.videoUrl = videoUrl;
+        this.editor = editor;
+        this.checked = checked;
+        this.typeId = typeId;
+        this.isDelete = isDelete;
+        this.remark = remark;
+        this.content = content;
+    }
+
+    public SpecificInfo() {
+    }
+
     public Integer getId() {
         return id;
     }

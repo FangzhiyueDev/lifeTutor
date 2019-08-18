@@ -4,8 +4,10 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
@@ -37,24 +39,32 @@ public class DownloadService extends Service {
 
     MyAsyncTask myAsyncTask;
 
-    @TargetApi(Build.VERSION_CODES.O)
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
+    public static final String URL = "url";
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+
+        String url = intent.getExtras().getString(URL);
+
+        if (url == null) {
+            throw new IllegalArgumentException("loss param url");
+        }
 
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 
-        manager.createNotificationChannel(new NotificationChannel("123", "通知", NotificationManager.IMPORTANCE_HIGH));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            manager.createNotificationChannel(new NotificationChannel("123", "通知", NotificationManager.IMPORTANCE_HIGH));
+        }
 
         createNoti();
-
-        startForeground(12, notification);
-
+        startForeground(12, builder.build());
 
         myAsyncTask = new MyAsyncTask();
         myAsyncTask.execute("下载");
-
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -67,20 +77,29 @@ public class DownloadService extends Service {
         return null;
     }
 
+    private int progress;
 
-    Notification notification;
-    RemoteViews remoteViews;
+    private Notification.Builder builder;
 
-    @TargetApi(Build.VERSION_CODES.O)
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    private String url;
+
     public void createNoti() {
-
-        notification = new Notification.Builder(this)
-                .setCustomContentView(remoteViews = new RemoteViews(getPackageName(), R.layout.noti_layout))
-                .setSmallIcon(R.drawable.rice)
-                .setChannelId("123")
-                .build();
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.rice)
+                    .setChannelId("123")
+                    .setContentText("正在下载" + progress + "%")
+                    .setProgress(100,
+                            progress,
+                            false);
+        } else {
+            builder = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.rice)
+                    .setContentText("正在下载" + progress + "%")
+                    .setProgress(100,
+                            progress,
+                            false);
+        }
     }
 
     class MyAsyncTask extends AsyncTask<String, Integer, Void> {
@@ -88,37 +107,39 @@ public class DownloadService extends Service {
 
         /**
          * 4 最后执行
+         *
          * @param aVoid
          */
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Toast.makeText(DownloadService.this, "下载完成", Toast.LENGTH_SHORT).show();
+            manager.cancel(id);
+            if (file != null && file.exists()) {
+                //点击安装代码块
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setDataAndType(Uri.parse(file.toString()), "application/vnd.android.package-archive");
+                startActivity(intent);
+            }
         }
 
 
         /**
          * 3 执行
+         *
          * @param values
          */
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         protected void onProgressUpdate(Integer... values) {
-
-//            for (int i = 0; i < values.length; i++) {
-//                Log.d("test", "onProgressUpdate: ============当前进度" + values[i]);
-//            }
-
             super.onProgressUpdate(values);
-            if (values[0] >= 200) {
-                Toast.makeText(DownloadService.this, "发生错误", Toast.LENGTH_SHORT).show();
-            } else {
-                remoteViews.setProgressBar(R.id.progressBar, 100, progress, false);
-                manager.notify(id, notification);
-            }
+            builder.setProgress(100, values[0], false)
+                    .setContentText("正在下载" + progress + "%");
+            manager.notify(id, builder.build());
         }
 
         /**
-         *
          * 1 执行
          */
         @Override
@@ -127,13 +148,14 @@ public class DownloadService extends Service {
             Toast.makeText(DownloadService.this, "开始下载", Toast.LENGTH_SHORT).show();
         }
 
+        private String name = "南昌人道.apk";
 
-        int progress;
-        private String name = "androidStudio.exe";
+
+        private File file;
 
         /**
-         *
          * 2   执行
+         *
          * @param strings
          * @return
          */
@@ -144,9 +166,8 @@ public class DownloadService extends Service {
             BufferedInputStream bufi = null;
             BufferedOutputStream bfo = null;
 
-
             try {
-                URLConnection connection = new URL("https://dl.google.com/dl/android/studio/install/3.2.0.26/android-studio-ide-181.5014246-windows.exe").openConnection();
+                URLConnection connection = new URL("http://p.gdown.baidu.com/384e6ba5977db18a4c4d73f75b16011158a16a5a55b98dda289d0e10c4a046d4a561d4af7d695e0a144a4d93770f0eee882332ec5186b32b7ebbc6ec5fb8e10f8b9566608c08042480b5bd9d93ab9e38e2e6a6f7b2618a787f02f48a317f1706b24efdb7faefbcf367f92653d61743b52b7a0ec3641ef918c03b8b6d7a00f87696b8e035a411b273d71142ac7b1483f2d9a554f2a1de9941c1250aa4f4faf971f1314b8fbbe3a3e546cc44ed95e244c8874a04d3d2045a2ac4522a25937b515fc4233f889863cbb7b5948427941fce6d4517c50049d1e40e4adc72a9f2bd2c040c3d34db4753f8ebb8420f96f1a4d67c").openConnection();
 
                 connection.setDoInput(true);
                 connection.setReadTimeout(8000);
@@ -156,10 +177,7 @@ public class DownloadService extends Service {
                 total = connection.getContentLength();
                 bufi = new BufferedInputStream(is);
 
-                File file;
-
                 bfo = new BufferedOutputStream(new FileOutputStream(
-
                         file = new File(getExternalCacheDir(), name)
                 ));
 
@@ -194,18 +212,18 @@ public class DownloadService extends Service {
             } finally {
 
                 try {
-                    bfo.close();
-                    bufi.close();
+                    if (bfo != null) {
+                        bfo.close();
+                    }
+                    if (bufi != null) {
+                        bufi.close();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
-
             return null;
         }
-
-
     }
 
 

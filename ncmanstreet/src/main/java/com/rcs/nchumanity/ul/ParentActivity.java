@@ -2,6 +2,7 @@ package com.rcs.nchumanity.ul;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -32,12 +34,18 @@ import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Response;
+
+import static com.rcs.nchumanity.net.NetRequest.MODE_FORCE;
+import static com.rcs.nchumanity.net.NetRequest.MODE_SILENCE;
+import static com.rcs.nchumanity.net.NetRequest.MODE_SOFT;
 
 
 /**
@@ -66,6 +74,27 @@ public abstract class ParentActivity extends AppCompatActivity {
         activities.add(this);
 
         Logger.init("test");//初始化
+    }
+
+    /**
+     * 清除当前所有的Activity
+     */
+    public void clearActivityStack() {
+        for (Activity activity : activities) {
+            activity.finish();
+        }
+        activities.clear();
+    }
+
+    /**
+     * 回退到栈的底部
+     */
+    public void backStackLower() {
+        for (int i = activities.size() - 1; i > 0; i--) {
+            Activity activity = activities.get(i);
+            activities.remove(activity);
+            activity.finish();
+        }
     }
 
 
@@ -173,7 +202,7 @@ public abstract class ParentActivity extends AppCompatActivity {
                 permissionSuccess(REQUEST_CODE_PERMISSION);
             } else {
                 permissionFail(REQUEST_CODE_PERMISSION);
-              //  showTipsDialog();
+                //  showTipsDialog();
             }
         }
     }
@@ -231,48 +260,50 @@ public abstract class ParentActivity extends AppCompatActivity {
     }
 
 
-    protected ProgressBar progressBar;
-
-    private MyCallHandler myCallHandler;
-
-    private AlertDialog dialog;
-
-
     /**
-     * 用来实现对网络资源的加载
-     *
-     * @param <T>
-     * @param url    请求的url
-     * @param what   用来生成请求标示
-     * @param method 请求的方法
-     * @param params 如果使用的是Post请求，该参数代表的是请求的参数
-     * @param force  代表是否是强制加载
+     * @param url       请求的url
+     * @param what      请求的标示
+     * @param method    请求的方法
+     * @param params    POST请求使用的参数map
+     * @param loadCase  加载方案
+     * @param postImg   是否是提交图片  post方式
+     * @param imagePath 图片的路径
+     * @param postJson  是否是json格式的提交数据
+     * @param json      json格式数据
      */
-    public <T> void loadData(final String url, final String what, String method, Map<String, String> params, boolean force, boolean postImg, String imagePath,boolean postJson,String json) {
-        Log.d(TAG, "loadData: 请求的url："+url);
-        if (force) {
-            progressBar = LoadProgress.loadProgress(this);
-        } else {
-            dialog = (AlertDialog) DialogCollect.openLoadDialog(this);
+    public void loadData(final String url, final String what, String method, Map<String, String> params, @NetRequest.LoadCase int loadCase, boolean postImg, String imagePath, boolean postJson, String json) {
+        Log.d(TAG, "loadData: 请求的url：" + url);
+        final Dialog dialog = (AlertDialog) DialogCollect.openLoadDialog(this);
+        if(!this.isDestroyed()) {
+            if (loadCase == MODE_FORCE) {
+                dialog.setCancelable(false);
+            } else if (loadCase == MODE_SOFT) {
+                dialog.setCancelable(true);
+            }
+            if (loadCase != MODE_SILENCE) {
+                dialog.show();
+            }
+        }else if(this.isDestroyed()) {
+            dialog.dismiss();
         }
+
         Thread t = new Thread(() -> {
-            myCallHandler = new MyCallHandler(what, force);
+            MyCallHandler myCallHandler = new MyCallHandler(what, dialog);
             if (method.equalsIgnoreCase("GET")) {
                 NetRequest.requestUrl(url, myCallHandler);
             } else if (method.equalsIgnoreCase("POST")) {
                 if (postImg) {
                     NetRequest.postImage(url, imagePath, params, myCallHandler);
-                } else if(postJson) {
-                    NetRequest.requestPostJson(url,json,myCallHandler);
-                }else{
+                } else if (postJson) {
+                    NetRequest.requestPostJson(url, json, myCallHandler);
+                } else {
                     NetRequest.requestPost(url, params, myCallHandler);
                 }
             }
         });
-
         t.start();
 
-        dialog.setOnDismissListener((dialog) -> {
+        dialog.setOnDismissListener((dialog1) -> {
             Log.d(TAG, "onDismiss: ");
             if (t.getState() != Thread.State.TERMINATED) {
                 t.interrupt();
@@ -281,6 +312,12 @@ public abstract class ParentActivity extends AppCompatActivity {
         });
     }
 
+
+    public void loadDataGetSilence(final String url, final String what) {
+        loadData(url, what, "GET", null, MODE_SILENCE, false, null, false, null);
+    }
+
+
     /**
      * 软加载
      *
@@ -288,7 +325,7 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param what
      */
     public void loadDataGet(final String url, final String what) {
-        loadData(url, what, "GET", null, false, false, null,false,null);
+        loadData(url, what, "GET", null, MODE_SOFT, false, null, false, null);
     }
 
     /**
@@ -298,9 +335,13 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param what
      */
     public void loadDataGetForForce(String url, final String what) {
-        loadData(url, what, "GET", null, false, false, null,false,null);
+        loadData(url, what, "GET", null, MODE_FORCE, false, null, false, null);
     }
 
+
+    public void loadDataPostSilence(final String url, final String what, Map<String, String> params) {
+        loadData(url, what, "POST", params, MODE_SILENCE, false, null, false, null);
+    }
 
     /**
      * 软加载提交
@@ -310,7 +351,7 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param params
      */
     public void loadDataPost(final String url, final String what, Map<String, String> params) {
-        loadData(url, what, "POST", params, false, false, null,false,null);
+        loadData(url, what, "POST", params, MODE_SOFT, false, null, false, null);
     }
 
 
@@ -322,7 +363,30 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param params
      */
     public void loadDataPostForce(final String url, final String what, Map<String, String> params) {
-        loadData(url, what, "POST", params, true, false, null,false,null);
+        loadData(url, what, "POST", params, MODE_FORCE, false, null, false, null);
+    }
+
+
+    /**
+     * 提交json数据
+     *
+     * @param url
+     * @param what
+     * @param json
+     */
+    public void loadDataPostJson(final String url, final String what, String json) {
+        loadData(url, what, "POST", null, MODE_SOFT, false, null, true, json);
+    }
+
+    /**
+     * 提交json数据 强制
+     *
+     * @param url
+     * @param what
+     * @param json
+     */
+    public void loadDataPostJsonForce(final String url, final String what, String json) {
+        loadData(url, what, "POST", null, MODE_FORCE, false, null, true, json);
     }
 
 
@@ -334,32 +398,8 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param imagePath
      */
     public void loadDataPostImg(final String url, final String what, String imagePath, Map<String, String> params) {
-        loadData(url, what, "POST", params, false, true, imagePath,false,null);
+        loadData(url, what, "POST", params, MODE_SOFT, true, imagePath, false, null);
     }
-
-
-    /**
-     * 提交json数据
-     * @param url
-     * @param what
-     * @param json
-     */
-    public void loadDataPostJson(final String url,final String what,String json){
-        loadData(url, what, "POST", null, false, false, null,true,json);
-    }
-
-    /**
-     * 提交json数据 强制
-     * @param url
-     * @param what
-     * @param json
-     */
-    public void loadDataPostJsonForce(final String url,final String what,String json){
-        loadData(url, what, "POST", null, true, false, null,true,json);
-    }
-
-
-
 
     /**
      * 强制提交
@@ -369,7 +409,7 @@ public abstract class ParentActivity extends AppCompatActivity {
      * @param imagePath
      */
     public void loadDataPostImgForce(final String url, final String what, String imagePath, Map<String, String> params) {
-        loadData(url, what, "POST", params,true,true,imagePath,false,null);
+        loadData(url, what, "POST", params, MODE_FORCE, true, imagePath, false, null);
     }
 
 
@@ -398,11 +438,12 @@ public abstract class ParentActivity extends AppCompatActivity {
 
         private String what;
 
-        private boolean force;
 
-        public MyCallHandler(String what, boolean force) {
+        private Dialog dialog;
+
+        public MyCallHandler(String what, Dialog dialog) {
             this.what = what;
-            this.force = force;
+            this.dialog = dialog;
         }
 
         @Override
@@ -410,9 +451,7 @@ public abstract class ParentActivity extends AppCompatActivity {
             UiThread.getUiThread().post(new Runnable() {
                 @Override
                 public void run() {
-                    if (force) {
-                        LoadProgress.removeLoadProgress(ParentActivity.this, progressBar);
-                    } else {
+                    if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
                     Toast.makeText(ParentActivity.this, "加载数据出错,请稍后再试", Toast.LENGTH_SHORT).show();
@@ -424,16 +463,14 @@ public abstract class ParentActivity extends AppCompatActivity {
         @Override
         public void onResponse(Call call, final Response response) throws IOException {
 
-            Log.d(TAG, "onResponse:响应头 "+response.headers());
+            Log.d(TAG, "onResponse:响应头 " + response.headers());
 
             final String value = response.body().string();
             Log.d(TAG, "basicResponse : " + value);
             UiThread.getUiThread().post(new Runnable() {
                 @Override
                 public void run() {
-                    if (force) {
-                        LoadProgress.removeLoadProgress(ParentActivity.this, progressBar);
-                    } else {
+                    if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
                     try {
@@ -452,7 +489,6 @@ public abstract class ParentActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        activities.remove(this);
     }
 
 
@@ -460,6 +496,9 @@ public abstract class ParentActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+
+
+        activities.remove(this);
         super.onDestroy();
         if (conn != null) {
             unbindService(conn);//进行解绑 conn的具体实现是由子类实现的

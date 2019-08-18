@@ -2,57 +2,46 @@ package com.rcs.nchumanity.fragment;
 
 import android.Manifest;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
-import com.google.gson.Gson;
+import com.google.zxing.activity.CaptureActivity;
+import com.google.zxing.util.Constant;
 import com.rcs.nchumanity.R;
-import com.rcs.nchumanity.dialog.DialogCollect;
 import com.rcs.nchumanity.dialog.DialogTool;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
-import com.rcs.nchumanity.entity.model.OfflineTrainClass;
+import com.rcs.nchumanity.tool.LBSallocation;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.IdentityInfoRecordActivity;
-import com.rcs.nchumanity.ul.IdentitySelectActivity;
-import com.rcs.nchumanity.ul.MainActivity;
 import com.rcs.nchumanity.ul.OnlineAssessmentActivity;
 import com.rcs.nchumanity.ul.list.CourseComplexListActivity;
 import com.rcs.nchumanity.ul.list.OfflineTrainClassListActivity;
-import com.yzq.zxinglibrary.android.CaptureActivity;
-import com.yzq.zxinglibrary.common.Constant;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.Response;
 
-public class JYPXFragment extends ParentFragment {
+public class JYPXFragment extends BasicResponseProcessHandleFragment {
 
 
     private static final int REQUEST_CODE_SCAN = 14;
-    public int requestPermissionCode_DW = 12;
 
-    public int requestPermissionCode_SCAN = 13;
+    public static final int requestPermissionCode_DW = 12;
+
+    public static final int requestPermissionCode_SCAN = 13;
 
     @Override
     protected void onViewCreated(View view, Bundle savedInstanceState, boolean isViewCreated) {
@@ -78,9 +67,11 @@ public class JYPXFragment extends ParentFragment {
 
                 String param = NetConnectionUrl.getSignInStatus;
 
+
+                clickStep = R.id.one;
+
                 loadDataGet(param, "getSignInStatus");
 
-//                Tool.startActivity(getContext(), IdentityInfoRecordActivity.class);
 
                 break;
 
@@ -92,6 +83,7 @@ public class JYPXFragment extends ParentFragment {
                     bundle.putString(CourseComplexListActivity.NET_URL,
                             NetConnectionUrl.getOnlineClassAndRecordByUser);
                 }
+                bundle.putString(CourseComplexListActivity.BACKUP_URL, NetConnectionUrl.getOnlineClass);
                 bundle.putString(CourseComplexListActivity.FUN, CourseComplexListActivity.FUN_NEED);
                 Tool.startActivity(getContext(), CourseComplexListActivity.class, bundle);
 
@@ -107,17 +99,27 @@ public class JYPXFragment extends ParentFragment {
                     bundle1.putString(CourseComplexListActivity.NET_URL,
                             NetConnectionUrl.getNotRequiredOnlineClassAndRecordByUser);
                 }
+                bundle1.putString(CourseComplexListActivity.BACKUP_URL, NetConnectionUrl.getNotRequiredOnlineClass);
                 Tool.startActivity(getContext(), CourseComplexListActivity.class, bundle1);
 
                 break;
 
             case R.id.four:
 
-                Tool.startActivity(getContext(), OnlineAssessmentActivity.class);
+
+                clickStep = R.id.four;
+
+                loadDataGet(NetConnectionUrl.getSignInStatus, "getSignInStatus");
+
+//                Tool.startActivity(getContext(), OnlineAssessmentActivity.class);
 
                 break;
 
             case R.id.five_signUp:
+
+                if (!Tool.loginCheck(getActivity())) {
+                    return;
+                }
 
                 Bundle bundle2 = new Bundle();
                 bundle2.putString(OfflineTrainClassListActivity.URL, NetConnectionUrl.getCPRClassList);
@@ -138,6 +140,10 @@ public class JYPXFragment extends ParentFragment {
                 break;
 
             case R.id.six_signUp:
+
+                if (!Tool.loginCheck(getActivity())) {
+                    return;
+                }
 
                 Bundle bundle3 = new Bundle();
                 bundle3.putString(OfflineTrainClassListActivity.URL, NetConnectionUrl.getTraumaClassList);
@@ -203,7 +209,6 @@ public class JYPXFragment extends ParentFragment {
         };
         requestPermission(permission, requestPermissionCode_SCAN);
 
-
     }
 
 
@@ -219,43 +224,79 @@ public class JYPXFragment extends ParentFragment {
          *
          */
 
-        String[] permission = {
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-        };
-
-        requestPermission(permission, requestPermissionCode_DW);
+        LBSallocation.startLocationWithFragment(this, requestPermissionCode_DW);
 
     }
 
 
     @Override
-    public void onSucess(Response response, String what, String... backData) throws IOException {
-        super.onSucess(response, what, backData);
+    public void permissionSuccess(int requestCode) {
+        super.permissionSuccess(requestCode);
+        if (requestCode == requestPermissionCode_DW) {
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+            LBSallocation.getCurrentLocation(getContext(), new BDAbstractLocationListener() {
+                @Override
+                public void onReceiveLocation(BDLocation bdLocation) {
+                    String latitute = bdLocation.getLatitude() + "";
+                    String longitute = bdLocation.getLongitude() + "";
+
+                    Map<String, String> param = new HashMap<>();
+                    param.put("latitude", latitute);
+                    param.put("longitude", longitute);
+                    param.put("name", "线下培训签到");
+                    loadDataPostForce(courseSignInUrl, "courseSignInUrl", param);
+                }
+            });
+
+        } else if (requestCode == requestPermissionCode_SCAN) {
+            Intent intent = new Intent(getContext(), CaptureActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_SCAN);
+        }
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // 扫描二维码/条码回传
+        if (requestCode == REQUEST_CODE_SCAN && resultCode == getActivity().RESULT_OK) {
+            if (data != null) {
+                Bundle bundle = data.getExtras();
+                String scanResult = bundle.getString(Constant.INTENT_EXTRA_KEY_QR_SCAN);
+                String param = String.format(NetConnectionUrl.queryCSJHScore, scanResult, "心肺复苏");
+                loadDataGet(param, "queryXFScore");
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+
+    private int clickStep;
+
+    @Override
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
         if (what.equals("getSignInStatus")) {
-            try {
+            JSONObject jsonObject = new JSONObject(backData);
 
-                if (br.code == BasicResponse.NOT_LOGIN) {
-                    Tool.loginCheck(getContext());
+            JSONObject data = null;
 
-                } else if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+            if (jsonObject.has("object")) {
+                data = jsonObject.getJSONObject("object");
+            } else if (jsonObject.has("data")) {
+                data = jsonObject.getJSONObject("data");
+            }
 
-                    JSONObject jsonObject = new JSONObject(backData[0]);
+            int studyStatus = data.getInt("studyStatus");
 
-                    JSONObject data = null;
+            switch (clickStep) {
 
-                    if (jsonObject.has("object")) {
-                        data = jsonObject.getJSONObject("object");
-                    } else if (jsonObject.has("data")) {
-                        data = jsonObject.getJSONObject("data");
-                    }
-
-                    int studyStatus = data.getInt("studyStatus");
-
+                case R.id.one:
                     if (studyStatus == 1 || studyStatus == 8) {
                         //进入报名
                         Tool.startActivity(getContext(), IdentityInfoRecordActivity.class);
@@ -268,126 +309,77 @@ public class JYPXFragment extends ParentFragment {
                                 });
                         builder.create().show();
                     }
-                } else {
-                    Toast.makeText(getContext(), "系统出错" + br.message, Toast.LENGTH_SHORT).show();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+                    break;
+
+                case R.id.four:
+
+                    if (studyStatus == 3) {
+                        Tool.startActivity(getContext(), OnlineAssessmentActivity.class);
+                    } else if (studyStatus > 3) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                                .setTitle("温馨提示")
+                                .setMessage("不能重复考核")
+                                .setPositiveButton("确定", (dialog, which) -> {
+                                    dialog.dismiss();
+                                });
+                        builder.create().show();
+                    } else if (studyStatus < 3) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                                .setTitle("温馨提示")
+                                .setMessage("未达到考试条件，请完成线上课程学习")
+                                .setPositiveButton("确定", (dialog, which) -> {
+                                    dialog.dismiss();
+                                });
+                        builder.create().show();
+                    }
+                    break;
             }
+
         } else if (what.equals("courseSignInUrl")) {
 
-            try {
-
-                if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-                    JSONObject jsonObject = new JSONObject(backData[0]);
-
-                    /**
-                     *
-                     * 在这里进行判断是否签到成功了
-                     *
-                     */
-
-
-                } else {
-                    Toast.makeText(getContext(), "系统出错" + br.message, Toast.LENGTH_SHORT).show();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
         } else if (what.equals("queryXFScore")) {
 
-            try {
 
-                if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-                    JSONObject jsonObject = new JSONObject(backData[0]);
-
-                    /**
-                     *
-                     * 在这里获得查询分数的结果
-                     *
-                     */
-
-                } else {
-                    Toast.makeText(getContext(), "系统出错" + br.message, Toast.LENGTH_SHORT).show();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (what.equals("queryScoreTrauma")) {
-
-            try {
-
-                if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-                    JSONObject jsonObject = new JSONObject(backData[0]);
-
-                    /**
-                     *
-                     * 在这里获得查询分数的结果
-                     *
-                     */
-
-                } else {
-                    Toast.makeText(getContext(), "系统出错" + br.message, Toast.LENGTH_SHORT).show();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
-
-    }
-
-    private LocationClient locationClient;
-
-    @Override
-    public void permissionSuccess(int requestCode) {
-        super.permissionSuccess(requestCode);
-        if (requestCode == requestPermissionCode_DW) {
-            locationClient = new LocationClient(getContext());
-            locationClient.registerLocationListener(new BDAbstractLocationListener() {
-                @Override
-                public void onReceiveLocation(BDLocation bdLocation) {
-                    String latitute = bdLocation.getLatitude() + "";
-                    String longitute = bdLocation.getLongitude() + "";
-
-                    Map<String, String> param = new HashMap<>();
-                    param.put("latitute", latitute);
-                    param.put("longitute", longitute);
-                    param.put("name", "线下培训签到");
-                    loadDataPostForce(courseSignInUrl, "courseSignInUrl", param);
-                }
-            });
-            locationClient.start();
-        } else if (requestCode == requestPermissionCode_SCAN) {
-
-            Intent intent = new Intent(getContext(), CaptureActivity.class);
-            startActivityForResult(intent, REQUEST_CODE_SCAN);
+        if (what.equals("queryScoreTrauma")) {
 
         }
     }
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // 扫描二维码/条码回传
-        if (requestCode == REQUEST_CODE_SCAN && resultCode == getActivity().RESULT_OK) {
-            if (data != null) {
-                String content = data.getStringExtra(Constant.CODED_CONTENT);
-
-                String param = String.format(NetConnectionUrl.queryCSJHScore, content, "心肺复苏");
-                loadDataGet(param, "queryXFScore");
-            }
+    protected void responseWithOther401(String what, BasicResponse br) {
+        super.responseWithOther401(what, br);
+        if (what.equals("courseSignInUrl")) {
+            new AlertDialog.Builder(getContext())
+                    .setTitle("温馨提示")
+                    .setMessage("请确定手机打开了GPS，暂时获取不到的位置")
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        dialog.dismiss();
+                    }).create().show();
         }
     }
 
     @Override
-    public void onDestroy() {
-        if (locationClient != null) {
-            locationClient.stop();
-        }
-        super.onDestroy();
+    protected void responseWithNotRequired(String what, BasicResponse br) {
+        super.responseWithNotRequired(what, br);
+        new AlertDialog.Builder(getContext())
+                .setTitle("温馨提示")
+                .setMessage("暂未达到此操作的要求。")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    dialog.dismiss();
+                }).create().show();
     }
 
-
+    @Override
+    protected void responseWith207(String what, BasicResponse br) {
+        super.responseWith207(what, br);
+        new AlertDialog.Builder(getContext())
+                .setTitle("温馨提示")
+                .setMessage("还未到签到时间，无法签到。")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    dialog.dismiss();
+                }).create().show();
+    }
 }

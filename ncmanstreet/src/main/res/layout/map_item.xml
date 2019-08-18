@@ -36,6 +36,7 @@
         android:layout_toLeftOf="@+id/nav"
         android:layout_toRightOf="@+id/distance"
         android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/load"
         android:textSize="12sp" />
 

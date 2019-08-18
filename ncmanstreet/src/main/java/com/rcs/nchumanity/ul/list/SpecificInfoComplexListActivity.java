@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.zxing.oned.ITFReader;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.entity.BasicResponse;
@@ -18,6 +19,10 @@ import com.rcs.nchumanity.entity.model.SpecificInfo;
 import com.rcs.nchumanity.entity.model.SpecificInfoClassification;
 import com.rcs.nchumanity.entity.modelInter.SpecificInfoWithLocation;
 import com.rcs.nchumanity.tool.Tool;
+import com.rcs.nchumanity.ul.basicMap.BasicMapChangeActivity;
+import com.rcs.nchumanity.ul.basicMap.ILocaPoint;
+import com.rcs.nchumanity.ul.basicMap.LocalPoint;
+import com.rcs.nchumanity.ul.detail.SpecificInfoComplexListDetailActivity;
 import com.rcs.nchumanity.ul.list.ComplexListActivity;
 
 import org.json.JSONArray;
@@ -25,6 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,21 +52,59 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
         holder.setText(R.id.itemName, obj.getTitle());
     }
 
+
+    public static final float DEF_VAL=0.0f;
     @Override
     protected void itemClick(AdapterView<?> parent, View view, int position, long id, SpecificInfoWithLocation item) {
         Bundle bundle = new Bundle();
-        if (item.getLatitude() != null) {
+        if (item.getLatitude() != null&&item.getLatitude()!=DEF_VAL) {
+
+            String locationName = item.getTitle();
+            int startIndex = locationName.indexOf("（") >= locationName.length() ? locationName.indexOf("(") : locationName.indexOf("（");
+            int endIndex = locationName.indexOf("）") >= locationName.length() ? locationName.indexOf(")") : locationName.indexOf("）");
+            String positionS;
+             if(startIndex==endIndex){
+                 //代表没有找到
+                 positionS="暂无位置详情信息";
+             }else {
+                 positionS = locationName.substring(startIndex, endIndex);
+             }
+            locationName = locationName.replace(positionS, "");
+
 
             //进入
-
-
-
-
-
-
+            ArrayList<LocalPoint> localPoints = new ArrayList<>();
+            localPoints.add(new LocalPoint(
+                    item.getLongitude().doubleValue(),
+                    item.getLatitude().doubleValue(),
+                    locationName,
+                    "",
+                    positionS
+            ));
+            bundle.putSerializable(BasicMapChangeActivity.DATA, localPoints);
+            Tool.startActivity(this, BasicMapChangeActivity.class,bundle);
 
         } else {
 
+            SpecificInfo specificInfo =
+                    new SpecificInfo(
+                            item.getId(),
+                            item.getSpecificNo(),
+                            item.getTitle(),
+                            item.getCreateTime(),
+                            item.getIcon(),
+                            item.getImgUrl(),
+                            item.getVideoId(),
+                            item.getVideoUrl(),
+                            item.getEditor(),
+                            item.getChecked(),
+                            item.getTypeId(),
+                            item.getIsDelete(),
+                            item.getRemark(),
+                            item.getContent()
+                            );
+            bundle.putSerializable(SpecificInfoComplexListDetailActivity.DATA, specificInfo);
+            Tool.startActivity(this, SpecificInfoComplexListDetailActivity.class,bundle);
 
         }
     }
@@ -97,7 +141,10 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
         if (url == null) {
             throw new IllegalArgumentException("please transport parameter ");
         }
-        loadDataGetForForce(url, "loadData");
+
+        String param = url + String.format("?pageSize=%d&pageNum=%d", size, page);
+
+        loadDataGetForForce(param, "loadData");
     }
 
 
@@ -147,8 +194,6 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
 
                         JSONArray infos = object.getJSONArray(0);
                         JSONArray locations = object.getJSONArray(1);
-
-
                         margeData(infos, locations);
 
 
@@ -156,24 +201,8 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
                         e.printStackTrace();
                     }
 
-
-//                if (specificInfos.size() < size) {
-//                    //代表的是没有数据了
-//                    notData = true;
-//                } else {
-//                    notData = false;
-//                }
-//
-//                //当数据加载完成后，判断是否是进行的刷新，如果是就代表刷新结束
-//                if (!notData) {
-//                    isFlush = true;//代表我们已经可以再一次的刷新了
-//                } else {
-//                    isFlush = false;//如果没有数据，就不能在刷新
-//                }
-//                addDataList(specificInfos);
-//                break;
             }
-        }else {
+        } else {
             Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
         }
     }
@@ -229,8 +258,8 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
                 content = specJ.getString("content");
             }
 
-            if (specJ.has("longitute")) {
-                longitute = specJ.getDouble("longitute");
+            if (specJ.has("longitude")) {
+                longitute = specJ.getDouble("longitude");
             }
 
             if (specJ.has("latitude")) {
@@ -250,6 +279,19 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
             specificInfoWithLocations.add(specificInfo);
         }
 
+        if (specificInfoWithLocations.size() < size) {
+            //代表的是没有数据了
+            notData = true;
+        } else {
+            notData = false;
+        }
+
+        //当数据加载完成后，判断是否是进行的刷新，如果是就代表刷新结束
+        if (!notData) {
+            isFlush = true;//代表我们已经可以再一次的刷新了
+        } else {
+            isFlush = false;//如果没有数据，就不能在刷新
+        }
         setDataList(specificInfoWithLocations);
     }
 }
