@@ -76,7 +76,7 @@ public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity
             for (String url : specificInfo.getImgUrl().split(StringTool.DELIMITER)) {
                 ImageView imageView = new ImageView(this);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                 Glide.with(this).load(url).into(imageView);
                 imgArea.addView(imageView);
             }
@@ -85,7 +85,6 @@ public class SpecificInfoComplexListDetailActivity extends ComplexDetailActivity
 
         /**
          * 设置视频的播放地址
-
          */
 
         String videoUrl=specificInfo.getVideoUrl();

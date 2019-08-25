@@ -8,6 +8,7 @@ package com.rcs.nchumanity.entity;
 public class NetConnectionUrl {
 
 
+
     /**
      * 快递查询的相关的接口信息常量
      */
@@ -74,6 +75,23 @@ public class NetConnectionUrl {
     public static final String api = ROOT_SERVER + "api/";
 
 
+    public static String getSignUpInfoByUser=APP+"signUp/getSignUpInfoByUser";
+    /**
+     * 获的邮寄状态
+     */
+    public static String getPostStatus=APP+"certification/getPostStatus";
+
+    /**
+     * 获得隐私政策
+     */
+    public static String getPrivacyPolicy = HOST + "/getPrivacyPolicy";
+
+
+    /**
+     * 查询选修的课程信息
+     */
+    public static String getNotRequiredCourseByCourseNo = APP + "onlineStudy/getNotRequiredCourseByCourseNo?courseNo=%s";
+
     /**
      * 取消选课
      */
@@ -90,15 +108,21 @@ public class NetConnectionUrl {
     public static String changePassword = api + "updatePassword";
 
 
-    public static String doUnifiedOrder = APP + "certification/doUnifiedOrder";
+    /**
+     * 提交用户邮寄信息
+     */
+    public static String doUnifiedOrder = APP + "certification/savePostInfo";
 
 
+    /**
+     * 获得用户状态
+     */
     public static String getStatusByUser = APP + "certification/getStatusByUser";
 
     /**
      * 获得用户报名相关信息
      */
-    public static String getPostInfoByUser = APP + "certification/getPostInfoByUser";
+    public static String getPostInfoByUser = APP + "certification/getPostInfo";
 
     /**
      * 获得验证码

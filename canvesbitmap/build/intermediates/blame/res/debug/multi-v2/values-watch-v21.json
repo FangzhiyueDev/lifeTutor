@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/fang/androidProject/android/lifeTutor/canvesbitmap/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

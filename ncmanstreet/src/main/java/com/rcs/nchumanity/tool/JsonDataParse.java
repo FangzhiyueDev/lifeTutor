@@ -43,7 +43,7 @@ public class JsonDataParse {
             String position = detail.substring(startIndex, endIndex);
 
             String location = detail.replace(position, "");
-            locaPoints.add(new LocalPoint(latitude, longitude, location, "", position));
+            locaPoints.add(new LocalPoint(longitude, latitude, location, "", position));
         }
 
         return locaPoints;
@@ -70,7 +70,7 @@ public class JsonDataParse {
             String createTime = emerO.getString("createTime");
             String title = emerO.getString("title");
             String content = emerO.getString("content");
-            int longitude = emerO.getInt("longitude");
+            double longitude = emerO.getDouble("longitude");
             double latitude = emerO.getDouble("latitude");
             int readCount = emerO.getInt("readCount");
             String mobilePhone = emerO.getString("mobilePhone");
@@ -79,8 +79,8 @@ public class JsonDataParse {
             emergencyInfo.setCreateTime(DateProce.parseDate(createTime));
             emergencyInfo.setEmerId(emerId);
             emergencyInfo.setTitle(title);
-            emergencyInfo.setLatitude((float) latitude);
-            emergencyInfo.setLongitude((float) longitude);
+            emergencyInfo.setLatitude(latitude);
+            emergencyInfo.setLongitude(longitude);
             emergencyInfo.setUserId(userId);
             emergencyInfo.setReadCount(readCount);
             emergencyInfo.setMobilePhone(mobilePhone);
@@ -109,7 +109,7 @@ public class JsonDataParse {
      * @return
      * @throws JSONException
      */
-    public  static List<SpecificInfo> parseNewItem(JSONArray news) throws JSONException {
+    public static List<SpecificInfo> parseNewItem(JSONArray news) throws JSONException {
 
         List<SpecificInfo> specificInfos = new ArrayList<>();
 

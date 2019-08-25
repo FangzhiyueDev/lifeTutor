@@ -5,11 +5,14 @@ import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,8 @@ import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
+import com.rcs.nchumanity.entity.StudyStatus;
+import com.rcs.nchumanity.entity.SystemParamSet;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
 import com.rcs.nchumanity.entity.model.UserTrainRecord;
 
@@ -47,6 +52,12 @@ import okhttp3.Response;
  * 这个是必修课程的实现，
  * 用于实现的功能是视频的播放，以及播放
  * 以及包括试题的实现
+ * <p>
+ * 需要对状态码进行判断  ，实现的具体的操作包括
+ * <p>
+ * 1.用户未登录  --->不同提交
+ * 2.用户登录   ---->  判断用户学习状态  等于2的情况下，才去提交  反之不去提交
+ * 3.
  */
 public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActivity<ComplexModelSet.M__speinf_speinfCla_onLiExamQues> {
 
@@ -57,6 +68,16 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
 
     public static final int OPTION_SIZE = 4;
 
+    public static final String IS_STUDY = "isStudy";
+
+    public static final String STUDY_STATUS = "studyStatus";
+
+
+    public static final String ACTION="com.fang.action.postWatchData";
+
+
+    private Boolean isStudy;
+
 
     @Override
     protected int getViewLayoutId() {
@@ -65,15 +86,20 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
     }
 
 
-    public void clickBack(View view){
-        onBackPressed();
+    public void clickBack(View view) {
+
+        if (is_landscape) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        } else {
+            onBackPressed();
+        }
     }
 
     @Override
     protected void bindView(View view, ComplexModelSet.M__speinf_speinfCla_onLiExamQues item) {
 
         if (error) {
-            view.setVisibility(View.INVISIBLE);
+            view.findViewById(R.id.disArea).setVisibility(View.INVISIBLE);
         } else {
 
             ListView listView = view.findViewById(R.id.subjectList);
@@ -97,16 +123,23 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
                     String[] optionsBackup = null;
                     optionsBackup = Arrays.copyOf(options, OPTION_SIZE);
 
-                    for (int i = optionSize; i < OPTION_SIZE; i++) {
-                        optionsBackup[i] = "暂无选项";
+                    TextView[] views = {
+                            holder.getView(R.id.a),
+                            holder.getView(R.id.b),
+                            holder.getView(R.id.c),
+                            holder.getView(R.id.d)
+                    };
+
+                    for (int i = 0; i < OPTION_SIZE; i++) {
+                        if (i >= optionSize) {
+                            views[i].setVisibility(View.GONE);
+                        } else {
+                            views[i].setText(optionsBackup[i]);
+                        }
                     }
-                    holder.setText(R.id.a, optionsBackup[0]);
-                    holder.setText(R.id.b,  optionsBackup[1]);
-                    holder.setText(R.id.c,  optionsBackup[2]);
-                    holder.setText(R.id.d,  optionsBackup[3]);
 
                     holder.setOnClickListener(R.id.btnQuery, (v) -> {
-                        if (totalTime < 5 * 60) {
+                        if (totalTime < SystemParamSet.OBLIGATORY_CLASS_SUBMIT_TIME&& isStudy == false) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(ObligatoryCourseInfoComplexDetailActivity.this)
                                     .setTitle("提示")
                                     .setMessage("观看到5分钟后才能查看答案")
@@ -156,7 +189,6 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
                 title.setText(item.title);
             }
 
-
         }
     }
 
@@ -178,6 +210,8 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
 
     private Thread thread;
 
+    private int studyStatus;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -198,11 +232,13 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
         });
 
 
+        courseNo = getIntent().getExtras().getString(COURSE_NO);
 
+        isStudy = getIntent().getExtras().getBoolean(IS_STUDY);
 
-         courseNo = getIntent().getExtras().getString(COURSE_NO);
+        studyStatus = getIntent().getExtras().getInt(STUDY_STATUS);
 
-        if (courseNo == null) {
+        if (courseNo == null || isStudy == null || studyStatus == 0) {
             throw new InvalidParameterException("invalid paramter is COURSE_NO");
         }
 
@@ -214,9 +250,10 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
 
     private String courseNo;
 
+
+
     @Override
     public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
 
         BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
 
@@ -239,7 +276,7 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
 
                         String videoUrl = null;
                         videoUrl = courseDetail.getString("videoUrl");
-                        videoUrl = "http://192.168.43.170:8080/GF/video.mp4";
+//                        videoUrl = "http://192.168.43.170:8080/GF/video.mp4";
 
                         String imgUrl = courseDetail.getString("imgUrl");
 
@@ -278,6 +315,11 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
             } else if (what.equals("postWatchData")) {
 
 
+                //提交成功后发送一个广播
+                 Intent intent=new Intent(ACTION);
+                sendBroadcast(intent);
+
+
             }
         } else {
             error = true;
@@ -294,10 +336,10 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
         /**
          * 代表的是超过5分钟
          */
-        if (totalTime > 5*60) {
+        if (totalTime > SystemParamSet.OBLIGATORY_CLASS_SUBMIT_TIME && isStudy == false) {
             if (!PersistenceData.DEF_VAL.equals(PersistenceData.getSessionId(this))) {
                 Map<String, String> param = new HashMap<>();
-                param.put("courseNo",courseNo + "");
+                param.put("courseNo", courseNo + "");
 //                param.put("startTime", new Date().toString());
                 param.put("totalTime", totalTime + "");
                 loadDataPost(NetConnectionUrl.submitWatchData, "postWatchData", param);
@@ -313,6 +355,27 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
     }
 
 
+    /**
+     * 是否是横屏
+     */
+    private boolean is_landscape = false;
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            //横屏幕
+            is_landscape = true;
+        }
+
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            //竖屏幕
+            is_landscape = false;
+        }
+
+    }
+
     @Override
     public void onBackPressed() {
         if (PersistenceData.getSessionId(this).equals(PersistenceData.DEF_VAL)) {
@@ -320,17 +383,24 @@ public class ObligatoryCourseInfoComplexDetailActivity extends ComplexDetailActi
             super.onBackPressed();
 
         } else {
-            if (totalTime < 5 * 60 && (!error) && isStartTime) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("提醒");
-                builder.setMessage("你当前观看时长低于5分钟，系统将不会记录本次的观看记录，是否继续退出?")
-                        .setNegativeButton("退出", (dialog, v) -> {
-                            dialog.dismiss();
-                            super.onBackPressed();
-                        }).setPositiveButton("继续学习", ((dialog, which) -> {
-                    dialog.dismiss();
-                }));
-                builder.create().show();
+            if (totalTime < SystemParamSet.OBLIGATORY_CLASS_SUBMIT_TIME && (!error) && isStartTime) {
+                if ((!isStudy)&&studyStatus== StudyStatus.STATUS_ONLINE_STUDY) {
+                    //没有学习存在两种情况   1. 用户未登录 处理过了
+                    //2 用户登录了  但是没有报名  ，也不需要去回写
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setTitle("提醒");
+                    builder.setMessage("你当前观看时长低于5分钟，系统将不会记录本次的观看记录，是否继续退出?")
+                            .setNegativeButton("退出", (dialog, v) -> {
+                                dialog.dismiss();
+                                super.onBackPressed();
+                            }).setPositiveButton("继续学习", ((dialog, which) -> {
+                        dialog.dismiss();
+                    }));
+                    builder.create().show();
+                }
+
+
             } else {
                 super.onBackPressed();
             }

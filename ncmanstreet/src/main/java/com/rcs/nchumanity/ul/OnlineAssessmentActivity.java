@@ -43,7 +43,7 @@ import okhttp3.Response;
 import static com.rcs.nchumanity.ul.detail.ObligatoryCourseInfoComplexDetailActivity.Division;
 import static com.rcs.nchumanity.ul.detail.ObligatoryCourseInfoComplexDetailActivity.OPTION_SIZE;
 
-public class OnlineAssessmentActivity extends ParentActivity {
+public class OnlineAssessmentActivity extends BasicResponseProcessHandleActivity {
 
 
     CommandBar toolbar;
@@ -82,7 +82,7 @@ public class OnlineAssessmentActivity extends ParentActivity {
                         exams.getJSONObject(i).remove("question");
                         exams.getJSONObject(i).remove("options");
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 String jsonData = exams.toString();
@@ -105,43 +105,71 @@ public class OnlineAssessmentActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
-
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
         if (what.equals("examSubject")) {
 
-            if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-
-                try {
-                    paramData(backData[0]);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            } else if (br.code == BasicResponse.NOT_LOGIN) {
-
-                PersistenceData.clear(this);
-                Tool.loginCheck(this);
-
-            } else {
-                Toast.makeText(this, "发生错误", Toast.LENGTH_SHORT).show();
+            try {
+                paramData(backData);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+
         } else if (what.equals("submitExamSubject")) {
 
-            if(br.code==BasicResponse.RESPONSE_SUCCESS){
-
-                new AlertDialog.Builder(this)
-                        .setTitle("提示")
-                        .setMessage("考试数据提交成功,审核通过后可以在我的成绩里查看")
-                        .setPositiveButton("确定",(dialog, which) -> {
-                            dialog.dismiss();
-                        }).create().show();
-            }
-
+            new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage("考试数据提交成功,审核通过后可以在我的成绩里查看")
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    }).create().show();
         }
 
+
     }
+
+    
+//    @Override
+//    public void onSucessful(Response response, String what, String... backData) throws IOException {
+//        super.onSucessful(response, what, backData);
+//
+//        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+//
+//        if (what.equals("examSubject")) {
+//
+//            if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+//
+//                try {
+//                    paramData(backData[0]);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            } else if (br.code == BasicResponse.NOT_LOGIN) {
+//
+//                PersistenceData.clear(this);
+//                Tool.loginCheck(this);
+//
+//            } else {
+//                Toast.makeText(this, "发生错误", Toast.LENGTH_SHORT).show();
+//            }
+//        } else if (what.equals("submitExamSubject")) {
+//
+//            if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+//
+//                new AlertDialog.Builder(this)
+//                        .setTitle("提示")
+//                        .setMessage("考试数据提交成功,审核通过后可以在我的成绩里查看")
+//                        .setPositiveButton("确定", (dialog, which) -> {
+//                            dialog.dismiss();
+//                        }).create().show();
+//            }
+//
+//        }
+//
+//    }
+
 
     /**
      * 测试数据
@@ -194,7 +222,7 @@ public class OnlineAssessmentActivity extends ParentActivity {
             groupO.setOnCheckedChangeListener((group, checkedId) -> {
                 RadioButton radbtn = (RadioButton) group.findViewById(checkedId);
                 try {
-                    int index= (int) group.getTag();
+                    int index = (int) group.getTag();
                     exams.getJSONObject(index).put("answer", radbtn.getTag());
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -31,7 +31,6 @@ import okhttp3.Response;
 public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyInfo> {
 
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
@@ -44,7 +43,7 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
         holder.setText(R.id.title, obj.getTitle());
         holder.setText(R.id.content, obj.getContent());
         holder.setText(R.id.phone, obj.getMobilePhone());
-        holder.setText(R.id.count,obj.getReadCount()+"次");
+        holder.setText(R.id.count, obj.getReadCount() + "次");
 
     }
 
@@ -85,7 +84,7 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
             String param = String.format(NetConnectionUrl.selectInfoSplitPage, size, page);
 
             loadDataGetSilence(param, "loadData");
-        }else {
+        } else {
             Toast.makeText(this, "没有多余的数据了", Toast.LENGTH_SHORT).show();
         }
     }
@@ -101,46 +100,91 @@ public class EmergencyComplexListActivity extends ComplexListActivity<EmergencyI
 
     }
 
+
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+        if (what.equals("loadData")) {
 
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+            try {
 
-            switch (what) {
-                case "loadData":
+                List<EmergencyInfo> emergencyInfos = JsonDataParse.parseEmergencyData(backData);
 
-                    try {
+                Log.d("test", "onSucessful: emergencyInfos.size=" + size);
 
-                        List<EmergencyInfo> emergencyInfos = JsonDataParse.parseEmergencyData(backData[0]);
+                if (emergencyInfos.size() < size) {
+                    //代表的是没有数据了
+                    notData = true;
+                } else {
+                    notData = false;
+                }
 
-                        Log.d("test", "onSucessful: emergencyInfos.size="+size);
+                //当数据加载完成后，判断是否是进行的刷新，如果是就代表刷新结束
+                if (!notData) {
+                    isFlush = true;//代表我们已经可以再一次的刷新了
+                } else {
+                    isFlush = false;//如果没有数据，就不能在刷新
+                }
+                addDataList(emergencyInfos);
 
-                        if (emergencyInfos.size() < size) {
-                            //代表的是没有数据了
-                            notData = true;
-                        } else {
-                            notData = false;
-                        }
-
-                        //当数据加载完成后，判断是否是进行的刷新，如果是就代表刷新结束
-                        if (!notData) {
-                            isFlush = true;//代表我们已经可以再一次的刷新了
-                        } else {
-                            isFlush = false;//如果没有数据，就不能在刷新
-                        }
-                        addDataList(emergencyInfos);
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } else {
-            Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
+
         }
     }
+
+
+//    @Override
+//    public void onSucessful(Response response, String what, String... backData) throws IOException {
+//
+//        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+//
+//        String message = null;
+//        JSONObject br1 = null;
+//        try {
+//            br1 = new JSONObject(backData[0]);
+//            message = br1.has("msg") ? br1.getString("msg") : br1.getString("message");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+//
+//            switch (what) {
+//                case "loadData":
+//
+//                    try {
+//
+//                        List<EmergencyInfo> emergencyInfos = JsonDataParse.parseEmergencyData(backData[0]);
+//
+//                        Log.d("test", "onSucessful: emergencyInfos.size=" + size);
+//
+//                        if (emergencyInfos.size() < size) {
+//                            //代表的是没有数据了
+//                            notData = true;
+//                        } else {
+//                            notData = false;
+//                        }
+//
+//                        //当数据加载完成后，判断是否是进行的刷新，如果是就代表刷新结束
+//                        if (!notData) {
+//                            isFlush = true;//代表我们已经可以再一次的刷新了
+//                        } else {
+//                            isFlush = false;//如果没有数据，就不能在刷新
+//                        }
+//                        addDataList(emergencyInfos);
+//
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                    break;
+//            }
+//        } else {
+//            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
 }

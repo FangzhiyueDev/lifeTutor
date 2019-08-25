@@ -36,6 +36,7 @@ import com.rcs.nchumanity.service.thirdParty.*;
 import com.rcs.nchumanity.view.CommandBar;
 
 import java.io.IOException;
+import java.net.URI;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +46,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class RegisterUserActivity extends ParentActivity {
+public class RegisterUserActivity extends BasicResponseProcessHandleActivity {
 
 
     private static final String TAG = "test";
@@ -99,11 +100,17 @@ public class RegisterUserActivity extends ParentActivity {
 
                 //弹出一个窗口 隐私政策
 
+                Bundle bundle = new Bundle();
+                bundle.putString(WebLoadActivity.TITLE, "隐私政策");
+//                bundle.putString(WebLoadActivity.URL, NetConnectionUrl.getPrivacyPolicy);
+                bundle.putString(WebLoadActivity.URL, "http://193.112.182.184:8888/ncrd/app/getPrivacyPolicy");
+                Tool.startActivity(this, WebLoadActivity.class, bundle);
                 break;
 
             case R.id.userProtocol:
 
                 //弹出一个窗口用户协议
+
 
                 break;
         }
@@ -111,45 +118,75 @@ public class RegisterUserActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
+    protected void responseWith1(String what, BasicResponse br) {
+        super.responseWith1(what, br);
 
-        BasicResponse basicResponse = new Gson().fromJson(backData[0], BasicResponse.class);
+        if (what.equals("registerStatus")) {
 
-        Log.d(TAG, "onSucessful: " + basicResponse);
+            /**
+             * 根据返回数据的结果，动态的跳转相应的界面
+             */
+            Bundle bundle = new Bundle();
+            bundle.putString(ValidateCodeActivity.MOBILE_PHONE, userPhone);
+            bundle.putString(ValidateCodeActivity.ACTION, ValidateCodeActivity.ACTION_REGISTER);
+            Tool.startActivity(this, ValidateCodeActivity.class, bundle);
+        }
 
-        switch (what) {
+    }
 
-            case "registerStatus": {
 
-                switch (basicResponse.code) {
-
-                    case BasicResponse.NOT_REGISTER:
-
-                        //发送验证码到该手机上
-//                        ValidateCodeServler.sendValidateCode("86", userPhone);
-
-                        /**
-                         * 根据返回数据的结果，动态的跳转相应的界面
-                         */
-                        Bundle bundle = new Bundle();
-                        bundle.putString(ValidateCodeActivity.MOBILE_PHONE, userPhone);
-                        bundle.putString(ValidateCodeActivity.ACTION,ValidateCodeActivity.ACTION_REGISTER);
-                        Tool.startActivity(this, ValidateCodeActivity.class, bundle);
-                        break;
-
-                    case BasicResponse.REGISTED:
-
-                        PersistenceData.setPhoneNumber(this, userPhone);
-                        Bundle bundle1 = new Bundle();
-                        //进行登录
-                        bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_LOGIN);
-                        Tool.startActivity(this, InputPasswordActivity.class,bundle1);
-
-                        break;
-                }
-            }
-            break;
+    @Override
+    protected void responseWith2(String what, BasicResponse br) {
+        super.responseWith2(what, br);
+        if (what.equals("registerStatus")) {
+            PersistenceData.setPhoneNumber(this, userPhone);
+            Bundle bundle1 = new Bundle();
+            //进行登录
+            bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_LOGIN);
+            Tool.startActivity(this, InputPasswordActivity.class, bundle1);
         }
     }
+
+//    @Override
+//    public void onSucessful(Response response, String what, String... backData) throws IOException {
+//        super.onSucessful(response, what, backData);
+//
+//        BasicResponse basicResponse = new Gson().fromJson(backData[0], BasicResponse.class);
+//
+//        Log.d(TAG, "onSucessful: " + basicResponse);
+//
+//        switch (what) {
+//
+//            case "registerStatus": {
+//
+//                switch (basicResponse.code) {
+//
+//                    case BasicResponse.NOT_REGISTER:
+//
+//                        //发送验证码到该手机上
+////                        ValidateCodeServler.sendValidateCode("86", userPhone);
+//
+//                        /**
+//                         * 根据返回数据的结果，动态的跳转相应的界面
+//                         */
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString(ValidateCodeActivity.MOBILE_PHONE, userPhone);
+//                        bundle.putString(ValidateCodeActivity.ACTION, ValidateCodeActivity.ACTION_REGISTER);
+//                        Tool.startActivity(this, ValidateCodeActivity.class, bundle);
+//                        break;
+//
+//                    case BasicResponse.REGISTED:
+//
+//                        PersistenceData.setPhoneNumber(this, userPhone);
+//                        Bundle bundle1 = new Bundle();
+//                        //进行登录
+//                        bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_LOGIN);
+//                        Tool.startActivity(this, InputPasswordActivity.class, bundle1);
+//
+//                        break;
+//                }
+//            }
+//            break;
+//        }
+//    }
 }

@@ -108,7 +108,7 @@
                             android:layout_height="80dp"
                             android:background="@color/smssdk_white"
                             android:scaleType="fitCenter"
-                            android:src="@drawable/ic_07" />
+                            android:src="@drawable/ic_08" />
 
 
                         <TextView

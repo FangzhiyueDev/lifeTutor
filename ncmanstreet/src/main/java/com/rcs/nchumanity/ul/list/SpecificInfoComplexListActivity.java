@@ -53,36 +53,37 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
     }
 
 
-    public static final float DEF_VAL=0.0f;
+    public static final float DEF_VAL = 0.0f;
+
     @Override
     protected void itemClick(AdapterView<?> parent, View view, int position, long id, SpecificInfoWithLocation item) {
         Bundle bundle = new Bundle();
-        if (item.getLatitude() != null&&item.getLatitude()!=DEF_VAL) {
+        if (item.getLatitude() != null && item.getLatitude() != DEF_VAL) {
 
             String locationName = item.getTitle();
             int startIndex = locationName.indexOf("（") >= locationName.length() ? locationName.indexOf("(") : locationName.indexOf("（");
             int endIndex = locationName.indexOf("）") >= locationName.length() ? locationName.indexOf(")") : locationName.indexOf("）");
             String positionS;
-             if(startIndex==endIndex){
-                 //代表没有找到
-                 positionS="暂无位置详情信息";
-             }else {
-                 positionS = locationName.substring(startIndex, endIndex);
-             }
+            if (startIndex == endIndex) {
+                //代表没有找到
+                positionS = "暂无位置详情信息";
+            } else {
+                positionS = locationName.substring(startIndex, endIndex);
+            }
             locationName = locationName.replace(positionS, "");
 
 
             //进入
             ArrayList<LocalPoint> localPoints = new ArrayList<>();
             localPoints.add(new LocalPoint(
-                    item.getLongitude().doubleValue(),
-                    item.getLatitude().doubleValue(),
+                    item.getLongitude(),
+                    item.getLatitude(),
                     locationName,
                     "",
                     positionS
             ));
             bundle.putSerializable(BasicMapChangeActivity.DATA, localPoints);
-            Tool.startActivity(this, BasicMapChangeActivity.class,bundle);
+            Tool.startActivity(this, BasicMapChangeActivity.class, bundle);
 
         } else {
 
@@ -102,9 +103,9 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
                             item.getIsDelete(),
                             item.getRemark(),
                             item.getContent()
-                            );
+                    );
             bundle.putSerializable(SpecificInfoComplexListDetailActivity.DATA, specificInfo);
-            Tool.startActivity(this, SpecificInfoComplexListDetailActivity.class,bundle);
+            Tool.startActivity(this, SpecificInfoComplexListDetailActivity.class, bundle);
 
         }
     }
@@ -176,34 +177,59 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
     }
 
 
+//    @Override
+//    public void onSucessful(Response response, String what, String... backData) throws IOException {
+//
+//        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+//
+//        String message = null;
+//        JSONObject br1 = null;
+//        try {
+//            br1 = new JSONObject(backData[0]);
+//            message = br1.has("msg") ? br1.getString("msg") : br1.getString("message");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+//
+//            switch (what) {
+//                case "loadData":
+//                    try {
+//                        JSONObject brJ = new JSONObject(backData[0]);
+//                        JSONArray object = brJ.getJSONArray("object");
+//                        JSONArray infos = object.getJSONArray(0);
+//                        JSONArray locations = object.getJSONArray(1);
+//                        margeData(infos, locations);
+//
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//
+//            }
+//        } else {
+//            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
+
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+        switch (what) {
+            case "loadData":
+                try {
+                    JSONObject brJ = new JSONObject(backData);
+                    JSONArray object = brJ.getJSONArray("object");
+                    JSONArray infos = object.getJSONArray(0);
+                    JSONArray locations = object.getJSONArray(1);
+                    margeData(infos, locations);
 
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-            switch (what) {
-                case "loadData":
-
-                    try {
-                        JSONObject brJ = new JSONObject(backData[0]);
-
-                        JSONArray object = brJ.getJSONArray("object");
-
-
-                        JSONArray infos = object.getJSONArray(0);
-                        JSONArray locations = object.getJSONArray(1);
-                        margeData(infos, locations);
-
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-            }
-        } else {
-            Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -274,8 +300,8 @@ public class SpecificInfoComplexListActivity extends ComplexListActivity<Specifi
             specificInfo.setEditor(editor);
             specificInfo.setContent(content);
             specificInfo.setImgUrl(imageUrl);
-            specificInfo.setLatitude((float) latitude);
-            specificInfo.setLongitude((float) longitute);
+            specificInfo.setLatitude(latitude);
+            specificInfo.setLongitude(longitute);
             specificInfoWithLocations.add(specificInfo);
         }
 

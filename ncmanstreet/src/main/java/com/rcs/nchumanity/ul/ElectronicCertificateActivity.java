@@ -29,7 +29,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import okhttp3.Response;
 
-public class ElectronicCertificateActivity extends ParentActivity {
+public class ElectronicCertificateActivity extends BasicResponseProcessHandleActivity {
 
 
     @BindViews({R.id.z, R.id.f, R.id.capter})
@@ -50,6 +50,9 @@ public class ElectronicCertificateActivity extends ParentActivity {
     @BindView(R.id.sex)
     TextView sex;
 
+    @BindView(R.id.zj)
+    ImageView zj;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,14 +64,13 @@ public class ElectronicCertificateActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+        if (what.equals("myCertificate")) {
 
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
             try {
-                JSONObject brJ = new JSONObject(backData[0]);
+                JSONObject brJ = new JSONObject(backData);
 
                 JSONObject obj = brJ.getJSONObject("object");
                 List<String> imgs = parseImgs(obj);
@@ -77,6 +79,11 @@ public class ElectronicCertificateActivity extends ParentActivity {
                 String idNumber = parseIdNumber(obj);
                 String licenseNo = parseLicenseNo(obj);
                 String dateOfIssue = parseDateOfIssue(obj);
+                String zj = parsePicUrl(obj);
+
+                if (zj != null) {
+                    Glide.with(this).load(zj).into(this.zj);
+                }
 
                 margeData(imgs, name, sex, idNumber, licenseNo, dateOfIssue);
 
@@ -85,13 +92,19 @@ public class ElectronicCertificateActivity extends ParentActivity {
                 e.printStackTrace();
             }
 
-        } else if (br.code == BasicResponse.NOT_LOGIN) {
-            PersistenceData.clear(this);
-            Tool.loginCheck(this);
-        } else {
-            Toast.makeText(this, br.message, Toast.LENGTH_SHORT).show();
+
         }
 
+
+    }
+
+
+    private String parsePicUrl(JSONObject obj) throws JSONException {
+        JSONObject obj1 = obj.getJSONObject("UserAccount");
+        if (obj1.has("picUrl")) {
+            return obj1.getString("picUrl");
+        }
+        return null;
     }
 
 
@@ -108,7 +121,7 @@ public class ElectronicCertificateActivity extends ParentActivity {
     private void margeData(List<String> imgs, String name, String sex, String idNumber, String licenseNo, String dateOfIssue) {
 
         for (int i = 0; i < imgs.size(); i++) {
-            Glide.with(this).load(imgs).into(zs.get(i));
+            Glide.with(this).load(imgs.get(i)).into(zs.get(i));
         }
         nameT.setText(name);
         this.sex.setText(sex);

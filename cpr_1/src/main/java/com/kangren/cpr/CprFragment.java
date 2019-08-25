@@ -527,7 +527,7 @@ public class CprFragment extends Fragment implements OnClickListener {
                 pressDrawRectView.updateY(press.lights);
                 pressDrawLineView.updateY(press.num);
                 LogUtil.WriteLog(press.num + "" + press.isIn);
-                Log.d("test", "press: =" + press.isIn + "\t" + press.num);
+//                Log.d("test", "press: =" + press.isIn + "\t" + press.num);
                 if (pressCycle.lastPress.isIn != press.isIn) {
 
                     //��һ�°���
@@ -882,7 +882,7 @@ public class CprFragment extends Fragment implements OnClickListener {
         ac.lastReceiveMessage = lastScoreReceiveMessage;
 
         lastScore.path = appConfig.BaseDir + "/print/" + UUID.randomUUID().toString() + ".jpg";
-        savePrintBm(lastScore.path);
+//        savePrintBm(lastScore.path);
         ac.goWebView("oprateRecord");
 
     }
@@ -1087,7 +1087,7 @@ public class CprFragment extends Fragment implements OnClickListener {
              */
             printPress.start();
             printBlow.start();
-            //��ӿ�ʼ�ź�
+            //添加一个开始消息
             PlayBackEndOrStartMessage endMsg = new PlayBackEndOrStartMessage();
             endMsg.setTime(System.currentTimeMillis());
             lastScoreReceiveMessage.msgList.add(endMsg);
@@ -1122,6 +1122,8 @@ public class CprFragment extends Fragment implements OnClickListener {
         }
         /**
          * 向服务器发送一个基本的消息
+         *
+         * 代表 开始
          */
         DataService.getInstance().send(cpr);
         cprStarted = !cprStarted;

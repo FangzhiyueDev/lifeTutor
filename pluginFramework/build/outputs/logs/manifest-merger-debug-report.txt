@@ -1,0 +1,366 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:2:1-124:12
+MERGED from [androidx.appcompat:appcompat:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/03f4d0d2d1bfab2d600d50d2a95f94e5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.fragment:fragment:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-rc01.aar/307588c144fc0a3efc73d095da7e76dd/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-rc01.aar/00ac547593bdaf71b4f51ccbfdc65e6f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/c3943d8c0bbb76e54da7f63af4ba148e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/8cdd9786319774b1eeb21d8fbb909a92/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-rc01.aar/79cede9249d8d7d98e3667446238951c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/a0c013e2a89e1f84f1eb6e4be6ea6dd6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/b297e8af6bb7909d3be3a1b60ef6266b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/3d296495609f34423b9bb190e713e635/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/4faf1e7b8d285b5899b30189eeccce43/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/927c57c91af9b4c772777185c159beda/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/fd15223fa32914bfa20b2f9fe402618a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/eb55fc5759f05b4401ff186baa6e100f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/50de39a36a739308d7611ad658d88e0e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/af40e18b608cd0ccad4dee0306a6f3a7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/82a78a5ba3c74b00f8e5430b05aae555/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/b81ac4d750b3d2ed0a35c0c0e205411c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/730b36ab3ac0b82db6f1a356b60981b8/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/292518b191f508079cce5c00f21daacb/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/46178056f41be06b9a5e71bfff7f1309/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/984a2e661e497274f7870a486bf353be/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/cd8ff0056d4d7bc075be87cfd86c7053/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/81f3e82c85e7db5cfed5cd607ea13edf/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:3:5-47
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:5:5-20:19
+MERGED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:17:5-122:19
+MERGED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:17:5-122:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:22:18-86
+	android:supportsRtl
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:9:9-41
+	android:roundIcon
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:10:9-54
+	android:icon
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:12:9-40
+	android:name
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:6:9-69
+activity#com.xiaofangfang.pluginFramework.virtualApk.view.MainActivity
+ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:13:19-95
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml:17:27-74
+uses-sdk
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+MERGED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:7:5-9:41
+MERGED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/03f4d0d2d1bfab2d600d50d2a95f94e5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/03f4d0d2d1bfab2d600d50d2a95f94e5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.fragment:fragment:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-rc01.aar/307588c144fc0a3efc73d095da7e76dd/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-rc01.aar/307588c144fc0a3efc73d095da7e76dd/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-rc01.aar/00ac547593bdaf71b4f51ccbfdc65e6f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-rc01.aar/00ac547593bdaf71b4f51ccbfdc65e6f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/c3943d8c0bbb76e54da7f63af4ba148e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/c3943d8c0bbb76e54da7f63af4ba148e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/8cdd9786319774b1eeb21d8fbb909a92/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/8cdd9786319774b1eeb21d8fbb909a92/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-rc01.aar/79cede9249d8d7d98e3667446238951c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-rc01.aar/79cede9249d8d7d98e3667446238951c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/a0c013e2a89e1f84f1eb6e4be6ea6dd6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/a0c013e2a89e1f84f1eb6e4be6ea6dd6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/b297e8af6bb7909d3be3a1b60ef6266b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/b297e8af6bb7909d3be3a1b60ef6266b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/3d296495609f34423b9bb190e713e635/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/3d296495609f34423b9bb190e713e635/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/4faf1e7b8d285b5899b30189eeccce43/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/4faf1e7b8d285b5899b30189eeccce43/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/927c57c91af9b4c772777185c159beda/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/927c57c91af9b4c772777185c159beda/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/fd15223fa32914bfa20b2f9fe402618a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/fd15223fa32914bfa20b2f9fe402618a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/eb55fc5759f05b4401ff186baa6e100f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/eb55fc5759f05b4401ff186baa6e100f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/50de39a36a739308d7611ad658d88e0e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/50de39a36a739308d7611ad658d88e0e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/af40e18b608cd0ccad4dee0306a6f3a7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/af40e18b608cd0ccad4dee0306a6f3a7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/82a78a5ba3c74b00f8e5430b05aae555/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/82a78a5ba3c74b00f8e5430b05aae555/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/b81ac4d750b3d2ed0a35c0c0e205411c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/b81ac4d750b3d2ed0a35c0c0e205411c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/730b36ab3ac0b82db6f1a356b60981b8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/730b36ab3ac0b82db6f1a356b60981b8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/292518b191f508079cce5c00f21daacb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/292518b191f508079cce5c00f21daacb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/46178056f41be06b9a5e71bfff7f1309/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/46178056f41be06b9a5e71bfff7f1309/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/984a2e661e497274f7870a486bf353be/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/984a2e661e497274f7870a486bf353be/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/cd8ff0056d4d7bc075be87cfd86c7053/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/cd8ff0056d4d7bc075be87cfd86c7053/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/81f3e82c85e7db5cfed5cd607ea13edf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/81f3e82c85e7db5cfed5cd607ea13edf/AndroidManifest.xml:20:5-44
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+		ADDED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+		INJECTED from /home/fang/androidProject/android/lifeTutor/pluginFramework/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:13:22-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:14:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:15:22-78
+activity#com.didi.virtualapk.core.A$1
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:20:9-22:45
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:22:13-42
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:21:13-56
+activity#com.didi.virtualapk.core.A$2
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:23:9-26:64
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:25:13-42
+	android:theme
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:26:13-61
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:24:13-56
+activity#com.didi.virtualapk.core.B$1
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:29:9-31:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:31:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:30:13-56
+activity#com.didi.virtualapk.core.B$2
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:32:9-34:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:34:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:33:13-56
+activity#com.didi.virtualapk.core.B$3
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:35:9-37:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:37:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:36:13-56
+activity#com.didi.virtualapk.core.B$4
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:38:9-40:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:40:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:39:13-56
+activity#com.didi.virtualapk.core.B$5
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:41:9-43:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:43:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:42:13-56
+activity#com.didi.virtualapk.core.B$6
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:44:9-46:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:46:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:45:13-56
+activity#com.didi.virtualapk.core.B$7
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:47:9-49:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:49:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:48:13-56
+activity#com.didi.virtualapk.core.B$8
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:50:9-52:46
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:52:13-43
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:51:13-56
+activity#com.didi.virtualapk.core.C$1
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:55:9-57:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:57:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:56:13-56
+activity#com.didi.virtualapk.core.C$2
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:58:9-60:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:60:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:59:13-56
+activity#com.didi.virtualapk.core.C$3
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:61:9-63:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:63:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:62:13-56
+activity#com.didi.virtualapk.core.C$4
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:64:9-66:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:66:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:65:13-56
+activity#com.didi.virtualapk.core.C$5
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:67:9-69:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:69:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:68:13-56
+activity#com.didi.virtualapk.core.C$6
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:70:9-72:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:72:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:71:13-56
+activity#com.didi.virtualapk.core.C$7
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:73:9-75:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:75:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:74:13-56
+activity#com.didi.virtualapk.core.C$8
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:76:9-78:47
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:78:13-44
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:77:13-56
+activity#com.didi.virtualapk.core.D$1
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:81:9-83:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:83:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:82:13-56
+activity#com.didi.virtualapk.core.D$2
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:84:9-86:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:86:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:85:13-56
+activity#com.didi.virtualapk.core.D$3
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:87:9-89:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:89:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:88:13-56
+activity#com.didi.virtualapk.core.D$4
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:90:9-92:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:92:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:91:13-56
+activity#com.didi.virtualapk.core.D$5
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:93:9-95:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:95:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:94:13-56
+activity#com.didi.virtualapk.core.D$6
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:96:9-98:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:98:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:97:13-56
+activity#com.didi.virtualapk.core.D$7
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:99:9-101:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:101:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:100:13-56
+activity#com.didi.virtualapk.core.D$8
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:102:9-104:51
+	android:launchMode
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:104:13-48
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:103:13-56
+service#com.didi.virtualapk.delegate.LocalService
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:107:9-77
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:107:18-74
+service#com.didi.virtualapk.delegate.RemoteService
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:110:9-116:19
+	android:process
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:112:13-38
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:111:13-70
+intent-filter#action:name:${applicationId}.intent.ACTION_DAEMON_SERVICE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:113:13-115:29
+intent-filter#action:name:com.xiaofangfang.smallplugindemo.intent.ACTION_DAEMON_SERVICE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:113:13-115:29
+action#${applicationId}.intent.ACTION_DAEMON_SERVICE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:114:17-88
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:114:25-85
+action#com.xiaofangfang.smallplugindemo.intent.ACTION_DAEMON_SERVICE
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:114:17-88
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:114:25-85
+provider#com.didi.virtualapk.delegate.RemoteContentProvider
+ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:118:9-121:41
+	android:process
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:121:13-38
+	android:authorities
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:120:13-71
+	android:name
+		ADDED from [com.didi.virtualapk:core:0.9.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-core-0.9.0.aar/77b39b497ff083638e353f156461e883/AndroidManifest.xml:119:13-78

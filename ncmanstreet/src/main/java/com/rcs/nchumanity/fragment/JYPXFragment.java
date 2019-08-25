@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import com.rcs.nchumanity.dialog.DialogTool;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
+import com.rcs.nchumanity.entity.StudyStatus;
 import com.rcs.nchumanity.tool.LBSallocation;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.IdentityInfoRecordActivity;
@@ -76,31 +78,17 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
                 break;
 
             case R.id.two:
-                Bundle bundle = new Bundle();
-                if (PersistenceData.DEF_VAL.equals(PersistenceData.getSessionId(getContext()))) {
-                    bundle.putString(CourseComplexListActivity.NET_URL, NetConnectionUrl.getOnlineClass);
-                } else {
-                    bundle.putString(CourseComplexListActivity.NET_URL,
-                            NetConnectionUrl.getOnlineClassAndRecordByUser);
-                }
-                bundle.putString(CourseComplexListActivity.BACKUP_URL, NetConnectionUrl.getOnlineClass);
-                bundle.putString(CourseComplexListActivity.FUN, CourseComplexListActivity.FUN_NEED);
-                Tool.startActivity(getContext(), CourseComplexListActivity.class, bundle);
+
+                String param1 = NetConnectionUrl.getSignInStatus;
+                clickStep = R.id.two;
+                loadDataGet(param1, "getSignInStatus");
 
                 break;
 
             case R.id.three:
 
-                Bundle bundle1 = new Bundle();
-                bundle1.putString(CourseComplexListActivity.FUN, CourseComplexListActivity.FUN_SELECT);
-                if (PersistenceData.DEF_VAL.equals(PersistenceData.getSessionId(getContext()))) {
-                    bundle1.putString(CourseComplexListActivity.NET_URL, NetConnectionUrl.getNotRequiredOnlineClass);
-                } else {
-                    bundle1.putString(CourseComplexListActivity.NET_URL,
-                            NetConnectionUrl.getNotRequiredOnlineClassAndRecordByUser);
-                }
-                bundle1.putString(CourseComplexListActivity.BACKUP_URL, NetConnectionUrl.getNotRequiredOnlineClass);
-                Tool.startActivity(getContext(), CourseComplexListActivity.class, bundle1);
+                clickStep = R.id.three;
+                loadDataGet(NetConnectionUrl.getSignInStatus, "getSignInStatus");
 
                 break;
 
@@ -111,15 +99,10 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
 
                 loadDataGet(NetConnectionUrl.getSignInStatus, "getSignInStatus");
 
-//                Tool.startActivity(getContext(), OnlineAssessmentActivity.class);
 
                 break;
 
             case R.id.five_signUp:
-
-                if (!Tool.loginCheck(getActivity())) {
-                    return;
-                }
 
                 Bundle bundle2 = new Bundle();
                 bundle2.putString(OfflineTrainClassListActivity.URL, NetConnectionUrl.getCPRClassList);
@@ -129,21 +112,22 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
 
             case R.id.five_signIn:
 
+                clickStep = R.id.five_signIn;
+
                 signInOprate(NetConnectionUrl.signInCPRClass);
 
                 break;
 
             case R.id.five_query:
 
-                queryScoreCPR();
+                clickStep = R.id.five_query;
+
+                loadDataGet(NetConnectionUrl.getSignInStatus, "getSignInStatus");
+
 
                 break;
 
             case R.id.six_signUp:
-
-                if (!Tool.loginCheck(getActivity())) {
-                    return;
-                }
 
                 Bundle bundle3 = new Bundle();
                 bundle3.putString(OfflineTrainClassListActivity.URL, NetConnectionUrl.getTraumaClassList);
@@ -180,8 +164,8 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
                 d.setClickListener(R.id.yes, (v) -> {
                     dialog.dismiss();
 
-                    if (input.length() < 4) {
-                        Toast.makeText(getContext(), "请输入4位合法查询码", Toast.LENGTH_SHORT).show();
+                    if (input.length() < 1) {
+                        Toast.makeText(getContext(), "请输入查询码", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     String param = String.format(NetConnectionUrl.queryXFScore, input.getText());
@@ -264,7 +248,7 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
                 Bundle bundle = data.getExtras();
                 String scanResult = bundle.getString(Constant.INTENT_EXTRA_KEY_QR_SCAN);
                 String param = String.format(NetConnectionUrl.queryCSJHScore, scanResult, "心肺复苏");
-                loadDataGet(param, "queryXFScore");
+                loadDataGet(param, "queryScoreTrauma");
             }
         }
     }
@@ -276,6 +260,7 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
 
 
     private int clickStep;
+
 
     @Override
     protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
@@ -333,6 +318,50 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
                         builder.create().show();
                     }
                     break;
+                case R.id.two:
+
+                    //可能返回值 401 。----》调用 默认加载的接口
+                    //如果登录 返回状态码
+                    /**
+                     * 代表的是已经登录的情况
+                     */
+
+                    if (studyStatus >= 2) {
+
+                        entryOnlineTrain(NetConnectionUrl.getOnlineClassAndRecordByUser,
+                                NetConnectionUrl.getOnlineClass, studyStatus);
+                    } else {
+                        entryOnlineTrain(NetConnectionUrl.getOnlineClass, NetConnectionUrl.getOnlineClass, studyStatus);
+                    }
+
+                    break;
+
+                case R.id.three:
+
+                    if (studyStatus >= 2) {
+                        entryOnlineSelectTrain(NetConnectionUrl.getNotRequiredOnlineClassAndRecordByUser
+                                , NetConnectionUrl.getNotRequiredOnlineClass, studyStatus);
+                    } else {
+                        entryOnlineSelectTrain(
+                                NetConnectionUrl.getNotRequiredOnlineClass,
+                                NetConnectionUrl.getNotRequiredOnlineClass
+                                , studyStatus
+                        );
+                    }
+                    break;
+
+                case R.id.five_query:
+                    /**
+                     * 代表
+                     */
+                    if (studyStatus >= 5 && studyStatus < 7) {
+                        queryScoreCPR();
+                    } else if (studyStatus >= 7) {
+                        super.responseWith201_202(what, new BasicResponse(201, "已经完成考核", null));
+                    } else if (studyStatus < 5) {
+                        super.responseWith201_202(what, new BasicResponse(201, "没有达到操作要求", null));
+                    }
+                    break;
             }
 
         } else if (what.equals("courseSignInUrl")) {
@@ -340,37 +369,93 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
 
         } else if (what.equals("queryXFScore")) {
 
+            responseWith201_202(what, new BasicResponse(201, "成绩绑定成功", null));
 
         }
         if (what.equals("queryScoreTrauma")) {
 
+            responseWith201_202(what, new BasicResponse(201, "成绩绑定成功", null));
         }
     }
 
 
     @Override
-    protected void responseWithOther401(String what, BasicResponse br) {
-        super.responseWithOther401(what, br);
+    protected void responseWith401(String what, BasicResponse br) {
+        Log.d("test", "responseWith401: ");
         if (what.equals("courseSignInUrl")) {
-            new AlertDialog.Builder(getContext())
-                    .setTitle("温馨提示")
-                    .setMessage("请确定手机打开了GPS，暂时获取不到的位置")
-                    .setPositiveButton("确定", (dialog, which) -> {
-                        dialog.dismiss();
-                    }).create().show();
+
+            if (br.message.equals(BasicResponse.MESSAGE_OTHER)) {
+                super.responseWith401(what, br);
+            } else {
+                new AlertDialog.Builder(getContext())
+                        .setTitle("温馨提示")
+                        .setMessage(br.message)
+                        .setPositiveButton("确定", (dialog, which) -> {
+                            dialog.dismiss();
+                        }).create().show();
+            }
+        } else if (what.equals("getSignInStatus")) {
+            /**
+             * 点击线上培训，没有登录的情况
+             */
+            if (clickStep == R.id.two) {
+                /**
+                 * 没有登录的情况   没有报名 学习状态为1
+                 */
+                entryOnlineTrain(NetConnectionUrl.getOnlineClass, NetConnectionUrl.getOnlineClass, StudyStatus.STATUS_NOT_STUDY);
+            }
+            /**
+             * 线上选修课成没有登录的情况
+             */
+            if (clickStep == R.id.three) {
+                /**
+                 * 没有登录的情况
+                 */
+                entryOnlineSelectTrain(NetConnectionUrl.getNotRequiredOnlineClass,
+                        NetConnectionUrl.getNotRequiredOnlineClass, StudyStatus.STATUS_NOT_STUDY);
+            }
+
+            if (clickStep == R.id.four || clickStep == R.id.one || clickStep == R.id.five_query) {
+                super.responseWith401(what, br);
+            }
         }
     }
 
-    @Override
-    protected void responseWithNotRequired(String what, BasicResponse br) {
-        super.responseWithNotRequired(what, br);
-        new AlertDialog.Builder(getContext())
-                .setTitle("温馨提示")
-                .setMessage("暂未达到此操作的要求。")
-                .setPositiveButton("确定", (dialog, which) -> {
-                    dialog.dismiss();
-                }).create().show();
+    /**
+     * 进入线下培训课程
+     *
+     * @param url
+     * @param backUrl
+     */
+    private void entryOnlineSelectTrain(String url, String backUrl, int studyStatus) {
+
+        Bundle bundle1 = new Bundle();
+        bundle1.putString(CourseComplexListActivity.FUN, CourseComplexListActivity.FUN_SELECT);
+        bundle1.putString(CourseComplexListActivity.NET_URL,
+                url);
+        bundle1.putString(CourseComplexListActivity.BACKUP_URL, backUrl);
+        bundle1.putInt(CourseComplexListActivity.STUDY_STATUS, studyStatus);
+        Tool.startActivity(getContext(), CourseComplexListActivity.class, bundle1);
     }
+
+
+    /**
+     * 进入线上培训课程
+     *
+     * @param before
+     * @param back
+     */
+    private void entryOnlineTrain(String before, String back, int studyStatus) {
+
+        Bundle bundle = new Bundle();
+        bundle.putString(CourseComplexListActivity.NET_URL, before);
+        bundle.putString(CourseComplexListActivity.BACKUP_URL, back);
+        bundle.putInt(CourseComplexListActivity.STUDY_STATUS, studyStatus);
+        bundle.putString(CourseComplexListActivity.FUN, CourseComplexListActivity.FUN_NEED);
+        Tool.startActivity(getContext(), CourseComplexListActivity.class, bundle);
+
+    }
+
 
     @Override
     protected void responseWith207(String what, BasicResponse br) {

@@ -23,9 +23,9 @@ import com.rcs.nchumanity.dialog.DialogTool;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
-import com.rcs.nchumanity.entity.model.AreaInfo;
 import com.rcs.nchumanity.tool.DateProce;
 import com.rcs.nchumanity.tool.Tool;
+import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.ul.detail.OfflineTrainClassDetailActivity;
 import com.rcs.nchumanity.view.CommandBar;
@@ -49,7 +49,7 @@ import okhttp3.Response;
 /**
  * 用于实现线下培训班列表的Activity
  */
-public class OfflineTrainClassListActivity extends ParentActivity {
+public class OfflineTrainClassListActivity extends BasicResponseProcessHandleActivity {
 
     private static final String NC = "南昌";
     @BindView(R.id.changePosition)
@@ -105,24 +105,23 @@ public class OfflineTrainClassListActivity extends ParentActivity {
 
         classListAdapter =
                 new ListViewCommonsAdapter<ComplexModelSet.M_traiCla_areaInf>
-                (traiCla_areaInfs, R.layout.item_train_class) {
-            @Override
-            public void bindView(ViewHolder holder, ComplexModelSet.M_traiCla_areaInf obj) {
-                holder.setText(R.id.area,obj.area);
-                holder.setText(R.id.dateTime, DateProce.formatDate(DateProce.parseDate(obj.starTime)));
-                holder.setText(R.id.address,obj.position+" "+(obj.vrClass?"VR":"非VR"));
-                holder.setText(R.id.trainCount,obj.maxNum+"人");
-                holder.setText(R.id.leftCount,obj.leftNum+"人");
-                holder.setText(R.id.trainOrg,obj.org);
-                holder.setText(R.id.trainer,obj.trainer);
-            }
+                        (traiCla_areaInfs, R.layout.item_train_class) {
+                    @Override
+                    public void bindView(ViewHolder holder, ComplexModelSet.M_traiCla_areaInf obj) {
+                        holder.setText(R.id.area, obj.area);
+                        holder.setText(R.id.dateTime, DateProce.formatDate(DateProce.parseDate(obj.starTime)));
+                        holder.setText(R.id.address, obj.position + " " + (obj.vrClass ? "VR" : "非VR"));
+                        holder.setText(R.id.trainCount, obj.maxNum + "人");
+                        holder.setText(R.id.leftCount, obj.leftNum + "人");
+                        holder.setText(R.id.trainOrg, obj.org);
+                        holder.setText(R.id.trainer, obj.trainer);
+                    }
 
-            @Override
-            public int getCount() {
-                return traiCla_areaInfs.size();
-            }
-        };
-
+                    @Override
+                    public int getCount() {
+                        return traiCla_areaInfs.size();
+                    }
+                };
 
 
         classList.setAdapter(classListAdapter);
@@ -203,9 +202,9 @@ public class OfflineTrainClassListActivity extends ParentActivity {
     @OnClick(R.id.changePosition)
     public void onClick(View view) {
         Log.d("test", "onClick: ");
-        if(popupWindow.isShowing()){
+        if (popupWindow.isShowing()) {
             popupWindow.dismiss();
-        }else {
+        } else {
             popupWindow.showAsDropDown(changePosition);
         }
     }
@@ -213,35 +212,33 @@ public class OfflineTrainClassListActivity extends ParentActivity {
 
     @Override
     protected void onDestroy() {
-       if (popupWindow.isShowing()){
-           popupWindow.dismiss();
-       }
+        if (popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        }
 
         super.onDestroy();
     }
 
     private HashMap<String, List<ComplexModelSet.M_traiCla_areaInf>> classListAreaMap;
 
+
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
         if (what.equals("load")) {
-            if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-                //
-                try {
+            try {
 
-                    classListAreaMap = new HashMap<>();
+                classListAreaMap = new HashMap<>();
 
-                    JSONObject brJ = new JSONObject(backData[0]);
+                JSONObject brJ = new JSONObject(backData);
 
-                    JSONArray courseList = brJ.getJSONArray("object");
+                JSONArray courseList = brJ.getJSONArray("object");
 
-                    List<ComplexModelSet.M_traiCla_areaInf> list1 = new ArrayList<>();
+                List<ComplexModelSet.M_traiCla_areaInf> list1 = new ArrayList<>();
 
 
-                    for (int i = 0; i < courseList.length(); i++) {
+                for (int i = 0; i < courseList.length(); i++) {
 
                         /*
                         area
@@ -254,59 +251,54 @@ public class OfflineTrainClassListActivity extends ParentActivity {
                         startTime
                         classId
                          */
-                        JSONObject course = courseList.getJSONObject(i);
-                        int classId = course.getInt("classId");
-                        String startme = course.getString("startTime");
-                        String position = course.getString("position");
-                        String maxNum = course.getString("maxNum");
-                        String leftNum = course.getString("leftNum");
-                        String org = course.getString("org");
-                        int vrAttr = course.getInt("vrAttr");
-                        boolean vrClass = course.getBoolean("vrClass");
-                        String area = course.getString("area");
-                         String trainer=null;
-                        if(course.has("trainer")) {
-                             trainer = course.getString("trainer");
-                        }
-
-                        ComplexModelSet.M_traiCla_areaInf traiCla_areaInf
-                                = new ComplexModelSet.M_traiCla_areaInf(classId, startme, position, maxNum, leftNum, org, vrAttr, vrClass, area);
-
-                        traiCla_areaInf.trainer=trainer;
-
-                        if (classListAreaMap.get(area) == null) {
-                            List<ComplexModelSet.M_traiCla_areaInf> backList = new ArrayList<>();
-                            backList.add(traiCla_areaInf);
-                            classListAreaMap.put(area, backList);
-                        } else {
-                            classListAreaMap.get(area).add(traiCla_areaInf);
-                        }
-                        list1.add(traiCla_areaInf);
+                    JSONObject course = courseList.getJSONObject(i);
+                    int classId = course.getInt("classId");
+                    String startme = course.getString("startTime");
+                    String position = course.getString("position");
+                    String maxNum = course.getString("maxNum");
+                    String leftNum = course.getString("leftNum");
+                    String org = course.getString("org");
+                    int vrAttr = course.getInt("vrAttr");
+                    boolean vrClass = course.getBoolean("vrClass");
+                    String area = course.getString("area");
+                    String trainer = null;
+                    if (course.has("trainer")) {
+                        trainer = course.getString("trainer");
                     }
 
-                    classListAreaMap.put(NC, list1);
+                    ComplexModelSet.M_traiCla_areaInf traiCla_areaInf
+                            = new ComplexModelSet.M_traiCla_areaInf(classId, startme, position, maxNum, leftNum, org, vrAttr, vrClass, area);
 
+                    traiCla_areaInf.trainer = trainer;
 
-                    Set<String> stringSet = classListAreaMap.keySet();
-
-                    setHeadData(new ArrayList<>(stringSet));
-
-                    if(areaInfos.size()>0){
-                        defIndex=areaInfos.size()-1;
-                        changePosition.setText(areaInfos.get(defIndex));
-                        setContentList(classListAreaMap.get(changePosition.getText()));
-                    }else if (areaInfos.size()==0) {
-
+                    if (classListAreaMap.get(area) == null) {
+                        List<ComplexModelSet.M_traiCla_areaInf> backList = new ArrayList<>();
+                        backList.add(traiCla_areaInf);
+                        classListAreaMap.put(area, backList);
+                    } else {
+                        classListAreaMap.get(area).add(traiCla_areaInf);
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    list1.add(traiCla_areaInf);
                 }
-            } else if (br.code == BasicResponse.NOT_LOGIN) {
-                PersistenceData.clear(this);
-                Tool.loginCheck(this);
+
+                classListAreaMap.put(NC, list1);
+
+
+                Set<String> stringSet = classListAreaMap.keySet();
+
+                setHeadData(new ArrayList<>(stringSet));
+
+                if (areaInfos.size() > 0) {
+                    defIndex = areaInfos.size() - 1;
+                    changePosition.setText(areaInfos.get(defIndex));
+                    setContentList(classListAreaMap.get(changePosition.getText()));
+                } else if (areaInfos.size() == 0) {
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-
     }
 
 
@@ -320,8 +312,6 @@ public class OfflineTrainClassListActivity extends ParentActivity {
         traiCla_areaInfs.addAll(list);
         classListAdapter.notifyDataSetChanged();
     }
-
-
 
 
 }

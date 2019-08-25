@@ -1,6 +1,9 @@
 package com.kangren.cpr.receiveMessage;
 
 
+/**
+ * 操作开始之前 接受的消息
+ */
 public class OperationBeforeReceiveMessage implements IReceiveMessage {
 
 

@@ -1,6 +1,7 @@
 package com.lyc.bluetooth;
 
 import android.bluetooth.BluetoothSocket;
+import android.util.Log;
 
 import com.lyc.utils.LogUtil;
 
@@ -13,6 +14,11 @@ import java.util.List;
 /**
  * 该类用于实现消息的传递
  * 传递的参数是一个已经建立连接的对象
+ *
+ *
+ *
+ * 内部可以添加监听列表  ，用于实现对消息的监听
+ *
  */
 public class MessageDevice {
 
@@ -106,7 +112,7 @@ public class MessageDevice {
                         for (int i = 0; i < recevedMsgListenerList.size(); i++) {
                             recevedMsgListenerList.get(i).Done(me);
                         }
-                        //print(res);
+                        Log.d("test", "run: ====" + res);
                         //LogUtil.WriteLog(len+"");
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
@@ -197,7 +203,7 @@ public class MessageDevice {
 
         /**
          * 传递的消息 byte类型  当前的消息最大为8个字节，原因是缓存。
-         * 
+         *
          * @param msg
          */
         public void setMsg(byte[] msg) {

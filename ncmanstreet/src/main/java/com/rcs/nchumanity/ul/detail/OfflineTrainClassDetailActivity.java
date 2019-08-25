@@ -1,6 +1,9 @@
 package com.rcs.nchumanity.ul.detail;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +21,7 @@ import com.rcs.nchumanity.entity.model.OfflineTrainClass;
 import com.rcs.nchumanity.tool.DateProce;
 import com.rcs.nchumanity.tool.StringTool;
 import com.rcs.nchumanity.tool.Tool;
+import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
 import com.rcs.nchumanity.ul.IdentityInfoRecordActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.view.CommandBar;
@@ -36,14 +40,22 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Response;
 
-public class OfflineTrainClassDetailActivity extends ParentActivity {
+public class OfflineTrainClassDetailActivity extends BasicResponseProcessHandleActivity {
 
 
     public static final String CLASS_ID = "classId";
 
 
-    @BindViews({R.id.courseImg, R.id.courseImg1})
-    List<ImageView> courseImgs;
+    /**
+     * 是不是重新选课
+     */
+    public static boolean isReselect = false;
+
+
+    @BindView(R.id.detailImg)
+     ImageView detailImg;
+
+
 
     /**
      * 培训机构
@@ -81,6 +93,8 @@ public class OfflineTrainClassDetailActivity extends ParentActivity {
         setContentView(R.layout.acitivity_offline_class_detail);
         ButterKnife.bind(this);
 
+        isReselect = false;
+
         toolbar.setTitle("课程详情");
 
         classId = getIntent().getExtras().getString(CLASS_ID);
@@ -91,114 +105,116 @@ public class OfflineTrainClassDetailActivity extends ParentActivity {
 
     }
 
+
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
+    protected void onDestroy() {
+        super.onDestroy();
+        isReselect = true;
+    }
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+    @Override
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-            if (what.equals("load")) {
-                //
-                try {
-
-                    ComplexModelSet.ClassDetail classDetail = parseClassDetail(backData[0]);
-
-                    String imgs[] = classDetail.imgUrl.split(StringTool.DELIMITER);
-
-                    for (int i = 0; i < Math.min(imgs.length, courseImgs.size()); i++) {
-                        String img = imgs[i];
-                        if (img != null) {
-                            Glide.with(this).load(img).into(courseImgs.get(i));
-                        }
-                    }
-
-                    if (classDetail.trainer != null) {
-                        trainer.setText(classDetail.trainer);
-                    }
-
-                    if (classDetail.org != null) {
-                        pxzx.setText(classDetail.org);
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            } else if (what.equals("signUpStatus")) {
-
-                try {
-
-                    JSONObject jsonObject = new JSONObject(backData[0]);
-
-                    JSONObject data = null;
-
-                    if (jsonObject.has("object")) {
-                        data = jsonObject.getJSONObject("object");
-                    } else if (jsonObject.has("data")) {
-                        data = jsonObject.getJSONObject("data");
-                    }
-
-                    int studyStatus = data.getInt("studyStatus");
-
-                    if (studyStatus == 4 || studyStatus == 5) {
-                        //进入报名
-
-                        Map<String, String> param = new HashMap<>();
-                        param.put("classId", classId);
-                        loadDataPost(NetConnectionUrl.offlineTrainClassSignUp, "offlineTrainClassSignUp", param);
-
-                    } else if (studyStatus > 5) {
-                        new AlertDialog.Builder(this)
-                                .setTitle("温馨提示")
-                                .setMessage("你已完成线下考核")
-                                .setPositiveButton("确定", (dialog, which) -> {
-                                    dialog.dismiss();
-                                }).create().show();
-                    } else if (studyStatus < 4) {
-                        new AlertDialog.Builder(this)
-                                .setTitle("温馨提示")
-                                .setMessage("你暂未达到考试条件，请保证完成线上学习和考核")
-                                .setPositiveButton("确定", (dialog, which) -> {
-                                    dialog.dismiss();
-                                }).create().show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if (what.equals("offlineTrainClassSignUp")) {
-                new AlertDialog.Builder(this)
-                        .setTitle("提示")
-                        .setMessage("选课成功,请准时去参加课程")
-                        .setPositiveButton("确定", (dialog, which) -> {
-                            dialog.dismiss();
-                            finish();
-                        }).create().show();
-            }
-        } else if (br.code == BasicResponse.REPEAT_SIGN_UP) {
-            new AlertDialog.Builder(this)
-                    .setTitle("提示")
-                    .setMessage("请不要重复选课，如果需要重选，请进入我们课程进行操作")
-                    .setPositiveButton("确定", (dialog, which) -> {
-                        dialog.dismiss();
-                        finish();
-                    }).create().show();
-        } else {
-
+        if (what.equals("load")) {
+            //
             try {
 
-                JSONObject jsonObject = new JSONObject(backData[0]);
-                String message = jsonObject.has("message") ? jsonObject.getString("message") : jsonObject.getString("message");
-                new AlertDialog.Builder(this)
-                        .setTitle("提示")
-                        .setMessage(message)
-                        .setPositiveButton("确定", (dialog, which) -> {
-                            dialog.dismiss();
-                        }).create().show();
+                ComplexModelSet.ClassDetail classDetail = parseClassDetail(backData);
+
+//                String imgs[] = classDetail.imgUrl.split(StringTool.DELIMITER);
+
+                Glide.with(this).load(classDetail.imgUrl).into(detailImg);
+
+
+                if (classDetail.trainer != null) {
+                    trainer.setText(classDetail.trainer);
+                }
+
+                if (classDetail.org != null) {
+                    pxzx.setText(classDetail.org);
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+        } else if (what.equals("signUpStatus")) {
+
+            try {
+
+                JSONObject jsonObject = new JSONObject(backData);
+
+                JSONObject data = null;
+
+                if (jsonObject.has("object")) {
+                    data = jsonObject.getJSONObject("object");
+                } else if (jsonObject.has("data")) {
+                    data = jsonObject.getJSONObject("data");
+                }
+
+                int studyStatus = data.getInt("studyStatus");
+
+                if (studyStatus == 4 || studyStatus == 5) {
+                    //进入报名
+
+                    Map<String, String> param = new HashMap<>();
+                    param.put("classId", classId);
+                    loadDataPost(NetConnectionUrl.offlineTrainClassSignUp, "offlineTrainClassSignUp", param);
+
+                } else if (studyStatus > 5) {
+                    new AlertDialog.Builder(this)
+                            .setTitle("温馨提示")
+                            .setMessage("你已完成线下考核")
+                            .setPositiveButton("确定", (dialog, which) -> {
+                                dialog.dismiss();
+                            }).create().show();
+                } else if (studyStatus < 4) {
+                    new AlertDialog.Builder(this)
+                            .setTitle("温馨提示")
+                            .setMessage("你暂未达到考试条件，请保证完成线上学习和考核")
+                            .setPositiveButton("确定", (dialog, which) -> {
+                                dialog.dismiss();
+                            }).create().show();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (what.equals("offlineTrainClassSignUp")) {
+            new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage("选课成功,请准时去参加课程")
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        if (!isReselect) {
+                            dialog.dismiss();
+                            finish();
+                        } else {
+                            //反之代表进行重选的操作
+
+                            Intent intent = new Intent();
+
+                            setResult(Activity.RESULT_OK,intent);
+
+
+                        }
+                    }).setCancelable(true).create().show();
         }
+    }
+
+
+
+    @Override
+    protected void responseWith207(String what, BasicResponse br) {
+        super.responseWith207(what, br);
+
+        new AlertDialog.Builder(this)
+                .setTitle("提示")
+                .setMessage("请不要重复选课，如果需要重选，请进入我们课程进行操作")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    dialog.dismiss();
+                    finish();
+                }).create().show();
+
     }
 
     private ComplexModelSet.ClassDetail parseClassDetail(String backDatum) throws JSONException {

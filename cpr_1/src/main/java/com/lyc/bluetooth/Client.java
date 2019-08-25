@@ -11,6 +11,11 @@ import java.io.IOException;
  * 代表的是当前的客户端
  * <p>
  * 提供了对蓝牙的连接操作
+ * <p>
+ * <p>
+ * 以及对连接成功和失败的回调接口
+ * <p>
+ * 回调接口中 保存了当前对象和蓝牙连接的套接字，用于实现同蓝牙的通信
  */
 public class Client {
     private static final String TAG = "test";
@@ -99,7 +104,7 @@ public class Client {
                 try {
                     Thread.sleep(500);
                     Log.d(TAG, "尝试连接远程蓝牙名称" + btDev.getName());
-                   btSocket = btDev.createRfcommSocketToServiceRecord(BluetoothToolConfig.PRIVATE_UUID);
+                    btSocket = btDev.createRfcommSocketToServiceRecord(BluetoothToolConfig.PRIVATE_UUID);
 //                    btSocket = (BluetoothSocket) btDev.getClass().getMethod("createRfcommSocket", new Class[]{int.class}).invoke(btDev, 1);
                     btAdapt.cancelDiscovery();//连接前一定要取消搜索蓝牙
                     /**

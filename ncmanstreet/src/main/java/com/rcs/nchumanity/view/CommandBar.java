@@ -15,6 +15,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 
+import com.bumptech.glide.Glide;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.ul.ParentActivity;
 
@@ -31,12 +32,11 @@ public class CommandBar extends PercentLinearLayout {
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CommandBar);
         String text = ta.getString(R.styleable.CommandBar_title);
-        if(text!=null){
+        if (text != null) {
             setTitle(text);
         }
         ta.recycle();  //注意回收
-
-
+        
     }
 
     private View view;
@@ -68,7 +68,8 @@ public class CommandBar extends PercentLinearLayout {
 
     public void setMenu(@DrawableRes int icon, MenuClickListener mcl) {
         ibtn.setVisibility(View.VISIBLE);
-        ibtn.setBackgroundResource(icon);
+//        ibtn.setBackgroundResource(icon);
+        Glide.with(getContext()).load(icon).into(ibtn);
         ibtn.setOnClickListener((v) -> {
             mcl.click(v);
         });

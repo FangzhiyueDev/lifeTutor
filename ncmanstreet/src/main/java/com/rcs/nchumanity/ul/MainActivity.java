@@ -68,6 +68,11 @@ import cn.jpush.android.api.JPushInterface;
 public class MainActivity extends ParentActivity {
 
 
+    /**
+     *
+     * 日志打印tag
+     *
+     */
     private static final String TAG = "test";
     @BindViews({R.id.main, R.id.jhpx, R.id.zyjy, R.id.me})
     List<Button> downBtns;
@@ -93,7 +98,10 @@ public class MainActivity extends ParentActivity {
 
     private int cachePage = 4;
 
-
+    /**
+     *
+     * @param savedInstanceState 保存实例的bundle数据
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

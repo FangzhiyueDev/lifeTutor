@@ -2,13 +2,17 @@ package com.rcs.nchumanity.ul.basicMap;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -49,6 +53,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,7 +87,7 @@ public class BasicMapChangeActivity extends ParentActivity {
     /**
      * 定位点的列表
      */
-    ListView positionListView;
+    LinearLayout positionListView;
 
 
     private int layoutItemId = R.layout.map_item;
@@ -196,6 +202,9 @@ public class BasicMapChangeActivity extends ParentActivity {
     };
 
     private void initMapView() {
+
+        positionListView = findViewById(R.id.positionListView);
+
         mapView = findViewById(R.id.mapView);
         mapView.setLogoPosition(LogoPosition.logoPostionRightBottom);
         baiduMap = mapView.getMap();
@@ -220,29 +229,29 @@ public class BasicMapChangeActivity extends ParentActivity {
             moveToLocation(currentPosition, scanLevel);
             isFirstLocate = false;
             Log.d(TAG, "navigateTo: " + location.getLongitude() + "\t" + location.getLatitude());
+
         }
+
 
         //回调到信息列表，计算当前位置与标记点的位置的距离
 
         for (int i = 0; i < viewHolders.size(); i++) {
 
             ILocaPoint point = list.get(i);
-
             String disText = getDistance(point.getLongitude(), point.getLatitude());
-            ListViewCommonsAdapter.ViewHolder viewHolder = new ArrayList<>(viewHolders).get(i);
-            View view=viewHolder.getView(R.id.distance);
+            TextView view = (TextView) viewHolders.get(i);
             view.setTag(disText);
-            viewHolder.setText(R.id.distance, disText);
+            view.setText(disText);//0   25.9  25.9  26.0   25.9  13.5
+
+
+            Log.d("test", "navigateTo: 位置更新中。。。。");
+            MyLocationData.Builder locationBuilder = new MyLocationData.
+                    Builder();
+            locationBuilder.latitude(location.getLatitude());
+            locationBuilder.longitude(location.getLongitude());
+            MyLocationData locationData = locationBuilder.build();
+            baiduMap.setMyLocationData(locationData);
         }
-
-
-        Log.d("test", "navigateTo: 位置更新中。。。。");
-        MyLocationData.Builder locationBuilder = new MyLocationData.
-                Builder();
-        locationBuilder.latitude(location.getLatitude());
-        locationBuilder.longitude(location.getLongitude());
-        MyLocationData locationData = locationBuilder.build();
-        baiduMap.setMyLocationData(locationData);
     }
 
 
@@ -250,13 +259,20 @@ public class BasicMapChangeActivity extends ParentActivity {
         //获得距离的米
         int distance = (int) DistanceUtil.getDistance(
                 currentPosition,
-                new LatLng(longitude,
-                        latitude));
+                new LatLng(latitude,
+                        longitude));
 
-        DecimalFormat decimalFormat = new DecimalFormat(".0");
+        DecimalFormat decimalFormat = new DecimalFormat("0.0");
 
-        String distances = decimalFormat.format(distance / 1000.0);
-        String disText = "距离" + distances + "千米";//10167positionOffsetY  823146  648142  511232
+        String distances=null;
+        String disText=null;
+        if (distance<1000){
+             distances = decimalFormat.format(distance);
+             disText="距离"+distances+"米";
+        }else {
+            distances=decimalFormat.format(distance/1000.0);
+            disText="距离" + distances + "千米";
+        }
         return disText;
     }
 
@@ -303,6 +319,7 @@ public class BasicMapChangeActivity extends ParentActivity {
         option.setScanSpan(5000);
         option.setIsNeedAddress(true);
         option.setOpenGps(true);
+        option.setCoorType("bd09ll");
         mLocationClient.setLocOption(option);
     }
 
@@ -338,7 +355,8 @@ public class BasicMapChangeActivity extends ParentActivity {
      * @param grantResults
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
         switch (requestCode) {
             case 1:
                 if (grantResults.length > 0) {
@@ -376,7 +394,7 @@ public class BasicMapChangeActivity extends ParentActivity {
     private ListViewCommonsAdapter<ILocaPoint> listViewCommonsAdapter;
 
 
-    private Set<ListViewCommonsAdapter.ViewHolder> viewHolders = new HashSet<>();
+    private List<View> viewHolders = new ArrayList<>();
 
 
     /**
@@ -385,72 +403,73 @@ public class BasicMapChangeActivity extends ParentActivity {
     private void addMarkerPoint() {
 
 
-        listViewCommonsAdapter = new ListViewCommonsAdapter<ILocaPoint>((ArrayList<ILocaPoint>) list, layoutItemId) {
-            @Override
-            public void bindView(ViewHolder holder, ILocaPoint obj) {
-                holder.setText(R.id.pointName, obj.getLocationName());
+        for (int i = 0; i < list.size(); i++) {
 
-                String disText = null;
-                if (currentPosition == null) {
-                    disText = "位置计算中";
+            ILocaPoint point = list.get(i);
+
+            View view = LayoutInflater.from(this).inflate(layoutItemId, null);
+
+            TextView pointName = view.findViewById(R.id.pointName);
+
+            TextView distance = view.findViewById(R.id.distance);
+
+            TextView position = view.findViewById(R.id.position);
+
+            TextView nav = view.findViewById(R.id.nav);
+
+
+            String disText;
+
+            if (currentPosition == null) {
+                disText = "位置计算中";
+            } else {
+
+                if (distance.getTag() != null) {
+                    disText = (String) distance.getTag();
                 } else {
-                    if(holder.getView(R.id.distance).getTag()!=null) {
-                        disText= (String) holder.getView(R.id.distance).getTag();
-                    }else {
-                        disText = getDistance(obj.getLongitude(), obj.getLatitude());
-                        holder.getView(R.id.distance).setTag(disText);
-                    }
+                    disText = getDistance(point.getLongitude(), point.getLatitude());
+                    distance.setTag(disText);
                 }
+            }
+            distance.setText(disText);
 
-                if (viewHolders.contains(holder)) {
-                    //代表已经放进去了
-
-                } else {
-                    viewHolders.add(holder);
-                }
+            viewHolders.add(distance);
 
 
-                holder.setText(R.id.distance, disText);
-
-
-                if (obj.isHelp()){
-                    holder.setText(R.id.nav,"去救护");
-                    holder.setDrawableTop(R.id.nav,R.drawable.ic_help);
-                }else {
-                    holder.setText(R.id.nav,"去这里");
-                    holder.setDrawableTop(R.id.nav,R.drawable.ic_nav);
-                }
-
-
-                holder.setText(R.id.position, obj.getPosition());
-
-                holder.setOnClickListener(R.id.nav, (v) -> {
-                    routeNav(obj);
-                });
-
+            if (point.isHelp()) {
+                nav.setText("去救护");
+                setDrawableTop(nav, R.drawable.ic_help);
+            } else {
+                nav.setText("去这里");
+                setDrawableTop(nav, R.drawable.ic_nav);
             }
 
-            @Override
-            public int getCount() {
-                return list.size();
-            }
-        };
 
-        positionListView = findViewById(R.id.positionListView);
+            position.setText(point.getPosition());
 
-        positionListView.setAdapter(listViewCommonsAdapter);
+            pointName.setText(point.getLocationName());
+
+            nav.setTag(point);
+            nav.setOnClickListener((v) -> {
+                routeNav((ILocaPoint) v.getTag());
+            });
+
+            positionListView.addView(view);
+
+
+        }
 
         for (int i = 0; i < list.size(); i++) {
             ILocaPoint localPoint = list.get(i);
             //定义Maker坐标点
-            LatLng point = new LatLng(localPoint.getLongitude(), localPoint.getLatitude());
+            LatLng point = new LatLng(localPoint.getLatitude(), localPoint.getLongitude());
 
             //构建Marker图标
             BitmapDescriptor bitmap;
-            if(localPoint.isHelp()){
-                bitmap=BitmapDescriptorFactory.fromResource(R.drawable.ic_marker);
-            }else {
-                bitmap=BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_help);
+            if (localPoint.isHelp()) {
+                bitmap = BitmapDescriptorFactory.fromResource(R.drawable.ic_marker);
+            } else {
+                bitmap = BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_help);
             }
 
             //构建MarkerOption，用于在地图上添加Marker
@@ -491,6 +510,15 @@ public class BasicMapChangeActivity extends ParentActivity {
     private boolean isInstallByread(String packageName) {
         return new File("/data/data/" + packageName)
                 .exists();
+    }
+
+
+    public void setDrawableTop(TextView view, int drawableId) {
+        if (view instanceof TextView) {
+            Drawable res = view.getContext().getResources().getDrawable(drawableId);
+            res.setBounds(0, 0, res.getMinimumWidth(), res.getMinimumHeight());
+            ((TextView) view).setCompoundDrawables(null, res, null, null);
+        }
     }
 
 

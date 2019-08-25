@@ -3,6 +3,8 @@ package com.rcs.nchumanity.fragment;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.google.gson.Gson;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.PersistenceData;
@@ -30,23 +32,25 @@ public abstract class BasicResponseProcessHandleFragment extends ParentFragment 
             if (br.code == BasicResponse.RESPONSE_SUCCESS) {
                 responseDataSuccess(what, backData[0], response);
             } else if (br.code == BasicResponse.NOT_LOGIN) {
-                   if(message.equals(BasicResponse.MESSAGE_OTHER)) {
-                       PersistenceData.clear(getContext());
-                       Tool.loginCheck(getContext());
-                   }else {
-                       br.message = message;
-                       responseWithOther401(what,br);
-                   }
-            }  else if(br.code==BasicResponse.NOT_REQUIRED) {
+                    br.message = message;
+                    responseWith401(what, br);
+            } else if (br.code == BasicResponse.NOT_REQUIRED) {
                 br.message = message;
-                responseWithNotRequired(what,br);
-            }else if(br.code==BasicResponse.NOT_REQUIRED_201) {
-                br.message=message;
-                responseWithNotRequired(what,br);
+                responseWith201_202(what, br);
+            } else if (br.code == BasicResponse.NOT_REQUIRED_201) {
+                br.message = message;
+                responseWith201_202(what, br);
 
-            }else if(br.code==BasicResponse.NOT_SIGNIN) {
-                br.message=message;
-                responseWith207(what,br);
+            } else if (br.code == BasicResponse.NOT_SIGNIN) {
+                br.message = message;
+                responseWith207(what, br);
+
+            } else if (br.code == BasicResponse.RESPONSE_FAIL) {
+                br.message = message;
+                responseWith500(what, br);
+            } else if(br.code==BasicResponse.NOT_REQUIRED_204) {
+                br.message = message;
+                responseWith204(what,br);
 
             }else {
                 Toast.makeText(getContext(), "" + message, Toast.LENGTH_SHORT).show();
@@ -56,7 +60,22 @@ public abstract class BasicResponseProcessHandleFragment extends ParentFragment 
         }
     }
 
-    protected  void responseWith207(String what, BasicResponse br){
+
+    protected  void responseWith204(String what,BasicResponse br){
+        responseWith201_202(what,br);
+    }
+
+    /**
+     * 响应码为 500的回调 ，500的状态为 系统服务器异常
+     * 默认的情况下，我们直接去dialog
+     * @param what
+     * @param br
+     */
+    protected void responseWith500(String what, BasicResponse br) {
+            responseWith201_202(what,br);
+    }
+
+    protected void responseWith207(String what, BasicResponse br) {
 
     }
 
@@ -64,12 +83,18 @@ public abstract class BasicResponseProcessHandleFragment extends ParentFragment 
         Log.d("test", "responseDataSuccess: ");
     }
 
-    protected void responseWithOther401(String what, BasicResponse br){
-
+    protected void responseWith401(String what, BasicResponse br) {
+        PersistenceData.clear(getContext());
+        Tool.loginCheck(getContext());
     }
 
-    protected void responseWithNotRequired(String what,BasicResponse br){
-
+    protected void responseWith201_202(String what, BasicResponse br) {
+        new AlertDialog.Builder(getContext())
+                .setTitle("温馨提示")
+                .setMessage(br.message)
+                .setPositiveButton("确定", (dialog, which) -> {
+                    dialog.dismiss();
+                }).create().show();
     }
 
 }

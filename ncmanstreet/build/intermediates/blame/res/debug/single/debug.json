@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_shitizhengshu.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_shitizhengshu.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher_background.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_launcher_background.png"
     },
@@ -8,28 +12,28 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_dingwei.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_tran.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_tran.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_19_2.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_19_2.webp"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_tran.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_tran.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_hujiao.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_hujiao.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_downstep.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_downstep.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_zhengshu.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_zhengshu.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_downstep.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_downstep.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
@@ -44,44 +48,40 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_jiuhuyuan.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/animator-v21_design_appbar_state_list_animator.xml.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/animator-v21/design_appbar_state_list_animator.xml"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_reverse.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/reverse.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/animator-v21_design_appbar_state_list_animator.xml.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/animator-v21/design_appbar_state_list_animator.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_chapter.jpg.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/chapter.jpg"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_popup_dialog_bg.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable/smssdk_popup_dialog_bg.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_truck.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_truck.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/anim_abc_slide_in_bottom.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_truck.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_truck.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
@@ -156,16 +156,12 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/layout/abc_tooltip.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_abc_secondary_text_material_light.xml.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/color/abc_secondary_text_material_light.xml"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_wode.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_wode.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_touxiang.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_touxiang.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_abc_secondary_text_material_light.xml.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/color/abc_secondary_text_material_light.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_peixun.png.flat",
@@ -206,10 +202,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_43.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_43.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -256,24 +248,28 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_qitayihurenyuan.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_kaohe.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_kaohe.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_xiangying.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_xiangying.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/anim_abc_tooltip_enter.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/anim/abc_tooltip_enter.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_xiangying.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_xiangying.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_kaohe.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_kaohe.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_item_me_course.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/item_me_course.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_logo.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/logo.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
@@ -284,12 +280,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_zhiqu.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_baoming.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_baoming.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_design_fab_background.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_baoming.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_baoming.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -320,16 +316,8 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_guanbi.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_25.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_25.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_location_select.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/location_select.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_certificate_front.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_certificate_front.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
@@ -340,12 +328,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_zhengshu_1.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_30.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_30.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_push.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_push.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_34.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_34.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -364,10 +352,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_phone.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_29.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_29.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_mtrl_tabs_default_indicator.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/drawable/mtrl_tabs_default_indicator.xml"
     },
@@ -384,12 +368,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_bixiukeanpai.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_xingbie.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_xingbie.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_xingbie.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_xingbie.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_kecheng.png.flat",
@@ -420,6 +404,10 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_ratingbar_material.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_07.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_07.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
@@ -432,36 +420,40 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_wuchangxianxiecopy.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_close.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_close.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_quxiaohulve.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_quxiaohulve.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_mtrl_chip_ripple_color.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/color/mtrl_chip_ripple_color.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_quxiaohulve.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_quxiaohulve.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_close.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_close.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_qitayihurenyuan.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_qitayihurenyuan.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_beijing.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_beijing.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_jiuhuche.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_jiuhuche.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_downstep.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_downstep.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_jiuhuche.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_jiuhuche.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_broadcast.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_broadcast.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_27.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_27.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_kaohejieguo.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_kaohejieguo.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_jiuhuyuan.png.flat",
@@ -500,16 +492,20 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_close.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_18_2.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_18_2.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_bofang.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_bofang.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_click.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_click.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/52fb9e77714e76e5de69f40043b7b9df/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_16.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_16.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
@@ -560,12 +556,20 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_popwindow_item.xml.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/popwindow_item.xml"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_qitayihurenyuan.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_qitayihurenyuan.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_popwindow_item.xml.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/popwindow_item.xml"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_tachuang.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_tachuang.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_jindutiao04.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_jindutiao04.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_zhengshu.xml.flat",
@@ -594,10 +598,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_downstep.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_downstep.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_jindutiao03.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_jindutiao03.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_activity_complex.xml.flat",
@@ -648,10 +648,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/52fb9e77714e76e5de69f40043b7b9df/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_19_2.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_19_2.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color-v23_abc_tint_switch_track.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/color-v23/abc_tint_switch_track.xml"
     },
@@ -676,12 +672,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_zhiqu.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_feedback.xml.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/feedback.xml"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_feedback.xml.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/feedback.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_abc_search_view.xml.flat",
@@ -690,6 +686,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_setting.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_setting.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_load_bg.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/load_bg.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_shentidong_50.xml.flat",
@@ -704,24 +704,28 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_jiahao.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_jindutiao01.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_jindutiao01.webp"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_04.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_04.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_40.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_40.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_conners_edittext_bg.xml.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable/smssdk_conners_edittext_bg.xml"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_ic_ab_back_material.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_conners_edittext_bg.xml.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable/smssdk_conners_edittext_bg.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -744,28 +748,28 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_zhengshu_1.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_corners_bg_nor.xml.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable/smssdk_corners_bg_nor.xml"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_smssdk_titlebar.xml.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/layout/smssdk_titlebar.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_textfield_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_smssdk_titlebar.xml.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/layout/smssdk_titlebar.xml"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_corners_bg_nor.xml.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable/smssdk_corners_bg_nor.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_xin.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_xin.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
@@ -776,10 +780,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_wuchangxianxiecopy.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_jindutiao04.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_jindutiao04.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
@@ -788,20 +788,16 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/color/abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_certificate_reverse.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_certificate_reverse.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_qiandao.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_qiandao.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_pause.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_pause.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_item.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_item.webp"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_banner1.jpg.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/banner1.jpg"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_pause.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_pause.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_design_menu_item_action_area.xml.flat",
@@ -868,6 +864,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/activity_identity_select.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_quding.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_quding.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_help.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_help.png"
     },
@@ -888,6 +888,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_peixun.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_31.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_31.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
@@ -896,16 +900,12 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_22.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_22.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_44.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_44.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_dingwei.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_dingwei.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_07.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_07.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_btn_cancel_bg.xml.flat",
@@ -984,6 +984,14 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_17.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_17.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_08.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_08.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_ic_search_api_material.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_ic_search_api_material.xml"
     },
@@ -998,10 +1006,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_activity_scanner.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/zxing-lib/build/intermediates/packaged_res/debug/layout/activity_scanner.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_load_bg.jpg.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/load_bg.jpg"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_jiuhuche.png.flat",
@@ -1028,10 +1032,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_shentidong_24.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_weixuexi.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_weixuexi.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_smssdk_default_avatar.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable-xhdpi-v4/smssdk_default_avatar.png"
     },
@@ -1052,6 +1052,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_jiuhuche.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_tijiaoshijuan.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_tijiaoshijuan.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_zhuxiao.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_zhuxiao.png"
     },
@@ -1068,16 +1072,8 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/layout-watch-v20/abc_alert_dialog_title_material.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_just.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/just.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_item_train_class.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/item_train_class.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_19.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_19.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_guanbi2.xml.flat",
@@ -1112,12 +1108,8 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_xindong_50.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_21.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_21.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_34.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_34.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_04.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_04.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_ganxibao.png.flat",
@@ -1236,14 +1228,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_list_focused_holo.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_shitizhengshu.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_shitizhengshu.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_42.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_42.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_up.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_up.png"
     },
@@ -1276,10 +1260,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/color/abc_tint_switch_track.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_item.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_item.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_spinner_textfield_background_material.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_spinner_textfield_background_material.xml"
     },
@@ -1292,28 +1272,28 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_17.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_17.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_push.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_push.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_logo.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/logo.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_38.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_38.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_btn_default_mtrl_shape.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_yanglao.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_yanglao.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_shezhi.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_shezhi.webp"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_35.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_35.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_18.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_18.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_yanglao.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_yanglao.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_abc_tint_seek_thumb.xml.flat",
@@ -1344,10 +1324,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_jiaonang.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_40.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_40.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
@@ -1366,6 +1342,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_login_button_radius_enable.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/login_button_radius_enable.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_huisekuai.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_huisekuai.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -1388,16 +1368,8 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/bg_frame_red_circle.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_15.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_15.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_kaohe.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_kaohe.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_tijiaoshijuan.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_tijiaoshijuan.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_zhengshu_1.png.flat",
@@ -1420,6 +1392,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_jiuhuche.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_21.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_21.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
     },
@@ -1432,12 +1408,20 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_text_select_handle_right_mtrl_light.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_01.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_01.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_xingming.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_xingming.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_shentidong_24.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_shentidong_24.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_20_2.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_20_2.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_qiandao.png.flat",
@@ -1462,10 +1446,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/animator_mtrl_btn_unelevated_state_list_anim.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/animator/mtrl_btn_unelevated_state_list_anim.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_37.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_37.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_mtrl_tabs_icon_color_selector_colored.xml.flat",
@@ -1500,16 +1480,16 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_shentidong_50.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_zuolakuang.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_zuolakuang.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout-sw600dp-v13_design_layout_snackbar.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/layout-sw600dp-v13/design_layout_snackbar.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_08.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_08.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_icon_wode.png.flat",
@@ -1532,12 +1512,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/fragment_main.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/raw_beep.ogg.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/zxing-lib/build/intermediates/packaged_res/debug/raw/beep.ogg"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_bg_frame_red_circle1.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/bg_frame_red_circle1.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/raw_beep.ogg.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/zxing-lib/build/intermediates/packaged_res/debug/raw/beep.ogg"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat",
@@ -1558,10 +1538,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_abc_activity_chooser_view.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/layout/abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_huisekuai.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_huisekuai.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_jiahao.xml.flat",
@@ -1664,6 +1640,10 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_45.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_45.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_dialog_list.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/dialog_list.xml"
     },
@@ -1688,6 +1668,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_hongbao.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_quanpinanniu.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_quanpinanniu.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_down.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_down.png"
     },
@@ -1696,12 +1680,20 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_dianjicankaodaan.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_dianjicankaodaan.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_shenfenzheng.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_shenfenzheng.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_03.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_03.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_jiaonang.png.flat",
@@ -1714,6 +1706,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -1732,10 +1728,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_xiangying.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_44.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_44.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_mtrl_btn_text_color_selector.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/color/mtrl_btn_text_color_selector.xml"
     },
@@ -1750,10 +1742,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_11.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_11.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/animator_design_fab_hide_motion_spec.xml.flat",
@@ -1812,16 +1800,16 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_guanyu.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_06.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_06.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/interpolator_mtrl_linear.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/interpolator/mtrl_linear.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_jindutiao02.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_jindutiao02.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_select_dialog_item_material.xml.flat",
@@ -1836,12 +1824,20 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/item_question_answer.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_30.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_30.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_36.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_36.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_black_frame.xml.flat",
@@ -1884,16 +1880,16 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_jindutiao01.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_jindutiao01.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_ic_go_search_api_material.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher_background.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_shentidongyidong.png.flat",
@@ -1920,10 +1916,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable-xhdpi-v4/smssdk_clear_search.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_kuaidi.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_kuaidi.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_close.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_close.png"
     },
@@ -1944,6 +1936,10 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/52fb9e77714e76e5de69f40043b7b9df/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_femsekuai.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_femsekuai.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_kecheng.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_kecheng.png"
     },
@@ -1952,8 +1948,8 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/seekbar_style_vol.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_38.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_38.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_activity_mailport_status.xml.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/activity_mailport_status.xml"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_up.png.flat",
@@ -2044,10 +2040,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_nav.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_12.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_12.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_xin.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_xin.png"
     },
@@ -2058,10 +2050,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_yixuexi.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_yixuexi.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -2086,6 +2074,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/52fb9e77714e76e5de69f40043b7b9df/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_cab_background_internal_bg.xml.flat",
@@ -2160,10 +2152,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/fragment_video.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_14.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_14.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
@@ -2188,10 +2176,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_20_2.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_20_2.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/color/abc_btn_colored_borderless_text_material.xml"
     },
@@ -2204,12 +2188,8 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_39.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_39.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_23.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_23.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_dianzizhengsu.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_dianzizhengsu.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
@@ -2232,10 +2212,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_13.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_13.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_item_map_point.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/item_map_point.xml"
     },
@@ -2252,12 +2228,20 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_sutiaokuang.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_sutiaokuang.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_zyjy.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/zyjy.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_42.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_42.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -2280,6 +2264,10 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-ldrtl-hdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_24.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_24.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
     },
@@ -2292,12 +2280,12 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/anim/abc_slide_in_top.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_pause.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_pause.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_33.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_33.webp"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_femsekuai.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_femsekuai.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_pause.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_pause.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_jiuyuanliliang.png.flat",
@@ -2306,10 +2294,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_shentidong_50.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_shentidong_50.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_18.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_18.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_shoujihao.png.flat",
@@ -2340,8 +2324,16 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_wode.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_41.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_41.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_29.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_29.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_09.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_09.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_19.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_19.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_circle.xml.flat",
@@ -2354,6 +2346,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_corners_bg_pre.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable/smssdk_corners_bg_pre.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_39.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_39.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -2384,10 +2380,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_27.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_27.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_design_navigation_item_header.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/layout/design_navigation_item_header.xml"
     },
@@ -2408,6 +2400,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_liuyanfankui.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_tishikuang.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_tishikuang.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_guanyu.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_guanyu.png"
     },
@@ -2422,10 +2418,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_liuyanfankui.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_liuyanfankui.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_kaohejieguo.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_kaohejieguo.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color-v23_abc_tint_seek_thumb.xml.flat",
@@ -2500,10 +2492,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_32.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_32.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_design_ic_visibility_off.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/drawable-xhdpi-v4/design_ic_visibility_off.png"
     },
@@ -2564,6 +2552,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_zhengshu_1.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_canyujiuyuan.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_canyujiuyuan.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_setting.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_setting.png"
     },
@@ -2584,20 +2576,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_xingbie.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_bofang.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_bofang.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_bangzhuzhongxin.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_bangzhuzhongxin.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_quxiaohulve.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_quxiaohulve.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_zuolakuang.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_zuolakuang.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_btn_line_bg.xml.flat",
@@ -2614,10 +2598,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_guanbi1.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_guanbi1.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_banner2.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/banner2.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_back_arrow_bitmap.xml.flat",
@@ -2640,16 +2620,16 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_down.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_45.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_45.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_quxiaohulve.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_quxiaohulve.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_xuanxiu.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_xuanxiu.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_jindutiao02.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_jindutiao02.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_shentidong_50.png.flat",
@@ -2660,16 +2640,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_zhiqu.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_36.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_36.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_logo.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_logo.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/anim_abc_slide_out_top.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/anim/abc_slide_out_top.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_23.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_23.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -2724,16 +2700,16 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_logo.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_logo.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_yanglao.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_yanglao.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_password.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_password.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_yanglao.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_yanglao.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_32.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_32.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/mipmap-xhdpi_bright.png.flat",
@@ -2768,6 +2744,10 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_activity_webview.xml.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/activity_webview.xml"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_gengxin.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_gengxin.png"
     },
@@ -2794,10 +2774,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_bofang3.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_bofang3.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_09.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_09.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_smssdk_arrow_right.png.flat",
@@ -2908,10 +2884,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_10.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_10.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
     },
@@ -2930,6 +2902,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_baoming.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_baoming.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_26.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_26.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_abc_search_dropdown_item_icons_2line.xml.flat",
@@ -2960,10 +2936,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/certificates.jpg"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_20.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_20.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_jiaonang.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_jiaonang.png"
     },
@@ -2992,8 +2964,8 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_icon_wode.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_05.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_05.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_yixuexi.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_yixuexi.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_item_help.xml.flat",
@@ -3006,6 +2978,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_kaohe.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_kaohe.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_wodkecheng.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_wodkecheng.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_jiuhuyuan.png.flat",
@@ -3124,10 +3100,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_tishikuang.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_tishikuang.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_notification_template_icon_group.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/52fb9e77714e76e5de69f40043b7b9df/res/layout/notification_template_icon_group.xml"
     },
@@ -3182,6 +3154,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_smssdk_dialog_bg.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/drawable-xhdpi-v4/smssdk_dialog_bg.9.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_light.xml.flat",
@@ -3300,6 +3276,10 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_zhuxiao.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_ziqu.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_ziqu.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_icon_wode.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_icon_wode.png"
     },
@@ -3360,10 +3340,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_qitayihurenyuan.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_31.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_31.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
     },
@@ -3392,8 +3368,16 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_guanbi1.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_22.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_22.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_smssdk_personal_info.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/cc18af6f233cc0e63c58119365c9e452/res/layout/smssdk_personal_info.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_35.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_35.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_xuanxiu.png.flat",
@@ -3444,18 +3428,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_guanbi.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_quanpinanniu.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_quanpinanniu.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_dianjicankaodaan.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_dianjicankaodaan.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_06.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_06.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_yanglao.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_yanglao.png"
     },
@@ -3488,10 +3460,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/layout/design_text_input_password_icon.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_29.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_29.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
     },
@@ -3500,12 +3468,12 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/layout/abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_xin.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_xin.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_beijing.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_beijing.webp"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_shezhi.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_shezhi.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_xin.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_xin.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v21_abc_btn_colored_material.xml.flat",
@@ -3538,10 +3506,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_up.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_up.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_26.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_26.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher_background.png.flat",
@@ -3660,10 +3624,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/gray_frame.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_33.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_33.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_xindong_50.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_xindong_50.png"
     },
@@ -3682,6 +3642,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_xiangying.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_xiangying.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_28.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_28.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_marker_1.png.flat",
@@ -3718,6 +3682,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_bangzhuzhongxin.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_bangzhuzhongxin.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_xialakuang.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_xialakuang.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_change_phone.xml.flat",
@@ -3812,10 +3780,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_28.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_28.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png"
     },
@@ -3830,10 +3794,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_dingwei.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_dingwei.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_dianzizhengsu.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_dianzizhengsu.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_button.xml.flat",
@@ -3908,6 +3868,14 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_kuaidi.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_kuaidi.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_41.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_41.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -3956,14 +3924,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_sutiaokuang.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_sutiaokuang.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_21_2.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_21_2.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_bofang3.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_bofang3.png"
     },
@@ -3972,8 +3932,8 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_liuyanfankui.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_24.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_24.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_05.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_05.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_smssdk_btn_enable.xml.flat",
@@ -4020,10 +3980,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_quding.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_quding.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
     },
@@ -4052,6 +4008,14 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/map_test.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_25.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_25.webp"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_21_2.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_21_2.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_shoujihao.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-hdpi/ic_shoujihao.png"
     },
@@ -4072,6 +4036,10 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/layout/abc_alert_dialog_title_material.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_23.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_23.webp"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_phone.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_phone.png"
     },
@@ -4086,6 +4054,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_gongzuotai.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_gongzuotai.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi_ic_gengxin.png.flat",
@@ -4108,20 +4080,12 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/52fb9e77714e76e5de69f40043b7b9df/res/layout-v21/notification_action_tombstone.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_31.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_31.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_position.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_position.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_tachuang.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_tachuang.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/anim-v21_design_bottom_sheet_slide_in.xml.flat",
@@ -4150,10 +4114,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_03.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_03.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_ganxibao.png.flat",
@@ -4202,10 +4162,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_icon_wode.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_icon_wode.xml"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_18_2.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_18_2.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -4260,12 +4216,16 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_20.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_20.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_shentidong_50.png.flat",
@@ -4286,10 +4246,6 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_gengxin.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xxhdpi/ic_gengxin.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_ziqu.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_ziqu.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_design_snackbar_background.xml.flat",
@@ -4318,6 +4274,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_abc_btn_check_material.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_weixuexi.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_weixuexi.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
@@ -4352,6 +4312,10 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable/abc_text_cursor_material.xml"
     },
     {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-mdpi/ic_launcher_foreground.png"
+    },
+    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_down.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_down.png"
     },
@@ -4376,10 +4340,6 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_password.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_02.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_02.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi_ic_baoming.png.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-xhdpi/ic_baoming.png"
     },
@@ -4394,6 +4354,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/color_mtrl_tabs_ripple_color.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/color/mtrl_tabs_ripple_color.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-ldpi_ic_launcher_foreground.png.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-ldpi/ic_launcher_foreground.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_shenfenzheng.png.flat",
@@ -4474,6 +4438,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_touxiang.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_touxiang.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -4580,14 +4548,6 @@
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_01.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_01.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_wodkecheng.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_wodkecheng.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_design_navigation_menu_item.xml.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/layout/design_navigation_menu_item.xml"
     },
@@ -4616,12 +4576,12 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_jiuhuyuan.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
-        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/layout_item_exam.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/layout/item_exam.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_close.xml.flat",
@@ -4632,12 +4592,8 @@
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/bunde.xml"
     },
     {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_xialakuang.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_xialakuang.png"
-    },
-    {
-        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-v24_ic_canyujiuyuan.png.flat",
-        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable-v24/ic_canyujiuyuan.png"
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_37.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_37.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -4666,6 +4622,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_jindutiao03.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_jindutiao03.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_nav.xml.flat",
@@ -4710,6 +4670,10 @@
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_radius_all_reg_bg.xml.flat",
         "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/radius_all_reg_bg.xml"
+    },
+    {
+        "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable_ic_02.webp.flat",
+        "source": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/src/main/res/drawable/ic_02.webp"
     },
     {
         "merged": "/home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_guanbi.png.flat",

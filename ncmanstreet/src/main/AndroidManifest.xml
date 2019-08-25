@@ -19,7 +19,9 @@
             android:enabled="true"
             android:process=":remote" />
 
-        <activity android:name=".ul.basicMap.BasicMapActivity"></activity>
+        <activity
+            android:name=".ul.basicMap.BasicMapActivity"
+            android:screenOrientation="portrait"></activity>
 
 
         <!--
@@ -27,7 +29,7 @@
         -->
         <activity
             android:name=".ul.MainActivity"
-            android:launchMode="singleTask">
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +38,9 @@
 
         </activity>
 
-        <activity android:name=".ul.InputPasswordActivity">
+        <activity
+            android:name=".ul.InputPasswordActivity"
+            android:screenOrientation="portrait">
 
         </activity>
 
@@ -44,49 +48,86 @@
         <activity
             android:name="com.rcs.nchumanity.ul.ValidateCodeActivity"
             android:label="@string/title_activity_validate_code"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name="com.rcs.nchumanity.ul.RegisterUserActivity">
+        <activity
+            android:name="com.rcs.nchumanity.ul.RegisterUserActivity"
+            android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".ul.AssessLoginActivity" />
+        <activity
+            android:name=".ul.AssessLoginActivity"
+            android:screenOrientation="portrait" />
 
 
         <activity
             android:name=".ul.AmbulanceRescueActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
 
-        <activity android:name=".ul.IdentityInfoRecordActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            ></activity>
-        <activity android:name=".ul.TrainStepActivity"></activity>
-        <activity android:name=".ul.AssessResultActivity" />
-        <activity android:name=".ul.EntityCertificateActivity" />
-        <activity android:name=".ul.MailPostActivity" />
-        <activity android:name=".ul.SettingActivity" />
-        <activity android:name=".ul.MyCourseActivity" />
-        <activity android:name=".ul.ElectronicCertificateActivity" />
-        <activity android:name=".ul.SelfTakeActivity" />
-        <activity android:name=".ul.AboutWeActivity" />
-        <activity android:name=".ul.HelpCenterActivity" />
-        <activity android:name=".ul.FeedbackActivity" />
-        <activity android:name=".ul.ChangePhoneNumberActivity" />
-        <activity android:name=".ul.ChangePasswordActivity" />
-        <activity android:name=".ul.list.CourseComplexListActivity" />
+        <activity
+            android:name=".ul.IdentityInfoRecordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize"></activity>
+        <activity
+            android:name=".ul.TrainStepActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ul.AssessResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.EntityCertificateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.MailPostActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.MyCourseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.ElectronicCertificateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.SelfTakeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.AboutWeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.HelpCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.FeedbackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.ChangePhoneNumberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ul.list.CourseComplexListActivity"
+            android:screenOrientation="portrait" />
 
 
         <activity
             android:name=".ul.detail.ObligatoryCourseInfoComplexDetailActivity"
-            android:configChanges="orientation|screenSize|keyboard|keyboardHidden" />
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait" />
 
         <!-- 用于实现的功能是
         对课程的详情界面的显示 ，提供的功能包括了对视频的基本的操作，
      -->
         <activity
             android:name=".ul.detail.ElectiveCourseInfoComplexDetailActivity"
-            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
 
         <!--
          用于显示特定信息的Activity
@@ -95,11 +136,14 @@
        -->
         <activity
             android:name=".ul.detail.SpecificInfoComplexListDetailActivity"
-            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".ul.OnlineAssessmentActivity" />
 
 
-        <activity android:name=".ul.list.OfflineTrainClassListActivity">
+        <activity
+            android:name=".ul.list.OfflineTrainClassListActivity"
+            android:screenOrientation="portrait">
 
         </activity>
 
@@ -107,22 +151,27 @@
         接入第三方扫描工具
         -->
 
-        <activity android:name="com.google.zxing.activity.CaptureActivity"> </activity>
+        <activity
+            android:name="com.google.zxing.activity.CaptureActivity"
+            android:screenOrientation="portrait"></activity>
 
 
-        <activity android:name=".ul.list.SpecificInfoComplexListActivity" />
+        <activity
+            android:name=".ul.list.SpecificInfoComplexListActivity"
+            android:screenOrientation="portrait" />
 
 
         <!--
         微信支付的回调接口
         -->
-        <activity android:name=".wxapi.WXPayEntryActivity"
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="你的appid"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="你的appid" />
             </intent-filter>
         </activity>
 
@@ -233,6 +282,8 @@
         <activity android:name=".ul.list.EmergencyComplexListActivity" />
         <activity android:name=".ul.basicMap.BasicMapChangeActivity" />
         <activity android:name=".ul.detail.OfflineTrainClassDetailActivity" />
+        <activity android:name=".ul.WebLoadActivity" />
+        <activity android:name=".ul.MailPostStatusActivity" />
 
 
         <!-- Required SDK 核心功能-->

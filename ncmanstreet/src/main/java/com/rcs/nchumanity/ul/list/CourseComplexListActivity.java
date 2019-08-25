@@ -1,5 +1,9 @@
 package com.rcs.nchumanity.ul.list;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,6 +17,7 @@ import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.PersistenceData;
+import com.rcs.nchumanity.entity.StudyStatus;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
 import com.rcs.nchumanity.entity.model.UserOnlineStudyRecord;
 import com.rcs.nchumanity.tool.Tool;
@@ -38,6 +43,10 @@ import static com.rcs.nchumanity.ul.detail.ObligatoryCourseInfoComplexDetailActi
 public class CourseComplexListActivity extends ComplexListActivity<ComplexModelSet.M_couClas_usOnStuRec> {
 
 
+    /**
+     * 传递学习状态
+     */
+    public static final String STUDY_STATUS = "studyStatus";
     public String url;
 
     public static final String NET_URL = "url";
@@ -75,6 +84,8 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
 
     private String func;
 
+    private int studyStatus;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,15 +95,20 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
         url = bundle.getString(NET_URL);
         func = bundle.getString(FUN);
         backUrl = bundle.getString(BACKUP_URL);
+        studyStatus = bundle.getInt(STUDY_STATUS);
 
         if (TextUtils.isEmpty(url) || TextUtils.isEmpty(func)
-                || TextUtils.isEmpty(backUrl)) {
+                || TextUtils.isEmpty(backUrl) || studyStatus == 0) {
             throw new RuntimeException("please transport right data param!!!");
         }
         /**
          * 加载课程数据
          */
         loadDataGetForForce(url, "courseList");
+        IntentFilter intentFilter = new IntentFilter(ObligatoryCourseInfoComplexDetailActivity.ACTION);
+        registerReceiver(new MyWatchDataReceiver(),intentFilter);
+
+
     }
 
     @Override
@@ -123,7 +139,7 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
              */
             if (url.equals(backUrl)) {
                 //代表掉线或者用户未登录
-                
+
 
             } else {
                 //代表可能在线可能不
@@ -153,8 +169,11 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
         Bundle bundle = new Bundle();
         bundle.putString(COURSE_NO, item.courseNo + "");
         if (func.equals(FUN_NEED)) {
+            bundle.putBoolean(ObligatoryCourseInfoComplexDetailActivity.IS_STUDY, item.isStudied);
+            bundle.putInt(ObligatoryCourseInfoComplexDetailActivity.STUDY_STATUS, studyStatus);
             Tool.startActivity(this, ObligatoryCourseInfoComplexDetailActivity.class, bundle);
         } else if (func.equals(FUN_SELECT)) {
+            bundle.putInt(ObligatoryCourseInfoComplexDetailActivity.STUDY_STATUS, studyStatus);
             Tool.startActivity(this, ElectiveCourseInfoComplexDetailActivity.class, bundle);
         }
 
@@ -168,8 +187,6 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
 
     @Override
     public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
-
         BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
         switch (what) {
 
@@ -182,7 +199,6 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
                     url = backUrl;
 
                     loadDataGetForForce(url, "courseList");
-
                 } else if (br.code == BasicResponse.RESPONSE_SUCCESS) {
                     try {
                         List<ComplexModelSet.M_couClas_usOnStuRec> studyList = parseCourse(backData[0]);
@@ -194,8 +210,6 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
                     }
                 }
             }
-
-
             break;
         }
     }
@@ -230,8 +244,26 @@ public class CourseComplexListActivity extends ComplexListActivity<ComplexModelS
          * 当为登录用户的时候，我们需要重新拉取数据
          * ，进行列表数据的刷新
          *
+         *  因为我们不知道什么时候才能提交成功 ，所以我们在提交成功的时候 发送一个广播
          *
+         *  这边注册一个广播接受者 进行处理
          */
-        loadDataGetForForce(url, "courseList");
+
+        if (studyStatus == StudyStatus.STATUS_ONLINE_STUDY) {
+//            loadDataGetForForce(url, "courseList");
+        }
     }
+
+
+    class MyWatchDataReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (studyStatus == StudyStatus.STATUS_ONLINE_STUDY) {
+              loadDataGetForForce(url, "courseList");
+            }
+        }
+    }
+
+
 }

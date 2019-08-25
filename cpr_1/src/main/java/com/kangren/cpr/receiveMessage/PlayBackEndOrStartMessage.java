@@ -1,5 +1,9 @@
 package com.kangren.cpr.receiveMessage;
 
+
+/**
+ * 播放
+ */
 public class PlayBackEndOrStartMessage implements IReceiveMessage {
 
     private long time;

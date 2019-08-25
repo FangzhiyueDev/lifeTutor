@@ -61,7 +61,8 @@ public class BasicItem extends LinearLayout {
 
     /**
      * 多更多按钮设置点击事件
-     *  @param onClickListener
+     *
+     * @param onClickListener
      * @param classification
      */
     private void setMoreClick(OnClickListener onClickListener, String classification) {
@@ -79,8 +80,9 @@ public class BasicItem extends LinearLayout {
             View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_img_text, null);
             itemView.setOnClickListener(onClickListener);
             itemView.setTag(specificInfo);//使用tag存放具体的信息
-            Glide.with(getContext()).load(specificInfo.getImgUrl()).into((ImageView) itemView.findViewById(R.id.itemImg));
+            Glide.with(getContext()).load(specificInfo.getIcon()).into((ImageView) itemView.findViewById(R.id.itemImg));
             ((TextView) itemView.findViewById(R.id.itemText)).setText(specificInfo.getTitle());
+            ((TextView) itemView.findViewById(R.id.content)).setText(specificInfo.getContent());
             infoArea.addView(itemView);
         }
     }
@@ -96,7 +98,7 @@ public class BasicItem extends LinearLayout {
             return;
         }
         setTitle(m_speinf_speinfCla.title);
-        setMoreClick(onClickListener,m_speinf_speinfCla.title);
+        setMoreClick(onClickListener, m_speinf_speinfCla.title);
         if (m_speinf_speinfCla.specificInfos == null) {
             return;
         }

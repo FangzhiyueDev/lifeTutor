@@ -25,6 +25,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
@@ -34,6 +35,7 @@ import com.rcs.nchumanity.entity.City;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.entity.Province;
+import com.rcs.nchumanity.entity.SystemParamSet;
 import com.rcs.nchumanity.tool.GetJsonDataUtil;
 import com.rcs.nchumanity.tool.RealPathFromUriUtils;
 import com.rcs.nchumanity.tool.StringTool;
@@ -43,14 +45,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,7 +67,7 @@ import static com.rcs.nchumanity.fragment.MeFragment.REQUEST_CODE_PHOTO;
 /**
  * 用于实现身份验证的界面
  */
-public class IdentityInfoRecordActivity extends AssessLoginActivity {
+public class IdentityInfoRecordActivity extends BasicResponseProcessHandleActivity {
 
 
     @BindView(R.id.name)
@@ -369,27 +374,18 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
-
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
-
+    protected void responseWith4(String what, BasicResponse br, Response response, String resData) {
+        super.responseWith4(what, br, response, resData);
         if (what.equals("trainSignIn")) {
-
-            //进行报名
-            if (br.code == BasicResponse.SignUpSuccess) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                        .setTitle("温馨提示")
-                        .setMessage("报名成功")
-                        .setPositiveButton("确定", (dialog, which) -> {
-                            dialog.dismiss();
-                            finish();
-                        });
-                builder.setCancelable(false);
-                builder.create().show();
-            } else {
-                Toast.makeText(this, br.message, Toast.LENGTH_SHORT).show();
-            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setTitle("温馨提示")
+                    .setMessage("报名成功")
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    });
+            builder.setCancelable(false);
+            builder.create().show();
         }
     }
 
@@ -426,16 +422,61 @@ public class IdentityInfoRecordActivity extends AssessLoginActivity {
         if (data != null) {
             String realPathFromUri = RealPathFromUriUtils.getRealPathFromUri(this, data.getData());
 
-            Log.d("test", "doChangePicture: " + realPathFromUri);// /storage/emulated/0/DCIM/Camera/IMG_20190809_051538.jpg
+//            Log.d("test", "doChangePicture: " + realPathFromUri);// /storage/emulated/0/DCIM/Camera/IMG_20190809_051538.jpg
 
-            imageFilePath = realPathFromUri;
 
             try {
                 InputStream is = getContentResolver().openInputStream(uri);
                 Bitmap bitmap = BitmapFactory.decodeStream(is);
 
-                userImg.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
+//                userImg.setImageBitmap(bitmap);
+
+
+                File file = new File(getCacheDir(), realPathFromUri.substring(realPathFromUri.lastIndexOf("/")));
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                FileOutputStream fos = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, SystemParamSet.IMAGE_QUALITY, fos);
+                /**
+                 * 使用Glide加载 ，避免 出现图片翻转问题
+                 *
+                 * 这个代码依旧会出现这种情况
+                 */
+//                Glide.with(this).load(bos.toByteArray()).into(userImg);
+
+
+                Log.d("test", "doChangePicture: " + file.getAbsolutePath() + "\t" + file.length());
+
+//                Executors.newSingleThreadExecutor().submit(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                        try {
+//                            FileOutputStream fileOutputStream = new FileOutputStream(file);
+//
+//                            bos.writeTo(fileOutputStream);
+//
+//
+//
+//
+//
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                });
+
+
+                imageFilePath = file.getAbsolutePath();
+
+
+                /**
+                 * 不会出现
+                 */
+                Glide.with(this).load(new File(realPathFromUri)).into(userImg);
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 

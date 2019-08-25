@@ -35,6 +35,7 @@ public class LBSallocation {
         LocationClientOption lp = new LocationClientOption();
         lp.setOpenGps(true);
         lp.setIsNeedAddress(true);
+        lp.setCoorType("bd09ll");
         locationClient.setLocOption(lp);
         locationClient.start();
     }

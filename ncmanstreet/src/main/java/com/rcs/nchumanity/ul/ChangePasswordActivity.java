@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Response;
 
-public class ChangePasswordActivity extends ParentActivity {
+public class ChangePasswordActivity extends BasicResponseProcessHandleActivity {
 
 
     @OnClick({R.id.submit, R.id.forgetPassword})
@@ -81,24 +81,18 @@ public class ChangePasswordActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
-        if (br.code == BasicResponse.CHANGE_PASSWORD_SUCCESS_11) {
-
-            oldPassword.setText("");
-            password.setText("");
-            rePassword.setText("");
-            new AlertDialog.Builder(this)
-                    .setTitle("提示")
-                    .setMessage("修改密码成功")
-                    .setPositiveButton("确定", (dialog, which) -> {
-                        dialog.dismiss();
-                        finish();
-                    }).create().show();
-        } else {
-            Toast.makeText(this, "修改出错", Toast.LENGTH_SHORT).show();
-        }
+    protected void responseWith11(String what, BasicResponse br) {
+        super.responseWith11(what, br);
+        oldPassword.setText("");
+        password.setText("");
+        rePassword.setText("");
+        new AlertDialog.Builder(this)
+                .setTitle("提示")
+                .setMessage("修改密码成功")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    dialog.dismiss();
+                    finish();
+                }).create().show();
     }
 
 

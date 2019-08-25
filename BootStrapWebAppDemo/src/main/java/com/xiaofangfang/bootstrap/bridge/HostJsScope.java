@@ -18,6 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import androidx.arch.core.executor.TaskExecutor;
+
 import cn.pedant.SafeWebViewBridge.JsCallback;
 
 /**
@@ -147,8 +148,12 @@ public class HostJsScope {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                /*
+                设置能够被调用 类似 反射技术
+                 */
                 jsCallback.setPermanent(true);
                 try {
+                    //调用数据进行返回
                     jsCallback.apply(backMsg);
                 } catch (JsCallback.JsCallbackException e) {
                     e.printStackTrace();

@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Response;
 
-public class FeedbackActivity extends ParentActivity {
+public class FeedbackActivity extends BasicResponseProcessHandleActivity {
 
 
     public static final String DATA = "data";
@@ -92,26 +92,17 @@ public class FeedbackActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
+        if (what.equals("commitFeedback")) {
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
-
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-            if (what.equals("commitFeedback")) {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                        .setTitle("提示")
-                        .setMessage("提交留言成功")
-                        .setPositiveButton("确定", (dialog, which) -> {
-                            dialog.dismiss();
-                        });
-                builder.create().show();
-            }
-        } else {
-            Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage("提交留言成功")
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        dialog.dismiss();
+                    });
+            builder.create().show();
         }
     }
-
-
 }

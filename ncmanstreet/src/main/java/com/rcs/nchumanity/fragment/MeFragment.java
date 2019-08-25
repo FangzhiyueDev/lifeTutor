@@ -48,7 +48,7 @@ import static android.app.Activity.RESULT_OK;
 /**
  * 我的的界面的显示
  */
-public class MeFragment extends ParentFragment {
+public class MeFragment extends BasicResponseProcessHandleFragment {
 
 
     private static final String TAG = "test";
@@ -107,17 +107,16 @@ public class MeFragment extends ParentFragment {
             case R.id.meCourse:
 
                 String param = NetConnectionUrl.getSignInStatus;
-                clickStep = R.id.one;
+                clickStep = R.id.meCourse;
                 loadDataGet(param, "getSignInStatus");
 
-//                Tool.startActivity(getContext(), MyCourseActivity.class);
                 break;
 
             case R.id.picture:
 
-                if (!Tool.loginCheck(getActivity())) {
-                    return;
-                }
+//                if (!Tool.loginCheck(getActivity())) {
+//                    return;
+//                }
 
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
@@ -128,23 +127,25 @@ public class MeFragment extends ParentFragment {
 
             case R.id.assessResult:
 
-                if (!Tool.loginCheck(getActivity())) {
-                    return;
-                }
+//                if (!Tool.loginCheck(getActivity())) {
+//                    return;
+//                }
+
+                clickStep = R.id.assessResult;
+                loadDataGet(NetConnectionUrl.getSignInStatus, "getSignInStatus");
 
 
-                Intent intent1 = new Intent(getActivity(), AssessResultActivity.class);
-                startActivity(intent1);
 
                 break;
 
             case R.id.elecCertificate:
-                if (!Tool.loginCheck(getActivity())) {
-                    return;
-                }
+//                if (!Tool.loginCheck(getActivity())) {
+//                    return;
+//                }
 
-                Intent intent2 = new Intent(getActivity(), ElectronicCertificateActivity.class);
-                startActivity(intent2);
+                clickStep = R.id.elecCertificate;
+                loadDataGet(NetConnectionUrl.getSignInStatus, "getSignInStatus");
+
 
                 break;
 
@@ -227,50 +228,71 @@ public class MeFragment extends ParentFragment {
     }
 
 
+
     @Override
-    public void onSucess(Response response, String what, String... backData) throws IOException {
-        super.onSucess(response, what, backData);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+        if (what.equals("updateUserPic")) {
+            new AlertDialog.Builder(getContext())
+                    .setTitle("提示")
+                    .setMessage("修改头像成功")
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        dialog.dismiss();
+                    });
 
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-            if (what.equals("updateUserPic")) {
-                new AlertDialog.Builder(getContext())
-                        .setTitle("提示")
-                        .setMessage("修改头像成功")
-                        .setPositiveButton("确定", (dialog, which) -> {
-                            dialog.dismiss();
-                        });
+            PersistenceData.setUserPicture(getContext(), realPathFromUri);
 
-                PersistenceData.setUserPicture(getContext(), realPathFromUri);
+            updateUserData();
+            /**
+             * 修改头像之后，成功后需要将数据重新返回
+             */
+        } else if (what.equals("getSignInStatus")) {
 
-                updateUserData();
-                /**
-                 * 修改头像之后，成功后需要将数据重新返回
-                 */
-            } else if (what.equals("getSignInStatus")) {
+            try {
+                JSONObject jsonObject = new JSONObject(backData);
+                JSONObject data = null;
+                if (jsonObject.has("object")) {
+                    data = jsonObject.getJSONObject("object");
+                } else if (jsonObject.has("data")) {
+                    data = jsonObject.getJSONObject("data");
+                }
+                int studyStatus = data.getInt("studyStatus");
 
-                try {
-                    JSONObject jsonObject = new JSONObject(backData[0]);
-                    JSONObject data = null;
-                    if (jsonObject.has("object")) {
-                        data = jsonObject.getJSONObject("object");
-                    } else if (jsonObject.has("data")) {
-                        data = jsonObject.getJSONObject("data");
-                    }
-                    int studyStatus = data.getInt("studyStatus");
+                if(clickStep==R.id.meCourse) {
                     if (studyStatus > 1) {
                         Tool.startActivity(getContext(), MyCourseActivity.class);
+                    }else {
+                        super.responseWith201_202(what,new BasicResponse(201,"先报名",null));
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+
+
+                if(clickStep==R.id.assessResult){
+
+                    if(studyStatus>=4){
+                        Intent intent1 = new Intent(getActivity(), AssessResultActivity.class);
+                        startActivity(intent1);
+                    }else {
+                        super.responseWith201_202(what,new BasicResponse(201,BasicResponse.NOT_REQUIRED_MESSAGE,null));
+                    }
+                }
+
+                if(clickStep==R.id.elecCertificate){
+                    if(studyStatus>=7){
+                        Intent intent2 = new Intent(getActivity(), ElectronicCertificateActivity.class);
+                        startActivity(intent2);
+                    }else {
+                        super.responseWith201_202(what,new BasicResponse(201,BasicResponse.NOT_REQUIRED_MESSAGE,null));
+                    }
+                }
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } else if (br.code == BasicResponse.NOT_LOGIN) {
-            PersistenceData.clear(getContext());
-            Tool.loginCheck(getContext());
-        } else {
-            Toast.makeText(getContext(), br.message, Toast.LENGTH_SHORT).show();
         }
+
     }
+
 }

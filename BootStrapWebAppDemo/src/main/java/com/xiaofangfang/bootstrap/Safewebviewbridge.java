@@ -2,6 +2,7 @@ package com.xiaofangfang.bootstrap;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
 import cn.pedant.SafeWebViewBridge.InjectedChromeClient;
 
 import android.os.Build;
@@ -48,6 +49,11 @@ public class Safewebviewbridge extends AppCompatActivity implements View.OnClick
         webView.setWebChromeClient(new InjectedChromeClient("HostApp", HostJsScope.class) {
 
 
+            /**
+             * 控制台的输出信息
+             * @param consoleMessage
+             * @return
+             */
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
 
@@ -64,7 +70,16 @@ public class Safewebviewbridge extends AppCompatActivity implements View.OnClick
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-                return false;
+                /**
+                 * 当加载新的网页的时候进行回调
+                 */
+                Log.d(TAG, "加载的url====>>>>" + url);
+                view.loadUrl(url);
+
+                /**
+                 * 返回true 代表的将当前请求的url交给自己进行处理
+                 */
+                return true;
             }
         });
 

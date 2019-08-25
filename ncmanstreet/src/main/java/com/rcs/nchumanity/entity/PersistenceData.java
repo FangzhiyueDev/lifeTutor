@@ -73,6 +73,9 @@ public class PersistenceData {
     public static void setNickName(Context context, String nickname) {
         SharedPreferences sp = getSp(context);
         SharedPreferences.Editor editor = sp.edit();
+        if (nickname == null) {
+            nickname = "小小救护员";
+        }
         editor.putString(NICKNAME, nickname);
         editor.commit();
     }
@@ -141,7 +144,7 @@ public class PersistenceData {
         return sp.getBoolean(CLICKED, false);
     }
 
-    public static void setClicked(Context context,boolean clicked) {
+    public static void setClicked(Context context, boolean clicked) {
         SharedPreferences sp = getSp(context);
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean(CLICKED, clicked);

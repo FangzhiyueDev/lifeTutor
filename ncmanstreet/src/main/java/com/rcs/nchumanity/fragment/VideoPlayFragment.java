@@ -371,7 +371,9 @@ public class VideoPlayFragment extends Fragment {
                 if (bitmap != null) {
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
                     byte[] bytes = baos.toByteArray();
-                    Glide.with(this.getContext()).load(bytes).into(reView);
+                    if (getContext() != null) {
+                        Glide.with(this.getContext()).load(bytes).into(reView);
+                    }
                 }
             });
         });
@@ -441,6 +443,11 @@ public class VideoPlayFragment extends Fragment {
                     mVvVideoView.pause();
                     //停止刷新UI
                     mHandler.removeMessages(UPDATE_UI);
+
+                    if (listener != null) {
+                        listener.onCall(false);
+                    }
+
                 } else {
                     mBtStartPause.setImageResource(R.drawable.ic_pause);
                     mVvVideoView.start();
@@ -451,10 +458,9 @@ public class VideoPlayFragment extends Fragment {
                         reView.setVisibility(View.GONE);
                     }
 
-                }
-
-                if (listener != null) {
-                    listener.onCall(mVvVideoView.isPlaying());
+                    if (listener != null) {
+                        listener.onCall(true);
+                    }
                 }
 
                 break;

@@ -60,7 +60,7 @@ public class MapStartParam {
     public static void invokeBaiduNavi(Context context, double elat, double elong) throws URISyntaxException {
 
         StringBuffer stringBuffer = new StringBuffer(BAIDU_BASE_URL);
-        stringBuffer.append("location=" + elong + "," + elat + "&coord_type=bd09ll&src=com.rcs.nchumanity");
+        stringBuffer.append("location=" + elat + "," + elong + "&coord_type=bd09ll&src=com.rcs.nchumanity");
         Intent i1 = new Intent();
         i1.setData(Uri.parse(stringBuffer.toString()));
         context.startActivity(i1);

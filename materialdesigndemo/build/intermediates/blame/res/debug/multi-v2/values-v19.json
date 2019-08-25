@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/fang/androidProject/android/lifeTutor/materialdesigndemo/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
+            "map": [
+                {
+                    "source": "/home/fang/androidProject/android/lifeTutor/materialdesigndemo/src/main/res/values-v19/styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "56",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "485"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "478"
+                    }
+                }
+            ]
+        }
+    ]
+}

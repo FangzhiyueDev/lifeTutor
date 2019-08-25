@@ -30,7 +30,7 @@ import okhttp3.Response;
 /**
  * 考核结果的界面
  */
-public class AssessResultActivity extends ParentActivity {
+public class AssessResultActivity extends BasicResponseProcessHandleActivity {
 
 
     @BindView(R.id.totalScore)
@@ -58,12 +58,10 @@ public class AssessResultActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
 
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
-
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
+        if (what.equals("myCourse")) {
 
             /**
              *      "theoryScore": null,
@@ -72,7 +70,7 @@ public class AssessResultActivity extends ParentActivity {
              *         "totalScore": null
              */
             try {
-                JSONObject brJ = new JSONObject(backData[0]);
+                JSONObject brJ = new JSONObject(backData);
                 JSONObject obj = brJ.getJSONObject("object");
 
                 String theoryScore = obj.isNull("theoryScore")
@@ -94,18 +92,8 @@ public class AssessResultActivity extends ParentActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-        } else if (br.code == BasicResponse.NOT_LOGIN) {
-
-            Tool.loginCheck(this);
-
-        } else {
-            Toast.makeText(this, "加载失败", Toast.LENGTH_SHORT).show();
         }
-
     }
-
 
     private int setScore(Integer score) {
         if (score != null) {

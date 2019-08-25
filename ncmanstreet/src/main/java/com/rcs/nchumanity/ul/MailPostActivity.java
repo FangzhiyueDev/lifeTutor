@@ -1,11 +1,11 @@
 package com.rcs.nchumanity.ul;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
@@ -32,7 +32,7 @@ import okhttp3.Response;
 /**
  * 邮寄的证书
  */
-public class MailPostActivity extends ParentActivity {
+public class MailPostActivity extends BasicResponseProcessHandleActivity {
 
 
     @BindView(R.id.realName)
@@ -58,15 +58,17 @@ public class MailPostActivity extends ParentActivity {
         setContentView(R.layout.activity_mail_post);
         ButterKnife.bind(this);
 
-        Bundle obj = getIntent().getExtras();
 
-        String name = obj.getString("name");
-        String mobilePhone = obj.getString("mobilePhone");
-        String address = obj.getString("address");
-
-        realName.setText(name);
+//        Bundle obj = getIntent().getExtras();
+//
+//        String name = obj.getString("name");
+        String mobilePhone = PersistenceData.getPhoneNumber(this);
+//        String address = obj.getString("address");
+//
+//        realName.setText(name);
         this.mobilePhone.setText(mobilePhone);
-        this.address.setText(address);
+//        this.address.setText(address);
+
 
     }
 
@@ -75,41 +77,28 @@ public class MailPostActivity extends ParentActivity {
     @OnClick(R.id.mail)
     public void onClick(View view) {
         if (!isClick) {
+            isClick=true;
             Map<String, String> map = new HashMap<>();
             map.put("address", address.getText().toString());
             map.put("mobilephone", mobilePhone.getText().toString());
             map.put("name", mobilePhone.getText().toString());
-            loadDataPost(NetConnectionUrl.doUnifiedOrder, "doUnifiedOrder", map);
+            loadDataPost(NetConnectionUrl.doUnifiedOrder, "savePostInfo", map);
         }
     }
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
-
-        BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
-
-        if (br.code == BasicResponse.RESPONSE_SUCCESS) {
-
-            if (what.equals("doUnifiedOrder")) {
-
-
-//                IWXAPI api = WXAPIFactory.createWXAPI(this, "wx8888888888888888", true);
-//                api.registerApp("wx8888888888888888");
-//                PayReq req = new PayReq();
-//                req.appId = "wx8888888888888888";//你的微信appid
-//                req.partnerId = "1900000109";//商户号
-//                req.prepayId = "WX1217752501201407033233368018";//预支付交易会话ID
-//                req.nonceStr = "5K8264ILTKCH16CQ2502SI8ZNMTM67VS";//随机字符串
-//                req.timeStamp = "1412000000";//时间戳
-//                req.packageValue = "Sign=WXPay";//扩展字段,这里固定填写Sign=WXPay
-//                req.sign = "C380BEC2BFD727A4B6845133519F3AD6";//签名
-//                req.extData         = "app data"; // optional
-//                // 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
-//                api.sendReq(req);
-                isClick = false;
-            }
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
+        if (what.equals("savePostInfo")) {
+            isClick = false;
+            new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage(br[0].message)
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    }).create().show();
         }
     }
 }

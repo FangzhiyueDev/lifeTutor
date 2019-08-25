@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.entity.model.SpecificInfo;
 import com.rcs.nchumanity.fragment.VideoPlayFragment;
+import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 
 /**
@@ -30,7 +31,7 @@ import com.rcs.nchumanity.ul.ParentActivity;
  * 当前类的子类都应该设置
  * android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
  */
-public abstract class ComplexDetailActivity<T> extends ParentActivity {
+public abstract class ComplexDetailActivity<T> extends BasicResponseProcessHandleActivity {
 
 
     private View rootView;

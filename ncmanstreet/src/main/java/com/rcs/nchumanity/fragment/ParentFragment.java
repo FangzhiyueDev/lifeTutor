@@ -208,7 +208,7 @@ public abstract class ParentFragment extends Fragment implements FramgentOprate 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getCreateView(), null);
+        View view = inflater.inflate(getCreateView(), null,false);
         ButterKnife.bind(this, view);
         return view;
     }

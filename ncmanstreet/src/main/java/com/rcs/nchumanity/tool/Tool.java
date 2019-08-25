@@ -19,8 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.rcs.nchumanity.entity.PersistenceData;
-import com.rcs.nchumanity.ul.InputPasswordActivity;
-import com.rcs.nchumanity.ul.LoginCheckActivity;
 import com.rcs.nchumanity.ul.MainActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.ul.RegisterUserActivity;
@@ -32,6 +30,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import kotlin.text.Regex;
 
 public class Tool {
 
@@ -186,11 +186,12 @@ public class Tool {
 
     /**
      * 登录的响应操作
+     *
      * @param activity
      * @param jsonData
      */
 
-    public static <T extends ParentActivity> void loginResponse(T activity, String jsonData,String sessionId) {
+    public static <T extends ParentActivity> void loginResponse(T activity, String jsonData, String sessionId) {
 
         JSONObject jsonObject = null;
         try {
@@ -198,30 +199,35 @@ public class Tool {
 
             JSONObject userAccountJson = jsonObject.getJSONObject("object");
 
-            String user_id = userAccountJson.getInt("userId") + "";
+            JSONObject userAccount = userAccountJson.getJSONObject("userAccount");
+
+            String user_id = userAccount.getInt("userId") + "";
 
             String picture = null;
-            if (userAccountJson.has("picUrl")) {
-                picture = userAccountJson.getString("picUrl");
+            if (userAccount.has("picUrl")) {
+                picture = userAccount.getString("picUrl");
             }
-
-            String nickName = userAccountJson.getString("nickname");
-
-            PersistenceData.loginSuccess(activity,picture,nickName,user_id,sessionId);
+            String nickName = null;
+            if (userAccount.has("nickname")) {
+                nickName = userAccount.getString("nickname");
+            }
+            PersistenceData.loginSuccess(activity, picture, nickName, user_id, sessionId);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-//        activity.backStackLower();
-        Tool.startActivity(activity, MainActivity.class);
+        activity.backStackLower();
+//        Tool.startActivity(activity, MainActivity.class);
 
     }
 
 
-    /**
-     * @hide
-     */
+    public static boolean isUrl(String url) {
+        return url.startsWith("https") || url.startsWith("https");
+    }
+
+
     @StringDef(value = {
             POSI_LEFT,
             POSI_TOP,
@@ -335,9 +341,6 @@ public class Tool {
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         textView.setCompoundDrawables(null, drawable, null, null);
     }
-
-
-
 
 
 }

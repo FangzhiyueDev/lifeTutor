@@ -31,12 +31,18 @@ public class MyReceiver extends BroadcastReceiver {
 
 
     public static final String FUN_FLUSH_HELP_DATA = "helpData";
+
+    /**
+     * 代表的是
+     * 当前调用当前广播的回调页面
+     */
+    public static final String MAIN = "main";
     private static final String TAG = "JIGUANG-Example";
 
     /**
      * 发送救护
      */
-    public static final String FUN_SEND_HELP ="sendHelp" ;
+    public static final String FUN_SEND_HELP = "sendHelp";
 
     /**
      * 点击清除提示

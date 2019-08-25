@@ -44,6 +44,8 @@ import com.rcs.nchumanity.tool.StringTool;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.AmbulanceRescueActivity;
 import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
+import com.rcs.nchumanity.ul.MainActivity;
+import com.rcs.nchumanity.ul.WebLoadActivity;
 import com.rcs.nchumanity.ul.basicMap.BasicMapChangeActivity;
 import com.rcs.nchumanity.ul.basicMap.ILocaPoint;
 import com.rcs.nchumanity.ul.basicMap.LocalPoint;
@@ -81,7 +83,7 @@ import okhttp3.Response;
 public class MainFragment extends BasicResponseProcessHandleFragment {
 
 
-    private int requestPermissionCode_QJ = 34;
+    public static int requestPermissionCode_QJ = 34;
 
     @Override
     protected int getCreateView() {
@@ -113,11 +115,11 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
 
     static {
         urlMap.put("急救知识", NetConnectionUrl.getKnowledge);
-        urlMap.put("养老护理员", NetConnectionUrl.getOldCare);
+        urlMap.put("养老护理知识", NetConnectionUrl.getOldCare);
         urlMap.put("无偿献血", NetConnectionUrl.getBloodDonation);
         urlMap.put("器官遗体捐献", NetConnectionUrl.getOrganBodyDonation);
         urlMap.put("爱心捐献", NetConnectionUrl.getLoveDonation);
-        urlMap.put("干细胞捐献", NetConnectionUrl.getMarrowDonation);
+        urlMap.put("造血干细胞捐献", NetConnectionUrl.getMarrowDonation);
     }
 
 
@@ -302,7 +304,8 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
         }
     }
 
-    private void helpMe() {
+
+    public void helpMe() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                 .setTitle("警告")
                 .setMessage("确定发出求救？")
@@ -319,10 +322,31 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
     }
 
 
+    /**
+     * 对  返回为500
+     * 进行重写  不要在里面调用父级的实现
+     *
+     * @param what
+     * @param br
+     */
+    @Override
+    protected void responseWith500(String what, BasicResponse br) {
+        /**
+         * 如果 求解信息加载失败 ，依旧去加载 首页的数据
+         */
+        if (what.equals("selectInfo")) {
+            if (!broadCallback) {
+                /**
+                 * 加载首页的显示
+                 */
+                loadDataGetForForce(NetConnectionUrl.getIndexInfo, "pageIndex");
+            }
+        }
+    }
 
     @Override
-    protected void responseDataSuccess(String what, String backData,Response response,BasicResponse... br) throws Exception {
-        super.responseDataSuccess(what, backData,response,br);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
         if (what.equals("AEDList")) {
             ArrayList<ILocaPoint> locaPoints = JsonDataParse.getAEDLocations(backData);
             Bundle bundle = new Bundle();
@@ -348,6 +372,9 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
 
         } else if (what.equals("selectInfo")) {
 
+            /**
+             *
+             */
             if (!broadCallback) {
                 /**
                  * 加载首页的显示
@@ -376,6 +403,26 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
             }
         } else if (what.equals("addInfo")) {
 
+
+            /**
+             * 添加addInfo 成功后，才去发送 推送信息
+             *
+             * addINfo 很可能返回的 401状态吗 代表的用户没有登录
+             *
+             *  如果没有登录使用父级的默认实现  清除缓存 ---->进行登录操作
+             *
+             */
+            JGServer_sendNotification.sendPushNoti(content);
+
+            /**
+             * 清空消息体
+             */
+            content = null;
+
+
+            /**
+             * 添加求救信息的回调的实现
+             */
             Log.d("test", "onSucess:" + backData);
         }
     }
@@ -443,13 +490,23 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
                 bundle.putString(SpecificInfoComplexListActivity.CLASS_NAME, title);
                 Tool.startActivity(getContext(), SpecificInfoComplexListActivity.class, bundle);
             } else {
+
                 //列表数据的点击
                 Bundle bundle = new Bundle();
                 SpecificInfo specificInfo = (SpecificInfo) v.getTag();
-                bundle.putSerializable(SpecificInfoComplexListDetailActivity.DATA, specificInfo);
-                Tool.startActivity(getContext(), SpecificInfoComplexListDetailActivity.class, bundle);
-            }
 
+                if (Tool.isUrl(specificInfo.getContent())) {
+
+
+                    bundle.putString(WebLoadActivity.TITLE,specificInfo.getTitle());
+                    bundle.putString(WebLoadActivity.URL,specificInfo.getContent());
+                    Tool.startActivity(getContext(),WebLoadActivity.class,bundle);
+
+                } else {
+                    bundle.putSerializable(SpecificInfoComplexListDetailActivity.DATA, specificInfo);
+                    Tool.startActivity(getContext(), SpecificInfoComplexListDetailActivity.class, bundle);
+                }
+            }
         }, mSpeinfSpeinfCla);
 
         basicInfoArea.addView(basicItem);
@@ -472,10 +529,18 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
                 //列表数据的点击
                 Bundle bundle = new Bundle();
                 SpecificInfo specificInfo = (SpecificInfo) v.getTag();
-                bundle.putSerializable(SpecificInfoComplexListDetailActivity.DATA, specificInfo);
-                Tool.startActivity(getContext(), SpecificInfoComplexListDetailActivity.class, bundle);
-            }
 
+                if (Tool.isUrl(specificInfo.getContent())) {
+
+                    bundle.putString(WebLoadActivity.TITLE, specificInfo.getTitle());
+                    bundle.putString(WebLoadActivity.URL, specificInfo.getContent());
+                    Tool.startActivity(getContext(), WebLoadActivity.class, bundle);
+
+                } else {
+                    bundle.putSerializable(SpecificInfoComplexListDetailActivity.DATA, specificInfo);
+                    Tool.startActivity(getContext(), SpecificInfoComplexListDetailActivity.class, bundle);
+                }
+            }
 
         }, mSpeinfSpeinfCla1);
 
@@ -509,7 +574,14 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
                 PersistenceData.setClicked(getContext(), true);
                 PersistenceData.setHelpNumber(getActivity(), totalNoti);
             } else if (func.equals(MyReceiver.FUN_SEND_HELP)) {
-                helpMe();
+                String main = intent.getStringExtra(MyReceiver.MAIN);
+
+                /**
+                 * 代表使用的是主页面的回调
+                 */
+                if (main.equals(MainActivity.class.getSimpleName())) {
+                    helpMe();
+                }
             }
         }
     }
@@ -520,9 +592,19 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
         if (helpCountBroadcastReceiver != null) {
             getActivity().unregisterReceiver(helpCountBroadcastReceiver);
         }
+        /**
+         * 重置广播回调的值
+         */
+        broadCallback = false;
         super.onDestroy();
     }
 
+
+    /**
+     * 代表的是发送极光推送的
+     * 内容
+     */
+    private String content;
 
     @Override
     public void permissionSuccess(int requestCode) {
@@ -536,12 +618,13 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
                     String latitute = bdLocation.getLatitude() + "";
                     String longitute = bdLocation.getLongitude() + "";
                     Map<String, String> param = new HashMap<>();
+
                     String phone = PersistenceData.getPhoneNumber(getContext());
 
                     String city = bdLocation.getCity();
                     String district = bdLocation.getDistrict();
                     String street = bdLocation.getStreet();
-                    String content = "用户 " + phone + " 在" + city +
+                    content = "用户 " + phone + " 在" + city +
                             district + street + "求救";
 
                     Log.d("test", "onReceiveLocation: " + latitute + longitute + city + "  \t" + district + " " + street);
@@ -554,8 +637,8 @@ public class MainFragment extends BasicResponseProcessHandleFragment {
                     param.put("readCount", "0");
                     param.put("title", district + " " + phone + " 求救");
                     param.put("userId", PersistenceData.getUserId(getActivity()));
+
                     loadDataPostForce(NetConnectionUrl.addInfo, "addInfo", param);
-                    JGServer_sendNotification.sendPushNoti(content);
                 }
             });
 

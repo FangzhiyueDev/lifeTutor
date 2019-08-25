@@ -1,5 +1,7 @@
 package com.kangren.services;
 
+import android.util.Log;
+
 import com.kangren.cpr.AppConfig;
 import com.kangren.cpr.analyzer.AnalyzerFactory;
 import com.kangren.cpr.analyzer.IAnalyzer;
@@ -16,6 +18,7 @@ import com.lyc.bluetooth.MessageDevice.MsgEvent;
 import com.lyc.utils.LogUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DataService {
@@ -89,6 +92,11 @@ public class DataService {
 
     }
 
+    /**
+     * 发送一个消息
+     *
+     * @param msg
+     */
     public void send(ISendMessage msg) {
         byte[] buffer = analyzer.unParse(msg);
         md.write(buffer);
@@ -116,7 +124,7 @@ public class DataService {
                     // TODO Auto-generated method stub
 
                     /**
-                     * 由于
+                     * 在单个对象中，保证线程的同步
                      */
                     synchronized (messsageBuffer) {
 
@@ -128,6 +136,7 @@ public class DataService {
                             byte[] oneMsg = new byte[packageLen];
                             byte[] temp = new byte[1024];
                             System.arraycopy(messsageBuffer, 0, oneMsg, 0, packageLen);
+                            Log.d("test", "Done: ======接受到消息" + Arrays.toString(oneMsg));
                             if (!checkMsg(oneMsg)) {
                                 LogUtil.WriteLog("eeeeeeeeecheckMsg");
                                 receiveCount--;//������ǰ�ͷ ��ƫ��һλ
@@ -160,6 +169,18 @@ public class DataService {
 
                 }
             };
+
+
+        /**
+         *
+         *
+         * 这个代码建立了MessageDevice 和 DataService(当前类)的连接
+         *
+         * 通过这种方法 ，连接产生的消息会回调到当前的监听器中
+         *
+         *
+         */
+
         this.md.setRecevedMsgListener(recevedMsgListener);
     }
 

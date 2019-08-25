@@ -59,7 +59,7 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
     protected void bindView(View view, OnlineCourseInfo obj) {
 
         if (isError) {
-            view.setVisibility(View.INVISIBLE);
+            view.findViewById(R.id.contentArea).setVisibility(View.INVISIBLE);
         } else {
 
             /**
@@ -172,26 +172,31 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
             throw new InvalidParameterException("invalid paramter is COURSE_NO");
         }
 
-
-        String param = String.format(NetConnectionUrl.getOnlineCourseContentForId, courseNo);
+        String param = String.format(NetConnectionUrl.getNotRequiredCourseByCourseNo, courseNo);
         loadDataGet(param, "courseDetail");
     }
 
-    private String  courseNo;
+    private String courseNo;
+
 
     @Override
     public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
 
         BasicResponse br = new Gson().fromJson(backData[0], BasicResponse.class);
+        String message = null;
+        JSONObject br1 = null;
+        try {
+            br1 = new JSONObject(backData[0]);
+            message = br1.has("msg") ? br1.getString("msg") : br1.getString("message");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (what.equals("courseDetail")) {
 
             if (br.code == BasicResponse.RESPONSE_SUCCESS) {
 
                 try {
-                    JSONObject br1 = new JSONObject(backData[0]);
-
                     JSONObject courseDetail = null;
                     if (br1.getJSONObject("object") != null) {
                         courseDetail = br1.getJSONObject("object");
@@ -228,7 +233,7 @@ public class ElectiveCourseInfoComplexDetailActivity extends ComplexDetailActivi
                     bundleData();
                 }
             } else {
-                Toast.makeText(this, "数据加载出错", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
                 info = new OnlineCourseInfo();
                 isError = true;
                 bundleData();

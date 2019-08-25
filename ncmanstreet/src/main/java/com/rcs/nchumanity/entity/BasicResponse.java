@@ -44,6 +44,9 @@ public class BasicResponse {
 
     public static final String MESSAGE_OTHER = "用户未登入";
 
+
+    public static final String NOT_REQUIRED_MESSAGE = "暂未达到要求";
+
     /**
      * 用户非登录除外的其他错误
      */
@@ -80,6 +83,10 @@ public class BasicResponse {
      * 修改密码成功
      */
     public static final int CHANGE_PASSWORD_SUCCESS_11 = 11;
+
+    public static final int NOT_REQUIRED_204 = 204;
+    public static final int NOT_TRANSPORT = 301;
+    public static final int TRANSPORT = 302;
     /**
      * 报名成功
      */
@@ -100,6 +107,11 @@ public class BasicResponse {
      * 消息提示
      */
     public String message;
+
+    /**
+     * 响应失败
+     */
+    public static final int RESPONSE_FAIL = 500;
 
     /**
      * 传输的数据对象

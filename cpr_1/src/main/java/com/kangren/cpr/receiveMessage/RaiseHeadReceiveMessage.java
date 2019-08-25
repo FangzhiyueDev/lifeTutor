@@ -1,5 +1,9 @@
 package com.kangren.cpr.receiveMessage;
 
+
+/**
+ * 抬头（仰头）操作接受的消息
+ */
 public class RaiseHeadReceiveMessage implements IReceiveMessage {
 
 

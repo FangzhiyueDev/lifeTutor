@@ -122,7 +122,7 @@ public class BtOperation {
                     /**
                      * 代表连接的是模型人
                      */
-                    if (name.equals(modelName)) {
+                    if (name.equalsIgnoreCase(modelName)) {
 
 //                        AlertDialog.Builder builder =
 //                                new AlertDialog.Builder(context).setTitle("连接蓝牙")

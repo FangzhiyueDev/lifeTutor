@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
+ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
 MERGED from [androidx.appcompat:appcompat:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/e98cbeb736d0b5bf7cb1a8db11a12ed9/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:2:1-11:12
 MERGED from [cn.pedant.safewebviewbridge:library:1.4] /home/fang/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/390565afbe6cb63319804079db22ab5f/AndroidManifest.xml:2:1-13:12
@@ -31,22 +31,22 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-beta01] /home/fang/.grad
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-beta01.aar/9e2b32d35affb37ae033f1b240ac9d77/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-beta01.aar/7a1cd881e463a6320bf0d123a894acb6/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-beta01.aar/251646b30e637b8867330fe8cd2a30b8/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
 	package
 		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:4:5-47
 		INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml
 		INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml
-		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
+		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
 		INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml
-		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-46:12
+		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:1-44:12
 		INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:2:11-69
@@ -55,7 +55,7 @@ ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/m
 	android:name
 		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:6:22-64
 application
-ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:8:5-44:19
+ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:8:5-42:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:9:5-20
 MERGED from [cn.pedant.safewebviewbridge:library:1.4] /home/fang/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/390565afbe6cb63319804079db22ab5f/AndroidManifest.xml:11:5-20
@@ -84,30 +84,30 @@ activity#com.xiaofangfang.bootstrap.Safewebviewbridge
 ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:16:9-22:20
 	android:name
 		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:16:19-78
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:17:13-21:29
-action#android.intent.action.MAIN
-ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:18:17-69
-	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:18:25-66
-category#android.intent.category.LAUNCHER
-ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:20:17-77
-	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:20:27-74
 activity#com.xiaofangfang.bootstrap.WebviewTestActivity_demo3
 ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:23:9-98
 	android:name
 		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:23:19-86
 activity#com.xiaofangfang.bootstrap.WebActivityTest_demo2
-ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:24:9-32:20
+ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:24:9-30:20
 	android:name
 		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:24:19-82
-activity#com.xiaofangfang.bootstrap.MainActivity_demo1
-ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:33:9-43:20
-	android:theme
-		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:35:13-69
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:26:14-29:30
+action#android.intent.action.MAIN
+ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:27:14-66
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:34:13-73
+		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:27:22-63
+category#android.intent.category.LAUNCHER
+ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:28:14-74
+	android:name
+		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:28:24-71
+activity#com.xiaofangfang.bootstrap.MainActivity_demo1
+ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:31:9-41:20
+	android:theme
+		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:33:13-69
+	android:name
+		ADDED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml:32:13-73
 uses-sdk
 INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/fang/androidProject/android/lifeTutor/BootStrapWebAppDemo/src/main/AndroidManifest.xml

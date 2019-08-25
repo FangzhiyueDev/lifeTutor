@@ -1,5 +1,8 @@
 package com.kangren.cpr.receiveMessage;
 
+/**
+ * 电量接受的消息
+ */
 public class BatteryReceiveMessage implements IReceiveMessage {
 
 

@@ -21,14 +21,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity android:name="com.xiaofangfang.bootstrap.Safewebviewbridge" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.xiaofangfang.bootstrap.WebviewTestActivity_demo3" />
-        <activity android:name="com.xiaofangfang.bootstrap.WebActivityTest_demo2" >
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -36,6 +28,14 @@
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
+        </activity>
+        <activity android:name="com.xiaofangfang.bootstrap.WebviewTestActivity_demo3" />
+        <activity android:name="com.xiaofangfang.bootstrap.WebActivityTest_demo2" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.xiaofangfang.bootstrap.MainActivity_demo1"

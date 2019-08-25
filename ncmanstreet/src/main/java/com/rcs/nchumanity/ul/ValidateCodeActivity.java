@@ -283,14 +283,14 @@ public class ValidateCodeActivity extends BasicResponseProcessHandleActivity {
 
         } else if (action.equals(ACTION_RESET_PASSWORD)) {
             Bundle bundle1 = new Bundle();
-            bundle1.putString(InputPasswordActivity.CODE,code);
+            bundle1.putString(InputPasswordActivity.CODE, code);
             bundle1.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_SET_PASSWORD);
             Tool.startActivity(this, InputPasswordActivity.class, bundle1);
 
         } else if (action.equals(ACTION_VALIDE_CODE_LOGIN)) {
             Map<String, String> param = new HashMap();
             param.put("mobilephone", userPhone);
-            param.put("code",code);
+            param.put("code", code);
             loadDataPost(NetConnectionUrl.smsLogin, "validateCodeLogin", param);
         }
 
@@ -381,14 +381,14 @@ public class ValidateCodeActivity extends BasicResponseProcessHandleActivity {
 
 
     @Override
-    protected void responseDataSuccess(String what, String backData, Response response) throws Exception {
-        super.responseDataSuccess(what, backData, response);
+    protected void responseDataSuccess(String what, String backData, Response response, BasicResponse... br) throws Exception {
+        super.responseDataSuccess(what, backData, response, br);
         if (what.equals("validateCodeLogin")) {
             String sessionId = response.header("Set-Cookie");//JSESSIONID=0879B42A28FEEB113E883D6FC295C7CA; Path=/ncrd; HttpOnly
             Log.d("test", "onSucessful:当前的sessionId " + sessionId);
             sessionId = sessionId.substring(0, sessionId.indexOf(";"));
             Tool.loginResponse(this, backData, sessionId);
-        }else if (what.equals("getValidateCode")) {
+        } else if (what.equals("getValidateCode")) {
             reSet();
         }
 

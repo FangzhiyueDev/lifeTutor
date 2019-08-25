@@ -12,6 +12,7 @@ import androidx.annotation.UiThread;
 
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
+import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.view.CommandBar;
 
@@ -31,7 +32,7 @@ import butterknife.ButterKnife;
  * #{{@link ComplexListDetailActivity}} 界面进行文本信息的展示
  * 2.另一种情况，需要跳转到 地图的展示界面，传递的数据类似于一个地图点，我们根据地图点，进入
  */
-public abstract class ComplexListActivity<T> extends ParentActivity implements AbsListView.OnScrollListener {
+public abstract class ComplexListActivity<T> extends BasicResponseProcessHandleActivity implements AbsListView.OnScrollListener {
 
 
     private static final String TAG = "test";
@@ -154,4 +155,6 @@ public abstract class ComplexListActivity<T> extends ParentActivity implements A
     protected void scrollToBottom() {
         Log.d(TAG, "滚动到最底部 ");
     }
+
+
 }

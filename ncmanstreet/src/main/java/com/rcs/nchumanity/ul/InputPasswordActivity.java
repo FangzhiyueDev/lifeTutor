@@ -56,7 +56,7 @@ import okhttp3.Response;
  * 当前界面的主要功能是输入密码。对密码进行验证 ，接受参数，将会对具体的参数耦合在一起，
  * 遵循类内部功能的单一性
  */
-public class InputPasswordActivity extends ParentActivity {
+public class InputPasswordActivity extends BasicResponseProcessHandleActivity {
 
 
     private String phoneNumber;
@@ -125,7 +125,7 @@ public class InputPasswordActivity extends ParentActivity {
 
         if (action.equals(FUNC_SET_PASSWORD)) {
             resetPageStyle(false);
-            code=bundle.getString(CODE);
+            code = bundle.getString(CODE);
         } else if (action.equals(FUNC_LOGIN)) {
             resetPageStyle(true);
         } else if (action.equals(FUNC_REGISTER)) {
@@ -152,7 +152,7 @@ public class InputPasswordActivity extends ParentActivity {
             //登录
             Map<String, String> map = new HashMap<>();
             map.put("mobilephone", phoneNumber);
-            map.put("password",password.getText().toString());
+            map.put("password", password.getText().toString());
             loadDataPost(NetConnectionUrl.login, "login", map);
         } else if (action.equals(FUNC_REGISTER)) {
             Map<String, String> param = new HashMap<>();
@@ -166,50 +166,136 @@ public class InputPasswordActivity extends ParentActivity {
 
 
     @Override
-    public void onSucessful(Response response, String what, String... backData) throws IOException {
-        super.onSucessful(response, what, backData);
+    protected void responseWith4(String what, BasicResponse br, Response response, String backData) {
+        super.responseWith4(what, br, response, backData);
+        if (what.equals("login")) {
 
-        if (what.equals("register")) {
-            /**
-             * 返回注册用户的用户信息
-             */
-            loginOrRegisterCallback(backData[0], null);
-        }else if(what.equals("login")){
             String sessionId = response.header("Set-Cookie");//JSESSIONID=0879B42A28FEEB113E883D6FC295C7CA; Path=/ncrd; HttpOnly
             Log.d("test", "onSucessful:当前的sessionId " + sessionId);
             sessionId = sessionId.substring(0, sessionId.indexOf(";"));
-            loginOrRegisterCallback(backData[0], sessionId);
+            /**
+             * 返回注册用户的用户信息
+             */
+            Tool.loginResponse(this, backData, sessionId);
         }
 
-        BasicResponse basicResponse = new Gson().fromJson(backData[0], BasicResponse.class);
+    }
 
-        if (basicResponse.code == BasicResponse.CHANGE_PASSWORD_SUCCESS) {
+
+    @Override
+    protected void responseWith3(String what, BasicResponse br) {
+        super.responseWith3(what, br);
+
+        if (what.equals("register")) {
+
+            Dialog dialog = DialogCollect.showWarnDialog("提示", "注册成功", this, new DialogCollect.EnterProgress() {
+                @Override
+                public void onProgre(DialogInterface dialog, AlertDialog.Builder builder) {
+                    //对确认的操作
+                    //进入输入密码界面进行登录
+                    Bundle bundle = new Bundle();
+                    bundle.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_LOGIN);
+                    Tool.startActivity(InputPasswordActivity.this, InputPasswordActivity.class, bundle);
+                }
+            });
+            dialog.setCancelable(false);
+            dialog.show();
+
+        } else if (what.equals("resetPassword")) {
 
             //进入输入密码界面
             Bundle bundle = new Bundle();
             bundle.putString(FUNC, FUNC_LOGIN);
             Tool.startActivity(InputPasswordActivity.this, InputPasswordActivity.class, bundle);
 
-        } else if (basicResponse.code == BasicResponse.PASSWORD_ERROR) {
-            Toast.makeText(this, "账号或密码错误", Toast.LENGTH_SHORT).show();
-        } else if (basicResponse.code == BasicResponse.VALIDATE_CODE_ERROR) {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                    .setTitle("提示")
-                    .setMessage("验证码错误")
-                    .setPositiveButton("确定", (dialog, which) -> {
-                        dialog.dismiss();
-                        /**
-                         * 进入上一个界面
-                         */
-                        finish();
-                    });
-            Dialog dialog=builder.create();
-            dialog.setCancelable(false);
-            dialog.show();
         }
 
     }
+
+
+    @Override
+    protected void responseWith6(String what, BasicResponse br) {
+        super.responseWith6(what, br);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("提示")
+                .setMessage("验证码错误")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    dialog.dismiss();
+                    /**
+                     * 进入上一个界面
+                     */
+                    finish();
+                });
+        Dialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+    }
+
+
+//    @Override
+//    public void onSucessful(Response response, String what, String... backData) throws IOException {
+//        super.onSucessful(response, what, backData);
+//
+//        BasicResponse basicResponse = new Gson().fromJson(backData[0], BasicResponse.class);
+//        if (what.equals("register")) {
+//
+//            Dialog dialog = DialogCollect.showWarnDialog("提示", "注册成功", this, new DialogCollect.EnterProgress() {
+//                @Override
+//                public void onProgre(DialogInterface dialog, AlertDialog.Builder builder) {
+//                    //对确认的操作
+//                    //进入输入密码界面进行登录
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString(InputPasswordActivity.FUNC, InputPasswordActivity.FUNC_LOGIN);
+//                    Tool.startActivity(InputPasswordActivity.this, InputPasswordActivity.class, bundle);
+//                }
+//            });
+//            dialog.setCancelable(false);
+//            dialog.show();
+//
+//
+//        } else if (what.equals("login")) {
+//
+//            if (basicResponse.code == BasicResponse.LOGIN_SUCCESS) {
+//
+//                String sessionId = response.header("Set-Cookie");//JSESSIONID=0879B42A28FEEB113E883D6FC295C7CA; Path=/ncrd; HttpOnly
+//                Log.d("test", "onSucessful:当前的sessionId " + sessionId);
+//                sessionId = sessionId.substring(0, sessionId.indexOf(";"));
+//                /**
+//                 * 返回注册用户的用户信息
+//                 */
+//                Tool.loginResponse(this, backData[0], sessionId);
+//            }
+//
+//        }
+//
+//        if (basicResponse.code == BasicResponse.CHANGE_PASSWORD_SUCCESS) {
+//
+//            //进入输入密码界面
+//            Bundle bundle = new Bundle();
+//            bundle.putString(FUNC, FUNC_LOGIN);
+//            Tool.startActivity(InputPasswordActivity.this, InputPasswordActivity.class, bundle);
+//
+//        } else if (basicResponse.code == BasicResponse.PASSWORD_ERROR) {
+//            Toast.makeText(this, "账号或密码错误", Toast.LENGTH_SHORT).show();
+//
+//        } else if (basicResponse.code == BasicResponse.VALIDATE_CODE_ERROR) {
+//
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+//                    .setTitle("提示")
+//                    .setMessage("验证码错误")
+//                    .setPositiveButton("确定", (dialog, which) -> {
+//                        dialog.dismiss();
+//                        /**
+//                         * 进入上一个界面
+//                         */
+//                        finish();
+//                    });
+//            Dialog dialog = builder.create();
+//            dialog.setCancelable(false);
+//            dialog.show();
+//        }
+//
+//    }
 
     /**
      * 重新设置页面风格
@@ -254,37 +340,6 @@ public class InputPasswordActivity extends ParentActivity {
             password.setHint("设置密码");
             forgetPassword.setVisibility(View.INVISIBLE);
             validateCodeLogin.setVisibility(View.INVISIBLE);
-        }
-    }
-
-
-    public void loginOrRegisterCallback(String jsonData, String sessionId) {
-
-        BasicResponse basicResponse = new Gson().fromJson(jsonData, BasicResponse.class);
-
-
-        if (basicResponse.code == BasicResponse.LOGIN_SUCCESS) {
-            /**
-             * 返回注册用户的用户信息
-             */
-            Tool.loginResponse(this, jsonData, sessionId);
-
-        } else if (basicResponse.code == BasicResponse.REGISTED_SUCCESS) {
-
-            Dialog dialog = DialogCollect.showWarnDialog("提示", "注册成功", this, new DialogCollect.EnterProgress() {
-                @Override
-                public void onProgre(DialogInterface dialog, AlertDialog.Builder builder) {
-                    //对确认的操作
-                    //进入输入密码界面进行登录
-                    Bundle bundle = new Bundle();
-                    bundle.putString(InputPasswordActivity.FUNC,InputPasswordActivity.FUNC_LOGIN);
-                    Tool.startActivity(InputPasswordActivity.this, InputPasswordActivity.class,bundle);
-                }
-            });
-            dialog.setCancelable(false);
-            dialog.show();
-        } else {
-            Toast.makeText(this, "消息" + basicResponse.message, Toast.LENGTH_SHORT).show();
         }
     }
 

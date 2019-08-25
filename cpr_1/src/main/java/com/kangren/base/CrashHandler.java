@@ -81,7 +81,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
     }
 
 
-    private boolean handleException(Throwable ex) {
+    private boolean handleException(final Throwable ex) {
         if (ex == null)
             return false;
 
@@ -92,7 +92,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
                 @Override
                 public void run() {
                     Looper.prepare();
-                    Toast.makeText(mContext, "产生异常",
+                    Toast.makeText(mContext, "产生异常"+ex.getMessage(),
                             Toast.LENGTH_LONG).show();
                     Looper.loop();
                 }
@@ -174,7 +174,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
     private String writeFile(String sb) throws Exception {
         String time = formatter.format(new Date());
-        String fileName = "crash-" + time + ".log";
+        String fileName = "crash-" + time + ".txt";
 
         String path = getGlobalpath();
         File dir = new File(path);

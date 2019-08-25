@@ -1,6 +1,5 @@
 package com.rcs.nchumanity.entity.complexModel;
 
-import com.rcs.nchumanity.entity.model.AreaInfo;
 import com.rcs.nchumanity.entity.model.EmergencyInfo;
 import com.rcs.nchumanity.entity.model.OfflineExamRecord;
 import com.rcs.nchumanity.entity.model.OfflineTrainClass;
@@ -18,6 +17,7 @@ import com.rcs.nchumanity.entity.model.sys.TrainOrgInfo;
 import com.rcs.nchumanity.entity.model.train.CourseClassification;
 import com.rcs.nchumanity.entity.modelInter.SpecificInfoWithLocation;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class ComplexModelSet {
      */
     public static class M_speinf_speinfCla {
 
-        public String  title;
+        public String title;
 
         public List<SpecificInfo> specificInfos;
 
@@ -168,7 +168,7 @@ public class ComplexModelSet {
         public List<Question> questionList;
     }
 
-    public static class Question{
+    public static class Question {
         public String question;
         public String options;
         public String answer;
@@ -189,18 +189,17 @@ public class ComplexModelSet {
     }
 
 
-
-    /**
-     * 培训点----->1:1 ------>地区信息
-     * 培训点及其地区信息
-     */
-    public static class M_traPoi_areaInf {
-
-        public TrainPointInfo pointInfo;
-
-        public AreaInfo areaInfo;
-
-    }
+//    /**
+//     * 培训点----->1:1 ------>地区信息
+//     * 培训点及其地区信息
+//     */
+//    public static class M_traPoi_areaInf {
+//
+//        public TrainPointInfo pointInfo;
+//
+//        public AreaInfo areaInfo;
+//
+//    }
 
 
     /**
@@ -208,13 +207,13 @@ public class ComplexModelSet {
      * <p>
      * 培训班对应的培训点以及对应的地区信息
      */
-    public static class M_offliTraClas_M_traPoi_areaInf {
-
-        public OfflineTrainClass trainClass;
-
-        public M_traPoi_areaInf traPoi_areaInf;
-
-    }
+//    public static class M_offliTraClas_M_traPoi_areaInf {
+//
+//        public OfflineTrainClass trainClass;
+//
+//        public M_traPoi_areaInf traPoi_areaInf;
+//
+//    }
 
 
     /**
@@ -235,7 +234,7 @@ public class ComplexModelSet {
 
         public OfflineTrainClass trainClass;
 
-        public M_traPoi_areaInf traPoi_areaInf;
+//        public M_traPoi_areaInf traPoi_areaInf;
 
         public M_traPoi_traOrgInfo traPoi_traOrgInfo;
 
@@ -267,7 +266,7 @@ public class ComplexModelSet {
 
         public String org;
 
-        public int  vrAttr;
+        public int vrAttr;
 
         public boolean vrClass;
 
@@ -310,12 +309,12 @@ public class ComplexModelSet {
         public int maxNum;
         public String org;
 
-        public ClassDetail(int classId, String className, Date startTime, Date endTime, String trainer, String intro, String imgUrl, String position, String vrAttr, boolean vrClass, int currentNum, int maxNum,String org) {
+        public ClassDetail(int classId, String className, Date startTime, Date endTime, String trainer, String intro, String imgUrl, String position, String vrAttr, boolean vrClass, int currentNum, int maxNum, String org) {
             this.classId = classId;
             this.className = className;
             this.startTime = startTime;
             this.endTime = endTime;
-            this.org=org;
+            this.org = org;
             this.trainer = trainer;
             this.intro = intro;
             this.imgUrl = imgUrl;
@@ -330,4 +329,25 @@ public class ComplexModelSet {
         }
     }
 
+    public static class PostInfo implements Serializable {
+
+        public String name;
+        public String mobilephone;
+        public String address;
+        public String expressNo;
+        public String expressCompany;
+        public String expressStatus;  //0 代表没有发出 1，代表发出
+
+        public PostInfo(String name, String mobilephone, String address, String expressNo, String expressCompany, String expressStatus) {
+            this.name = name;
+            this.mobilephone = mobilephone;
+            this.address = address;
+            this.expressNo = expressNo;
+            this.expressCompany = expressCompany;
+            this.expressStatus = expressStatus;
+        }
+
+        public PostInfo() {
+        }
+    }
 }
