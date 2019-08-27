@@ -1,269 +1,269 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-MERGED from [androidx.appcompat:appcompat:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/e98cbeb736d0b5bf7cb1a8db11a12ed9/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.percentlayout:percentlayout:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/percentlayout-1.0.0-beta01.aar/c16124530f892101461199d6c41df39b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/6cf0bc445139e3e30ceab0fa98ff8b12/AndroidManifest.xml:2:1-14:12
-MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/1131972cfb73cf94f6b331df284b9289/AndroidManifest.xml:17:1-22:12
-MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/3499642f0715e98106c5ac696818f64f/AndroidManifest.xml:2:1-16:12
-MERGED from [androidx.fragment:fragment:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-beta01.aar/488138738cdaab245ff7d92642063579/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-beta01.aar/f08141886b6a855f1664d6bffa5aa1c0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-beta01.aar/97fdde82dbb2f2dc53b2197a9e0c6051/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/c3943d8c0bbb76e54da7f63af4ba148e/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/8cdd9786319774b1eeb21d8fbb909a92/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/b297e8af6bb7909d3be3a1b60ef6266b/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/3d296495609f34423b9bb190e713e635/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/4faf1e7b8d285b5899b30189eeccce43/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/927c57c91af9b4c772777185c159beda/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/fd15223fa32914bfa20b2f9fe402618a/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/eb55fc5759f05b4401ff186baa6e100f/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/50de39a36a739308d7611ad658d88e0e/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/a0c013e2a89e1f84f1eb6e4be6ea6dd6/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:17:1-25:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/af40e18b608cd0ccad4dee0306a6f3a7/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/292518b191f508079cce5c00f21daacb/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/82a78a5ba3c74b00f8e5430b05aae555/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/b81ac4d750b3d2ed0a35c0c0e205411c/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/730b36ab3ac0b82db6f1a356b60981b8/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/984a2e661e497274f7870a486bf353be/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/46178056f41be06b9a5e71bfff7f1309/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/cd8ff0056d4d7bc075be87cfd86c7053/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/81f3e82c85e7db5cfed5cd607ea13edf/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+MERGED from [androidx.appcompat:appcompat:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/627881cbc071fb1865274934427ac2de/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/2f3cc3d8fe8757fd5716222a7560ddaf/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.percentlayout:percentlayout:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/percentlayout-1.0.0-beta01.aar/3dd2d8730ad8efddc3ef4267d2432093/AndroidManifest.xml:17:1-22:12
+MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/8b9af7131c8b5df24addbd3ce747b08f/AndroidManifest.xml:2:1-14:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/31288b8073471cb4f4b838e88d063a32/AndroidManifest.xml:17:1-22:12
+MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/f728562f785be21ac7bdd8605a282d82/AndroidManifest.xml:2:1-16:12
+MERGED from [androidx.fragment:fragment:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-beta01.aar/16ce14ac9a211383a66c161099b06f1b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-beta01.aar/d1c4102fc7b57547d6c876c59effa152/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-beta01.aar/973473a50040fc145ef4ff3caba9c1d3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/5899136369eb8f2a91b8e5a4804d0bef/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/56741875b40230d25fc50ff70f982681/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/a30e5fd4e456b4de0bd18480cc404190/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/63e0f21a9d0abaeea40e2ec2dbaf8e6a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/1e4ec9eb60ee67ef0d60fdea36c170e9/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/8e0338e6d6e6f0474ad25abbc74aaec9/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/28d04486d8c4f1c74bad09b35784a70f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/f585082ba1a4f4ff9e19b07073d7d40d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/dfb658020eb9396d5a73385187ea00f2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/db23ecb2374405a7dcf9f09674024eae/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/85ec8b0fe8744263c3ed2928da6369a0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/5e7c89da807bab584b8f4881d83161b6/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/e6412de462b5210132f005070f9fe0e7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/b22f41a26eaa5dc42176960731236a4e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/956677b01a2f4dd426ceb6232fb34300/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/78574e7ec07bcd412a0c0c2640d82c9f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/bdbc6d2ba1e4a6400760b85dc80754eb/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/9c41ad78777f0be20fb519d74e462121/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/43695e1263c356103cdb073230f83411/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/2499aba62e1b1b0b515b496f5708d6ec/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/6a3179cbe163c18965802d57536a3e54/AndroidManifest.xml:17:1-22:12
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
 	package
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:3:5-43
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:3:5-43
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:1-206:12
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:5:5-202:19
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:9:5-20
-MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/6cf0bc445139e3e30ceab0fa98ff8b12/AndroidManifest.xml:11:5-12:19
-MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/6cf0bc445139e3e30ceab0fa98ff8b12/AndroidManifest.xml:11:5-12:19
-MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/3499642f0715e98106c5ac696818f64f/AndroidManifest.xml:11:5-14:19
-MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/3499642f0715e98106c5ac696818f64f/AndroidManifest.xml:11:5-14:19
-MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:22:5-89
-MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:22:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:22:5-23:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:22:5-23:19
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:5:5-202:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/2f3cc3d8fe8757fd5716222a7560ddaf/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/2f3cc3d8fe8757fd5716222a7560ddaf/AndroidManifest.xml:9:5-20
+MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/8b9af7131c8b5df24addbd3ce747b08f/AndroidManifest.xml:11:5-12:19
+MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/8b9af7131c8b5df24addbd3ce747b08f/AndroidManifest.xml:11:5-12:19
+MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/f728562f785be21ac7bdd8605a282d82/AndroidManifest.xml:11:5-14:19
+MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/f728562f785be21ac7bdd8605a282d82/AndroidManifest.xml:11:5-14:19
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/85ec8b0fe8744263c3ed2928da6369a0/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/85ec8b0fe8744263c3ed2928da6369a0/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/5e7c89da807bab584b8f4881d83161b6/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/5e7c89da807bab584b8f4881d83161b6/AndroidManifest.xml:22:5-23:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:22:18-86
+		ADDED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/85ec8b0fe8744263c3ed2928da6369a0/AndroidManifest.xml:22:18-86
 	android:supportsRtl
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:11:9-35
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:9:9-41
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:10:9-54
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:10:9-54
 	android:icon
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:8:9-43
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:8:9-43
 	android:allowBackup
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:7:9-35
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:12:9-40
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:12:9-40
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:6:9-50
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:6:9-50
 activity#com.xiaofangfang.consumeview.ListView.ZimuListView.ZimuListViewActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:15:9-21:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:15:19-77
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:15:19-77
 activity#com.xiaofangfang.consumeview.NestScroll.MainActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:24:9-30:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:24:9-30:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:24:19-58
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:24:19-58
 activity#com.xiaofangfang.consumeview.scrollHiddenToolbar.ScrollHiddenToolbarActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:32:9-41:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:32:9-41:20
 	android:theme
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:34:13-47
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:34:13-47
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:33:13-76
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:33:13-76
 activity#com.xiaofangfang.consumeview.skinChange.IndexActivit
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:42:9-48:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:42:9-48:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:42:19-58
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:42:19-58
 activity#com.xiaofangfang.consumeview.BoundScrollview.BoundScrollviewTestActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:49:9-57:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:49:9-57:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:49:19-78
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:49:19-78
 activity#com.xiaofangfang.consumeview.Toolbar.ToolbarActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:58:9-69:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:58:9-69:20
 	android:theme
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:60:13-69
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:60:13-69
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:59:13-52
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:59:13-52
 activity#com.xiaofangfang.consumeview.autoRollViewGroup.ViewPagerDownActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:70:9-78:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:70:9-78:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:70:19-74
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:70:19-74
 activity#com.xiaofangfang.consumeview.AudioPlay.AudioActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:79:9-88:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:79:9-88:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:79:19-58
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:79:19-58
 activity#com.xiaofangfang.consumeview.EventIntercept.EventInterceptActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:89:9-98:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:89:9-98:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:89:19-72
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:89:19-72
 activity#com.xiaofangfang.consumeview.PageScrollView.PageScrollViewActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:99:9-107:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:99:9-107:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:99:19-72
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:99:19-72
 activity#com.xiaofangfang.consumeview.ScrollerTest.ScrollerTest
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:108:9-116:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:108:9-116:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:108:19-60
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:108:19-60
 activity#com.xiaofangfang.consumeview.skinChange.SkinChangeActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:117:9-125:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:117:9-125:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:117:19-64
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:117:19-64
 activity#com.xiaofangfang.consumeview.banner.BannerActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:126:9-132:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:126:9-132:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:126:19-56
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:126:19-56
 activity#com.xiaofangfang.consumeview.ClippingView.ClipProviderActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:133:9-139:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:133:9-139:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:133:19-68
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:133:19-68
 activity#com.xiaofangfang.consumeview.HorizontalScrollView.BoundHorizonalScrollViewAcitivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:140:9-146:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:140:9-146:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:140:19-89
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:140:19-89
 activity#com.xiaofangfang.consumeview.rippingDesign.RippleDesign
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:147:9-153:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:147:9-153:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:147:19-61
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:147:19-61
 activity#com.xiaofangfang.consumeview.NestedScrolling.NestedScrollingActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:154:9-160:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:154:9-160:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:154:19-74
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:154:19-74
 activity#com.xiaofangfang.consumeview.MagicViewPager.sample.MainActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:161:9-167:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:161:9-167:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:161:19-69
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:161:19-69
 activity#com.xiaofangfang.consumeview.MagicViewPager.sample.StandardViewPagerActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:168:9-170:77
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:168:9-170:77
 	android:theme
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:170:13-74
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:170:13-74
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:169:13-76
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:169:13-76
 activity#com.xiaofangfang.consumeview.MagicViewPager.sample.CircleViewPagerActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:171:9-173:77
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:171:9-173:77
 	android:theme
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:173:13-74
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:173:13-74
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:172:13-74
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:172:13-74
 activity#com.xiaofangfang.consumeview.RecyclerViewTest.RecyclerViewTestActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:176:9-183:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:176:9-183:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:176:19-76
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:176:19-76
 activity#com.xiaofangfang.consumeview.ListView.checkboxListView.CheckBoxListViewActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:184:9-193:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:184:9-193:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:184:19-85
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:184:19-85
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:186:13-190:29
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:186:13-190:29
 action#android.intent.action.MAIN
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:187:13-65
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:187:13-65
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:187:21-62
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:187:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:189:13-73
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:189:13-73
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:189:23-70
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:189:23-70
 activity#com.xiaofangfang.consumeview.musicPlayHideSplitPage.SplitPageActivity
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:194:9-200:20
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:194:9-200:20
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:194:19-75
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:194:19-75
 uses-permission#android.permission.INTERNET
-ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:204:5-83
+ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:204:5-83
 	android:name
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:204:22-64
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml:204:22-64
 uses-sdk
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-MERGED from [androidx.appcompat:appcompat:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/e98cbeb736d0b5bf7cb1a8db11a12ed9/AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/e98cbeb736d0b5bf7cb1a8db11a12ed9/AndroidManifest.xml:20:5-44
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/ae79fa0c9ee27e1a1ec8d64bad4f56c5/AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.percentlayout:percentlayout:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/percentlayout-1.0.0-beta01.aar/c16124530f892101461199d6c41df39b/AndroidManifest.xml:20:5-44
-MERGED from [androidx.percentlayout:percentlayout:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/percentlayout-1.0.0-beta01.aar/c16124530f892101461199d6c41df39b/AndroidManifest.xml:20:5-44
-MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/6cf0bc445139e3e30ceab0fa98ff8b12/AndroidManifest.xml:7:5-9:41
-MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/6cf0bc445139e3e30ceab0fa98ff8b12/AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/1131972cfb73cf94f6b331df284b9289/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/1131972cfb73cf94f6b331df284b9289/AndroidManifest.xml:20:5-44
-MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/3499642f0715e98106c5ac696818f64f/AndroidManifest.xml:7:5-9:41
-MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/3499642f0715e98106c5ac696818f64f/AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.fragment:fragment:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-beta01.aar/488138738cdaab245ff7d92642063579/AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-beta01.aar/488138738cdaab245ff7d92642063579/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-beta01.aar/f08141886b6a855f1664d6bffa5aa1c0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-beta01.aar/f08141886b6a855f1664d6bffa5aa1c0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-beta01.aar/97fdde82dbb2f2dc53b2197a9e0c6051/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-beta01.aar/97fdde82dbb2f2dc53b2197a9e0c6051/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/c3943d8c0bbb76e54da7f63af4ba148e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/c3943d8c0bbb76e54da7f63af4ba148e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/8cdd9786319774b1eeb21d8fbb909a92/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/8cdd9786319774b1eeb21d8fbb909a92/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/b297e8af6bb7909d3be3a1b60ef6266b/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/b297e8af6bb7909d3be3a1b60ef6266b/AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/3d296495609f34423b9bb190e713e635/AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/3d296495609f34423b9bb190e713e635/AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/4faf1e7b8d285b5899b30189eeccce43/AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/4faf1e7b8d285b5899b30189eeccce43/AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/927c57c91af9b4c772777185c159beda/AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/927c57c91af9b4c772777185c159beda/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/fd15223fa32914bfa20b2f9fe402618a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/fd15223fa32914bfa20b2f9fe402618a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/eb55fc5759f05b4401ff186baa6e100f/AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/eb55fc5759f05b4401ff186baa6e100f/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/50de39a36a739308d7611ad658d88e0e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/50de39a36a739308d7611ad658d88e0e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/a0c013e2a89e1f84f1eb6e4be6ea6dd6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/a0c013e2a89e1f84f1eb6e4be6ea6dd6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/30072bef3e3bf6824ef9968929f63285/AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/86b446e43dc095db6a0c55ec2c60ce4d/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/af40e18b608cd0ccad4dee0306a6f3a7/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/af40e18b608cd0ccad4dee0306a6f3a7/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/292518b191f508079cce5c00f21daacb/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/292518b191f508079cce5c00f21daacb/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/82a78a5ba3c74b00f8e5430b05aae555/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/82a78a5ba3c74b00f8e5430b05aae555/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/b81ac4d750b3d2ed0a35c0c0e205411c/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/b81ac4d750b3d2ed0a35c0c0e205411c/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/730b36ab3ac0b82db6f1a356b60981b8/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/730b36ab3ac0b82db6f1a356b60981b8/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/984a2e661e497274f7870a486bf353be/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/984a2e661e497274f7870a486bf353be/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/46178056f41be06b9a5e71bfff7f1309/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/46178056f41be06b9a5e71bfff7f1309/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/cd8ff0056d4d7bc075be87cfd86c7053/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/cd8ff0056d4d7bc075be87cfd86c7053/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/81f3e82c85e7db5cfed5cd607ea13edf/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/81f3e82c85e7db5cfed5cd607ea13edf/AndroidManifest.xml:20:5-44
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+MERGED from [androidx.appcompat:appcompat:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/627881cbc071fb1865274934427ac2de/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/627881cbc071fb1865274934427ac2de/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/2f3cc3d8fe8757fd5716222a7560ddaf/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/fang/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/2f3cc3d8fe8757fd5716222a7560ddaf/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.percentlayout:percentlayout:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/percentlayout-1.0.0-beta01.aar/3dd2d8730ad8efddc3ef4267d2432093/AndroidManifest.xml:20:5-44
+MERGED from [androidx.percentlayout:percentlayout:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/percentlayout-1.0.0-beta01.aar/3dd2d8730ad8efddc3ef4267d2432093/AndroidManifest.xml:20:5-44
+MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/8b9af7131c8b5df24addbd3ce747b08f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zhy:base-adapter:2.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/8b9af7131c8b5df24addbd3ce747b08f/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/31288b8073471cb4f4b838e88d063a32/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/31288b8073471cb4f4b838e88d063a32/AndroidManifest.xml:20:5-44
+MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/f728562f785be21ac7bdd8605a282d82/AndroidManifest.xml:7:5-9:41
+MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/f728562f785be21ac7bdd8605a282d82/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.fragment:fragment:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-beta01.aar/16ce14ac9a211383a66c161099b06f1b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-beta01.aar/16ce14ac9a211383a66c161099b06f1b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-beta01.aar/d1c4102fc7b57547d6c876c59effa152/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0-beta01.aar/d1c4102fc7b57547d6c876c59effa152/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-beta01.aar/973473a50040fc145ef4ff3caba9c1d3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0-beta01] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.0.0-beta01.aar/973473a50040fc145ef4ff3caba9c1d3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/5899136369eb8f2a91b8e5a4804d0bef/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/5899136369eb8f2a91b8e5a4804d0bef/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/56741875b40230d25fc50ff70f982681/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/56741875b40230d25fc50ff70f982681/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/a30e5fd4e456b4de0bd18480cc404190/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/a30e5fd4e456b4de0bd18480cc404190/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/63e0f21a9d0abaeea40e2ec2dbaf8e6a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/63e0f21a9d0abaeea40e2ec2dbaf8e6a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/1e4ec9eb60ee67ef0d60fdea36c170e9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/1e4ec9eb60ee67ef0d60fdea36c170e9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/8e0338e6d6e6f0474ad25abbc74aaec9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/8e0338e6d6e6f0474ad25abbc74aaec9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/28d04486d8c4f1c74bad09b35784a70f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/28d04486d8c4f1c74bad09b35784a70f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/f585082ba1a4f4ff9e19b07073d7d40d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/f585082ba1a4f4ff9e19b07073d7d40d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/dfb658020eb9396d5a73385187ea00f2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/dfb658020eb9396d5a73385187ea00f2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/db23ecb2374405a7dcf9f09674024eae/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/db23ecb2374405a7dcf9f09674024eae/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/85ec8b0fe8744263c3ed2928da6369a0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/85ec8b0fe8744263c3ed2928da6369a0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/5e7c89da807bab584b8f4881d83161b6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0-rc01.aar/5e7c89da807bab584b8f4881d83161b6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/e6412de462b5210132f005070f9fe0e7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/e6412de462b5210132f005070f9fe0e7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/b22f41a26eaa5dc42176960731236a4e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/b22f41a26eaa5dc42176960731236a4e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/956677b01a2f4dd426ceb6232fb34300/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/956677b01a2f4dd426ceb6232fb34300/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/78574e7ec07bcd412a0c0c2640d82c9f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/78574e7ec07bcd412a0c0c2640d82c9f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/bdbc6d2ba1e4a6400760b85dc80754eb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/bdbc6d2ba1e4a6400760b85dc80754eb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/9c41ad78777f0be20fb519d74e462121/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/9c41ad78777f0be20fb519d74e462121/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/43695e1263c356103cdb073230f83411/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0-rc01.aar/43695e1263c356103cdb073230f83411/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/2499aba62e1b1b0b515b496f5708d6ec/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/2499aba62e1b1b0b515b496f5708d6ec/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/6a3179cbe163c18965802d57536a3e54/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/6a3179cbe163c18965802d57536a3e54/AndroidManifest.xml:20:5-44
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-		ADDED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
-		INJECTED from /home/fang/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml
+		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/src/main/AndroidManifest.xml

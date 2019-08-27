@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fang/androidProject/android/lifeTutor/animator/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v25/values-v25.xml",
+            "outputFile": "/media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/animator/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v25/values-v25.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/e98cbeb736d0b5bf7cb1a8db11a12ed9/res/values-v25/values-v25.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/627881cbc071fb1865274934427ac2de/res/values-v25/values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",

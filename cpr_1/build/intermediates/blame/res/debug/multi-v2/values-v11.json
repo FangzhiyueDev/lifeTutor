@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fang/androidProject/android/lifeTutor/cpr_1/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
+            "outputFile": "/media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/cpr_1/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
             "map": [
                 {
-                    "source": "/home/fang/androidProject/android/lifeTutor/cpr_1/src/main/res/values-v11/styles.xml",
+                    "source": "/media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/cpr_1/src/main/res/values-v11/styles.xml",
                     "from": {
                         "startLines": "6",
                         "startColumns": "4",

@@ -23,6 +23,7 @@ import com.rcs.nchumanity.tool.StringTool;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
 import com.rcs.nchumanity.ul.IdentityInfoRecordActivity;
+import com.rcs.nchumanity.ul.MyCourseActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.view.CommandBar;
 
@@ -53,8 +54,7 @@ public class OfflineTrainClassDetailActivity extends BasicResponseProcessHandleA
 
 
     @BindView(R.id.detailImg)
-     ImageView detailImg;
-
+    ImageView detailImg;
 
 
     /**
@@ -185,22 +185,20 @@ public class OfflineTrainClassDetailActivity extends BasicResponseProcessHandleA
                     .setTitle("提示")
                     .setMessage("选课成功,请准时去参加课程")
                     .setPositiveButton("确定", (dialog, which) -> {
+
+                        boolean isReselect = getIntent().getExtras().getBoolean(MyCourseActivity.FOR_RESULT);
                         if (!isReselect) {
                             dialog.dismiss();
                             finish();
                         } else {
                             //反之代表进行重选的操作
-
                             Intent intent = new Intent();
-
-                            setResult(Activity.RESULT_OK,intent);
-
-
+                            setResult(Activity.RESULT_OK, intent);
+                            finish();
                         }
                     }).setCancelable(true).create().show();
         }
     }
-
 
 
     @Override

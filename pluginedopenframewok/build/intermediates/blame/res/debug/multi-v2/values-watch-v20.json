@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fang/androidProject/android/lifeTutor/pluginedopenframewok/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "/media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/pluginedopenframewok/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/03f4d0d2d1bfab2d600d50d2a95f94e5/res/values-watch-v20/values-watch-v20.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/f44c96521fb3f33f5bf061532efcb080/res/values-watch-v20/values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

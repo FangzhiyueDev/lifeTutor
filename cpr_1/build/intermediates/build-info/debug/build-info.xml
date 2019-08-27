@@ -6,7 +6,7 @@
     density="mdpi"
     format="10"
     plugin-version="3.2.0"
-    timestamp="1566708183753"
+    timestamp="1566723464686"
     token="331197308771661688"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -92,7 +92,16 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1566708183753"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1566723122356"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/fang/androidProject/android/lifeTutor/cpr_1/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1566723464686"
         verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

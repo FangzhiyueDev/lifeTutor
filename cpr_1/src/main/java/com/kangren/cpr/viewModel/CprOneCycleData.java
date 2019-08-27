@@ -7,7 +7,7 @@ package com.kangren.cpr.viewModel;
 public class CprOneCycleData {
 
 
-    public static final String PRESS_ZONG_SHU = "����";
+    public static final String PRESS_ZONG_SHU = "按压";
     public static final String Press_GUO_DA = "����";
     public static final String PRESS_GUO_XIAO = "��С";
     public static final String PRESS_ZHENG_QUE = "��ȷ";

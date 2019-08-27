@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fang/androidProject/android/lifeTutor/materialdesigndemo/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+            "outputFile": "/media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/materialdesigndemo/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/b92dae1a6bd243aef6ef5435a2f7cdd8/res/values-land/values-land.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/material-1.0.0-beta01.aar/91bf38646955c2fa3d0b881966e4a605/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/e98cbeb736d0b5bf7cb1a8db11a12ed9/res/values-land/values-land.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-beta01.aar/627881cbc071fb1865274934427ac2de/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

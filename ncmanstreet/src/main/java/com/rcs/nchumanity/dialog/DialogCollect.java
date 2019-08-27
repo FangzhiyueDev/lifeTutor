@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.PixelFormat;
 import android.os.Build;
+import android.text.Editable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.rcs.nchumanity.ul.ParentActivity;
 /**
  * 由于程序复用，定义的已经写好布局和实现的dialog
  */
-public class DialogCollect {
+public abstract class DialogCollect {
 
 
     /**
@@ -149,6 +150,24 @@ public class DialogCollect {
                 .setView(view2);
         AlertDialog dialog = builder.create();
         return dialog;
+    }
+
+
+    public static <T extends CharSequence> Dialog openTipDialog(Context context, ClickListener listener, T... o) {
+
+        return new AlertDialog.Builder(context)
+                .setTitle(o[0])
+                .setMessage(o[1])
+                .setPositiveButton("确定", (dialogInterface, i) -> {
+                    listener.done(dialogInterface, i);
+                }).setNegativeButton("取消", ((dialogInterface, i) -> dialogInterface.dismiss()))
+                .create();
+    }
+
+    private ClickListener clickListener;
+    
+    public static interface ClickListener {
+        void done(DialogInterface inter, int index);
     }
 
 

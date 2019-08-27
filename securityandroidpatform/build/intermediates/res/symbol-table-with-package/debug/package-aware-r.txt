@@ -628,8 +628,6 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
-drawable block_canary_icon
-drawable block_canary_notification
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable notification_action_background
@@ -652,13 +650,6 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
-id __leak_canary_action
-id __leak_canary_display_leak_failure
-id __leak_canary_display_leak_list
-id __leak_canary_row_connector
-id __leak_canary_row_more
-id __leak_canary_row_text
-id __leak_canary_row_time
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -803,7 +794,6 @@ id wrap
 id wrap_content
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
-integer block_canary_max_stored_count
 integer cancel_button_image_alpha
 integer config_tooltipAnimTime
 integer status_bar_notification_info_maxnum
@@ -839,10 +829,6 @@ layout activity_anr_test1_1
 layout activity_block_canary
 layout activity_main
 layout activity_pro_list
-layout block_canary_block_row
-layout block_canary_display_leak
-layout block_canary_ref_row
-layout block_canary_ref_top_row
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -896,18 +882,6 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
-string block_canary_block_list_title
-string block_canary_class_has_blocked
-string block_canary_delete
-string block_canary_delete_all
-string block_canary_delete_all_dialog_content
-string block_canary_display_activity_label
-string block_canary_no
-string block_canary_notification_message
-string block_canary_share_leak
-string block_canary_share_stack_dump
-string block_canary_share_with
-string block_canary_yes
 string search_menu_title
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
@@ -1257,7 +1231,6 @@ style Widget_AppCompat_Toolbar_Button_Navigation
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Support_CoordinatorLayout
-style block_canary_BlockCanary_Base
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

@@ -366,6 +366,7 @@ public class JYPXFragment extends BasicResponseProcessHandleFragment {
 
         } else if (what.equals("courseSignInUrl")) {
 
+            responseWith201_202(what, new BasicResponse(201, "签到成功", null));
 
         } else if (what.equals("queryXFScore")) {
 

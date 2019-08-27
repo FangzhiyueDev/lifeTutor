@@ -130,6 +130,10 @@ public class DataService {
 
 
                         byte[] data = me.getMsg();
+
+                        if (receiveCount < 0) {
+                            receiveCount = 0;
+                        }
                         System.arraycopy(data, 0, messsageBuffer, receiveCount, data.length);
                         receiveCount += data.length;
                         while (receiveCount >= packageLen) {

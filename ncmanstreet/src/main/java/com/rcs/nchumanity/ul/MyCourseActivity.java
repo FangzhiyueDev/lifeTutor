@@ -3,6 +3,7 @@ package com.rcs.nchumanity.ul;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,8 @@ import androidx.annotation.Nullable;
 import com.google.gson.Gson;
 import com.rcs.nchumanity.R;
 import com.rcs.nchumanity.adapter.ListViewCommonsAdapter;
+import com.rcs.nchumanity.dialog.DialogCollect;
+import com.rcs.nchumanity.dialog.DialogTool;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.NetConnectionUrl;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
@@ -44,7 +47,11 @@ public class MyCourseActivity extends ComplexListActivity<ComplexModelSet.ClassD
     public static final int CODE_RE = 0;
 
 
-    public static final String DATA="data";
+    public static final String DATA = "data";
+
+
+    public static final String FOR_RESULT = "forData";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,26 +78,34 @@ public class MyCourseActivity extends ComplexListActivity<ComplexModelSet.ClassD
         view.setTag(obj);
         view.setOnClickListener((v) -> {
 
-            ComplexModelSet.ClassDetail classDetail = (ComplexModelSet.ClassDetail) v.getTag();
+            DialogCollect.openTipDialog(this, (inter, index) -> {
+                inter.dismiss();
 
-            int id = classDetail.classId;
+                ComplexModelSet.ClassDetail classDetail = (ComplexModelSet.ClassDetail) v.getTag();
 
-            clickStep = R.id.cancel;
+                int id = classDetail.classId;
 
-            String url = String.format(NetConnectionUrl.cancelChooseClass, id);
+                clickStep = R.id.cancel;
 
-            loadDataGet(url, "cancelChooseClass");
+                String url = String.format(NetConnectionUrl.cancelChooseClass, id);
+
+                loadDataGet(url, "cancelChooseClass");
+
+            }, "提示", "你将在一周之内无法报名");
         });
 
         View reSelect = holder.getItemView().findViewById(R.id.reSelect);
         reSelect.setTag(obj);
-        reSelect.setOnClickListener((v) -> {
+        reSelect.setOnClickListener((v) ->
+
+        {
 
             Bundle bundle2 = new Bundle();
             bundle2.putString(OfflineTrainClassListActivity.URL, NetConnectionUrl.getCPRClassList);
+            bundle2.putBoolean(FOR_RESULT, true);
             Intent intent = new Intent(this, OfflineTrainClassListActivity.class);
             intent.putExtras(bundle2);
-            OfflineTrainClassDetailActivity.isReselect=true;
+//            OfflineTrainClassDetailActivity.isReselect = true;
             startActivityForResult(intent, CODE_RE);
 
             /**
@@ -121,10 +136,8 @@ public class MyCourseActivity extends ComplexListActivity<ComplexModelSet.ClassD
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == CODE_RE) {
-
             if (resultCode == Activity.RESULT_OK) {
-
-               //再次拉取数据
+                //再次拉取数据
                 loadDataGetForForce(NetConnectionUrl.myCourse, "myCourse");
             }
         }

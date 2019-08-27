@@ -1,2 +1,2 @@
-# Referenced at /home/fang/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:31
+# Referenced at /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/ncmanstreet/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:31
 -keep class com.rcs.nchumanity.application.MyApplication { <init>(...); }

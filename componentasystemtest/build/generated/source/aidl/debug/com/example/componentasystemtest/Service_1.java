@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /home/fang/androidProject/android/lifeTutor/componentasystemtest/src/main/aidl/com/example/componentasystemtest/Service_1.aidl
+ * Original file: /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/componentasystemtest/src/main/aidl/com/example/componentasystemtest/Service_1.aidl
  */
 package com.example.componentasystemtest;
 // Declare any non-default types here with import statements

@@ -1,6 +1,8 @@
 package com.rcs.nchumanity.ul.list;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -23,9 +25,11 @@ import com.rcs.nchumanity.dialog.DialogTool;
 import com.rcs.nchumanity.entity.BasicResponse;
 import com.rcs.nchumanity.entity.PersistenceData;
 import com.rcs.nchumanity.entity.complexModel.ComplexModelSet;
+import com.rcs.nchumanity.entity.model.OfflineTrainClass;
 import com.rcs.nchumanity.tool.DateProce;
 import com.rcs.nchumanity.tool.Tool;
 import com.rcs.nchumanity.ul.BasicResponseProcessHandleActivity;
+import com.rcs.nchumanity.ul.MyCourseActivity;
 import com.rcs.nchumanity.ul.ParentActivity;
 import com.rcs.nchumanity.ul.detail.OfflineTrainClassDetailActivity;
 import com.rcs.nchumanity.view.CommandBar;
@@ -74,6 +78,7 @@ public class OfflineTrainClassListActivity extends BasicResponseProcessHandleAct
     public static final String FUNC_CS = "cs";
 
     public static String URL = "url";
+
 
     /**
      * 代表的是默认的选中
@@ -129,11 +134,20 @@ public class OfflineTrainClassListActivity extends BasicResponseProcessHandleAct
         classList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                boolean forResult = getIntent().getExtras().getBoolean(MyCourseActivity.FOR_RESULT);
+
                 //进入详情界面
                 String classId = traiCla_areaInfs.get(position).classId + "";
                 Bundle bundle = new Bundle();
                 bundle.putString(OfflineTrainClassDetailActivity.CLASS_ID, classId);
-                Tool.startActivity(OfflineTrainClassListActivity.this, OfflineTrainClassDetailActivity.class, bundle);
+                bundle.putBoolean(MyCourseActivity.FOR_RESULT, forResult);
+                if (forResult) {
+                    Intent intent = new Intent(OfflineTrainClassListActivity.this, OfflineTrainClassDetailActivity.class);
+                    startActivityForResult(intent, MyCourseActivity.CODE_RE, bundle);
+                } else {
+                    Tool.startActivity(OfflineTrainClassListActivity.this, OfflineTrainClassDetailActivity.class, bundle);
+                }
             }
         });
 
@@ -314,4 +328,15 @@ public class OfflineTrainClassListActivity extends BasicResponseProcessHandleAct
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == MyCourseActivity.CODE_RE && resultCode == RESULT_OK) {
+            Intent intent = new Intent();
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        }
+
+    }
 }

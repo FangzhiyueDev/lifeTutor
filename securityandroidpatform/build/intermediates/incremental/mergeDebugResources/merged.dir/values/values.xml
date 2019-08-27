@@ -1795,7 +1795,6 @@
     <item name="up" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
-    <integer name="block_canary_max_stored_count">500</integer>
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="config_tooltipAnimTime">150</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
@@ -1839,18 +1838,6 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="app_name">SecurityAndroidPatform</string>
-    <string name="block_canary_block_list_title">Blocks in %s</string>
-    <string name="block_canary_class_has_blocked">blocked %s ms</string>
-    <string name="block_canary_delete">Delete</string>
-    <string name="block_canary_delete_all">Delete all</string>
-    <string name="block_canary_delete_all_dialog_content">Are you sure to delete all records?</string>
-    <string name="block_canary_display_activity_label">Blocks</string>
-    <string name="block_canary_no">No</string>
-    <string name="block_canary_notification_message">Click for more details</string>
-    <string name="block_canary_share_leak">Share info</string>
-    <string name="block_canary_share_stack_dump">Share stack dump</string>
-    <string name="block_canary_share_with">Share with…</string>
-    <string name="block_canary_yes">Yes</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -3324,7 +3311,5 @@
     <style name="Widget.Compat.NotificationActionText" parent=""/>
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
-    </style>
-    <style name="block_canary_BlockCanary.Base" parent="android:Theme">
     </style>
 </resources>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fang/androidProject/android/lifeTutor/logcatuploadmodule/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "/media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/logcatuploadmodule/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/67a6952606ab34a3d71a020d53454378/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/ae6cf2cccc1bb42efd8effc214ebd23c/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

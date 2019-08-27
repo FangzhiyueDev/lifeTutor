@@ -273,6 +273,4 @@
         <item name="android:textColor">@color/secondary_text_default_material_light</item>
         <item name="android:textSize">@dimen/notification_action_text_size</item>
     </style>
-    <style name="block_canary_BlockCanary.Base" parent="android:Theme.Material">
-    </style>
 </resources>

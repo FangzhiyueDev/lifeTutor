@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/fang/androidProject/android/lifeTutor/consumeview/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
+            "outputFile": "/media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/consumeview/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/6cf0bc445139e3e30ceab0fa98ff8b12/res/values-w820dp/values-w820dp.xml",
+                    "source": "/home/fang/.gradle/caches/transforms-1/files-1.1/jetified-base-adapter-2.0.0.aar/8b9af7131c8b5df24addbd3ce747b08f/res/values-w820dp/values-w820dp.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",
