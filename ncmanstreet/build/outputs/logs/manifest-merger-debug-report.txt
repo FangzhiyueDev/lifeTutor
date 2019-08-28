@@ -18,8 +18,8 @@ MERGED from [com.orhanobut:logger:1.15] /home/fang/.gradle/caches/transforms-1/f
 MERGED from [io.reactivex:rxandroid:1.2.1] /home/fang/.gradle/caches/transforms-1/files-1.1/rxandroid-1.2.1.aar/4a833385cb80a183db40aa74817905aa/AndroidManifest.xml:15:1-21:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/31288b8073471cb4f4b838e88d063a32/AndroidManifest.xml:17:1-22:12
 MERGED from [com.jakewharton:butterknife:10.1.0] /home/fang/.gradle/caches/transforms-1/files-1.1/butterknife-10.1.0.aar/ebe1a2b4fc957c5f422328ce495aafed/AndroidManifest.xml:2:1-7:12
-MERGED from [cn.smssdk:SMSSDK:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/SMSSDK-3.3.2.aar/47b34cd5ce72424a892610b0eb340474/AndroidManifest.xml:2:1-11:12
-MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/e8baa1fe014de516a6160fe14c65a36c/AndroidManifest.xml:2:1-16:12
+MERGED from [cn.smssdk:SMSSDK:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/SMSSDK-3.3.3.aar/d8468a1d08e9a5c3d975d9cf2fd15253/AndroidManifest.xml:2:1-11:12
+MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.3.aar/516bf02ce419f9c990765109fdd6fa15/AndroidManifest.xml:2:1-16:12
 MERGED from [androidx.fragment:fragment:1.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/b9a6664840673b00c1ed041d8a91af3c/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0.aar/c03c0565311a4379de3d59c68711ee55/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0.aar/790c1e9b2aa4e4cc78b4f65825229bd2/AndroidManifest.xml:17:1-22:12
@@ -76,8 +76,8 @@ MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transform
 MERGED from [org.litepal.android:core:1.4.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.4.1.aar/f728562f785be21ac7bdd8605a282d82/AndroidManifest.xml:11:5-14:19
 MERGED from [de.hdodenhof:circleimageview:2.2.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-circleimageview-2.2.0.aar/aca0bce3787ff73bf546bba28d5755d9/AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:2.2.0] /home/fang/.gradle/caches/transforms-1/files-1.1/jetified-circleimageview-2.2.0.aar/aca0bce3787ff73bf546bba28d5755d9/AndroidManifest.xml:9:5-20
-MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/e8baa1fe014de516a6160fe14c65a36c/AndroidManifest.xml:13:5-14:19
-MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/e8baa1fe014de516a6160fe14c65a36c/AndroidManifest.xml:13:5-14:19
+MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.3.aar/516bf02ce419f9c990765109fdd6fa15/AndroidManifest.xml:13:5-14:19
+MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.3.aar/516bf02ce419f9c990765109fdd6fa15/AndroidManifest.xml:13:5-14:19
 MERGED from [androidx.core:core:1.0.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/953fe326aa482e332824fd53446cc052/AndroidManifest.xml:22:5-89
 MERGED from [androidx.core:core:1.0.1] /home/fang/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/953fe326aa482e332824fd53446cc052/AndroidManifest.xml:22:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/9b8b2f77ce573e41949bb917c8d0b020/AndroidManifest.xml:22:5-23:19
@@ -694,10 +694,10 @@ MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/c
 MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /home/fang/.gradle/caches/transforms-1/files-1.1/recyclerview-1.0.0-rc01.aar/31288b8073471cb4f4b838e88d063a32/AndroidManifest.xml:20:5-44
 MERGED from [com.jakewharton:butterknife:10.1.0] /home/fang/.gradle/caches/transforms-1/files-1.1/butterknife-10.1.0.aar/ebe1a2b4fc957c5f422328ce495aafed/AndroidManifest.xml:5:5-44
 MERGED from [com.jakewharton:butterknife:10.1.0] /home/fang/.gradle/caches/transforms-1/files-1.1/butterknife-10.1.0.aar/ebe1a2b4fc957c5f422328ce495aafed/AndroidManifest.xml:5:5-44
-MERGED from [cn.smssdk:SMSSDK:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/SMSSDK-3.3.2.aar/47b34cd5ce72424a892610b0eb340474/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.smssdk:SMSSDK:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/SMSSDK-3.3.2.aar/47b34cd5ce72424a892610b0eb340474/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/e8baa1fe014de516a6160fe14c65a36c/AndroidManifest.xml:8:5-11:45
-MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/e8baa1fe014de516a6160fe14c65a36c/AndroidManifest.xml:8:5-11:45
+MERGED from [cn.smssdk:SMSSDK:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/SMSSDK-3.3.3.aar/d8468a1d08e9a5c3d975d9cf2fd15253/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.smssdk:SMSSDK:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/SMSSDK-3.3.3.aar/d8468a1d08e9a5c3d975d9cf2fd15253/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.3.aar/516bf02ce419f9c990765109fdd6fa15/AndroidManifest.xml:8:5-11:45
+MERGED from [cn.smssdk:ShortMessageSDKGUI:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.3.aar/516bf02ce419f9c990765109fdd6fa15/AndroidManifest.xml:8:5-11:45
 MERGED from [androidx.fragment:fragment:1.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/b9a6664840673b00c1ed041d8a91af3c/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/b9a6664840673b00c1ed041d8a91af3c/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /home/fang/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.0.0.aar/c03c0565311a4379de3d59c68711ee55/AndroidManifest.xml:20:5-44
@@ -755,7 +755,7 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /home/fang/.gradle/caches
 INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/ncmanstreet/src/main/AndroidManifest.xml
 INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/ncmanstreet/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [cn.smssdk:ShortMessageSDKGUI:3.3.2] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.2.aar/e8baa1fe014de516a6160fe14c65a36c/AndroidManifest.xml:11:9-42
+		ADDED from [cn.smssdk:ShortMessageSDKGUI:3.3.3] /home/fang/.gradle/caches/transforms-1/files-1.1/ShortMessageSDKGUI-3.3.3.aar/516bf02ce419f9c990765109fdd6fa15/AndroidManifest.xml:11:9-42
 	android:targetSdkVersion
 		INJECTED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/ncmanstreet/src/main/AndroidManifest.xml
 		ADDED from /media/fang/codeAndNote/developer/androidNew/androidProject/android/lifeTutor/ncmanstreet/src/main/AndroidManifest.xml
