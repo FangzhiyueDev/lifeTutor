@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Wed Aug 21 22:07:34 EDT 2019
-0.baseType=DIRECTORY
-0.base=/home/fang/androidProject/android/lifeTutor/animator/build/intermediates/transforms/dexMerger/release/0
-0.path=classes.dex
-0.set=DEX
-count=1

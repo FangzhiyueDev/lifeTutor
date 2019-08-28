@@ -1,4 +1,0 @@
-#Sat Aug 24 00:31:11 EDT 2019
-base.0=/home/fang/androidProject/android/lifeTutor/cpr_1/build/intermediates/transforms/dexMerger/debug/10
-path.0=classes.dex
-renamed.0=classes.dex
